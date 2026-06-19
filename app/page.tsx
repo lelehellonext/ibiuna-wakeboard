@@ -1,4 +1,5 @@
 import SiteChrome from "./SiteChrome";
+import ScrollReveal from "./ScrollReveal";
 import { CONTACT } from "./sections";
 
 const wakeboardCats = [
@@ -22,6 +23,7 @@ export default function Home() {
   return (
     <>
       <SiteChrome />
+      <ScrollReveal />
 
       <main className="page">
         {/* ============ CAPA ============ */}
@@ -54,12 +56,15 @@ export default function Home() {
             <span className="sep">•</span>
             <span>🚤 BARCO OFICIAL: NAUTIQUE G23</span>
           </div>
+          <a className="scroll-cue" href="#sobre" aria-label="Rolar para baixo">
+            ⌄
+          </a>
         </section>
 
         {/* ============ SOBRE ============ */}
         <section id="sobre" className="section light sobre">
           <img className="hero-img" src="/img/surfistas.jpg" alt="Atletas de WakeSurf" />
-          <div className="section-inner">
+          <div className="section-inner" data-reveal-group>
             <div className="sec-title">
               <span className="bar" />
               <h2>Sobre o Evento</h2>
@@ -92,13 +97,13 @@ export default function Home() {
         {/* ============ CRONOGRAMA ============ */}
         <section id="cronograma" className="section cronograma">
           <div className="section-inner">
-            <div className="center-top">
+            <div className="center-top" data-reveal>
               <h2>
                 📅 Cronograma <span className="accent-blue">2026</span>
               </h2>
               <p>Novembro · Represa de Itupararanga, Ibiúna — SP</p>
             </div>
-            <div className="timeline">
+            <div className="timeline" data-reveal-group>
               <div className="day-card day-1">
                 <div className="dc-head">
                   <span className="dc-num">19</span>
@@ -156,8 +161,10 @@ export default function Home() {
           <img className="bg-img" src="/img/local.jpg" alt="Represa de Itupararanga" />
           <div className="overlay blue" />
           <div className="section-inner content">
-            <h2 className="title-bordered">📍 Local do Evento</h2>
-            <div className="loc-grid">
+            <h2 className="title-bordered" data-reveal>
+              📍 Local do Evento
+            </h2>
+            <div className="loc-grid" data-reveal-group>
               <div className="loc-card">
                 <span className="ico">🌊</span>
                 <div>
@@ -192,6 +199,7 @@ export default function Home() {
               href={CONTACT.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
+              data-reveal
             >
               Abrir no Google Maps
             </a>
@@ -200,16 +208,16 @@ export default function Home() {
 
         {/* ============ WAKEBOARD ============ */}
         <section id="wakeboard" className="section cats">
-          <div className="photo">
+          <div className="photo" data-reveal="left">
             <span className="sport-tag">🏂 Wakeboard</span>
             <img src="/img/wakeboard.jpg" alt="Atleta de Wakeboard" />
           </div>
           <div className="section-inner">
-            <div className="sec-title">
+            <div className="sec-title" data-reveal>
               <span className="bar" />
               <h2>Categorias · Wakeboard</h2>
             </div>
-            <div className="cat-grid">
+            <div className="cat-grid" data-reveal-group>
               {wakeboardCats.map((c) => (
                 <div className="cat-chip" key={c}>
                   <span className="dot" />
@@ -226,16 +234,16 @@ export default function Home() {
 
         {/* ============ WAKESURF ============ */}
         <section id="wakesurf" className="section cats">
-          <div className="photo">
+          <div className="photo" data-reveal="right">
             <span className="sport-tag cyan">🌊 WakeSurf</span>
             <img src="/img/wakesurf.jpg" alt="Atleta de WakeSurf" />
           </div>
           <div className="section-inner">
-            <div className="sec-title cyan">
+            <div className="sec-title cyan" data-reveal>
               <span className="bar" />
               <h2>Categorias · WakeSurf</h2>
             </div>
-            <div>
+            <div data-reveal-group>
               {wakesurfCats.map((c) => (
                 <div className="surf-chip" key={c}>
                   <span className="dot" />
@@ -254,7 +262,7 @@ export default function Home() {
         <section id="barco" className="section barco">
           <img className="bg-img" src="/img/g23.jpg" alt="Nautique G23" />
           <div className="overlay dark" />
-          <div className="section-inner content">
+          <div className="section-inner content" data-reveal-group>
             <p className="lbl">🚤 Equipamento Oficial</p>
             <h1 className="name">
               Nautique <span>G23</span>
@@ -287,13 +295,13 @@ export default function Home() {
         {/* ============ GALERIA ============ */}
         <section id="galeria" className="section estrutura">
           <div className="section-inner">
-            <div className="center-top">
+            <div className="center-top" data-reveal>
               <h2>
                 📸 Galeria <span className="accent-amber">do Evento</span>
               </h2>
               <p>Estrutura, emoção e celebração nas edições anteriores</p>
             </div>
-            <div className="photo-grid-2">
+            <div className="photo-grid-2" data-reveal-group>
               <div className="photo-tile">
                 <img src="/img/estrutura-bg.jpg" alt="Vista aérea da área de competição" />
                 <span className="lbl">Vista aérea · Área de competição</span>
@@ -325,13 +333,13 @@ export default function Home() {
         {/* ============ APOIADORES ============ */}
         <section id="apoiadores" className="section apoiadores">
           <div className="section-inner">
-            <div className="center-top">
+            <div className="center-top" data-reveal>
               <h2>
                 🤝 <span className="accent-blue">Apoiadores</span>
               </h2>
-              <p>Marcas que fazem parte do Campeonato Brasileiro de Wakeboard &amp; Surf</p>
+              <p>Marcas que fizeram parte do Campeonato Brasileiro de Wakeboard &amp; Surf 2025</p>
             </div>
-            <div className="act-grid">
+            <div className="act-grid" data-reveal-group>
               <div className="act-item big">
                 <img src="/img/porte.jpg" alt="Ativação Porte" />
                 <span className="al">📦 Porte · Estande exclusivo</span>
@@ -366,10 +374,10 @@ export default function Home() {
         {/* ============ VÍDEO ============ */}
         <section id="video" className="section video">
           <div className="section-inner">
-            <h2>
+            <h2 data-reveal>
               🎬 Assista ao <em>Evento</em>
             </h2>
-            <div className="video-frame">
+            <div className="video-frame" data-reveal="zoom">
               <video
                 src="/img/video.mp4"
                 poster="/img/celebracao.jpg"
@@ -384,7 +392,7 @@ export default function Home() {
 
         {/* ============ INSCRIÇÕES / CONTATO ============ */}
         <section id="inscricoes" className="section contato">
-          <div className="section-inner content">
+          <div className="section-inner content" data-reveal-group>
             <h2 className="cta">
               Seja parte do <span>evento</span>
             </h2>
@@ -393,6 +401,10 @@ export default function Home() {
               <br />
               19, 20 e 21 de Novembro de 2026 · Ibiúna — SP
             </p>
+            <div className="insc-status">
+              <span className="dot" />
+              Inscrições ainda não abertas — em breve por aqui e pelo Instagram
+            </div>
             <div className="cf">
               <a
                 className="field"

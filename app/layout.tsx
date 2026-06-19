@@ -52,7 +52,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={montserrat.variable}>
-      <body>{children}</body>
+      <body>
+        <noscript>
+          <style>{`[data-reveal],[data-reveal-group]>*,.capa .content>*{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,17 +1,17 @@
-export type NavItem = { id: string; label: string };
+export type NavItem = { id: string; label: string; short: string };
 
 export const NAV_ITEMS: NavItem[] = [
-  { id: "inicio", label: "Início" },
-  { id: "sobre", label: "Sobre o Evento" },
-  { id: "cronograma", label: "Cronograma" },
-  { id: "local", label: "Local" },
-  { id: "wakeboard", label: "Wakeboard" },
-  { id: "wakesurf", label: "WakeSurf" },
-  { id: "barco", label: "Barco Oficial" },
-  { id: "galeria", label: "Galeria" },
-  { id: "apoiadores", label: "Apoiadores" },
-  { id: "video", label: "Vídeo" },
-  { id: "inscricoes", label: "Inscrições" },
+  { id: "inicio", label: "Início", short: "Início" },
+  { id: "sobre", label: "Sobre o Evento", short: "Sobre" },
+  { id: "cronograma", label: "Cronograma", short: "Cronograma" },
+  { id: "local", label: "Local", short: "Local" },
+  { id: "wakeboard", label: "Wakeboard", short: "Wakeboard" },
+  { id: "wakesurf", label: "WakeSurf", short: "WakeSurf" },
+  { id: "barco", label: "Barco Oficial", short: "Barco" },
+  { id: "galeria", label: "Galeria", short: "Galeria" },
+  { id: "apoiadores", label: "Apoiadores", short: "Apoio" },
+  { id: "video", label: "Vídeo", short: "Vídeo" },
+  { id: "inscricoes", label: "Inscrições", short: "Inscrições" },
 ];
 
 export const CONTACT = {

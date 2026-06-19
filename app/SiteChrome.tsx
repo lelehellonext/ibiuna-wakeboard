@@ -67,6 +67,24 @@ export default function SiteChrome() {
           </span>
         </button>
 
+        <nav className="topnav" aria-label="Navegação principal">
+          {NAV_ITEMS.map((n) => (
+            <a
+              key={n.id}
+              href={`#${n.id}`}
+              className={`${active === n.id ? "active" : ""}${
+                n.id === "inscricoes" ? " cta" : ""
+              }`}
+              onClick={(e) => {
+                e.preventDefault();
+                go(n.id);
+              }}
+            >
+              {n.short}
+            </a>
+          ))}
+        </nav>
+
         <button className="menu-btn" onClick={() => setOpen(true)} aria-label="Abrir menu">
           <span className="bars">
             <i />
