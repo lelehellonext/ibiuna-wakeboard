@@ -34,12 +34,12 @@ export default function Home() {
           <div className="overlay dark" />
           <span className="year">2026</span>
           <div className="content">
-            <span className="badge">🏆 Campeonato Brasileiro</span>
+            <span className="badge">Campeonato Brasileiro</span>
             <h1>
               Wakeboard <em>&amp; Surf</em>
             </h1>
             <p className="sub">Etapa Ibiúna · São Paulo</p>
-            <p className="loc">📍 Represa de Itupararanga — Ibiúna/SP</p>
+            <p className="loc">Represa de Itupararanga — Ibiúna/SP</p>
             <div className="cta-row">
               <a className="btn primary" href="#inscricoes">
                 Quero participar
@@ -56,7 +56,7 @@ export default function Home() {
             <span className="sep">•</span>
             <span>21 NOV 2026</span>
             <span className="sep">•</span>
-            <span>🚤 BARCO OFICIAL: NAUTIQUE G23</span>
+            <span>BARCO OFICIAL: NAUTIQUE G23</span>
           </div>
           <a className="scroll-cue" href="#sobre" aria-label="Rolar para baixo">
             ⌄
@@ -100,42 +100,41 @@ export default function Home() {
         <section id="cronograma" className="section cronograma">
           <div className="section-inner">
             <div className="center-top" data-reveal>
+              <p className="kicker">Programação</p>
               <h2>
-                📅 Cronograma <span className="accent-blue">2026</span>
+                Três dias <span className="accent-amber">de ação</span>
               </h2>
-              <p>Novembro · Represa de Itupararanga, Ibiúna — SP</p>
+              <p>19–21 de novembro · Represa de Itupararanga, Ibiúna — SP</p>
             </div>
             <div className="timeline" data-reveal-group>
               <div className="day-card day-1">
                 <div className="dc-head">
                   <span className="dc-num">19</span>
                   <span className="dc-mon">Novembro</span>
-                  <span className="dc-wk">Quinta-feira</span>
+                  <span className="dc-wk">Quinta</span>
                 </div>
                 <div className="dc-body">
-                  <div className="dc-icon">🏄</div>
-                  <div className="dc-name">Dia de Treinos</div>
+                  <div className="dc-name">Treinos</div>
                   <p className="dc-desc">
                     Aquecimento oficial e treinos livres na represa. Atletas se preparam para as
                     competições dos dias seguintes.
                   </p>
-                  <div className="dc-time">⏰ A partir das 8h00</div>
+                  <div className="dc-time">A partir das 8h00</div>
                 </div>
               </div>
               <div className="day-card day-2">
                 <div className="dc-head">
                   <span className="dc-num">20</span>
                   <span className="dc-mon">Novembro</span>
-                  <span className="dc-wk">Sexta-feira</span>
+                  <span className="dc-wk">Sexta</span>
                 </div>
                 <div className="dc-body">
-                  <div className="dc-icon">🌊</div>
-                  <div className="dc-name">Brasileiro de WakeSurf</div>
+                  <div className="dc-name">WakeSurf</div>
                   <p className="dc-desc">
                     Competição oficial de WakeSurf com todas as categorias. Alta performance nas
                     ondas do Nautique G23.
                   </p>
-                  <div className="dc-time">⏰ A partir das 8h00</div>
+                  <div className="dc-time">A partir das 8h00</div>
                 </div>
               </div>
               <div className="day-card day-3">
@@ -145,13 +144,12 @@ export default function Home() {
                   <span className="dc-wk">Sábado</span>
                 </div>
                 <div className="dc-body">
-                  <div className="dc-icon">🏆</div>
                   <div className="dc-name">Wakeboard + Premiação</div>
                   <p className="dc-desc">
-                    Final do Brasileiro de Wakeboard + Cerimônia de premiação e festa de
-                    encerramento no Bar da Náutica.
+                    Final do Brasileiro de Wakeboard, cerimônia de premiação e encerramento no Bar
+                    da Náutica.
                   </p>
-                  <div className="dc-time">⏰ A partir das 8h00</div>
+                  <div className="dc-time">A partir das 8h00</div>
                 </div>
               </div>
             </div>
@@ -161,41 +159,34 @@ export default function Home() {
         {/* ============ LOCAL ============ */}
         <section id="local" className="section local">
           <img className="bg-img" src="/img/local.jpg" alt="Represa de Itupararanga" />
-          <div className="overlay blue" />
-          <div className="section-inner content">
-            <h2 className="title-bordered" data-reveal>
-              📍 Local do Evento
-            </h2>
-            <div className="loc-grid" data-reveal-group>
-              <div className="loc-card">
-                <span className="ico">🌊</span>
-                <div>
-                  <h3>Represa</h3>
-                  <p>Represa de Itupararanga — Ibiúna, São Paulo</p>
-                </div>
+          <div className="overlay photo" />
+          <div className="section-inner content loc-panel">
+            <p className="kicker" data-reveal>
+              Onde acontece
+            </p>
+            <h2 data-reveal>Local do evento</h2>
+            <p className="loc-lead" data-reveal>
+              Marina Veleiros de Ibiúna, na Represa de Itupararanga — cenário natural para
+              wakeboard e wakesurf de alto nível.
+            </p>
+            <dl className="loc-facts" data-reveal-group>
+              <div className="loc-fact">
+                <dt>Represa</dt>
+                <dd>Itupararanga · Ibiúna, São Paulo</dd>
               </div>
-              <div className="loc-card">
-                <span className="ico">⚓</span>
-                <div>
-                  <h3>Marina</h3>
-                  <p>Marina de Veleiros de Ibiúna — estrutura náutica completa</p>
-                </div>
+              <div className="loc-fact">
+                <dt>Marina</dt>
+                <dd>Veleiros de Ibiúna · estrutura náutica completa</dd>
               </div>
-              <div className="loc-card">
-                <span className="ico">🏡</span>
-                <div>
-                  <h3>Condomínios</h3>
-                  <p>Veleiros de Ibiúna e Porto de Ibiúna</p>
-                </div>
+              <div className="loc-fact">
+                <dt>Condomínios</dt>
+                <dd>Veleiros de Ibiúna e Porto de Ibiúna</dd>
               </div>
-              <div className="loc-card">
-                <span className="ico">🚗</span>
-                <div>
-                  <h3>Como chegar</h3>
-                  <p>Rod. Bunjiro Nakao, Km 82,5 — Bairro da Ressaca · ~80 km de São Paulo (1h20)</p>
-                </div>
+              <div className="loc-fact">
+                <dt>Como chegar</dt>
+                <dd>Rod. Bunjiro Nakao, Km 82,5 · ~80 km de São Paulo (1h20)</dd>
               </div>
-            </div>
+            </dl>
             <a
               className="btn primary map-btn"
               href={CONTACT.mapsUrl}
@@ -261,7 +252,7 @@ export default function Home() {
           <img className="bg-img" src="/img/g23.jpg" alt="Nautique G23" />
           <div className="overlay dark" />
           <div className="section-inner content" data-reveal-group>
-            <p className="lbl">🚤 Equipamento Oficial</p>
+            <p className="lbl">Equipamento oficial</p>
             <h1 className="name">
               Nautique <span>G23</span>
             </h1>
@@ -270,23 +261,19 @@ export default function Home() {
             </p>
             <div className="boat-feats">
               <div className="bf">
-                <div className="bfi">🌊</div>
-                <div className="bft">Ondas Perfeitas</div>
+                <div className="bft">Ondas perfeitas</div>
               </div>
               <div className="bf">
-                <div className="bfi">⚡</div>
-                <div className="bft">Alta Performance</div>
+                <div className="bft">Alta performance</div>
               </div>
               <div className="bf">
-                <div className="bfi">🏆</div>
-                <div className="bft">Nível Mundial</div>
+                <div className="bft">Nível mundial</div>
               </div>
               <div className="bf">
-                <div className="bfi">🎯</div>
-                <div className="bft">Referência no Esporte</div>
+                <div className="bft">Referência no esporte</div>
               </div>
             </div>
-            <span className="abw">✅ Homologado · Associação Brasileira de Wakeboard (ABW)</span>
+            <span className="abw">Homologado · Associação Brasileira de Wakeboard (ABW)</span>
           </div>
         </section>
 
@@ -295,7 +282,7 @@ export default function Home() {
           <div className="section-inner">
             <div className="center-top" data-reveal>
               <h2>
-                📸 Galeria <span className="accent-amber">do Evento</span>
+                Galeria <span className="accent-amber">do evento</span>
               </h2>
               <p>Estrutura, emoção e celebração nas edições anteriores</p>
             </div>
@@ -384,7 +371,7 @@ export default function Home() {
               </div>
               <div className="act-item">
                 <img src="/img/beyond.jpg" alt="Beyond The Club" />
-                <span className="al">🌊 Beyond The Club</span>
+                <span className="al">Beyond The Club</span>
               </div>
             </div>
             <p className="apoio-note">
@@ -400,84 +387,84 @@ export default function Home() {
         {/* ============ VÍDEOS ============ */}
         <section id="video" className="section video">
           <div className="section-inner">
-            <h2 data-reveal>
-              Assista ao <em>Evento</em>
-            </h2>
-            <div className="video-frame featured" data-reveal="zoom">
-              <video
-                src="/img/video.mp4"
-                poster="/img/celebracao.jpg"
-                controls
-                playsInline
-                preload="metadata"
-              />
-            </div>
-            <p className="cap">CAMPEONATO BRASILEIRO DE WAKEBOARD &amp; SURF</p>
+            <header className="video-head" data-reveal>
+              <p className="kicker">Em movimento</p>
+              <h2>O evento em vídeo</h2>
+              <p className="video-lead">
+                Highlights da competição e ativações filmadas na Represa de Itupararanga.
+              </p>
+            </header>
 
-            <h3 className="video-sub" data-reveal>
-              Highlights do evento
-            </h3>
-            <div className="video-grid" data-reveal>
-              {[
-                {
-                  label: "1º dia",
-                  src: "https://hnstvudmwki1sg.blob.core.windows.net/media/yh-beyond/b692ab08-1064-4d31-aeab-b2ddc909aa08/blobimageshighlights_1_dia.mp4",
-                },
-                {
-                  label: "Treino",
-                  src: "https://hnstvxnaoddwwg.blob.core.windows.net/media/yh-beyond/6c729789-1e3d-436c-92b9-66009ee4b20b/blobimagestreino.mp4",
-                },
-                {
-                  label: "2º dia",
-                  src: "https://hnstvxnaoddwwg.blob.core.windows.net/media/yh-beyond/b9b74bff-4ade-4054-beba-a3342c8f745a/blobimageshighlights_2_dia_.mp4",
-                },
-                {
-                  label: "Final",
-                  src: "https://hnstvwrmcuflqg.blob.core.windows.net/media/yh-beyond/62594b9a-9917-4e71-972d-1c452d4b44cf/blobimagesfinal_ibiunawakesurf_1.mp4",
-                },
-              ].map((v) => (
-                <div className="vcard" key={v.label}>
-                  <div className="vcard-frame">
-                    <video src={v.src} controls playsInline preload="metadata" />
+            <div className="video-block" data-reveal>
+              <div className="video-block-head">
+                <h3>Highlights</h3>
+                <span>Deslize para ver</span>
+              </div>
+              <div className="video-grid">
+                {[
+                  {
+                    label: "Final",
+                    src: "https://hnstvwrmcuflqg.blob.core.windows.net/media/yh-beyond/62594b9a-9917-4e71-972d-1c452d4b44cf/blobimagesfinal_ibiunawakesurf_1.mp4",
+                  },
+                  {
+                    label: "1º dia",
+                    src: "https://hnstvudmwki1sg.blob.core.windows.net/media/yh-beyond/b692ab08-1064-4d31-aeab-b2ddc909aa08/blobimageshighlights_1_dia.mp4",
+                  },
+                  {
+                    label: "Treino",
+                    src: "https://hnstvxnaoddwwg.blob.core.windows.net/media/yh-beyond/6c729789-1e3d-436c-92b9-66009ee4b20b/blobimagestreino.mp4",
+                  },
+                  {
+                    label: "2º dia",
+                    src: "https://hnstvxnaoddwwg.blob.core.windows.net/media/yh-beyond/b9b74bff-4ade-4054-beba-a3342c8f745a/blobimageshighlights_2_dia_.mp4",
+                  },
+                ].map((v) => (
+                  <div className="vcard" key={v.label}>
+                    <div className="vcard-frame">
+                      <video src={v.src} controls playsInline preload="metadata" />
+                    </div>
+                    <div className="vcard-label">{v.label}</div>
                   </div>
-                  <div className="vcard-label">{v.label}</div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
-            <h3 className="video-sub" data-reveal>
-              Ativações de marca
-            </h3>
-            <div className="video-grid" data-reveal>
-              {[
-                {
-                  label: "Corona",
-                  src: "https://hnstvxiystzivw.blob.core.windows.net/media/yh-beyond/6cef021c-f7e3-44f2-9c66-7b95e3c2f246/blobimagescorona_vertical.mp4",
-                },
-                {
-                  label: "Dermage",
-                  src: "https://hnstvxpfrgrjma.blob.core.windows.net/media/yh-beyond/1e3027a9-36af-480f-80f5-a9a70d77fadd/blobimagesdermage_vertical.mp4",
-                },
-                {
-                  label: "Technogym",
-                  src: "https://hnstvwrmcuflqg.blob.core.windows.net/media/yh-beyond/43420782-7054-4121-973e-7cd5583bc2b2/blobimagestechnogym_vertical.mp4",
-                },
-                {
-                  label: "B-Side",
-                  src: "https://hnstvthcyke2cg.blob.core.windows.net/media/yh-beyond/5a65a132-56d7-49a3-ac65-fb5281e4724b/blobimagespilula_bside_v2.mp4",
-                },
-                {
-                  label: "Beyond",
-                  src: "https://hnstvudmwki1sg.blob.core.windows.net/media/yh-beyond/a12149d9-8a15-4252-80f5-f483ec313fbb/blobimagespilula_beyond_vertical.mp4",
-                },
-              ].map((v) => (
-                <div className="vcard" key={v.label}>
-                  <div className="vcard-frame">
-                    <video src={v.src} controls playsInline preload="metadata" />
+            <div className="video-block" data-reveal>
+              <div className="video-block-head">
+                <h3>Ativações</h3>
+                <span>Marcas no evento</span>
+              </div>
+              <div className="video-grid">
+                {[
+                  {
+                    label: "Corona",
+                    src: "https://hnstvxiystzivw.blob.core.windows.net/media/yh-beyond/6cef021c-f7e3-44f2-9c66-7b95e3c2f246/blobimagescorona_vertical.mp4",
+                  },
+                  {
+                    label: "Dermage",
+                    src: "https://hnstvxpfrgrjma.blob.core.windows.net/media/yh-beyond/1e3027a9-36af-480f-80f5-a9a70d77fadd/blobimagesdermage_vertical.mp4",
+                  },
+                  {
+                    label: "Technogym",
+                    src: "https://hnstvwrmcuflqg.blob.core.windows.net/media/yh-beyond/43420782-7054-4121-973e-7cd5583bc2b2/blobimagestechnogym_vertical.mp4",
+                  },
+                  {
+                    label: "B-Side",
+                    src: "https://hnstvthcyke2cg.blob.core.windows.net/media/yh-beyond/5a65a132-56d7-49a3-ac65-fb5281e4724b/blobimagespilula_bside_v2.mp4",
+                  },
+                  {
+                    label: "Beyond",
+                    src: "https://hnstvudmwki1sg.blob.core.windows.net/media/yh-beyond/a12149d9-8a15-4252-80f5-f483ec313fbb/blobimagespilula_beyond_vertical.mp4",
+                  },
+                ].map((v) => (
+                  <div className="vcard" key={v.label}>
+                    <div className="vcard-frame">
+                      <video src={v.src} controls playsInline preload="metadata" />
+                    </div>
+                    <div className="vcard-label">{v.label}</div>
                   </div>
-                  <div className="vcard-label">{v.label}</div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -504,11 +491,11 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="fl">📱 WhatsApp</span>
+                <span className="fl">WhatsApp</span>
                 <span className="fv">{CONTACT.whatsappLabel}</span>
               </a>
               <a className="field" href={`mailto:${CONTACT.email}`}>
-                <span className="fl">📧 E-mail</span>
+                <span className="fl">E-mail</span>
                 <span className="fv">{CONTACT.email}</span>
               </a>
               <a
@@ -517,7 +504,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="fl">📸 Instagram</span>
+                <span className="fl">Instagram</span>
                 <span className="fv">@{CONTACT.instagram}</span>
               </a>
               <a
@@ -526,7 +513,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="fl">📍 Local</span>
+                <span className="fl">Local</span>
                 <span className="fv">Marina Veleiros de Ibiúna</span>
               </a>
             </div>

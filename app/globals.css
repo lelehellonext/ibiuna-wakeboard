@@ -420,11 +420,34 @@ a {
 }
 
 .overlay.dark {
-  background: rgba(0, 20, 50, 0.78);
+  background: linear-gradient(
+    180deg,
+    rgba(8, 10, 14, 0.35) 0%,
+    rgba(8, 10, 14, 0.55) 45%,
+    rgba(8, 10, 14, 0.88) 100%
+  );
 }
 
 .overlay.blue {
   background: linear-gradient(135deg, rgba(0, 29, 61, 0.92), rgba(0, 100, 180, 0.6), rgba(0, 29, 61, 0.92));
+}
+
+.overlay.photo {
+  background: linear-gradient(
+    105deg,
+    rgba(8, 10, 14, 0.92) 0%,
+    rgba(8, 10, 14, 0.72) 42%,
+    rgba(8, 10, 14, 0.28) 100%
+  );
+}
+
+.kicker {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 .content {
@@ -487,8 +510,9 @@ a {
 }
 
 .capa h1 em {
-  color: var(--blue-400);
+  color: #fff;
   font-style: normal;
+  opacity: 0.88;
 }
 
 .capa .sub {
@@ -501,7 +525,7 @@ a {
 .capa .loc {
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--blue-200);
+  color: rgba(255, 255, 255, 0.62);
 }
 
 .capa .cta-row {
@@ -615,62 +639,68 @@ a {
 
 /* ---------- Local ---------- */
 .local {
-  min-height: 70vh;
+  min-height: 78vh;
   display: flex;
   align-items: center;
 }
 
-.local .title-bordered {
-  font-size: 1.4rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  border-left: 6px solid var(--orange);
-  padding-left: 14px;
-  margin-bottom: 26px;
+.loc-panel {
+  max-width: 560px;
 }
 
-.loc-grid {
+.loc-panel h2 {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 14px;
+  text-transform: none;
+}
+
+.loc-lead {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.02rem;
+  line-height: 1.55;
+  font-weight: 500;
+  margin-bottom: 28px;
+  max-width: 34em;
+}
+
+.loc-facts {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 0;
+  margin: 0 0 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-.loc-card {
-  background: rgba(255, 255, 255, 0.11);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 14px;
-  padding: 16px;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
+.loc-fact {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-.loc-card .ico {
-  font-size: 1.6rem;
-  flex-shrink: 0;
-}
-
-.loc-card h3 {
-  color: var(--blue-200);
+.loc-fact dt {
+  color: rgba(255, 255, 255, 0.45);
   font-size: 0.72rem;
   font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 4px;
+  padding-top: 3px;
 }
 
-.loc-card p {
+.loc-fact dd {
   color: #fff;
-  font-size: 0.86rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.45;
+  margin: 0;
 }
 
 .map-btn {
-  margin-top: 18px;
+  margin-top: 4px;
+  border-radius: 10px;
 }
 
 /* ---------- Cronograma ---------- */
@@ -683,11 +713,15 @@ a {
   margin-bottom: 26px;
 }
 
+.center-top .kicker {
+  color: rgba(255, 255, 255, 0.45);
+}
+
 .center-top h2 {
-  font-size: 1.5rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: -0.02em;
 }
 
 .center-top h2 .accent-blue {
@@ -699,9 +733,9 @@ a {
 }
 
 .center-top p {
-  color: var(--blue-200);
-  font-size: 0.85rem;
-  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.92rem;
+  margin-top: 8px;
 }
 
 .timeline {
@@ -1046,23 +1080,18 @@ a {
 }
 
 .bf {
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 10px;
-  padding: 14px 10px;
-}
-
-.bf .bfi {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 18px 12px;
+  text-align: center;
 }
 
 .bf .bft {
-  font-size: 0.72rem;
-  font-weight: 600;
-  opacity: 0.85;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .barco .abw {
@@ -1163,62 +1192,63 @@ a {
 
 /* ---------- Vídeo ---------- */
 .video {
-  background: #000;
-  text-align: center;
-}
-
-.video h2 {
-  font-size: 1.4rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin: 8px 0 20px;
-}
-
-.video h2 em {
-  color: var(--blue-400);
-  font-style: normal;
-}
-
-.video-frame {
-  position: relative;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 320px;
-  aspect-ratio: 9 / 16;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0, 150, 199, 0.45);
-  border: 2px solid rgba(0, 150, 199, 0.4);
-}
-
-.video-frame video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background: #000;
-}
-
-.video .cap {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.7rem;
-  margin-top: 14px;
-  letter-spacing: 0.08em;
-}
-
-.video-sub {
-  margin: 36px 0 14px;
-  font-size: 0.95rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.88);
+  background: #07080b;
   text-align: left;
+}
+
+.video-head {
+  margin-bottom: 36px;
+  max-width: 640px;
+}
+
+.video-head h2 {
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  margin: 0 0 12px;
+}
+
+.video-lead {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 1.02rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.video-block {
+  margin-bottom: 42px;
+}
+
+.video-block:last-child {
+  margin-bottom: 0;
+}
+
+.video-block-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.video-block-head h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.video-block-head span {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .video-grid {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
@@ -1226,17 +1256,17 @@ a {
   scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
   align-items: stretch;
-  padding: 4px 2px 14px;
+  padding: 2px 2px 16px;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 150, 199, 0.55) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
 }
 
 .video-grid::-webkit-scrollbar {
-  height: 6px;
+  height: 5px;
 }
 
 .video-grid::-webkit-scrollbar-thumb {
-  background: rgba(0, 150, 199, 0.55);
+  background: rgba(255, 255, 255, 0.22);
   border-radius: 999px;
 }
 
@@ -1244,19 +1274,19 @@ a {
   display: flex;
   flex-direction: column;
   flex: 0 0 auto;
-  width: clamp(150px, 42vw, 210px);
+  width: clamp(148px, 40vw, 200px);
   scroll-snap-align: start;
 }
 
 .vcard-frame {
   width: 100%;
   aspect-ratio: 9 / 16;
-  max-height: min(52vh, 480px);
-  border-radius: 14px;
+  max-height: min(52vh, 460px);
+  border-radius: 10px;
   overflow: hidden;
   background: #000;
-  border: 1px solid rgba(0, 150, 199, 0.35);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
 .vcard-frame video {
@@ -1268,21 +1298,20 @@ a {
 }
 
 .vcard-label {
-  margin-top: 8px;
-  text-align: center;
+  margin-top: 10px;
+  text-align: left;
   font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.78);
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 @media (min-width: 900px) {
   .vcard {
-    width: clamp(170px, 16vw, 220px);
+    width: clamp(168px, 15vw, 210px);
   }
   .vcard-frame {
-    max-height: min(58vh, 520px);
+    max-height: min(56vh, 500px);
   }
 }
 
@@ -1290,11 +1319,15 @@ a {
   .vcard-frame {
     max-height: 40vh;
   }
+  .loc-fact {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
 }
 
 /* ---------- Inscrições / Contato ---------- */
 .contato {
-  background: linear-gradient(160deg, var(--navy-800), var(--navy-900));
+  background: #0a0c10;
   text-align: center;
   display: flex;
   align-items: center;
@@ -1327,11 +1360,9 @@ a {
 }
 
 .cf .field {
-  background: rgba(255, 255, 255, 0.12);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
   padding: 14px 16px;
   text-align: left;
   text-decoration: none;
@@ -1340,8 +1371,8 @@ a {
 }
 
 .cf a.field:hover {
-  background: rgba(0, 150, 199, 0.22);
-  border-color: rgba(0, 150, 199, 0.5);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.22);
   transform: translateY(-2px);
 }
 
@@ -1534,14 +1565,18 @@ a {
     font-size: 2rem;
   }
   .local .section-inner {
-    max-width: 1000px;
+    max-width: 1180px;
+    margin-left: 0;
+    margin-right: auto;
   }
-  .local .loc-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
+  .loc-panel {
+    max-width: 520px;
   }
-  .local .title-bordered {
-    font-size: 2rem;
+  .loc-panel h2 {
+    font-size: clamp(2.6rem, 4vw, 3.6rem);
+  }
+  .loc-fact {
+    grid-template-columns: 130px 1fr;
   }
   .timeline {
     flex-direction: row;
@@ -1649,11 +1684,8 @@ a {
   .pod-item {
     aspect-ratio: 4 / 5;
   }
-  .video h2 {
-    font-size: 2rem;
-  }
-  .video-frame {
-    max-width: 360px;
+  .video-head h2 {
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
   }
   .contato .section-inner {
     max-width: 900px;
@@ -1999,15 +2031,7 @@ a {
 .lb-nav.prev { left: 12px; }
 .lb-nav.next { right: 12px; }
 
-.video-frame {
-  max-width: min(360px, 86vw);
-  box-shadow:
-    0 12px 48px rgba(0, 150, 199, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.06);
-}
-
 @media (min-width: 900px) {
-  .video-frame { max-width: 400px; }
   .estrutura .photo-grid-2 {
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
