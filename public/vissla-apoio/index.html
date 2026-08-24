@@ -730,29 +730,39 @@
       box-shadow: 0 12px 32px rgba(5, 19, 42, 0.12);
     }
 
+
     .video-grid {
-      display: grid;
-      gap: 12px;
-      flex: 1;
+      display: flex;
+      gap: 14px;
+      flex: 1 1 auto;
       min-height: 0;
-      align-content: stretch;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      align-items: stretch;
+      padding: 4px 2px 12px;
+      scrollbar-width: thin;
     }
-    .video-grid.brands {
-      grid-template-columns: repeat(5, 1fr);
-    }
-    .video-grid.events {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    .video-grid.brands,
     .vcard {
       display: flex;
       flex-direction: column;
+      flex: 0 0 auto;
+      width: clamp(160px, 18vw, 220px);
+      min-width: 160px;
+      max-width: 220px;
+      height: auto;
       min-height: 0;
-      height: 100%;
+      scroll-snap-align: start;
     }
     .vcard-frame {
-      flex: 1;
-      min-height: 0;
+      flex: 0 0 auto;
+      width: 100%;
       aspect-ratio: 9 / 16;
+      height: auto;
       max-height: min(58vh, 520px);
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -774,19 +784,23 @@
       font-weight: 700;
       color: var(--navy);
     }
+
     #s13 .slide-pad,
     #s14 .slide-pad {
       padding-bottom: 78px;
+      overflow-x: visible;
+    }
+    #s13 .slide.active,
+    #s14 .slide.active {
+      overflow-x: auto;
+      overflow-y: auto;
     }
     #s13 h2, #s14 h2 { margin-bottom: 4px; }
     @media (max-width: 900px) {
-      .video-grid.brands { grid-template-columns: repeat(3, 1fr); }
-      .video-grid.events { grid-template-columns: repeat(2, 1fr); }
       .vcard-frame { max-height: 42vh; }
     }
     @media (max-width: 640px) {
       .video-grid.brands,
-      .video-grid.events { grid-template-columns: repeat(2, 1fr); }
       .vcard-frame { max-height: 36vh; }
     }
 
@@ -1057,15 +1071,11 @@
 
     /* ===== RESPONSIVE HARDENING ===== */
     .slide-pad {
-      overflow-x: hidden;
+      overflow-x: auto;
       -webkit-overflow-scrolling: touch;
     }
 
     @media (max-width: 1100px) {
-      .video-grid.brands {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 8px;
-      }
       .vcard-label { font-size: 11px; }
     }
 
@@ -1110,12 +1120,6 @@
       }
       #s9 .gallery.dense .cell.big {
         grid-column: span 2;
-      }
-      .video-grid.brands {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-      .video-grid.events {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
       .vcard-frame {
         max-height: none;
@@ -1171,10 +1175,6 @@
         grid-column: auto;
       }
       .video-grid.brands,
-      .video-grid.events {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-      }
       .vcard-frame {
         aspect-ratio: 9 / 16;
         max-height: 46vh;
@@ -1201,9 +1201,6 @@
 
     @media (max-width: 420px) {
       .video-grid.brands,
-      .video-grid.events {
-        grid-template-columns: 1fr 1fr;
-      }
       .vcard-label { font-size: 11px; }
     }
 
