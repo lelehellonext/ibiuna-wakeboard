@@ -4,20 +4,63 @@ import MediaLightbox from "./MediaLightbox";
 import { CONTACT } from "./sections";
 
 const wakeboardCats = [
-  "Estreantes Masculino",
-  "Iniciante Masc. / Fem.",
-  "Intermediário Masculino",
-  "Avançado Masculino",
-  "Open Masculino",
-  "Open Feminino",
-  "Profissional",
+  {
+    title: "Estreantes",
+    desc: "Masculino · primeira experiência em competição oficial.",
+  },
+  {
+    title: "Iniciante",
+    desc: "Masculino / Feminino · evolução técnica na pista.",
+  },
+  {
+    title: "Intermediário",
+    desc: "Masculino · ritmo de disputa e manobras consistentes.",
+  },
+  {
+    title: "Avançado",
+    desc: "Masculino · alto nível técnico na represa.",
+  },
+  {
+    title: "Open Masculino",
+    desc: "Categoria aberta para atletas em busca do pódio.",
+  },
+  {
+    title: "Open Feminino",
+    desc: "Disputa feminina com presença nacional.",
+  },
+  {
+    title: "Profissional",
+    desc: "O topo do Brasileiro de Wakeboard.",
+  },
+  {
+    title: "Mirim",
+    desc: "Masculino / Feminino · até 12 anos.",
+    highlight: true,
+  },
 ];
 
 const wakesurfCats = [
-  "Iniciante Masculino / Feminino",
-  "Junior Masculino / Feminino",
-  "Outlaw Masculino / Feminino",
-  "Masters Masculino / Feminino",
+  {
+    title: "Iniciante",
+    desc: "Masculino / Feminino · entrada no wakesurf competitivo.",
+  },
+  {
+    title: "Junior",
+    desc: "Masculino / Feminino · desenvolvimento e performance.",
+  },
+  {
+    title: "Outlaw",
+    desc: "Masculino / Feminino · estilo livre e ousadia.",
+  },
+  {
+    title: "Masters",
+    desc: "Masculino / Feminino · experiência e técnica.",
+  },
+  {
+    title: "Profissional",
+    desc: "A elite do Brasileiro de WakeSurf.",
+    highlight: true,
+  },
 ];
 
 export default function Home() {
@@ -205,48 +248,71 @@ export default function Home() {
 
         {/* ============ WAKEBOARD ============ */}
         <section id="wakeboard" className="section cats">
-          <div className="photo" data-reveal="left">
-            <span className="sport-tag">Wakeboard</span>
-            <img src="/img/acao-wakeboard.png" alt="Wakeboard em ação na represa" />
-          </div>
-          <div className="section-inner">
-            <div className="sec-title warm" data-reveal>
-              <span className="bar" />
-              <h2>Categorias · Wakeboard</h2>
+          <div className="section-inner cats-wrap">
+            <div className="media-box cats-hero" data-reveal>
+              <img src="/img/acao-wakeboard.png" alt="Wakeboard em ação na represa" />
             </div>
-            <div className="cat-grid" data-reveal-group>
+            <header className="cats-head" data-reveal>
+              <p className="kicker">Modalidade</p>
+              <h2>Categorias · Wakeboard</h2>
+              <p>Escolha sua divisão e venha competir na Represa de Itupararanga.</p>
+            </header>
+            <div className="tile-grid" data-reveal-group>
               {wakeboardCats.map((c) => (
-                <div className="cat-chip" key={c}>
-                  {c}
-                </div>
+                <article className={`apple-tile${c.highlight ? " highlight" : ""}`} key={c.title}>
+                  <div className="apple-tile-icon" aria-hidden>
+                    <svg viewBox="0 0 32 32" fill="none">
+                      <path
+                        d="M6 18c4-8 16-8 20 0"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                      />
+                      <circle cx="16" cy="12" r="2.2" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <h3>{c.title}</h3>
+                  <p>{c.desc}</p>
+                  <span className="apple-tile-more" aria-hidden>
+                    +
+                  </span>
+                </article>
               ))}
-              <div className="cat-chip special">
-                Mirim Masculino / Feminino (até 12 anos)
-              </div>
             </div>
           </div>
         </section>
 
         {/* ============ WAKESURF ============ */}
         <section id="wakesurf" className="section cats">
-          <div className="photo" data-reveal="right">
-            <span className="sport-tag">WakeSurf</span>
-            <img src="/img/atletas-acao.png" alt="Atletas de WakeSurf" />
-          </div>
-          <div className="section-inner">
-            <div className="sec-title warm" data-reveal>
-              <span className="bar" />
-              <h2>Categorias · WakeSurf</h2>
+          <div className="section-inner cats-wrap">
+            <div className="media-box cats-hero" data-reveal>
+              <img src="/img/atletas-acao.png" alt="Atletas de WakeSurf" />
             </div>
-            <div data-reveal-group>
+            <header className="cats-head" data-reveal>
+              <p className="kicker">Modalidade</p>
+              <h2>Categorias · WakeSurf</h2>
+              <p>Ondas do Nautique G23 para todas as faixas de performance.</p>
+            </header>
+            <div className="tile-grid" data-reveal-group>
               {wakesurfCats.map((c) => (
-                <div className="surf-chip" key={c}>
-                  {c}
-                </div>
+                <article className={`apple-tile${c.highlight ? " highlight" : ""}`} key={c.title}>
+                  <div className="apple-tile-icon" aria-hidden>
+                    <svg viewBox="0 0 32 32" fill="none">
+                      <path
+                        d="M5 20c3-7 19-7 22 0M8 14c2.5-4 13.5-4 16 0"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </div>
+                  <h3>{c.title}</h3>
+                  <p>{c.desc}</p>
+                  <span className="apple-tile-more" aria-hidden>
+                    +
+                  </span>
+                </article>
               ))}
-              <div className="surf-chip pro">
-                Profissional
-              </div>
             </div>
           </div>
         </section>
