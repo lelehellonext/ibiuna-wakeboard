@@ -3259,3 +3259,35 @@ body,
     width: clamp(168px, 14vw, 210px) !important;
   }
 }
+
+/* ===== VIDEO SCALE FIX ===== */
+.vcard,
+.vcard.landscape,
+.vcard.portrait {
+  width: clamp(152px, 38vw, 200px) !important;
+  flex: 0 0 auto;
+}
+.vcard-frame,
+.vcard.landscape .vcard-frame,
+.vcard.portrait .vcard-frame {
+  aspect-ratio: 9 / 16 !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  background: #000 !important;
+  overflow: hidden;
+}
+.vcard-frame video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: #000 !important;
+}
+@media (min-width: 900px) {
+  .vcard,
+  .vcard.landscape,
+  .vcard.portrait {
+    width: clamp(170px, 13.5vw, 210px) !important;
+  }
+}
