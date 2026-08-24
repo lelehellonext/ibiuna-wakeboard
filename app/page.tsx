@@ -39,6 +39,18 @@ const wakeboardCats = [
   },
 ];
 
+const PersonIcon = () => (
+  <svg viewBox="0 0 32 32" fill="none" aria-hidden>
+    <circle cx="16" cy="11" r="5" stroke="currentColor" strokeWidth="1.7" />
+    <path
+      d="M7 26.5c2.2-6.2 15.8-6.2 18 0"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
 const wakesurfCats = [
   {
     title: "Iniciante",
@@ -261,21 +273,10 @@ export default function Home() {
               {wakeboardCats.map((c) => (
                 <article className={`apple-tile${c.highlight ? " highlight" : ""}`} key={c.title}>
                   <div className="apple-tile-icon" aria-hidden>
-                    <svg viewBox="0 0 32 32" fill="none">
-                      <path
-                        d="M6 18c4-8 16-8 20 0"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                      />
-                      <circle cx="16" cy="12" r="2.2" fill="currentColor" />
-                    </svg>
+                    <PersonIcon />
                   </div>
                   <h3>{c.title}</h3>
                   <p>{c.desc}</p>
-                  <span className="apple-tile-more" aria-hidden>
-                    +
-                  </span>
                 </article>
               ))}
             </div>
@@ -297,20 +298,10 @@ export default function Home() {
               {wakesurfCats.map((c) => (
                 <article className={`apple-tile${c.highlight ? " highlight" : ""}`} key={c.title}>
                   <div className="apple-tile-icon" aria-hidden>
-                    <svg viewBox="0 0 32 32" fill="none">
-                      <path
-                        d="M5 20c3-7 19-7 22 0M8 14c2.5-4 13.5-4 16 0"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                      />
-                    </svg>
+                    <PersonIcon />
                   </div>
                   <h3>{c.title}</h3>
                   <p>{c.desc}</p>
-                  <span className="apple-tile-more" aria-hidden>
-                    +
-                  </span>
                 </article>
               ))}
             </div>
@@ -364,7 +355,6 @@ export default function Home() {
                   title: "Wakeboard na represa",
                   excerpt: "Ação na pista oficial da Represa de Itupararanga.",
                   tag: "Wakeboard",
-                  wide: true,
                 },
                 {
                   src: "/img/estrutura-bg.jpg",
@@ -467,7 +457,6 @@ export default function Home() {
                   title: "Porte",
                   excerpt: "Estande exclusivo e presença forte na arena.",
                   tag: "Ativação",
-                  big: true,
                 },
                 {
                   src: "/img/dermage.jpg",
@@ -500,10 +489,7 @@ export default function Home() {
                   tag: "Conteúdo",
                 },
               ].map((item) => (
-                <article
-                  className={`story-card act-item${item.big ? " big" : ""}`}
-                  key={item.src + item.title}
-                >
+                <article className="story-card act-item" key={item.src + item.title}>
                   <div className="story-media">
                     <img src={item.src} alt={item.title} />
                   </div>
@@ -566,7 +552,7 @@ export default function Home() {
                     src: "https://hnstvxnaoddwwg.blob.core.windows.net/media/yh-beyond/b9b74bff-4ade-4054-beba-a3342c8f745a/blobimageshighlights_2_dia_.mp4",
                   },
                 ].map((v) => (
-                  <div className="vcard" key={v.label}>
+                  <div className="vcard landscape" key={v.label}>
                     <div className="vcard-frame">
                       <video
                         src={v.src}
@@ -615,7 +601,7 @@ export default function Home() {
                     src: "https://hnstvudmwki1sg.blob.core.windows.net/media/yh-beyond/a12149d9-8a15-4252-80f5-f483ec313fbb/blobimagespilula_beyond_vertical.mp4",
                   },
                 ].map((v) => (
-                  <div className="vcard" key={v.label}>
+                  <div className="vcard portrait" key={v.label}>
                     <div className="vcard-frame">
                       <video
                         src={v.src}

@@ -3022,3 +3022,63 @@ body,
     padding: 30px 28px 32px;
   }
 }
+
+/* ===== FIX TILES / VIDEOS / APOIO ===== */
+.apple-tile-more { display: none !important; }
+.apple-tile {
+  min-height: 160px !important;
+  padding-bottom: 24px !important;
+}
+.apple-tile p { padding-right: 0 !important; }
+
+/* equal supporter cards */
+.story-card.big,
+.story-card.wide {
+  grid-column: auto !important;
+}
+.story-card .story-media,
+.story-card.wide .story-media,
+.story-card.big .story-media {
+  aspect-ratio: 4 / 3 !important;
+  height: auto !important;
+}
+.story-media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* videos: match real orientation */
+.vcard {
+  width: clamp(210px, 48vw, 300px) !important;
+}
+.vcard.landscape {
+  width: clamp(260px, 58vw, 360px) !important;
+}
+.vcard.portrait {
+  width: clamp(150px, 40vw, 200px) !important;
+}
+.vcard-frame {
+  aspect-ratio: 9 / 16 !important;
+  max-height: none !important;
+  height: auto !important;
+  background: #111 !important;
+}
+.vcard.landscape .vcard-frame {
+  aspect-ratio: 16 / 9 !important;
+}
+.vcard.portrait .vcard-frame {
+  aspect-ratio: 9 / 16 !important;
+}
+.vcard-frame video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+@media (min-width: 900px) {
+  .vcard.landscape { width: clamp(280px, 28vw, 380px) !important; }
+  .vcard.portrait { width: clamp(168px, 14vw, 210px) !important; }
+}
