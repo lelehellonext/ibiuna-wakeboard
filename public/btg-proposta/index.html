@@ -535,20 +535,20 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 8px;
       flex: 1;
-      min-height: 0;
-      height: 100%;
-      align-content: stretch;
+      min-height: 240px;
+      height: auto;
+      align-content: start;
     }
     #s9 .gallery.dense .cell {
-      aspect-ratio: auto;
+      aspect-ratio: 3 / 2;
       min-height: 0;
-      height: 100%;
+      height: auto;
     }
     #s9 .gallery.dense .cell.big {
       grid-column: span 2;
       grid-row: span 2;
       min-height: 0;
-      height: 100%;
+      height: auto;
     }
 
     .gallery.premiacao-grid {
@@ -574,20 +574,20 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 8px;
       flex: 1;
-      min-height: 0;
-      height: 100%;
-      align-content: stretch;
+      min-height: 240px;
+      height: auto;
+      align-content: start;
     }
     #s9 .gallery.dense .cell {
-      aspect-ratio: auto;
+      aspect-ratio: 3 / 2;
       min-height: 0;
-      height: 100%;
+      height: auto;
     }
     #s9 .gallery.dense .cell.big {
       grid-column: span 2;
       grid-row: span 2;
       min-height: 0;
-      height: 100%;
+      height: auto;
     }
 
     .gallery.premiacao-grid {
@@ -605,20 +605,20 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 8px;
       flex: 1;
-      min-height: 0;
-      height: 100%;
-      align-content: stretch;
+      min-height: 240px;
+      height: auto;
+      align-content: start;
     }
     #s9 .gallery.dense .cell {
-      aspect-ratio: auto;
+      aspect-ratio: 3 / 2;
       min-height: 0;
-      height: 100%;
+      height: auto;
     }
     #s9 .gallery.dense .cell.big {
       grid-column: span 2;
       grid-row: span 2;
       min-height: 0;
-      height: 100%;
+      height: auto;
     }
 
     .gallery.premiacao-grid {
@@ -968,20 +968,20 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 8px;
       flex: 1;
-      min-height: 0;
-      height: 100%;
-      align-content: stretch;
+      min-height: 240px;
+      height: auto;
+      align-content: start;
     }
     #s9 .gallery.dense .cell {
-      aspect-ratio: auto;
+      aspect-ratio: 3 / 2;
       min-height: 0;
-      height: 100%;
+      height: auto;
     }
     #s9 .gallery.dense .cell.big {
       grid-column: span 2;
       grid-row: span 2;
       min-height: 0;
-      height: 100%;
+      height: auto;
     }
 
     .gallery.premiacao-grid {
@@ -1007,20 +1007,20 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 8px;
       flex: 1;
-      min-height: 0;
-      height: 100%;
-      align-content: stretch;
+      min-height: 240px;
+      height: auto;
+      align-content: start;
     }
     #s9 .gallery.dense .cell {
-      aspect-ratio: auto;
+      aspect-ratio: 3 / 2;
       min-height: 0;
-      height: 100%;
+      height: auto;
     }
     #s9 .gallery.dense .cell.big {
       grid-column: span 2;
       grid-row: span 2;
       min-height: 0;
-      height: 100%;
+      height: auto;
     }
 
     .gallery.premiacao-grid {
@@ -1038,20 +1038,20 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 8px;
       flex: 1;
-      min-height: 0;
-      height: 100%;
-      align-content: stretch;
+      min-height: 240px;
+      height: auto;
+      align-content: start;
     }
     #s9 .gallery.dense .cell {
-      aspect-ratio: auto;
+      aspect-ratio: 3 / 2;
       min-height: 0;
-      height: 100%;
+      height: auto;
     }
     #s9 .gallery.dense .cell.big {
       grid-column: span 2;
       grid-row: span 2;
       min-height: 0;
-      height: 100%;
+      height: auto;
     }
 
     .gallery.premiacao-grid {
@@ -1336,6 +1336,74 @@
       .photo-wide.zoomable:hover,
       .cover-photo.zoomable:hover,
       .photo.zoomable:hover { transform: scale(1.02); }
+    }
+
+  
+    /* Mobile gallery fix — avoid collapsed cells */
+    @media (max-width: 900px) {
+      #s9 .slide-pad {
+        height: auto !important;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      #s9 .gallery.dense,
+      #s11 .gallery.premiacao-grid,
+      .gallery.dense,
+      .gallery.premiacao-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: none !important;
+        height: auto !important;
+        min-height: 0 !important;
+        flex: none !important;
+        align-content: start !important;
+        gap: 10px !important;
+      }
+      #s9 .gallery.dense .cell,
+      #s9 .gallery.dense .cell.big,
+      #s11 .gallery.premiacao-grid .cell,
+      .gallery.dense .cell,
+      .gallery.dense .cell.big,
+      .gallery.premiacao-grid .cell {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        height: auto !important;
+        min-height: 0 !important;
+        aspect-ratio: 3 / 2 !important;
+      }
+      #s9 .gallery.dense .cell.big {
+        grid-column: 1 / -1 !important;
+        aspect-ratio: 16 / 10 !important;
+      }
+      .gallery .cell img,
+      .gallery.dense .cell img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        position: absolute;
+        inset: 0;
+      }
+      .gallery .cell {
+        position: relative !important;
+        overflow: hidden !important;
+      }
+    }
+    @media (max-width: 640px) {
+      #s9 .gallery.dense,
+      #s11 .gallery.premiacao-grid,
+      .gallery.dense,
+      .gallery.premiacao-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+      }
+      #s9 .gallery.dense .cell.big {
+        grid-column: 1 / -1 !important;
+      }
+      .gallery .cap {
+        font-size: 11px;
+        padding: 10px;
+      }
     }
 
   </style>
