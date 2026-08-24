@@ -1,13 +1,8 @@
 import SiteChrome from "./SiteChrome";
 import ScrollReveal from "./ScrollReveal";
 import MediaLightbox from "./MediaLightbox";
-import dynamic from "next/dynamic";
+import LocalMapClient from "./LocalMapClient";
 import { CONTACT } from "./sections";
-
-const LocalMap = dynamic(() => import("./LocalMap"), {
-  ssr: false,
-  loading: () => <div className="loc-leaflet loc-leaflet-skeleton" aria-hidden />,
-});
 
 const wakeboardCats = [
   {
@@ -222,7 +217,7 @@ export default function Home() {
         <section id="local" className="section local">
           <div className="loc-layout">
             <div className="media-box loc-media" data-reveal="left">
-              <LocalMap />
+              <LocalMapClient />
               <div className="loc-map-pin">
                 <strong>Marina Veleiros de Ibiúna</strong>
                 <span>Represa de Itupararanga · Ibiúna/SP</span>
