@@ -423,10 +423,7 @@ export default function Home() {
                   tag: "Ativação",
                 },
               ].map((item) => (
-                <article
-                  className={`story-card photo-tile${item.wide ? " wide" : ""}`}
-                  key={item.src}
-                >
+                <article className="story-card photo-tile" key={item.src}>
                   <div className="story-media">
                     <img src={item.src} alt={item.title} />
                   </div>
