@@ -30,42 +30,43 @@ export default function Home() {
       <main className="page">
         {/* ============ CAPA ============ */}
         <section id="inicio" className="section capa">
-          <img className="bg-img" src="/img/capa.jpg" alt="Wakeboard na Represa de Itupararanga" />
-          <div className="overlay dark" />
-          <span className="year">2026</span>
-          <div className="content">
-            <span className="badge">Campeonato Brasileiro</span>
-            <h1>
-              Wakeboard <em>&amp; Surf</em>
-            </h1>
-            <p className="sub">Etapa Ibiúna · São Paulo</p>
-            <p className="loc">Represa de Itupararanga — Ibiúna/SP</p>
-            <div className="cta-row">
-              <a className="btn primary" href="#inscricoes">
-                Quero participar
-              </a>
-              <a className="btn ghost" href="#cronograma">
-                Ver programação
-              </a>
+          <div className="section-inner capa-wrap">
+            <div className="media-box capa-media" data-reveal="zoom">
+              <img src="/img/capa.jpg" alt="Wakeboard na Represa de Itupararanga" />
+            </div>
+            <div className="capa-copy" data-reveal>
+              <span className="badge">Campeonato Brasileiro</span>
+              <h1>
+                Wakeboard <em>&amp; Surf</em>
+              </h1>
+              <p className="sub">Etapa Ibiúna · São Paulo</p>
+              <p className="loc">Represa de Itupararanga — Ibiúna/SP</p>
+              <div className="cta-row">
+                <a className="btn primary" href="#inscricoes">
+                  Quero participar
+                </a>
+                <a className="btn ghost" href="#cronograma">
+                  Ver programação
+                </a>
+              </div>
+            </div>
+            <div className="bottom-bar">
+              <span>19 NOV</span>
+              <span className="sep">•</span>
+              <span>20 NOV</span>
+              <span className="sep">•</span>
+              <span>21 NOV 2026</span>
+              <span className="sep">•</span>
+              <span>BARCO OFICIAL: NAUTIQUE G23</span>
             </div>
           </div>
-          <div className="bottom-bar">
-            <span>19 NOV</span>
-            <span className="sep">•</span>
-            <span>20 NOV</span>
-            <span className="sep">•</span>
-            <span>21 NOV 2026</span>
-            <span className="sep">•</span>
-            <span>BARCO OFICIAL: NAUTIQUE G23</span>
-          </div>
-          <a className="scroll-cue" href="#sobre" aria-label="Rolar para baixo">
-            ⌄
-          </a>
         </section>
 
         {/* ============ SOBRE ============ */}
         <section id="sobre" className="section light sobre">
-          <img className="hero-img" src="/img/surfistas.jpg" alt="Atletas de WakeSurf" />
+          <div className="media-box hero-media">
+            <img className="hero-img" src="/img/surfistas.jpg" alt="Atletas de WakeSurf" />
+          </div>
           <div className="section-inner" data-reveal-group>
             <div className="sec-title">
               <span className="bar" />
@@ -158,44 +159,47 @@ export default function Home() {
 
         {/* ============ LOCAL ============ */}
         <section id="local" className="section local">
-          <img className="bg-img" src="/img/local.jpg" alt="Represa de Itupararanga" />
-          <div className="overlay photo" />
-          <div className="section-inner content loc-panel">
-            <p className="kicker" data-reveal>
-              Onde acontece
-            </p>
-            <h2 data-reveal>Local do evento</h2>
-            <p className="loc-lead" data-reveal>
-              Marina Veleiros de Ibiúna, na Represa de Itupararanga — cenário natural para
-              wakeboard e wakesurf de alto nível.
-            </p>
-            <dl className="loc-facts" data-reveal-group>
-              <div className="loc-fact">
-                <dt>Represa</dt>
-                <dd>Itupararanga · Ibiúna, São Paulo</dd>
-              </div>
-              <div className="loc-fact">
-                <dt>Marina</dt>
-                <dd>Veleiros de Ibiúna · estrutura náutica completa</dd>
-              </div>
-              <div className="loc-fact">
-                <dt>Condomínios</dt>
-                <dd>Veleiros de Ibiúna e Porto de Ibiúna</dd>
-              </div>
-              <div className="loc-fact">
-                <dt>Como chegar</dt>
-                <dd>Rod. Bunjiro Nakao, Km 82,5 · ~80 km de São Paulo (1h20)</dd>
-              </div>
-            </dl>
-            <a
-              className="btn primary map-btn"
-              href={CONTACT.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-reveal
-            >
-              Abrir no Google Maps
-            </a>
+          <div className="section-inner loc-layout">
+            <div className="media-box loc-media" data-reveal="left">
+              <img src="/img/local.jpg" alt="Represa de Itupararanga" />
+            </div>
+            <div className="loc-panel content">
+              <p className="kicker" data-reveal>
+                Onde acontece
+              </p>
+              <h2 data-reveal>Local do evento</h2>
+              <p className="loc-lead" data-reveal>
+                Marina Veleiros de Ibiúna, na Represa de Itupararanga — cenário natural para
+                wakeboard e wakesurf de alto nível.
+              </p>
+              <dl className="loc-facts" data-reveal-group>
+                <div className="loc-fact">
+                  <dt>Represa</dt>
+                  <dd>Itupararanga · Ibiúna, São Paulo</dd>
+                </div>
+                <div className="loc-fact">
+                  <dt>Marina</dt>
+                  <dd>Veleiros de Ibiúna · estrutura náutica completa</dd>
+                </div>
+                <div className="loc-fact">
+                  <dt>Condomínios</dt>
+                  <dd>Veleiros de Ibiúna e Porto de Ibiúna</dd>
+                </div>
+                <div className="loc-fact">
+                  <dt>Como chegar</dt>
+                  <dd>Rod. Bunjiro Nakao, Km 82,5 · ~80 km de São Paulo (1h20)</dd>
+                </div>
+              </dl>
+              <a
+                className="btn primary map-btn"
+                href={CONTACT.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-reveal
+              >
+                Abrir no Google Maps
+              </a>
+            </div>
           </div>
         </section>
 
@@ -249,31 +253,34 @@ export default function Home() {
 
         {/* ============ BARCO OFICIAL ============ */}
         <section id="barco" className="section barco">
-          <img className="bg-img" src="/img/g23.jpg" alt="Nautique G23" />
-          <div className="overlay dark" />
-          <div className="section-inner content" data-reveal-group>
-            <p className="lbl">Equipamento oficial</p>
-            <h1 className="name">
-              Nautique <span>G23</span>
-            </h1>
-            <p className="sub">
-              Referência mundial em competições de Wakeboard e WakeSurf
-            </p>
-            <div className="boat-feats">
-              <div className="bf">
-                <div className="bft">Ondas perfeitas</div>
-              </div>
-              <div className="bf">
-                <div className="bft">Alta performance</div>
-              </div>
-              <div className="bf">
-                <div className="bft">Nível mundial</div>
-              </div>
-              <div className="bf">
-                <div className="bft">Referência no esporte</div>
-              </div>
+          <div className="section-inner barco-layout" data-reveal-group>
+            <div className="media-box barco-media">
+              <img src="/img/g23.jpg" alt="Nautique G23" />
             </div>
-            <span className="abw">Homologado · Associação Brasileira de Wakeboard (ABW)</span>
+            <div className="barco-copy">
+              <p className="lbl">Equipamento oficial</p>
+              <h1 className="name">
+                Nautique <span>G23</span>
+              </h1>
+              <p className="sub">
+                Referência mundial em competições de Wakeboard e WakeSurf
+              </p>
+              <div className="boat-feats">
+                <div className="bf">
+                  <div className="bft">Ondas perfeitas</div>
+                </div>
+                <div className="bf">
+                  <div className="bft">Alta performance</div>
+                </div>
+                <div className="bf">
+                  <div className="bft">Nível mundial</div>
+                </div>
+                <div className="bf">
+                  <div className="bft">Referência no esporte</div>
+                </div>
+              </div>
+              <span className="abw">Homologado · Associação Brasileira de Wakeboard (ABW)</span>
+            </div>
           </div>
         </section>
 
