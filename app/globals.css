@@ -3234,3 +3234,28 @@ body,
     max-width: none;
   }
 }
+
+
+/* ===== ALL VIDEOS TALL ===== */
+.vcard,
+.vcard.landscape,
+.vcard.portrait {
+  width: clamp(150px, 40vw, 200px) !important;
+}
+.vcard-frame,
+.vcard.landscape .vcard-frame,
+.vcard.portrait .vcard-frame {
+  aspect-ratio: 9 / 16 !important;
+  max-height: min(52vh, 460px) !important;
+}
+.vcard-frame video {
+  object-fit: cover !important;
+  object-position: center !important;
+}
+@media (min-width: 900px) {
+  .vcard,
+  .vcard.landscape,
+  .vcard.portrait {
+    width: clamp(168px, 14vw, 210px) !important;
+  }
+}

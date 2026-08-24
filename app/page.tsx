@@ -554,7 +554,7 @@ export default function Home() {
                     src: "https://hnstvxnaoddwwg.blob.core.windows.net/media/yh-beyond/b9b74bff-4ade-4054-beba-a3342c8f745a/blobimageshighlights_2_dia_.mp4",
                   },
                 ].map((v) => (
-                  <div className="vcard landscape" key={v.label}>
+                  <div className="vcard" key={v.label}>
                     <div className="vcard-frame">
                       <video
                         src={v.src}
@@ -603,7 +603,7 @@ export default function Home() {
                     src: "https://hnstvudmwki1sg.blob.core.windows.net/media/yh-beyond/a12149d9-8a15-4252-80f5-f483ec313fbb/blobimagespilula_beyond_vertical.mp4",
                   },
                 ].map((v) => (
-                  <div className="vcard portrait" key={v.label}>
+                  <div className="vcard" key={v.label}>
                     <div className="vcard-frame">
                       <video
                         src={v.src}
