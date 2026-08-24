@@ -2665,3 +2665,154 @@ a {
     align-self: stretch;
   }
 }
+
+/* ===== STORY CARDS (galeria / apoiadores) ===== */
+.estrutura,
+.apoiadores {
+  background: var(--bg) !important;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.story-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 18px !important;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  aspect-ratio: auto !important;
+  position: relative;
+  cursor: zoom-in;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+}
+
+.story-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background: #e8e8ed;
+}
+
+.story-card.wide .story-media,
+.story-card.big .story-media {
+  aspect-ratio: 16 / 10;
+}
+
+.story-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease;
+}
+
+.story-card:hover .story-media img {
+  transform: scale(1.04);
+}
+
+.story-body {
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  background: #fff;
+}
+
+.story-title {
+  margin: 0;
+  color: var(--ink) !important;
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  text-transform: none !important;
+}
+
+.story-excerpt {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  font-weight: 400;
+}
+
+.story-meta {
+  margin-top: auto;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--ink-3);
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* kill old overlay labels on story cards */
+.story-card .lbl,
+.story-card .al {
+  position: static !important;
+  inset: auto !important;
+  background: none !important;
+  padding: 0 !important;
+  color: var(--ink) !important;
+}
+
+.apoio-note {
+  margin-top: 22px;
+  color: var(--ink-2);
+  text-align: center;
+  font-size: 0.9rem;
+}
+.apoio-note a {
+  color: var(--blue-soft);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (min-width: 700px) {
+  .story-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .story-card.wide,
+  .story-card.big {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1100px) {
+  .story-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .story-card.wide,
+  .story-card.big {
+    grid-column: span 2;
+  }
+  .story-card.wide .story-media,
+  .story-card.big .story-media {
+    aspect-ratio: 21 / 11;
+  }
+}
+
+/* prevent old absolute overlay styles from fighting */
+.photo-tile.story-card,
+.act-item.story-card {
+  aspect-ratio: auto;
+}
+.act-grid { display: none; }

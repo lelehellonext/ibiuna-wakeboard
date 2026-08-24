@@ -28,7 +28,9 @@ export default function MediaLightbox() {
       const img = el.querySelector("img");
       if (!img?.src) return;
       const label =
-        el.querySelector(".lbl, .al")?.textContent?.trim() || img.alt || "";
+        el.querySelector(".story-title, .lbl, .al")?.textContent?.trim() ||
+        img.alt ||
+        "";
       const itemIndex = collected.length;
       collected.push({ src: img.currentSrc || img.src, alt: label });
       el.classList.add("zoomable");

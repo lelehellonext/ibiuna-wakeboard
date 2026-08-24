@@ -288,60 +288,101 @@ export default function Home() {
         <section id="galeria" className="section estrutura">
           <div className="section-inner">
             <div className="center-top" data-reveal>
-              <h2>
-                Galeria <span className="accent-amber">do evento</span>
-              </h2>
+              <h2>Galeria do evento</h2>
               <p>Estrutura, emoção e celebração nas edições anteriores</p>
             </div>
-            <div className="photo-grid-2" data-reveal-group>
-              <div className="photo-tile wide">
-                <img src="/img/acao-wakeboard.png" alt="Wakeboard na represa" />
-                <span className="lbl">Wakeboard na represa</span>
-              </div>
-              <div className="photo-tile">
-                <img src="/img/estrutura-bg.jpg" alt="Vista aérea da área de competição" />
-                <span className="lbl">Vista aérea · Área de competição</span>
-              </div>
-              <div className="photo-tile">
-                <img src="/img/estrutura-tendas.jpg" alt="Estrutura de tendas e palco" />
-                <span className="lbl">Estrutura · Tendas e palco</span>
-              </div>
-              <div className="photo-tile">
-                <img src="/img/atletas-acao.png" alt="Atletas no evento" />
-                <span className="lbl">Atletas · Competição</span>
-              </div>
-              <div className="photo-tile">
-                <img src="/img/podio-masc.jpg" alt="Pódio Wakeboard masculino" />
-                <span className="lbl">🥇 Pódio · Wakeboard Masculino</span>
-              </div>
-              <div className="photo-tile">
-                <img src="/img/podio-fem.jpg" alt="Pódio Wakeboard feminino" />
-                <span className="lbl">🥇 Pódio · Wakeboard Feminino</span>
-              </div>
-              <div className="photo-tile">
-                <img src="/img/premiacao-grupo.png" alt="Cerimônia de premiação" />
-                <span className="lbl">Premiação</span>
-              </div>
-              <div className="photo-tile">
-                <img src="/img/celebracao.jpg" alt="Festa de encerramento" />
-                <span className="lbl">🎉 Festa de encerramento</span>
-              </div>
-              <div className="photo-tile">
-                <img src="/img/familia.jpg" alt="Público e famílias" />
-                <span className="lbl">Famílias no evento</span>
-              </div>
-              <div className="photo-tile">
-                <img src="/img/publico-evento.png" alt="Público na premiação" />
-                <span className="lbl">Público</span>
-              </div>
-              <div className="photo-tile">
-                <img src="/img/criancas.jpg" alt="Evento familiar" />
-                <span className="lbl">👨‍👩‍👧‍👦 Evento familiar</span>
-              </div>
-              <div className="photo-tile">
-                <img src="/img/stand.jpg" alt="Estrutura e hospitalidade" />
-                <span className="lbl">Hospitalidade</span>
-              </div>
+            <div className="story-grid" data-reveal-group>
+              {[
+                {
+                  src: "/img/acao-wakeboard.png",
+                  title: "Wakeboard na represa",
+                  excerpt: "Ação na pista oficial da Represa de Itupararanga.",
+                  tag: "Wakeboard",
+                  wide: true,
+                },
+                {
+                  src: "/img/estrutura-bg.jpg",
+                  title: "Área de competição",
+                  excerpt: "Vista da estrutura montada às margens da represa.",
+                  tag: "Estrutura",
+                },
+                {
+                  src: "/img/estrutura-tendas.jpg",
+                  title: "Tendas e palco",
+                  excerpt: "Hospitalidade, marca e operação no mesmo espaço.",
+                  tag: "Estrutura",
+                },
+                {
+                  src: "/img/atletas-acao.png",
+                  title: "Atletas em competição",
+                  excerpt: "Performance e clima de campeonato brasileiro.",
+                  tag: "Competição",
+                },
+                {
+                  src: "/img/podio-masc.jpg",
+                  title: "Pódio masculino",
+                  excerpt: "Premiação do Brasileiro de Wakeboard.",
+                  tag: "Premiação",
+                },
+                {
+                  src: "/img/podio-fem.jpg",
+                  title: "Pódio feminino",
+                  excerpt: "As campeãs da edição no centro da festa.",
+                  tag: "Premiação",
+                },
+                {
+                  src: "/img/premiacao-grupo.png",
+                  title: "Cerimônia de premiação",
+                  excerpt: "O momento de celebrar quem levou o título.",
+                  tag: "Premiação",
+                },
+                {
+                  src: "/img/celebracao.jpg",
+                  title: "Encerramento",
+                  excerpt: "Festa e convivência depois das finais.",
+                  tag: "Lifestyle",
+                },
+                {
+                  src: "/img/familia.jpg",
+                  title: "Famílias no evento",
+                  excerpt: "Um campeonato pensado também para quem assiste.",
+                  tag: "Público",
+                },
+                {
+                  src: "/img/publico-evento.png",
+                  title: "Público na beira d’água",
+                  excerpt: "Energia na arquibancada e na areia.",
+                  tag: "Público",
+                },
+                {
+                  src: "/img/criancas.jpg",
+                  title: "Evento familiar",
+                  excerpt: "Experiência completa para todas as idades.",
+                  tag: "Família",
+                },
+                {
+                  src: "/img/stand.jpg",
+                  title: "Hospitalidade",
+                  excerpt: "Stands e ativações ao redor da arena.",
+                  tag: "Ativação",
+                },
+              ].map((item) => (
+                <article
+                  className={`story-card photo-tile${item.wide ? " wide" : ""}`}
+                  key={item.src}
+                >
+                  <div className="story-media">
+                    <img src={item.src} alt={item.title} />
+                  </div>
+                  <div className="story-body">
+                    <h3 className="story-title lbl">{item.title}</h3>
+                    <p className="story-excerpt">{item.excerpt}</p>
+                    <div className="story-meta">
+                      <span>{item.tag}</span>
+                    </div>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -350,36 +391,65 @@ export default function Home() {
         <section id="apoiadores" className="section apoiadores">
           <div className="section-inner">
             <div className="center-top" data-reveal>
-              <h2>
-                🤝 <span className="accent-blue">Apoiadores</span>
-              </h2>
+              <h2>Apoiadores</h2>
               <p>Marcas que fizeram parte do Campeonato Brasileiro de Wakeboard &amp; Surf 2025</p>
             </div>
-            <div className="act-grid" data-reveal-group>
-              <div className="act-item big">
-                <img src="/img/porte.jpg" alt="Ativação Porte" />
-                <span className="al">📦 Porte · Estande exclusivo</span>
-              </div>
-              <div className="act-item">
-                <img src="/img/dermage.jpg" alt="Ativação Dermage" />
-                <span className="al">🧴 Dermage · Skincare</span>
-              </div>
-              <div className="act-item">
-                <img src="/img/dermage2.jpg" alt="Ativação Dermage stands" />
-                <span className="al">🧴 Dermage · Experiência</span>
-              </div>
-              <div className="act-item">
-                <img src="/img/technogym.jpg" alt="Ativação Technogym" />
-                <span className="al">💪 Technogym</span>
-              </div>
-              <div className="act-item">
-                <img src="/img/corona.jpg" alt="Ativação Corona" />
-                <span className="al">🍺 Corona · Bar</span>
-              </div>
-              <div className="act-item">
-                <img src="/img/beyond.jpg" alt="Beyond The Club" />
-                <span className="al">Beyond The Club</span>
-              </div>
+            <div className="story-grid act-story-grid" data-reveal-group>
+              {[
+                {
+                  src: "/img/porte.jpg",
+                  title: "Porte",
+                  excerpt: "Estande exclusivo e presença forte na arena.",
+                  tag: "Ativação",
+                  big: true,
+                },
+                {
+                  src: "/img/dermage.jpg",
+                  title: "Dermage",
+                  excerpt: "Skincare e experiência de marca no evento.",
+                  tag: "Skincare",
+                },
+                {
+                  src: "/img/dermage2.jpg",
+                  title: "Dermage · Experiência",
+                  excerpt: "Ativação e stands ao longo da programação.",
+                  tag: "Skincare",
+                },
+                {
+                  src: "/img/technogym.jpg",
+                  title: "Technogym",
+                  excerpt: "Performance e wellness na beira da represa.",
+                  tag: "Wellness",
+                },
+                {
+                  src: "/img/corona.jpg",
+                  title: "Corona",
+                  excerpt: "Bar e clima de verão no encerramento.",
+                  tag: "Lifestyle",
+                },
+                {
+                  src: "/img/beyond.jpg",
+                  title: "Beyond The Club",
+                  excerpt: "Conteúdo e energia ao redor da competição.",
+                  tag: "Conteúdo",
+                },
+              ].map((item) => (
+                <article
+                  className={`story-card act-item${item.big ? " big" : ""}`}
+                  key={item.src + item.title}
+                >
+                  <div className="story-media">
+                    <img src={item.src} alt={item.title} />
+                  </div>
+                  <div className="story-body">
+                    <h3 className="story-title al">{item.title}</h3>
+                    <p className="story-excerpt">{item.excerpt}</p>
+                    <div className="story-meta">
+                      <span>{item.tag}</span>
+                    </div>
+                  </div>
+                </article>
+              ))}
             </div>
             <p className="apoio-note">
               Quer apoiar o evento? Fale com a organização pelo{" "}
