@@ -1841,8 +1841,128 @@ a {
 .pod-item:hover img,
 .cats .photo:hover img,
 .sobre:hover .hero-img {
-  transform: scale(1.07);
+  transform: scale(1.1);
 }
+
+.photo-tile.wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 9;
+}
+
+.photo-tile.zoomable,
+.act-item.zoomable {
+  cursor: zoom-in;
+}
+
+/* ----- Lightbox (galeria / apoiadores) ----- */
+.site-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(5, 12, 28, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: lb-in 0.22s ease;
+}
+@keyframes lb-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.lb-inner {
+  position: relative;
+  max-width: min(1100px, 94vw);
+  max-height: 88vh;
+  text-align: center;
+}
+.lb-inner img {
+  display: block;
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+  background: #0a1220;
+}
+.lb-cap {
+  margin-top: 12px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.lb-count {
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.75rem;
+}
+.lb-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+.lb-nav.prev { left: 12px; }
+.lb-nav.next { right: 12px; }
+
+.video-frame {
+  max-width: min(360px, 86vw);
+  box-shadow:
+    0 12px 48px rgba(0, 150, 199, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+@media (min-width: 900px) {
+  .video-frame { max-width: 400px; }
+  .estrutura .photo-grid-2 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .estrutura .photo-tile.wide {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-tile:hover img,
+  .act-item:hover img,
+  .pod-item:hover img,
+  .cats .photo:hover img,
+  .sobre:hover .hero-img {
+    transform: none;
+  }
+  .site-lightbox { animation: none; }
+}
+
 
 /* ----- Indicador de scroll (posicionamento) ----- */
 .scroll-cue {

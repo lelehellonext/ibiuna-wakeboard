@@ -1,5 +1,6 @@
 import SiteChrome from "./SiteChrome";
 import ScrollReveal from "./ScrollReveal";
+import MediaLightbox from "./MediaLightbox";
 import { CONTACT } from "./sections";
 
 const wakeboardCats = [
@@ -24,6 +25,7 @@ export default function Home() {
     <>
       <SiteChrome />
       <ScrollReveal />
+      <MediaLightbox />
 
       <main className="page">
         {/* ============ CAPA ============ */}
@@ -302,6 +304,10 @@ export default function Home() {
               <p>Estrutura, emoção e celebração nas edições anteriores</p>
             </div>
             <div className="photo-grid-2" data-reveal-group>
+              <div className="photo-tile wide">
+                <img src="/img/acao-wakeboard.png" alt="Wakeboard na represa" />
+                <span className="lbl">Wakeboard na represa</span>
+              </div>
               <div className="photo-tile">
                 <img src="/img/estrutura-bg.jpg" alt="Vista aérea da área de competição" />
                 <span className="lbl">Vista aérea · Área de competição</span>
@@ -309,6 +315,10 @@ export default function Home() {
               <div className="photo-tile">
                 <img src="/img/estrutura-tendas.jpg" alt="Estrutura de tendas e palco" />
                 <span className="lbl">Estrutura · Tendas e palco</span>
+              </div>
+              <div className="photo-tile">
+                <img src="/img/atletas-acao.png" alt="Atletas no evento" />
+                <span className="lbl">Atletas · Competição</span>
               </div>
               <div className="photo-tile">
                 <img src="/img/podio-masc.jpg" alt="Pódio Wakeboard masculino" />
@@ -319,12 +329,28 @@ export default function Home() {
                 <span className="lbl">🥇 Pódio · Wakeboard Feminino</span>
               </div>
               <div className="photo-tile">
+                <img src="/img/premiacao-grupo.png" alt="Cerimônia de premiação" />
+                <span className="lbl">Premiação</span>
+              </div>
+              <div className="photo-tile">
                 <img src="/img/celebracao.jpg" alt="Festa de encerramento" />
                 <span className="lbl">🎉 Festa de encerramento</span>
               </div>
               <div className="photo-tile">
+                <img src="/img/familia.jpg" alt="Público e famílias" />
+                <span className="lbl">Famílias no evento</span>
+              </div>
+              <div className="photo-tile">
+                <img src="/img/publico-evento.png" alt="Público na premiação" />
+                <span className="lbl">Público</span>
+              </div>
+              <div className="photo-tile">
                 <img src="/img/criancas.jpg" alt="Evento familiar" />
                 <span className="lbl">👨‍👩‍👧‍👦 Evento familiar</span>
+              </div>
+              <div className="photo-tile">
+                <img src="/img/stand.jpg" alt="Estrutura e hospitalidade" />
+                <span className="lbl">Hospitalidade</span>
               </div>
             </div>
           </div>
@@ -347,6 +373,10 @@ export default function Home() {
               <div className="act-item">
                 <img src="/img/dermage.jpg" alt="Ativação Dermage" />
                 <span className="al">🧴 Dermage · Skincare</span>
+              </div>
+              <div className="act-item">
+                <img src="/img/dermage2.jpg" alt="Ativação Dermage stands" />
+                <span className="al">🧴 Dermage · Experiência</span>
               </div>
               <div className="act-item">
                 <img src="/img/technogym.jpg" alt="Ativação Technogym" />
