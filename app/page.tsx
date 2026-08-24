@@ -411,24 +411,34 @@ export default function Home() {
                 {[
                   {
                     label: "Final",
+                    poster: "/img/posters/final.jpg",
                     src: "https://hnstvwrmcuflqg.blob.core.windows.net/media/yh-beyond/62594b9a-9917-4e71-972d-1c452d4b44cf/blobimagesfinal_ibiunawakesurf_1.mp4",
                   },
                   {
                     label: "1º dia",
+                    poster: "/img/posters/dia1.jpg",
                     src: "https://hnstvudmwki1sg.blob.core.windows.net/media/yh-beyond/b692ab08-1064-4d31-aeab-b2ddc909aa08/blobimageshighlights_1_dia.mp4",
                   },
                   {
                     label: "Treino",
+                    poster: "/img/posters/treino.jpg",
                     src: "https://hnstvxnaoddwwg.blob.core.windows.net/media/yh-beyond/6c729789-1e3d-436c-92b9-66009ee4b20b/blobimagestreino.mp4",
                   },
                   {
                     label: "2º dia",
+                    poster: "/img/posters/dia2.jpg",
                     src: "https://hnstvxnaoddwwg.blob.core.windows.net/media/yh-beyond/b9b74bff-4ade-4054-beba-a3342c8f745a/blobimageshighlights_2_dia_.mp4",
                   },
                 ].map((v) => (
                   <div className="vcard" key={v.label}>
                     <div className="vcard-frame">
-                      <video src={v.src} controls playsInline preload="metadata" />
+                      <video
+                        src={v.src}
+                        poster={v.poster}
+                        controls
+                        playsInline
+                        preload="none"
+                      />
                     </div>
                     <div className="vcard-label">{v.label}</div>
                   </div>
@@ -445,28 +455,39 @@ export default function Home() {
                 {[
                   {
                     label: "Corona",
+                    poster: "/img/posters/corona.jpg",
                     src: "https://hnstvxiystzivw.blob.core.windows.net/media/yh-beyond/6cef021c-f7e3-44f2-9c66-7b95e3c2f246/blobimagescorona_vertical.mp4",
                   },
                   {
                     label: "Dermage",
+                    poster: "/img/posters/dermage.jpg",
                     src: "https://hnstvxpfrgrjma.blob.core.windows.net/media/yh-beyond/1e3027a9-36af-480f-80f5-a9a70d77fadd/blobimagesdermage_vertical.mp4",
                   },
                   {
                     label: "Technogym",
+                    poster: "/img/posters/technogym.jpg",
                     src: "https://hnstvwrmcuflqg.blob.core.windows.net/media/yh-beyond/43420782-7054-4121-973e-7cd5583bc2b2/blobimagestechnogym_vertical.mp4",
                   },
                   {
                     label: "B-Side",
+                    poster: "/img/posters/bside.jpg",
                     src: "https://hnstvthcyke2cg.blob.core.windows.net/media/yh-beyond/5a65a132-56d7-49a3-ac65-fb5281e4724b/blobimagespilula_bside_v2.mp4",
                   },
                   {
                     label: "Beyond",
+                    poster: "/img/posters/beyond.jpg",
                     src: "https://hnstvudmwki1sg.blob.core.windows.net/media/yh-beyond/a12149d9-8a15-4252-80f5-f483ec313fbb/blobimagespilula_beyond_vertical.mp4",
                   },
                 ].map((v) => (
                   <div className="vcard" key={v.label}>
                     <div className="vcard-frame">
-                      <video src={v.src} controls playsInline preload="metadata" />
+                      <video
+                        src={v.src}
+                        poster={v.poster}
+                        controls
+                        playsInline
+                        preload="none"
+                      />
                     </div>
                     <div className="vcard-label">{v.label}</div>
                   </div>
