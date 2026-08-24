@@ -225,6 +225,7 @@
       background: var(--blue-soft);
     }
     .photo-stack {
+      overflow: hidden;
       display: grid;
       grid-template-rows: 1fr 1fr;
       gap: 12px;
@@ -1218,6 +1219,109 @@
       }
     }
 
+  
+    /* Lightbox / zoomable images */
+    .zoomable {
+      cursor: zoom-in;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+      will-change: transform;
+    }
+    .photo-wide.zoomable,
+    .cover-photo.zoomable,
+    .photo.zoomable {
+      transform-origin: center center;
+    }
+    .photo-wide.zoomable:hover,
+    .cover-photo.zoomable:hover,
+    .photo.zoomable:hover {
+      transform: scale(1.035);
+      filter: brightness(1.04);
+    }
+    .gallery .cell {
+      cursor: zoom-in;
+    }
+    .gallery .cell img {
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+      will-change: transform;
+    }
+    .gallery .cell:hover img {
+      transform: scale(1.08);
+      filter: brightness(1.05);
+    }
+    .gallery .cell:hover .cap {
+      opacity: 1;
+    }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 4000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 4vw, 40px);
+      background: rgba(5, 12, 28, 0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .lightbox-inner {
+      position: relative;
+      max-width: min(1100px, 94vw);
+      max-height: 88vh;
+      transform: scale(0.96) translateY(8px);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .lightbox.open .lightbox-inner {
+      transform: scale(1) translateY(0);
+    }
+    .lightbox-inner img {
+      display: block;
+      max-width: 100%;
+      max-height: 82vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+      background: #0a1220;
+    }
+    .lightbox-cap {
+      margin-top: 12px;
+      text-align: center;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 999px;
+      background: #fff;
+      color: #111;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .lightbox-close:hover { transform: scale(1.06); }
+    @media (max-width: 640px) {
+      .lightbox-close { top: -8px; right: 0; }
+      .photo-wide.zoomable:hover,
+      .cover-photo.zoomable:hover,
+      .photo.zoomable:hover { transform: scale(1.02); }
+    }
+
   </style>
 </head>
 <body>
@@ -1582,6 +1686,15 @@
     </div>
   </div>
 
+  
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="lightbox-inner">
+      <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
+      <img id="lightboxImg" src="" alt="" />
+      <div class="lightbox-cap" id="lightboxCap"></div>
+    </div>
+  </div>
+
   <div class="nav">
     <button type="button" onclick="go(-1)" aria-label="Anterior">&#8592;</button>
     <div class="dots" id="dots"></div>
@@ -1615,6 +1728,7 @@
     function go(d) { goTo(cur + d); }
     window.goTo = goTo;
     document.addEventListener('keydown', e => {
+      if (document.getElementById('lightbox')?.classList.contains('open')) return;
       if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
       if (e.key === 'ArrowLeft') go(-1);
     });
@@ -1626,6 +1740,59 @@
     }, { passive: true });
     const hash = location.hash.match(/^#s(\\d+)$/);
     if (hash) goTo(Number(hash[1]));
+  
+
+    (function setupLightbox() {
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImg');
+      const cap = document.getElementById('lightboxCap');
+      const closeBtn = document.getElementById('lightboxClose');
+      if (!lb || !img) return;
+
+      function openLightbox(src, alt) {
+        img.src = src;
+        img.alt = alt || '';
+        cap.textContent = alt || '';
+        lb.hidden = false;
+        lb.setAttribute('aria-hidden', 'false');
+        requestAnimationFrame(() => lb.classList.add('open'));
+      }
+      function closeLightbox() {
+        lb.classList.remove('open');
+        lb.setAttribute('aria-hidden', 'true');
+        setTimeout(() => {
+          if (!lb.classList.contains('open')) {
+            lb.hidden = true;
+            img.src = '';
+          }
+        }, 250);
+      }
+
+      document.querySelectorAll('img.photo, img.photo-wide, img.cover-photo, .gallery .cell img, .photo-stack img.photo').forEach(el => {
+        if (el.closest('.brand') || el.classList.contains('logo')) return;
+        el.classList.add('zoomable');
+        el.addEventListener('click', e => {
+          e.stopPropagation();
+          const cell = el.closest('.cell');
+          const alt = (cell && cell.querySelector('.cap') ? cell.querySelector('.cap').textContent : el.alt) || '';
+          openLightbox(el.currentSrc || el.src, alt.trim());
+        });
+      });
+
+      closeBtn.addEventListener('click', e => { e.stopPropagation(); closeLightbox(); });
+      lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && lb.classList.contains('open')) {
+          e.preventDefault();
+          closeLightbox();
+          return;
+        }
+        if (lb.classList.contains('open') && (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === ' ')) {
+          e.stopPropagation();
+        }
+      }, true);
+    })();
+
   </script>
 </body>
 </html>
