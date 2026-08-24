@@ -1,7 +1,13 @@
 import SiteChrome from "./SiteChrome";
 import ScrollReveal from "./ScrollReveal";
 import MediaLightbox from "./MediaLightbox";
+import dynamic from "next/dynamic";
 import { CONTACT } from "./sections";
+
+const LocalMap = dynamic(() => import("./LocalMap"), {
+  ssr: false,
+  loading: () => <div className="loc-leaflet loc-leaflet-skeleton" aria-hidden />,
+});
 
 const wakeboardCats = [
   {
@@ -214,16 +220,9 @@ export default function Home() {
 
         {/* ============ LOCAL ============ */}
         <section id="local" className="section local">
-          <div className="section-inner loc-layout">
+          <div className="loc-layout">
             <div className="media-box loc-media" data-reveal="left">
-              <iframe
-                className="loc-map"
-                title="Mapa · Marina Veleiros de Ibiúna"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-                src="https://www.google.com/maps?q=Marina+Veleiros+de+Ibi%C3%BAna,+Rodovia+Bunjiro+Nakao+Km+82,5,+Ibi%C3%BAna+-+SP&hl=pt-BR&z=14&output=embed"
-              />
+              <LocalMap />
               <div className="loc-map-pin">
                 <strong>Marina Veleiros de Ibiúna</strong>
                 <span>Represa de Itupararanga · Ibiúna/SP</span>

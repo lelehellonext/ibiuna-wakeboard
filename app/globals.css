@@ -2531,9 +2531,10 @@ a {
 .loc-layout {
   display: grid;
   gap: 28px;
-  align-items: center;
-  max-width: 1180px;
-  margin: 0 auto;
+  align-items: stretch;
+  width: 100%;
+  max-width: none;
+  margin: 0;
 }
 .loc-media {
   width: 100%;
@@ -2638,12 +2639,21 @@ a {
     width: 50%;
   }
   .loc-layout {
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 48px;
+    grid-template-columns: minmax(0, 1.75fr) minmax(280px, 0.7fr);
+    gap: 0;
+    align-items: stretch;
+    min-height: min(78vh, 720px);
   }
   .loc-media {
-    aspect-ratio: 5 / 6;
-    min-height: 480px;
+    aspect-ratio: auto;
+    min-height: 100%;
+    border-radius: 0 28px 28px 0 !important;
+  }
+  .loc-panel {
+    padding: 48px clamp(24px, 4vw, 56px) 48px clamp(28px, 3.5vw, 44px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .barco-layout {
     grid-template-columns: 1.15fr 0.85fr;
@@ -3084,27 +3094,98 @@ body,
 }
 
 /* ===== LOCAL MAP ===== */
+.local {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.loc-layout {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 20px 16px 28px;
+}
+
 .loc-media {
   position: relative;
   overflow: hidden;
-  min-height: 320px;
+  min-height: 360px;
+  height: 52vh;
+  border-radius: 22px !important;
 }
 
-.loc-map {
+.loc-leaflet {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  border: 0;
+  z-index: 0;
+  background: #e8eef3;
+}
+
+.loc-leaflet .leaflet-container {
+  width: 100%;
+  height: 100%;
+  font: inherit;
+  background: #e8eef3;
+}
+
+.loc-leaflet-marker {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.loc-leaflet-dot {
   display: block;
-  filter: grayscale(0.15) contrast(1.02) saturate(0.92);
+  width: 18px;
+  height: 18px;
+  margin: 5px;
+  border-radius: 50%;
+  background: #0071e3;
+  border: 3px solid #fff;
+  box-shadow: 0 6px 16px rgba(0, 113, 227, 0.45);
+}
+
+.loc-leaflet .leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  padding: 2px 4px;
+}
+
+.loc-leaflet .leaflet-popup-content {
+  margin: 10px 12px;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: #1d1d1f;
+}
+
+.loc-leaflet .leaflet-popup-tip {
+  box-shadow: none;
+}
+
+.loc-leaflet .leaflet-control-zoom {
+  border: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12) !important;
+}
+
+.loc-leaflet .leaflet-control-zoom a {
+  width: 36px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+  color: #1d1d1f !important;
+  background: #fff !important;
+  border-bottom: 1px solid #ececef !important;
 }
 
 .loc-map-pin {
   position: absolute;
   left: 16px;
   bottom: 16px;
-  z-index: 2;
+  z-index: 450;
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 14px;
@@ -3129,8 +3210,27 @@ body,
   font-size: 0.75rem;
 }
 
+.loc-panel {
+  padding: 8px 4px 4px;
+}
+
 @media (min-width: 900px) {
+  .loc-layout {
+    grid-template-columns: minmax(0, 1.8fr) minmax(300px, 0.68fr);
+    gap: 0;
+    padding: 0;
+    min-height: min(82vh, 760px);
+  }
   .loc-media {
-    min-height: 520px;
+    height: auto;
+    min-height: min(82vh, 760px);
+    border-radius: 0 28px 28px 0 !important;
+  }
+  .loc-panel {
+    padding: 56px clamp(28px, 4vw, 64px) 56px clamp(28px, 3vw, 48px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: none;
   }
 }
