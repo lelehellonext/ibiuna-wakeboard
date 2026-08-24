@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 72" role="img" aria-label="Red Bull">
+  <rect x="0" y="12" width="48" height="48" rx="8" fill="#FFCC00"/>
+  <path d="M10 44 L24 18 L38 44 Z" fill="#001E44"/>
+  <path d="M16 44 L24 28 L32 44 Z" fill="#DB0A40"/>
+  <text x="64" y="50" font-family="Impact, Haettenschweiler, Arial Narrow Bold, Arial, sans-serif" font-size="42" fill="#FFFFFF" letter-spacing="1">RED BULL</text>
+</svg>
