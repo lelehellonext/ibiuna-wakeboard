@@ -216,7 +216,18 @@ export default function Home() {
         <section id="local" className="section local">
           <div className="section-inner loc-layout">
             <div className="media-box loc-media" data-reveal="left">
-              <img src="/img/local.jpg" alt="Represa de Itupararanga" />
+              <iframe
+                className="loc-map"
+                title="Mapa · Marina Veleiros de Ibiúna"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                src="https://www.google.com/maps?q=Marina+Veleiros+de+Ibi%C3%BAna,+Rodovia+Bunjiro+Nakao+Km+82,5,+Ibi%C3%BAna+-+SP&hl=pt-BR&z=14&output=embed"
+              />
+              <div className="loc-map-pin">
+                <strong>Marina Veleiros de Ibiúna</strong>
+                <span>Represa de Itupararanga · Ibiúna/SP</span>
+              </div>
             </div>
             <div className="loc-panel content">
               <p className="kicker" data-reveal>

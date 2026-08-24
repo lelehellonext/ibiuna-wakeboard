@@ -3082,3 +3082,55 @@ body,
   .vcard.landscape { width: clamp(280px, 28vw, 380px) !important; }
   .vcard.portrait { width: clamp(168px, 14vw, 210px) !important; }
 }
+
+/* ===== LOCAL MAP ===== */
+.loc-media {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+}
+
+.loc-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  filter: grayscale(0.15) contrast(1.02) saturate(0.92);
+}
+
+.loc-map-pin {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  padding: 12px 14px;
+  max-width: calc(100% - 32px);
+  pointer-events: none;
+}
+
+.loc-map-pin strong {
+  display: block;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.loc-map-pin span {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-2);
+  font-size: 0.75rem;
+}
+
+@media (min-width: 900px) {
+  .loc-media {
+    min-height: 520px;
+  }
+}
