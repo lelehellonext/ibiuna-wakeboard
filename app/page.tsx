@@ -236,7 +236,7 @@ export default function Home() {
         <section id="wakeboard" className="section cats">
           <div className="section-inner cats-wrap">
             <div className="media-box cats-hero" data-reveal>
-              <img src="/img/acao-wakeboard.jpg?v=2" alt="Wakeboard em ação na represa" />
+              <img src="/img/acao-wakeboard.jpg?v=3" alt="Nautique G23 — Wakeboard" />
             </div>
             <header className="cats-head" data-reveal>
               <p className="kicker">Modalidade</p>
@@ -330,7 +330,7 @@ export default function Home() {
             <div className="story-grid" data-reveal-group>
               {[
                 {
-                  src: "/img/acao-wakeboard.jpg?v=2",
+                  src: "/img/acao-wakeboard.jpg?v=3",
                   title: "Wakeboard na represa",
                   excerpt: "Ação na pista oficial da Represa de Itupararanga.",
                   tag: "Wakeboard",
