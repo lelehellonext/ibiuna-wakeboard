@@ -3596,7 +3596,7 @@ body,
 .abw-media img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
   object-position: center !important;
   display: block !important;
   border-radius: 0 !important;
@@ -3700,10 +3700,10 @@ body,
     order: 1;
     width: 100% !important;
     max-width: none !important;
-    min-height: 460px !important;
-    height: 100% !important;
-    aspect-ratio: auto !important;
-    align-self: stretch !important;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: 2 / 1 !important;
+    align-self: center !important;
     border-radius: 22px 0 0 22px !important;
     border-right: 0 !important;
   }
