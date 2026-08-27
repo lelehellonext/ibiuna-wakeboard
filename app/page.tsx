@@ -701,6 +701,14 @@ export default function Home() {
                 <span className="fv">Marina Veleiros de Ibiúna</span>
               </a>
             </div>
+            <div className="org-block">
+              <div className="org-copy">
+                <h3 className="org-title">Organização</h3>
+              </div>
+              <div className="media-box org-media">
+                <img src="/img/organizacao.jpg?v=1" alt="Organização — Ibiúna Wake & Surf" />
+              </div>
+            </div>
             <p className="obs">Inscrições e informações pelos canais oficiais acima.</p>
             <p className="footer">
               Campeonato Brasileiro de Wakeboard &amp; Surf 2026 · Represa de Itupararanga · Ibiúna —

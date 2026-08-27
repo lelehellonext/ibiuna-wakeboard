@@ -3699,3 +3699,53 @@ body,
     align-self: center;
   }
 }
+
+/* ===== ORGANIZAÇÃO (contato) ===== */
+.org-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  max-width: 680px;
+  margin: 28px auto 0;
+  text-align: left;
+}
+
+.org-title {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.org-media {
+  width: 100%;
+  border-radius: 22px !important;
+  overflow: hidden;
+  aspect-ratio: 5 / 4;
+  background: #fff !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08) !important;
+}
+
+.org-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+@media (min-width: 700px) {
+  .org-block {
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 28px;
+    max-width: 720px;
+  }
+
+  .org-media {
+    aspect-ratio: 5 / 4;
+  }
+}
