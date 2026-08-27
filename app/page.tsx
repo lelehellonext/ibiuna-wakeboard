@@ -312,6 +312,27 @@ export default function Home() {
                   </div>
                 </div>
                 <span className="abw">Homologado · Associação Brasileira de Wakeboard (ABW)</span>
+                <p className="barco-contact">
+                  Para conhecer o barco, fale com a <strong>Nautique Brasil</strong>
+                  <span className="barco-igs">
+                    Instagram:{" "}
+                    <a
+                      href="https://www.instagram.com/nautiquebrasil"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      @nautiquebrasil
+                    </a>
+                    {" · "}
+                    <a
+                      href="https://www.instagram.com/marrecoboats"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      @marrecoboats
+                    </a>
+                  </span>
+                </p>
               </div>
               <div className="media-box barco-side">
                 <img src="/img/g23.jpg" alt="Nautique G23" />

@@ -2592,6 +2592,29 @@ a {
   background: var(--ink) !important;
   color: #fff !important;
 }
+.barco-contact {
+  margin: 18px 0 0;
+  max-width: 36rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+.barco-contact strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.barco-igs {
+  display: block;
+  margin-top: 6px;
+}
+.barco-igs a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.barco-igs a:hover {
+  color: #0071e3;
+}
 
 /* Categorias photo box */
 .cats .photo {
