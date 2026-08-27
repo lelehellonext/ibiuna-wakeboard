@@ -344,40 +344,36 @@ export default function Home() {
         {/* ============ ABW ============ */}
         <section id="abw" className="section abw-sec">
           <div className="section-inner abw-layout" data-reveal-group>
+            <div className="abw-copy">
+              <p className="lbl">Homologação oficial</p>
+              <h2 className="abw-title">ABW</h2>
+              <p className="abw-sub">Associação Brasileira de Wakeboard</p>
+              <p className="abw-lead">
+                Filie-se à CBEAW e aproveite vantagens em eventos reconhecidos — incluindo o
+                Campeonato Brasileiro de Wakeboard &amp; Surf.
+              </p>
+              <h3 className="abw-list-title">Eventos</h3>
+              <ul className="abw-list">
+                <li>Desconto de 20% nas inscrições de eventos oficialmente reconhecidos pela CBEAW.</li>
+                <li>
+                  Participação no ranking do Circuito Brasileiro e Paulista (apenas filiados
+                  acumulam pontos para o ranking).
+                </li>
+                <li>Prioridade nas inscrições para eventos com vagas limitadas.</li>
+                <li>Tratamento diferenciado nos eventos homologados pela CBEAW.</li>
+                <li>Foto de perfil no LiveHeats, nosso sistema de notas.</li>
+              </ul>
+              <a
+                className="btn primary abw-cta"
+                href="https://www.cbeaw.com.br/filiacao-barco-2026.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Fazer filiação 2026
+              </a>
+            </div>
             <div className="media-box abw-media">
               <img src="/img/abw-juria.jpg?v=2" alt="Júria ABW — Associação Brasileira de Wakeboard" />
-            </div>
-            <div className="abw-body">
-              <div className="abw-copy">
-                <p className="lbl">Homologação oficial</p>
-                <h2 className="abw-title">
-                  ABW
-                </h2>
-                <p className="abw-sub">Associação Brasileira de Wakeboard</p>
-                <p className="abw-lead">
-                  Filie-se à CBEAW e aproveite vantagens em eventos reconhecidos — incluindo o
-                  Campeonato Brasileiro de Wakeboard &amp; Surf.
-                </p>
-                <h3 className="abw-list-title">Eventos</h3>
-                <ul className="abw-list">
-                  <li>Desconto de 20% nas inscrições de eventos oficialmente reconhecidos pela CBEAW.</li>
-                  <li>
-                    Participação no ranking do Circuito Brasileiro e Paulista (apenas filiados
-                    acumulam pontos para o ranking).
-                  </li>
-                  <li>Prioridade nas inscrições para eventos com vagas limitadas.</li>
-                  <li>Tratamento diferenciado nos eventos homologados pela CBEAW.</li>
-                  <li>Foto de perfil no LiveHeats, nosso sistema de notas.</li>
-                </ul>
-                <a
-                  className="btn primary abw-cta"
-                  href="https://www.cbeaw.com.br/filiacao-barco-2026.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Fazer filiação 2026
-                </a>
-              </div>
             </div>
           </div>
         </section>
