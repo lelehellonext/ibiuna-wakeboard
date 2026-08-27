@@ -88,7 +88,7 @@ export default function Home() {
         <section id="inicio" className="section capa">
           <div className="section-inner capa-wrap">
             <div className="media-box capa-media" data-reveal="zoom">
-              <img src="/img/capa.jpg" alt="Wakeboard na Represa de Itupararanga" />
+              <img src="/img/capa.jpg?v=2" alt="Wakeboard na Represa de Itupararanga" />
             </div>
             <div className="capa-copy" data-reveal>
               <span className="badge">Campeonato Brasileiro</span>
@@ -267,7 +267,7 @@ export default function Home() {
         <section id="wakeboard" className="section cats">
           <div className="section-inner cats-wrap">
             <div className="media-box cats-hero" data-reveal>
-              <img src="/img/acao-wakeboard.png" alt="Wakeboard em ação na represa" />
+              <img src="/img/acao-wakeboard.jpg?v=2" alt="Wakeboard em ação na represa" />
             </div>
             <header className="cats-head" data-reveal>
               <p className="kicker">Modalidade</p>
@@ -356,7 +356,7 @@ export default function Home() {
             <div className="story-grid" data-reveal-group>
               {[
                 {
-                  src: "/img/acao-wakeboard.png",
+                  src: "/img/acao-wakeboard.jpg?v=2",
                   title: "Wakeboard na represa",
                   excerpt: "Ação na pista oficial da Represa de Itupararanga.",
                   tag: "Wakeboard",
