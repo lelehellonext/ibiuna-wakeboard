@@ -388,12 +388,6 @@ export default function Home() {
             <div className="story-grid" data-reveal-group>
               {[
                 {
-                  src: "/img/acao-wakeboard.jpg?v=3",
-                  title: "Wakeboard na represa",
-                  excerpt: "Ação na pista oficial da Represa de Itupararanga.",
-                  tag: "Wakeboard",
-                },
-                {
                   src: "/img/estrutura-bg.jpg",
                   title: "Área de competição",
                   excerpt: "Vista da estrutura montada às margens da represa.",
