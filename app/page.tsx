@@ -57,7 +57,7 @@ export default function Home() {
         <section id="inicio" className="section capa">
           <div className="section-inner capa-wrap">
             <div className="capa-media" data-reveal>
-              <img src="/img/capa.jpg?v=5" alt="Ibiúna Wake & Surf 2026" />
+              <img src="/img/capa.jpg?v=6" alt="Ibiúna Wake & Surf 2026" />
             </div>
             <div className="capa-copy" data-reveal>
               <span className="badge">Campeonato Brasileiro</span>
