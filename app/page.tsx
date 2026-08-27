@@ -261,7 +261,7 @@ export default function Home() {
         <section id="wakesurf" className="section cats">
           <div className="section-inner cats-wrap">
             <div className="media-box cats-hero" data-reveal>
-              <img src="/img/acao-wakesurf.jpg?v=1" alt="Atletas de WakeSurf" />
+              <img src="/img/acao-wakesurf.jpg?v=2" alt="Nautique G23 — WakeSurf" />
             </div>
             <header className="cats-head" data-reveal>
               <p className="kicker">Modalidade</p>
