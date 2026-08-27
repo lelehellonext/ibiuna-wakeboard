@@ -3460,3 +3460,34 @@ body,
     max-width: 1320px;
   }
 }
+
+/* ===== CAPA: full artwork, never crop ===== */
+#inicio.capa .capa-media,
+.capa .capa-media {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  overflow: visible !important;
+  aspect-ratio: unset !important;
+  max-height: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+#inicio.capa .capa-media img,
+.capa .capa-media img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  display: block !important;
+  object-fit: unset !important;
+  object-position: center top !important;
+}
