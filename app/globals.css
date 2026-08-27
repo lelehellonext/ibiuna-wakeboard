@@ -2463,8 +2463,8 @@ a {
 }
 .capa-media {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  max-height: min(62vh, 620px);
+  aspect-ratio: auto;
+  max-height: none;
 }
 .capa-copy {
   text-align: left;
@@ -2633,8 +2633,8 @@ a {
     padding: 40px 0 56px !important;
   }
   .capa-media {
-    aspect-ratio: 21 / 9;
-    max-height: min(68vh, 680px);
+    aspect-ratio: auto;
+    max-height: none;
   }
   .capa-copy {
     text-align: center;
@@ -3330,12 +3330,29 @@ body,
   margin-left: calc(50% - 50vw) !important;
   margin-right: calc(50% - 50vw) !important;
   border-radius: 0 !important;
-  aspect-ratio: 16 / 9 !important;
-  max-height: min(72vh, 760px) !important;
   height: auto !important;
 }
 
-.capa-media img,
+.cats-hero,
+.barco-media {
+  aspect-ratio: 16 / 9 !important;
+  max-height: min(72vh, 760px) !important;
+}
+
+.capa-media {
+  aspect-ratio: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.capa-media img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
 .cats-hero img,
 .barco-media img {
   width: 100% !important;
@@ -3405,11 +3422,14 @@ body,
 }
 
 @media (min-width: 900px) {
-  .capa-media,
   .cats-hero,
   .barco-media {
     aspect-ratio: 21 / 9 !important;
     max-height: min(78vh, 820px) !important;
+  }
+  .capa-media {
+    aspect-ratio: auto !important;
+    max-height: none !important;
   }
   .capa-copy,
   .cats-head {
