@@ -2941,8 +2941,8 @@ body,
 
 .cats-hero {
   width: 100%;
-  aspect-ratio: auto;
-  max-height: none;
+  aspect-ratio: 16 / 9;
+  max-height: min(52vh, 480px);
 }
 
 .cats-head h2 {
@@ -3051,8 +3051,8 @@ body,
     gap: 18px;
   }
   .cats-hero {
-    aspect-ratio: auto;
-    max-height: none;
+    aspect-ratio: 21 / 9;
+    max-height: 460px;
   }
   .apple-tile {
     min-height: 200px;
@@ -3341,14 +3341,7 @@ body,
 .barco-media {
   aspect-ratio: 16 / 9 !important;
   max-height: min(72vh, 760px) !important;
-}
-
-.cats-hero {
-  aspect-ratio: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
-  background: transparent !important;
-  box-shadow: none !important;
+  overflow: hidden !important;
 }
 
 .capa-media {
@@ -3365,19 +3358,13 @@ body,
   object-position: center !important;
 }
 
-.cats-hero img {
-  width: 100% !important;
-  height: auto !important;
-  display: block !important;
-  object-fit: unset !important;
-  object-position: unset !important;
-}
-
+.cats-hero img,
 .barco-media img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
   object-position: center !important;
+  display: block !important;
 }
 
 /* keep copy constrained */
@@ -3441,13 +3428,10 @@ body,
 }
 
 @media (min-width: 900px) {
+  .cats-hero,
   .barco-media {
     aspect-ratio: 21 / 9 !important;
     max-height: min(78vh, 820px) !important;
-  }
-  .cats-hero {
-    aspect-ratio: auto !important;
-    max-height: none !important;
   }
   .capa-media {
     aspect-ratio: auto !important;
