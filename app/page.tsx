@@ -34,6 +34,14 @@ const wakeboardCats = [
     desc: "O topo do Brasileiro de Wakeboard.",
   },
   {
+    title: "Veteranos",
+    desc: "Masculino · 40+.",
+  },
+  {
+    title: "Seniors",
+    desc: "Masculino · 50+.",
+  },
+  {
     title: "Mirim",
     desc: "Masculino / Feminino · até 12 anos.",
     highlight: true,
