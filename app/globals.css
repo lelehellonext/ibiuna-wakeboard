@@ -3294,14 +3294,12 @@ body,
 
 /* ===== FULL-WIDTH WIDE MEDIA ===== */
 .capa-wrap,
-.cats-wrap,
-.barco-layout {
+.cats-wrap {
   overflow: visible;
 }
 
 .capa-media,
-.cats-hero,
-.barco-media {
+.cats-hero {
   width: 100vw !important;
   max-width: 100vw !important;
   margin-left: calc(50% - 50vw) !important;
@@ -3313,8 +3311,7 @@ body,
 }
 
 .capa-media img,
-.cats-hero img,
-.barco-media img {
+.cats-hero img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
@@ -3323,8 +3320,7 @@ body,
 
 /* keep copy constrained */
 .capa-copy,
-.cats-head,
-.barco-copy {
+.cats-head {
   width: 100%;
   max-width: 1180px;
   margin-left: auto;
@@ -3334,39 +3330,77 @@ body,
   box-sizing: border-box;
 }
 
+/* Barco — texto + foto lado a lado */
 .barco-layout {
-  display: flex !important;
-  flex-direction: column !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
   gap: 28px !important;
-  max-width: none !important;
+  align-items: center !important;
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding-left: 22px !important;
+  padding-right: 22px !important;
+  box-sizing: border-box !important;
 }
 
 .barco-media {
-  order: 0;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  aspect-ratio: 5 / 4 !important;
+  max-height: none !important;
+  height: auto !important;
 }
+
+.barco-media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
 .barco-copy {
-  order: 1;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 !important;
+  box-sizing: border-box;
 }
 
 @media (min-width: 900px) {
   .capa-media,
-  .cats-hero,
-  .barco-media {
+  .cats-hero {
     aspect-ratio: 21 / 9 !important;
     max-height: min(78vh, 820px) !important;
   }
   .capa-copy,
-  .cats-head,
-  .barco-copy {
+  .cats-head {
     padding-left: 56px;
     padding-right: 56px;
+  }
+
+  .barco-layout {
+    grid-template-columns: 0.95fr 1.05fr !important;
+    gap: 48px !important;
+    padding-left: 56px !important;
+    padding-right: 56px !important;
+  }
+
+  .barco-media {
+    aspect-ratio: 5 / 4 !important;
+    min-height: 420px;
   }
 }
 
 @media (min-width: 1500px) {
   .capa-copy,
-  .cats-head,
-  .barco-copy {
+  .cats-head {
     max-width: 1320px;
+  }
+
+  .barco-layout {
+    max-width: 1320px !important;
   }
 }
