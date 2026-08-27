@@ -21,5 +21,6 @@ export const CONTACT = {
   email: "leandro@hellonext.com.br",
   instagram: "ibiunawakeandsurf",
   instagramUrl: "https://instagram.com/ibiunawakeandsurf",
-  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Marina+Veleiros+de+Ibiúna+Represa+de+Itupararanga",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Nautica+Veleiros+de+Ibiuna",
 };

@@ -188,7 +188,7 @@ export default function Home() {
             <div className="media-box loc-media" data-reveal="left">
               <LocalMapClient />
               <div className="loc-map-pin">
-                <strong>Náutica Veleiros de Ibiúna</strong>
+                <strong>Nautica Veleiros de Ibiuna</strong>
                 <span>Represa de Itupararanga · Ibiúna/SP</span>
               </div>
             </div>
@@ -198,7 +198,7 @@ export default function Home() {
               </p>
               <h2 data-reveal>Local do evento</h2>
               <p className="loc-lead" data-reveal>
-                Marina Veleiros de Ibiúna, na Represa de Itupararanga — cenário natural para
+                Nautica Veleiros de Ibiuna, na Represa de Itupararanga — cenário natural para
                 wakeboard e wakesurf de alto nível.
               </p>
               <dl className="loc-facts" data-reveal-group>
@@ -698,7 +698,7 @@ export default function Home() {
                 rel="noopener noreferrer"
               >
                 <span className="fl">Local</span>
-                <span className="fv">Marina Veleiros de Ibiúna</span>
+                <span className="fv">Nautica Veleiros de Ibiuna</span>
               </a>
             </div>
             <div className="org-block">

@@ -4,10 +4,10 @@ import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-/** Condomínio / Náutica Veleiros de Ibiúna — Represa de Itupararanga */
-const LAT = -23.637165;
-const LNG = -47.320345;
-const PLACE = "Náutica Veleiros de Ibiúna";
+/** POI Google Maps: Nautica Veleiros de Ibiuna — Represa de Itupararanga */
+const LAT = -23.639292;
+const LNG = -47.3235456;
+const PLACE = "Nautica Veleiros de Ibiuna";
 
 export default function LocalMap() {
   const containerRef = useRef<HTMLDivElement>(null);
