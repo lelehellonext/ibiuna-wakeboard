@@ -5,47 +5,18 @@ import LocalMapClient from "./LocalMapClient";
 import { CONTACT } from "./sections";
 
 const wakeboardCats = [
-  {
-    title: "Estreantes",
-    desc: "Masculino · primeira experiência em competição oficial.",
-  },
-  {
-    title: "Iniciante",
-    desc: "Masculino / Feminino · evolução técnica na pista.",
-  },
-  {
-    title: "Intermediário",
-    desc: "Masculino · ritmo de disputa e manobras consistentes.",
-  },
-  {
-    title: "Avançado",
-    desc: "Masculino · alto nível técnico na represa.",
-  },
-  {
-    title: "Open Masculino",
-    desc: "Categoria aberta para atletas em busca do pódio.",
-  },
-  {
-    title: "Open Feminino",
-    desc: "Disputa feminina com presença nacional.",
-  },
-  {
-    title: "Profissional",
-    desc: "O topo do Brasileiro de Wakeboard.",
-  },
-  {
-    title: "Veteranos",
-    desc: "Masculino · 40+.",
-  },
-  {
-    title: "Seniors",
-    desc: "Masculino · 50+.",
-  },
-  {
-    title: "Mirim",
-    desc: "Masculino / Feminino · até 12 anos.",
-    highlight: true,
-  },
+  { title: "Adaptado", desc: "Categoria adaptada." },
+  { title: "Mirim Masculino", desc: "Até 12 anos." },
+  { title: "Mirim Feminino", desc: "Até 12 anos." },
+  { title: "Estreantes Masculino", desc: "Primeira experiência em competição oficial." },
+  { title: "Iniciante Masculino", desc: "Evolução técnica na pista." },
+  { title: "Iniciante Feminino", desc: "Evolução técnica na pista." },
+  { title: "Intermediário Masculino", desc: "Ritmo de disputa e manobras consistentes." },
+  { title: "Intermediário Feminino", desc: "Ritmo de disputa e manobras consistentes." },
+  { title: "Avançado Masculino", desc: "Alto nível técnico na represa." },
+  { title: "Open", desc: "Categoria aberta em busca do pódio." },
+  { title: "Profissional", desc: "O topo do Brasileiro de Wakeboard.", highlight: true },
+  { title: "Veterano Masculino", desc: "40+." },
 ];
 
 const PersonIcon = () => (
@@ -61,27 +32,16 @@ const PersonIcon = () => (
 );
 
 const wakesurfCats = [
-  {
-    title: "Iniciante",
-    desc: "Masculino / Feminino · entrada no wakesurf competitivo.",
-  },
-  {
-    title: "Junior",
-    desc: "Masculino / Feminino · desenvolvimento e performance.",
-  },
-  {
-    title: "Outlaw",
-    desc: "Masculino / Feminino · estilo livre e ousadia.",
-  },
-  {
-    title: "Masters",
-    desc: "Masculino / Feminino · experiência e técnica.",
-  },
-  {
-    title: "Profissional",
-    desc: "A elite do Brasileiro de WakeSurf.",
-    highlight: true,
-  },
+  { title: "Mirim Feminino", desc: "Até 12 anos." },
+  { title: "Mirim Masculino", desc: "Até 12 anos." },
+  { title: "Iniciante Masculino", desc: "Entrada no wakesurf competitivo." },
+  { title: "Iniciante Feminino", desc: "Entrada no wakesurf competitivo." },
+  { title: "Intermediário Masculino", desc: "Ritmo de disputa e performance." },
+  { title: "Intermediário Feminino", desc: "Ritmo de disputa e performance." },
+  { title: "Avançado Masculino", desc: "Alto nível técnico nas ondas." },
+  { title: "Pro Masculino", desc: "A elite do Brasileiro de WakeSurf.", highlight: true },
+  { title: "Open Feminino", desc: "Categoria aberta feminina." },
+  { title: "Veteranos", desc: "40+." },
 ];
 
 export default function Home() {
