@@ -2448,7 +2448,7 @@ a {
   background: var(--bg) !important;
   min-height: auto !important;
   display: block !important;
-  padding: 28px 0 40px !important;
+  padding: 0 0 40px !important;
 }
 .capa .bg-img,
 .capa .overlay,
@@ -2460,6 +2460,9 @@ a {
   gap: 28px;
   max-width: 1180px;
   margin: 0 auto;
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 .capa-media {
   width: 100%;
@@ -2630,7 +2633,7 @@ a {
 
 @media (min-width: 900px) {
   .capa {
-    padding: 40px 0 56px !important;
+    padding: 0 0 56px !important;
   }
   .capa-media {
     aspect-ratio: auto;
@@ -3462,6 +3465,18 @@ body,
 }
 
 /* ===== CAPA: full artwork, never crop ===== */
+#inicio.capa {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+#inicio.capa .capa-wrap {
+  padding-top: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  gap: 28px;
+}
+
 #inicio.capa .capa-media,
 .capa .capa-media {
   width: 100vw !important;
