@@ -55,10 +55,10 @@ export default function Home() {
       <main className="page">
         {/* ============ CAPA ============ */}
         <section id="inicio" className="section capa">
-          <div className="section-inner capa-wrap">
-            <div className="capa-media" data-reveal>
-              <img src="/img/capa.jpg?v=6" alt="Ibiúna Wake & Surf 2026" />
-            </div>
+          <div className="capa-media">
+            <img src="/img/capa.jpg?v=6" alt="Ibiúna Wake & Surf 2026" />
+          </div>
+          <div className="capa-below">
             <div className="capa-copy" data-reveal>
               <span className="badge">Campeonato Brasileiro</span>
               <h1>
