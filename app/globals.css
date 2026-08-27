@@ -3542,43 +3542,63 @@ body,
 }
 
 /* ===== ABW ===== */
+#abw.abw-sec,
 .abw-sec {
   display: block !important;
-  min-height: auto !important;
+  min-height: 0 !important;
+  height: auto !important;
   padding: 48px 0 !important;
+  margin: 0 !important;
   background: var(--surface) !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
 }
 
+#abw .abw-layout,
 .abw-layout {
   display: grid !important;
   grid-template-columns: 1fr !important;
-  gap: 28px !important;
-  align-items: center !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+  width: 100% !important;
   max-width: 1180px !important;
   margin: 0 auto !important;
   padding: 0 22px !important;
   box-sizing: border-box !important;
 }
 
-.abw-media {
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  border-radius: 22px !important;
-  aspect-ratio: 16 / 10 !important;
-  max-height: none !important;
-  overflow: hidden !important;
-  background: #fff !important;
-  border: 1px solid rgba(0, 0, 0, 0.04) !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+#abw .abw-copy,
+.abw-copy {
+  order: 1;
+  min-width: 0;
 }
 
+#abw .abw-media,
+.abw-media {
+  order: 0;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 22px !important;
+  aspect-ratio: 2 / 1 !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  height: auto !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08) !important;
+}
+
+#abw .abw-media img,
 .abw-media img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
   object-position: center !important;
   display: block !important;
+  border-radius: 0 !important;
 }
 
 .abw-copy .lbl {
@@ -3657,16 +3677,25 @@ body,
   display: inline-flex !important;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 800px) {
+  #abw .abw-layout,
   .abw-layout {
-    grid-template-columns: 0.95fr 1.05fr !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) !important;
     gap: 40px !important;
+    align-items: center !important;
     padding: 0 56px !important;
     max-width: 1320px !important;
   }
 
+  #abw .abw-copy,
+  .abw-copy {
+    order: 0;
+  }
+
+  #abw .abw-media,
   .abw-media {
-    aspect-ratio: 5 / 4 !important;
-    min-height: 360px;
+    order: 1;
+    aspect-ratio: 2 / 1 !important;
+    align-self: center;
   }
 }
