@@ -60,7 +60,7 @@ export default function SiteChrome() {
 
       <header className="header">
         <button className="brand" onClick={() => go("inicio")} aria-label="Início">
-          <Image src="/img/logo.png" alt="Ibiúna Wake & Surf" width={88} height={40} priority />
+          <Image src="/img/logo-ws.png" alt="Ibiúna Wake & Surf" width={96} height={44} priority />
           <span className="txt">
             <b>Ibiúna Wake &amp; Surf</b>
             <span>Campeonato Brasileiro 2026</span>
