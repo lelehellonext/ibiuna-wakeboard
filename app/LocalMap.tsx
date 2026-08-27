@@ -4,8 +4,10 @@ import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
+/** Condomínio / Náutica Veleiros de Ibiúna — Represa de Itupararanga */
 const LAT = -23.637165;
 const LNG = -47.320345;
+const PLACE = "Náutica Veleiros de Ibiúna";
 
 export default function LocalMap() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,7 +20,7 @@ export default function LocalMap() {
 
     const map = L.map(el, {
       center: [LAT, LNG],
-      zoom: 14,
+      zoom: 15,
       scrollWheelZoom: false,
       zoomControl: false,
       attributionControl: true,
@@ -34,15 +36,22 @@ export default function LocalMap() {
 
     const icon = L.divIcon({
       className: "loc-leaflet-marker",
-      html: '<span class="loc-leaflet-dot"></span>',
+      html: '<span class="loc-leaflet-dot" aria-hidden="true"></span>',
       iconSize: [28, 28],
       iconAnchor: [14, 14],
     });
 
     L.marker([LAT, LNG], { icon })
       .addTo(map)
+      .bindTooltip(PLACE, {
+        permanent: true,
+        direction: "top",
+        offset: [0, -14],
+        className: "loc-leaflet-tooltip",
+        opacity: 1,
+      })
       .bindPopup(
-        "<strong>Marina Veleiros de Ibiúna</strong><br/>Represa de Itupararanga",
+        `<strong>${PLACE}</strong><br/>Represa de Itupararanga · Ibiúna/SP`,
         { closeButton: false }
       );
 
@@ -63,7 +72,7 @@ export default function LocalMap() {
       ref={containerRef}
       className="loc-leaflet"
       role="img"
-      aria-label="Mapa da Marina Veleiros de Ibiúna"
+      aria-label={`Mapa da ${PLACE}`}
     />
   );
 }

@@ -188,7 +188,7 @@ export default function Home() {
             <div className="media-box loc-media" data-reveal="left">
               <LocalMapClient />
               <div className="loc-map-pin">
-                <strong>Marina Veleiros de Ibiúna</strong>
+                <strong>Náutica Veleiros de Ibiúna</strong>
                 <span>Represa de Itupararanga · Ibiúna/SP</span>
               </div>
             </div>
