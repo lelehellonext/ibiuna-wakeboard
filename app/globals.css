@@ -3552,6 +3552,7 @@ body,
   background: var(--surface) !important;
   align-items: stretch !important;
   justify-content: flex-start !important;
+  overflow: visible !important;
 }
 
 #abw .abw-layout,
@@ -3680,11 +3681,13 @@ body,
 @media (min-width: 800px) {
   #abw .abw-layout,
   .abw-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) !important;
-    gap: 40px !important;
+    grid-template-columns: minmax(300px, 460px) minmax(0, 1fr) !important;
+    gap: 36px !important;
     align-items: center !important;
-    padding: 0 56px !important;
-    max-width: 1320px !important;
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 0 0 max(56px, calc((100vw - 1320px) / 2 + 56px)) !important;
   }
 
   #abw .abw-copy,
@@ -3695,8 +3698,14 @@ body,
   #abw .abw-media,
   .abw-media {
     order: 1;
-    aspect-ratio: 2 / 1 !important;
-    align-self: center;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 460px !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+    align-self: stretch !important;
+    border-radius: 22px 0 0 22px !important;
+    border-right: 0 !important;
   }
 }
 
