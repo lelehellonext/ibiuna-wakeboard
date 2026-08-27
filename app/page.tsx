@@ -372,8 +372,8 @@ export default function Home() {
                 Fazer filiação 2026
               </a>
             </div>
-            <div className="media-box abw-media">
-              <img src="/img/abw-juria.jpg?v=2" alt="Júria ABW — Associação Brasileira de Wakeboard" />
+            <div className="abw-media">
+              <img src="/img/abw-juria.jpg?v=3" alt="Júria ABW — Associação Brasileira de Wakeboard" />
             </div>
           </div>
         </section>
