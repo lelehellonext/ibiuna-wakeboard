@@ -288,29 +288,34 @@ export default function Home() {
             <div className="media-box barco-media">
               <img src="/img/nautique-team.jpg?v=1" alt="Nautique G23 — equipe oficial" />
             </div>
-            <div className="barco-copy">
-              <p className="lbl">Barco Oficial</p>
-              <h1 className="name">
-                Nautique <span>G23</span>
-              </h1>
-              <p className="sub">
-                Referência mundial em competições de Wakeboard e WakeSurf
-              </p>
-              <div className="boat-feats">
-                <div className="bf">
-                  <div className="bft">Ondas perfeitas</div>
+            <div className="barco-body">
+              <div className="barco-copy">
+                <p className="lbl">Barco Oficial</p>
+                <h1 className="name">
+                  Nautique <span>G23</span>
+                </h1>
+                <p className="sub">
+                  Referência mundial em competições de Wakeboard e WakeSurf
+                </p>
+                <div className="boat-feats">
+                  <div className="bf">
+                    <div className="bft">Ondas perfeitas</div>
+                  </div>
+                  <div className="bf">
+                    <div className="bft">Alta performance</div>
+                  </div>
+                  <div className="bf">
+                    <div className="bft">Nível mundial</div>
+                  </div>
+                  <div className="bf">
+                    <div className="bft">Referência no esporte</div>
+                  </div>
                 </div>
-                <div className="bf">
-                  <div className="bft">Alta performance</div>
-                </div>
-                <div className="bf">
-                  <div className="bft">Nível mundial</div>
-                </div>
-                <div className="bf">
-                  <div className="bft">Referência no esporte</div>
-                </div>
+                <span className="abw">Homologado · Associação Brasileira de Wakeboard (ABW)</span>
               </div>
-              <span className="abw">Homologado · Associação Brasileira de Wakeboard (ABW)</span>
+              <div className="media-box barco-side">
+                <img src="/img/g23.jpg" alt="Nautique G23" />
+              </div>
             </div>
           </div>
         </section>
