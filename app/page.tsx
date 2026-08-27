@@ -90,7 +90,7 @@ export default function Home() {
         {/* ============ SOBRE ============ */}
         <section id="sobre" className="section light sobre">
           <div className="media-box hero-media">
-            <img className="hero-img" src="/img/surfistas.jpg" alt="Atletas de WakeSurf" />
+            <img className="hero-img" src="/img/sobre-cartoon.jpg?v=1" alt="Ibiúna Wake & Surf 2026" />
           </div>
           <div className="section-inner" data-reveal-group>
             <div className="sec-title">
