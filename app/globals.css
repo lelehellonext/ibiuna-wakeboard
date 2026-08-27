@@ -3334,12 +3334,13 @@ body,
   margin-left: calc(50% - 50vw) !important;
   margin-right: calc(50% - 50vw) !important;
   border-radius: 0 !important;
-  height: auto !important;
 }
 
 .cats-hero,
 .barco-media {
+  position: relative !important;
   aspect-ratio: 16 / 9 !important;
+  height: auto !important;
   max-height: min(72vh, 760px) !important;
   overflow: hidden !important;
 }
@@ -3347,6 +3348,7 @@ body,
 .capa-media {
   aspect-ratio: auto !important;
   max-height: none !important;
+  height: auto !important;
   overflow: visible !important;
 }
 
@@ -3360,6 +3362,8 @@ body,
 
 .cats-hero img,
 .barco-media img {
+  position: absolute !important;
+  inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
