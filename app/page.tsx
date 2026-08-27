@@ -345,7 +345,7 @@ export default function Home() {
         <section id="abw" className="section abw-sec">
           <div className="section-inner abw-layout" data-reveal-group>
             <div className="media-box abw-media">
-              <img src="/img/abw-juria.jpg?v=1" alt="Júria ABW — Associação Brasileira de Wakeboard" />
+              <img src="/img/abw-juria.jpg?v=2" alt="Júria ABW — Associação Brasileira de Wakeboard" />
             </div>
             <div className="abw-body">
               <div className="abw-copy">
