@@ -289,7 +289,7 @@ export default function Home() {
               <img src="/img/nautique-team.jpg?v=1" alt="Nautique G23 — equipe oficial" />
             </div>
             <div className="barco-copy">
-              <p className="lbl">Equipamento oficial</p>
+              <p className="lbl">Barco Oficial</p>
               <h1 className="name">
                 Nautique <span>G23</span>
               </h1>
