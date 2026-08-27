@@ -2864,6 +2864,7 @@ body,
 .local,
 .cats,
 .barco,
+.abw-sec,
 .estrutura,
 .apoiadores,
 .video,
@@ -3536,6 +3537,139 @@ body,
 
   #inicio.capa .capa-below {
     padding: 36px 56px 0;
+    max-width: 1320px;
+  }
+}
+
+/* ===== ABW ===== */
+.abw-sec {
+  display: block !important;
+  min-height: auto !important;
+  padding: 48px 0 !important;
+  background: var(--surface) !important;
+}
+
+.abw-layout {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 28px !important;
+  max-width: none !important;
+  padding: 0 !important;
+}
+
+.abw-media {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  border-radius: 0 !important;
+  aspect-ratio: 2 / 1 !important;
+  max-height: min(72vh, 760px) !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.abw-media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+}
+
+.abw-body {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 22px;
+  box-sizing: border-box;
+}
+
+.abw-copy .lbl {
+  color: var(--ink-3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 650;
+  margin: 0 0 8px;
+}
+
+.abw-title {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.abw-sub {
+  margin: 8px 0 14px;
+  color: var(--ink-2);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.abw-lead {
+  margin: 0 0 22px;
+  max-width: 40rem;
+  color: var(--ink-2);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.abw-list-title {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.abw-list {
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  max-width: 44rem;
+}
+
+.abw-list li {
+  position: relative;
+  padding: 14px 16px 14px 42px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.abw-list li::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 1.15em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue-soft);
+}
+
+.abw-cta {
+  display: inline-flex !important;
+}
+
+@media (min-width: 900px) {
+  .abw-media {
+    aspect-ratio: 21 / 9 !important;
+    max-height: min(78vh, 820px) !important;
+  }
+
+  .abw-body {
+    padding: 0 56px;
     max-width: 1320px;
   }
 }

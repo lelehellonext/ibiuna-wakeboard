@@ -8,6 +8,7 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "wakeboard", label: "Wakeboard", short: "Wakeboard" },
   { id: "wakesurf", label: "WakeSurf", short: "WakeSurf" },
   { id: "barco", label: "Barco Oficial", short: "Barco" },
+  { id: "abw", label: "ABW", short: "ABW" },
   { id: "galeria", label: "Galeria", short: "Galeria" },
   { id: "apoiadores", label: "Apoiadores", short: "Apoio" },
   { id: "video", label: "Vídeos", short: "Vídeos" },
