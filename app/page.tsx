@@ -285,6 +285,9 @@ export default function Home() {
         {/* ============ BARCO OFICIAL ============ */}
         <section id="barco" className="section barco">
           <div className="section-inner barco-layout" data-reveal-group>
+            <div className="media-box barco-media">
+              <img src="/img/nautique-team.jpg?v=1" alt="Nautique G23 — equipe oficial" />
+            </div>
             <div className="barco-copy">
               <p className="lbl">Equipamento oficial</p>
               <h1 className="name">
@@ -308,9 +311,6 @@ export default function Home() {
                 </div>
               </div>
               <span className="abw">Homologado · Associação Brasileira de Wakeboard (ABW)</span>
-            </div>
-            <div className="media-box barco-media">
-              <img src="/img/nautique-team.jpg?v=1" alt="Nautique G23 — equipe oficial" />
             </div>
           </div>
         </section>
