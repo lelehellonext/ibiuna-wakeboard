@@ -236,7 +236,7 @@ export default function Home() {
         <section id="wakeboard" className="section cats">
           <div className="section-inner cats-wrap">
             <div className="media-box cats-hero" data-reveal>
-              <img src="/img/acao-wakeboard.jpg?v=3" alt="Nautique G23 — Wakeboard" />
+              <img src="/img/wakeboard-cartoon.jpg?v=1" alt="Wakeboard — Ibiúna Wake & Surf 2026" />
             </div>
             <header className="cats-head" data-reveal>
               <p className="kicker">Modalidade</p>
@@ -261,7 +261,7 @@ export default function Home() {
         <section id="wakesurf" className="section cats">
           <div className="section-inner cats-wrap">
             <div className="media-box cats-hero" data-reveal>
-              <img src="/img/acao-wakesurf.jpg?v=2" alt="Nautique G23 — WakeSurf" />
+              <img src="/img/wakesurf-cartoon.jpg?v=1" alt="WakeSurf — Ibiúna Wake & Surf 2026" />
             </div>
             <header className="cats-head" data-reveal>
               <p className="kicker">Modalidade</p>
