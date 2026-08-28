@@ -257,7 +257,12 @@
     }
     .cover-photo {
       margin-top: 16px;
-      max-height: min(38vh, 360px);
+      max-height: none;
+      aspect-ratio: 2 / 1;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      background: transparent;
     }
     .photo-wide {
       width: 100%;
@@ -274,6 +279,15 @@
       margin-top: 18px;
       flex: 0 0 auto;
     }
+    .photo-wide.cover-photo {
+      aspect-ratio: 2 / 1;
+      max-height: none;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      background: transparent;
+    }
+
 
     .local-top {
       display: flex;
@@ -953,7 +967,12 @@
     }
     .cover-photo {
       margin-top: 16px;
-      max-height: min(38vh, 360px);
+      max-height: none;
+      aspect-ratio: 2 / 1;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      background: transparent;
     }
     .photo-wide { max-height: min(36vh, 280px); margin-top: 14px; }
       .site-header .meta span { display: none; }
@@ -1112,11 +1131,17 @@
         padding: 20px 16px 88px;
       }
       .photo-wide,
-      .cover-photo,
       #s4 .photo-wide {
         max-height: none;
         width: 100%;
         aspect-ratio: 16 / 9;
+      }
+      .cover-photo {
+        max-height: none;
+        width: 100%;
+        aspect-ratio: 2 / 1;
+        object-fit: contain;
+        object-position: center top;
       }
       #s4 .photo-wide {
         object-position: center bottom;
@@ -1222,9 +1247,12 @@
 
     @media (max-height: 740px) and (min-width: 901px) {
       .photo-wide,
-      .cover-photo,
       #s4 .photo-wide {
         max-height: min(34vh, 280px);
+      }
+      .cover-photo {
+        max-height: none;
+        object-fit: contain;
       }
       .vcard-frame {
         max-height: min(48vh, 420px);
