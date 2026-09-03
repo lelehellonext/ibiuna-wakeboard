@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" role="img" aria-label="Y'UP">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7EE93F"/>
+      <stop offset="100%" stop-color="#479B10"/>
+    </linearGradient>
+  </defs>
+  <!-- simplified flag mark -->
+  <g transform="translate(8,14)">
+    <path fill="url(#g)" d="M8 8h52c6 0 10 4 10 10v52c0 6-4 10-10 10H28L8 92V8z"/>
+    <path fill="#06140a" d="M22 28h24v8H22zm0 16h18v8H22zm0 16h22v8H22z"/>
+  </g>
+  <text x="92" y="82" font-family="Arial Black, Helvetica Neue, Arial, sans-serif" font-size="72" font-weight="900" letter-spacing="-2" fill="#FFFFFF">Y'UP</text>
+</svg>

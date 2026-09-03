@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#7EE93F" />
+  <meta name="description" content="Proposta de parceria de apoio para Y'UP — Campeonato Brasileiro de Wakeboard & Surf 2026 por R$ 10.000, com boia de raia e ativação do app." />
+  <title>Y'UP — Parceria de Apoio · Wakeboard & Surf 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+
+
+    :root {
+      --navy: #070707;
+      --navy-2: #101010;
+      --blue: #479B10;
+      --blue-2: #7EE93F;
+      --blue-soft: #F1FBE6;
+      --line: #E6E6E0;
+      --muted: #6c6c6b;
+      --white: #FFFFFF;
+      --bg: #FFFFFF;
+      --header-h: 64px;
+      --font: "Space Grotesk", system-ui, sans-serif;
+      --radius: 4px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--navy);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--header-h);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(16px, 3vw, 40px);
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-header .brand img {
+      height: 40px;
+      width: auto;
+      display: block;
+      border-radius: 8px;
+    }
+    img.logo, img.logo.lg {
+      border-radius: 12px;
+    }
+    .site-header .meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .site-header .meta span {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: none;
+      background: var(--blue);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover { background: var(--blue-2); color: var(--navy); }
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1px solid var(--navy);
+    }
+    .btn-outline:hover { background: var(--blue-soft); }
+    .btn-navy {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .btn-navy:hover { background: var(--navy-2); }
+
+    .deck {
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      padding-top: var(--header-h);
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      background: var(--bg);
+    }
+
+    .slide-wrap {
+      position: relative;
+      width: min(1120px, 100%);
+      height: calc(100vh - var(--header-h));
+      height: calc(100dvh - var(--header-h));
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      width: 100%;
+      height: 100%;
+      background: var(--white);
+      color: var(--navy);
+    }
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      animation: fade .28s ease;
+    }
+    @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+    .slide-pad {
+      height: 100%;
+      padding: clamp(24px, 4vh, 48px) clamp(20px, 4vw, 48px) 88px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+    .eyebrow::before {
+      content: "";
+      width: 18px;
+      height: 2px;
+      background: var(--blue);
+    }
+
+    h1, h2 {
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: var(--navy);
+    }
+    h1 {
+      font-size: clamp(1.8rem, 4.2vw, 3.2rem);
+      margin-top: 14px;
+      max-width: 16ch;
+    }
+    h1 .accent { color: var(--navy); background: linear-gradient(transparent 62%, var(--blue-2) 62%); }
+    h2 {
+      font-size: clamp(1.45rem, 3vw, 2.2rem);
+      margin: 10px 0 14px;
+    }
+    h2 em {
+      font-style: normal;
+      color: var(--blue);
+    }
+
+    .lead {
+      font-size: clamp(0.95rem, 1.4vw, 1.08rem);
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 54ch;
+      font-weight: 400;
+    }
+    .lead strong { color: var(--navy); font-weight: 600; }
+
+    .logo {
+      height: 40px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .logo.lg { height: clamp(52px, 7vw, 72px); }
+    .site-header .brand img { border-radius: 8px; }
+    .logo { border-radius: 8px; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(20px, 3vw, 40px);
+      align-items: stretch;
+      flex: 1;
+      min-height: 0;
+    }
+    .split > div:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .photo {
+      width: 100%;
+      height: 100%;
+      min-height: 240px;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--blue-soft);
+    }
+    .photo-stack {
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
+      min-height: 0;
+      height: 100%;
+    }
+    .photo-stack .photo { min-height: 0; height: 100%; }
+
+    .cover-top {
+      flex: 0 0 auto;
+    }
+    .cover-photo {
+      margin-top: 16px;
+      max-height: none;
+      aspect-ratio: 2 / 1;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      background: transparent;
+    }
+    .photo-wide {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      min-height: 0;
+      max-height: min(44vh, 440px);
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--blue-soft);
+      margin-top: 18px;
+      flex: 0 0 auto;
+    }
+    .photo-wide.cover-photo {
+      aspect-ratio: 2 / 1;
+      max-height: none;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      background: transparent;
+    }
+
+
+    .local-top {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .local-cards {
+      margin-top: 16px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--navy);
+      background: var(--white);
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+    .stat .n {
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      font-weight: 700;
+      color: var(--blue);
+      line-height: 1;
+    }
+    .stat .l {
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+      background: var(--white);
+    }
+    .card .num {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .day-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 8px;
+      flex: 0 0 auto;
+    }
+    #s4 .photo-wide {
+      margin-top: 12px;
+      max-height: min(46vh, 460px);
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center bottom;
+    }
+    #s4 .slide-pad {
+      padding-bottom: 80px;
+    }
+    #s4 .lead { margin-bottom: 4px; }
+    #s4 h2 { margin-bottom: 8px; }
+    #s4 .day .body { padding: 10px 12px; }
+    #s4 .day .body p { font-size: 12px; }
+    #s4 .day .head { padding: 10px 12px; }
+    #s4 .day .head .d { font-size: 22px; }
+    #s4 .day h3 { font-size: 14px; margin-bottom: 4px; }
+    .day {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+    }
+    .day .head {
+      background: var(--navy);
+      color: var(--white);
+      padding: 16px;
+    }
+    .day .head .d {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .day .head .m {
+      margin-top: 6px;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .day .body { padding: 16px; }
+    .day h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .day p { font-size: 13px; color: var(--muted); line-height: 1.45; }
+    .day .time {
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue);
+    }
+
+    .check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .check-list li {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 12px;
+      align-items: start;
+      font-size: 15px;
+      line-height: 1.4;
+      color: var(--navy);
+    }
+    .check-list .chk {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid var(--blue);
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 2px;
+      background: var(--blue-soft);
+    }
+
+    .price {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      line-height: 1;
+      margin: 8px 0;
+    }
+
+    .box {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      background: var(--blue-soft);
+      margin-top: 16px;
+    }
+    .box strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: var(--navy);
+    }
+    .box p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .name-lock {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      font-size: clamp(1rem, 1.8vw, 1.3rem);
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--white);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      background: var(--white);
+    }
+    .panel h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin: 10px 0 14px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+      flex: 1;
+      min-height: 280px;
+    }
+    .gallery.dense {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      min-height: 0;
+      align-content: start;
+    }
+    .gallery.dense .cell {
+      min-height: 0;
+      aspect-ratio: 3 / 2;
+    }
+
+
+    #s9 .slide-pad {
+      padding-bottom: 76px;
+    }
+    #s9 .lead { margin-bottom: 10px !important; }
+    #s9 h2 { margin: 6px 0 8px; }
+    #s9 .gallery.dense {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      flex: 1;
+      min-height: 240px;
+      height: auto;
+      align-content: start;
+    }
+    #s9 .gallery.dense .cell {
+      aspect-ratio: 3 / 2;
+      min-height: 0;
+      height: auto;
+    }
+    #s9 .gallery.dense .cell.big {
+      grid-column: span 2;
+      grid-row: span 2;
+      min-height: 0;
+      height: auto;
+    }
+
+    .gallery.premiacao-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 10px;
+      flex: 1;
+      min-height: 0;
+      align-content: stretch;
+    }
+    .gallery.premiacao-grid .cell {
+      aspect-ratio: 16 / 10;
+      min-height: 0;
+    }
+    @media (max-width: 900px) {
+  
+    #s9 .slide-pad {
+      padding-bottom: 76px;
+    }
+    #s9 .lead { margin-bottom: 10px !important; }
+    #s9 h2 { margin: 6px 0 8px; }
+    #s9 .gallery.dense {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      flex: 1;
+      min-height: 240px;
+      height: auto;
+      align-content: start;
+    }
+    #s9 .gallery.dense .cell {
+      aspect-ratio: 3 / 2;
+      min-height: 0;
+      height: auto;
+    }
+    #s9 .gallery.dense .cell.big {
+      grid-column: span 2;
+      grid-row: span 2;
+      min-height: 0;
+      height: auto;
+    }
+
+    .gallery.premiacao-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+  
+    #s9 .slide-pad {
+      padding-bottom: 76px;
+    }
+    #s9 .lead { margin-bottom: 10px !important; }
+    #s9 h2 { margin: 6px 0 8px; }
+    #s9 .gallery.dense {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      flex: 1;
+      min-height: 240px;
+      height: auto;
+      align-content: start;
+    }
+    #s9 .gallery.dense .cell {
+      aspect-ratio: 3 / 2;
+      min-height: 0;
+      height: auto;
+    }
+    #s9 .gallery.dense .cell.big {
+      grid-column: span 2;
+      grid-row: span 2;
+      min-height: 0;
+      height: auto;
+    }
+
+    .gallery.premiacao-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery.premiacao-grid .cell {
+        aspect-ratio: 16 / 10;
+      }
+    }
+
+    .gallery.dense .cell.big {
+      grid-column: span 2;
+      grid-row: span 2;
+      aspect-ratio: auto;
+      min-height: 220px;
+    }
+    .gallery .cell {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      min-height: 120px;
+    }
+    .gallery .cell.big {
+      grid-row: span 2;
+    }
+    .gallery .cell.big img {
+      object-fit: cover;
+      object-position: center;
+    }
+    @media (min-width: 901px) {
+      .gallery .cell.big {
+        aspect-ratio: auto;
+      }
+    }
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery .cap {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 12px;
+      background: linear-gradient(transparent, rgba(5,19,42,.75));
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .reasons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 28px;
+      margin-top: 8px;
+    }
+    .reason {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .reason .dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-top: 2px;
+    }
+    .reason h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .reason p { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 22px;
+      max-width: 720px;
+    }
+    .field {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      background: var(--white);
+      text-align: left;
+    }
+    .field .fl {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .field .fv {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .field a.fv {
+      text-decoration: none;
+      color: var(--blue);
+    }
+    .field a.fv:hover {
+      text-decoration: underline;
+    }
+
+    .center {
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+    }
+    .center .eyebrow { justify-content: center; }
+    .center .lead { margin-left: auto; margin-right: auto; }
+    .center h1, .center h2 { max-width: none; }
+
+    #s14 h2 { margin-bottom: 4px; }
+    .brand-video {
+      box-shadow: 0 12px 32px rgba(5, 19, 42, 0.12);
+    }
+
+
+    .video-grid {
+      display: flex;
+      gap: 14px;
+      flex: 1 1 auto;
+      min-height: 0;
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      align-items: stretch;
+      padding: 4px 2px 12px;
+      scrollbar-width: thin;
+    }
+    .vcard {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 auto;
+      width: clamp(160px, 18vw, 220px);
+      min-width: 160px;
+      max-width: 220px;
+      height: auto;
+      min-height: 0;
+      scroll-snap-align: start;
+    }
+    .vcard-frame {
+      flex: 0 0 auto;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      height: auto;
+      max-height: min(58vh, 520px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 8px 24px rgba(5, 19, 42, 0.1);
+    }
+    .vcard-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+    .vcard-label {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    #s13 .slide-pad,
+    #s14 .slide-pad {
+      padding-bottom: 78px;
+      overflow-x: visible;
+    }
+    #s13 .slide.active,
+    #s14 .slide.active {
+      overflow-x: auto;
+      overflow-y: auto;
+    }
+    #s13 h2, #s14 h2 { margin-bottom: 4px; }
+    @media (max-width: 900px) {
+      .vcard-frame { max-height: 42vh; }
+    }
+    @media (max-width: 640px) {
+      .video-grid.brands,
+      .vcard-frame { max-height: 36vh; }
+    }
+
+    .video-frame.event-video {
+      width: min(860px, 92%);
+      aspect-ratio: 16 / 9;
+      height: auto;
+      max-height: min(52vh, 480px);
+      margin: 12px auto 0;
+      box-shadow: 0 12px 32px rgba(5, 19, 42, 0.12);
+    }
+    .video-frame.event-video video {
+      object-fit: contain;
+      background: #000;
+    }
+    @media (max-width: 640px) {
+      .video-frame.event-video {
+        width: 100%;
+        max-height: 40vh;
+      }
+    }
+    button.brand-chip {
+      cursor: pointer;
+      font-family: var(--font);
+      background: var(--white);
+    }
+    button.brand-chip.on {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--white);
+    }
+    button.brand-chip:hover { border-color: var(--blue); color: var(--blue); }
+    button.brand-chip.on:hover { color: var(--white); }
+    .video-frame {
+      width: min(280px, 70vw);
+      aspect-ratio: 9/16;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 16px auto 0;
+      background: #000;
+    }
+    .video-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .meta-line {
+      margin-top: 18px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 8px 14px;
+      border-radius: 999px;
+      z-index: 999;
+      box-shadow: 0 8px 24px rgba(5, 19, 42, 0.06);
+    }
+    .nav button {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: var(--navy);
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav button:hover { background: var(--blue); }
+    .nav .counter {
+      font-size: 12px;
+      font-weight: 600;
+      min-width: 46px;
+      text-align: center;
+      color: var(--muted);
+    }
+    .dots { display: flex; gap: 5px; }
+    .dots span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #C9D7EA; cursor: pointer;
+    }
+    .dots span.on { background: var(--blue); }
+
+    .rule {
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+      margin: 18px 0;
+    }
+
+    @media (max-width: 900px) {
+      .split, .two-col, .reasons, .day-grid, .card-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        min-height: 0;
+      }
+      .gallery .cell.big {
+        grid-column: span 2;
+        grid-row: span 1;
+        min-height: 180px;
+      }
+      .gallery .cell { min-height: 140px; }
+      .photo-stack {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        min-height: 180px;
+      }
+      .split .photo, .split .photo-stack { min-height: 200px; max-height: 260px; }
+      .cover-top {
+      flex: 0 0 auto;
+    }
+    .cover-photo {
+      margin-top: 16px;
+      max-height: none;
+      aspect-ratio: 2 / 1;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      background: transparent;
+    }
+    .photo-wide { max-height: min(36vh, 280px); margin-top: 14px; }
+      .site-header .meta span { display: none; }
+      h1 { max-width: none; }
+    }
+
+    @media (max-width: 640px) {
+      :root { --header-h: 56px; }
+      .site-header { padding: 0 14px; }
+      .site-header .brand img { height: 26px; }
+      .btn { height: 36px; font-size: 13px; padding: 0 14px; }
+      .slide-wrap { width: 100%; }
+      .stat-row { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr; }
+      .gallery.dense { grid-template-columns: 1fr 1fr; }
+      .gallery .cell.big,
+  
+
+    #s9 .slide-pad {
+      padding-bottom: 76px;
+    }
+    #s9 .lead { margin-bottom: 10px !important; }
+    #s9 h2 { margin: 6px 0 8px; }
+    #s9 .gallery.dense {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      flex: 1;
+      min-height: 240px;
+      height: auto;
+      align-content: start;
+    }
+    #s9 .gallery.dense .cell {
+      aspect-ratio: 3 / 2;
+      min-height: 0;
+      height: auto;
+    }
+    #s9 .gallery.dense .cell.big {
+      grid-column: span 2;
+      grid-row: span 2;
+      min-height: 0;
+      height: auto;
+    }
+
+    .gallery.premiacao-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 10px;
+      flex: 1;
+      min-height: 0;
+      align-content: stretch;
+    }
+    .gallery.premiacao-grid .cell {
+      aspect-ratio: 16 / 10;
+      min-height: 0;
+    }
+    @media (max-width: 900px) {
+  
+    #s9 .slide-pad {
+      padding-bottom: 76px;
+    }
+    #s9 .lead { margin-bottom: 10px !important; }
+    #s9 h2 { margin: 6px 0 8px; }
+    #s9 .gallery.dense {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      flex: 1;
+      min-height: 240px;
+      height: auto;
+      align-content: start;
+    }
+    #s9 .gallery.dense .cell {
+      aspect-ratio: 3 / 2;
+      min-height: 0;
+      height: auto;
+    }
+    #s9 .gallery.dense .cell.big {
+      grid-column: span 2;
+      grid-row: span 2;
+      min-height: 0;
+      height: auto;
+    }
+
+    .gallery.premiacao-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+  
+    #s9 .slide-pad {
+      padding-bottom: 76px;
+    }
+    #s9 .lead { margin-bottom: 10px !important; }
+    #s9 h2 { margin: 6px 0 8px; }
+    #s9 .gallery.dense {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      flex: 1;
+      min-height: 240px;
+      height: auto;
+      align-content: start;
+    }
+    #s9 .gallery.dense .cell {
+      aspect-ratio: 3 / 2;
+      min-height: 0;
+      height: auto;
+    }
+    #s9 .gallery.dense .cell.big {
+      grid-column: span 2;
+      grid-row: span 2;
+      min-height: 0;
+      height: auto;
+    }
+
+    .gallery.premiacao-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery.premiacao-grid .cell {
+        aspect-ratio: 16 / 10;
+      }
+    }
+
+    .gallery.dense .cell.big { grid-column: span 2; grid-row: auto; min-height: 160px; }
+      .photo-stack { grid-template-columns: 1fr; }
+      .nav {
+        width: calc(100vw - 16px);
+        justify-content: space-between;
+        border-radius: 14px;
+        bottom: max(8px, env(safe-area-inset-bottom));
+      }
+      .dots { flex: 1; justify-content: center; flex-wrap: wrap; max-width: 45vw; }
+    }
+
+    /* ===== RESPONSIVE HARDENING ===== */
+    .slide-pad {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    @media (max-width: 1100px) {
+      .vcard-label { font-size: 11px; }
+    }
+
+    @media (max-width: 900px) {
+      .slide-wrap {
+        width: 100%;
+        height: calc(100vh - var(--header-h));
+        height: calc(100dvh - var(--header-h));
+      }
+      .slide.active {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .slide-pad {
+        height: auto;
+        min-height: 100%;
+        padding: 20px 16px 88px;
+      }
+      .photo-wide,
+      #s4 .photo-wide {
+        max-height: none;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+      }
+      .cover-photo {
+        max-height: none;
+        width: 100%;
+        aspect-ratio: 2 / 1;
+        object-fit: contain;
+        object-position: center top;
+      }
+      #s4 .photo-wide {
+        object-position: center bottom;
+      }
+      .day-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery.dense,
+      .gallery.premiacao-grid {
+        grid-template-columns: 1fr 1fr !important;
+      }
+      .gallery.dense .cell.big,
+      .gallery.premiacao-grid .cell {
+        grid-column: span 1;
+        grid-row: auto;
+        aspect-ratio: 3 / 2;
+        min-height: 0;
+      }
+      #s9 .gallery.dense .cell.big {
+        grid-column: span 2;
+      }
+      .vcard-frame {
+        max-height: none;
+        width: 100%;
+        aspect-ratio: 9 / 16;
+      }
+      .site-header .btn {
+        font-size: 12px;
+        padding: 0 12px;
+        height: 34px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      :root { --header-h: 56px; }
+      h1 { font-size: clamp(1.55rem, 7.5vw, 2.1rem); max-width: none; }
+      h2 { font-size: clamp(1.3rem, 6.5vw, 1.7rem); }
+      .lead { font-size: 0.95rem; max-width: none; }
+      .cta-row { gap: 8px; }
+      .btn { width: auto; min-height: 40px; }
+      .chips { gap: 6px; }
+      .chip { font-size: 11px; padding: 7px 10px; }
+      .stat-row { grid-template-columns: 1fr; gap: 10px; }
+      .card-grid,
+      .two-col,
+      .reasons,
+      .contact-grid,
+      .day-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .split {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .split .photo,
+      .split .photo-stack {
+        max-height: none;
+        min-height: 200px;
+        height: 220px;
+      }
+      .photo-stack {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        height: 180px;
+      }
+      .gallery.dense,
+      .gallery.premiacao-grid {
+        grid-template-columns: 1fr !important;
+      }
+      #s9 .gallery.dense .cell.big {
+        grid-column: auto;
+      }
+      .video-grid.brands,
+      .vcard-frame {
+        aspect-ratio: 9 / 16;
+        max-height: 46vh;
+      }
+      .nav {
+        width: calc(100vw - 16px);
+        max-width: calc(100vw - 16px);
+        justify-content: space-between;
+        bottom: max(8px, env(safe-area-inset-bottom));
+      }
+      .dots {
+        flex: 1;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 48vw;
+        gap: 4px;
+      }
+      .site-header {
+        padding: 0 12px;
+      }
+      .site-header .meta span { display: none; }
+      .price { font-size: clamp(2rem, 10vw, 2.8rem); }
+    }
+
+    @media (max-width: 420px) {
+      .video-grid.brands,
+      .vcard-label { font-size: 11px; }
+    }
+
+    @media (max-height: 740px) and (min-width: 901px) {
+      .photo-wide,
+      #s4 .photo-wide {
+        max-height: min(34vh, 280px);
+      }
+      .cover-photo {
+        max-height: none;
+        object-fit: contain;
+      }
+      .vcard-frame {
+        max-height: min(48vh, 420px);
+      }
+    }
+
+  
+    /* Lightbox / zoomable images */
+    .zoomable {
+      cursor: zoom-in;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+      will-change: transform;
+    }
+    .photo-wide.zoomable,
+    .cover-photo.zoomable,
+    .photo.zoomable {
+      transform-origin: center center;
+    }
+    .photo-wide.zoomable:hover,
+    .cover-photo.zoomable:hover,
+    .photo.zoomable:hover {
+      transform: scale(1.035);
+      filter: brightness(1.04);
+    }
+    .gallery .cell {
+      cursor: zoom-in;
+    }
+    .gallery .cell img {
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+      will-change: transform;
+    }
+    .gallery .cell:hover img {
+      transform: scale(1.08);
+      filter: brightness(1.05);
+    }
+    .gallery .cell:hover .cap {
+      opacity: 1;
+    }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 4000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 4vw, 40px);
+      background: rgba(5, 12, 28, 0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .lightbox-inner {
+      position: relative;
+      max-width: min(1100px, 94vw);
+      max-height: 88vh;
+      transform: scale(0.96) translateY(8px);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .lightbox.open .lightbox-inner {
+      transform: scale(1) translateY(0);
+    }
+    .lightbox-inner img {
+      display: block;
+      max-width: 100%;
+      max-height: 82vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+      background: #0a1220;
+    }
+    .lightbox-cap {
+      margin-top: 12px;
+      text-align: center;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 999px;
+      background: #fff;
+      color: #111;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .lightbox-close:hover { transform: scale(1.06); }
+    @media (max-width: 640px) {
+      .lightbox-close { top: -8px; right: 0; }
+      .photo-wide.zoomable:hover,
+      .cover-photo.zoomable:hover,
+      .photo.zoomable:hover { transform: scale(1.02); }
+    }
+
+  
+    /* Mobile gallery fix — avoid collapsed cells */
+    @media (max-width: 900px) {
+      #s9 .slide-pad,
+      #s11 .slide-pad {
+        height: auto !important;
+        min-height: 100%;
+      }
+      #s9 .gallery.dense,
+      #s11 .gallery.premiacao-grid,
+      .gallery.dense,
+      .gallery.premiacao-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-auto-rows: auto !important;
+        grid-template-rows: none !important;
+        height: auto !important;
+        max-height: none !important;
+        min-height: 0 !important;
+        flex: 0 0 auto !important;
+        align-content: start !important;
+        gap: 10px !important;
+      }
+      #s9 .gallery.dense .cell,
+      #s9 .gallery.dense .cell.big,
+      #s11 .gallery.premiacao-grid .cell,
+      .gallery.dense .cell,
+      .gallery.dense .cell.big,
+      .gallery.premiacao-grid .cell,
+      .gallery .cell {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        height: auto !important;
+        min-height: unset !important;
+        aspect-ratio: unset !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+      #s9 .gallery.dense .cell.big {
+        grid-column: 1 / -1 !important;
+      }
+      .gallery .cell img,
+      .gallery.dense .cell img,
+      .gallery.premiacao-grid .cell img {
+        position: static !important;
+        inset: auto !important;
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 3 / 2 !important;
+        object-fit: cover !important;
+        transform-origin: center center;
+      }
+      #s9 .gallery.dense .cell.big img {
+        aspect-ratio: 16 / 10 !important;
+      }
+      .gallery .cap {
+        position: absolute;
+        left: 0; right: 0; bottom: 0;
+      }
+    }
+    @media (max-width: 640px) {
+      #s9 .gallery.dense,
+      #s11 .gallery.premiacao-grid,
+      .gallery.dense,
+      .gallery.premiacao-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+      }
+      .gallery .cap { font-size: 11px; padding: 10px; }
+    }
+
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="assets/yup-icon.png" alt="Y'UP" />
+    </div>
+    <div class="meta">
+      <span>Parceria de apoio · 2026</span>
+      <button class="btn" type="button" onclick="goTo(7)">Ver apoio</button>
+    </div>
+  </header>
+
+  <div class="deck">
+    <div class="slide-wrap">
+
+      <!-- 1 CAPA -->
+      <div class="slide active" id="s1">
+        <div class="slide-pad">
+          <div class="cover-top">
+            <img class="logo lg" src="assets/yup-icon.png" alt="Y'UP" />
+            <p class="eyebrow" style="margin-top:18px;">Proposta de parceria de apoio</p>
+            <h1>Parceiro de <span class="accent">apoio</span></h1>
+            <p class="lead" style="margin-top:12px;">Campeonato Brasileiro de Wakeboard &amp; Surf · Represa de Itupararanga, Ibiúna/SP · 19, 20 e 21 de novembro de 2026</p>
+            <div class="cta-row">
+              <button class="btn" type="button" onclick="goTo(7)">Ver investimento</button>
+              <button class="btn btn-outline" type="button" onclick="goTo(6)">Ver proposta</button>
+            </div>
+            <div class="chips">
+              <span class="chip">Exclusividade app wake</span>
+              <span class="chip">Boia de raia</span>
+              <span class="chip">Windbanner</span>
+            </div>
+            <p class="meta-line">App oficial · boia de raia Y'UP</p>
+          </div>
+          <img class="photo-wide cover-photo" src="/img/capa.jpg?v=6" alt="Ibiúna Wake & Surf 2026" />
+        </div>
+      </div>
+
+      <!-- 2 SOBRE -->
+      <!-- 2 SOBRE -->
+      <div class="slide" id="s2">
+        <div class="slide-pad">
+          <div class="cover-top">
+            <p class="eyebrow">O evento</p>
+            <h2>Sobre o <em>campeonato</em></h2>
+            <p class="lead">A edição 2026 do <strong>Campeonato Brasileiro de Wakeboard e Surf</strong> acontece na Represa de Itupararanga, em Ibiúna (SP). O evento reúne atletas de todo o Brasil e cerca de 800 famílias de altíssimo padrão (classes A+ e A) dos condomínios Veleiros de Ibiúna e Porto de Ibiúna.</p>
+            <p class="lead" style="margin-top:12px;">Como <strong>parceiro de apoio</strong>, a <strong>Y'UP</strong> — o lar digital do wakeboard — ativa o app no campeonato: progressão, XP, crew e presença de marca na água (incluindo <strong>boia de raia</strong>), sem naming rights.</p>
+            <div class="stat-row">
+              <div class="stat"><div class="n">800+</div><div class="l">Famílias A/A+</div></div>
+              <div class="stat"><div class="n">3</div><div class="l">Dias de evento</div></div>
+              <div class="stat"><div class="n">12+</div><div class="l">Categorias</div></div>
+            </div>
+          </div>
+          <img class="photo-wide" src="assets/foto_09_redbull_tenda.png" alt="Estrutura e público do evento" />
+        </div>
+      </div>
+
+      <!-- 3 LOCAL -->
+      <div class="slide" id="s3">
+        <div class="slide-pad">
+          <div class="local-top">
+            <p class="eyebrow">Local</p>
+            <h2>Represa de <em>Itupararanga</em></h2>
+            <p class="lead">Ibiúna – São Paulo · Ambiente premium com infraestrutura náutica completa</p>
+            <div class="card-grid local-cards">
+              <div class="card"><div class="num">01</div><h3>Represa</h3><p>Represa de Itupararanga<br>Ibiúna – São Paulo</p></div>
+              <div class="card"><div class="num">02</div><h3>Marina</h3><p>Marina de Veleiros de Ibiúna<br>Estrutura náutica completa</p></div>
+              <div class="card"><div class="num">03</div><h3>Condomínios</h3><p>Veleiros de Ibiúna<br>Porto de Ibiúna</p></div>
+              <div class="card"><div class="num">04</div><h3>Ambiente</h3><p>Natureza exuberante<br>Infraestrutura premium</p></div>
+            </div>
+          </div>
+          <img class="photo-wide" src="assets/img_estrutura_evento.png" alt="Montagem da estrutura do evento na Represa de Itupararanga" />
+        </div>
+      </div>
+
+      <!-- 4 CRONOGRAMA -->
+      <div class="slide" id="s4">
+        <div class="slide-pad">
+          <p class="eyebrow">Programação</p>
+          <h2>Cronograma <em>2026</em></h2>
+          <p class="lead">Novembro · Represa de Itupararanga, Ibiúna – SP</p>
+          <div class="day-grid" style="margin-top:20px;">
+            <div class="day">
+              <div class="head"><div class="d">19</div><div class="m">Nov · Quinta</div></div>
+              <div class="body"><h3>Dia de Treinos</h3><p>Aquecimento oficial e treinos livres na represa.</p><div class="time">A partir das 8h00</div></div>
+            </div>
+            <div class="day">
+              <div class="head"><div class="d">20</div><div class="m">Nov · Sexta</div></div>
+              <div class="body"><h3>Brasileiro de WakeSurf</h3><p>Competição oficial com todas as categorias no Nautique G23.</p><div class="time">A partir das 8h00</div></div>
+            </div>
+            <div class="day">
+              <div class="head"><div class="d">21</div><div class="m">Nov · Sábado</div></div>
+              <div class="body"><h3>Wakeboard + Premiação</h3><p>Final, cerimônia de premiação e festa de encerramento.</p><div class="time">A partir das 8h00</div></div>
+            </div>
+          </div>
+          <img class="photo-wide" src="assets/foto_23_cronograma.png" alt="Área do evento · Cronograma 2026" />
+        </div>
+      </div>
+
+      <!-- 5 PUBLICO -->
+      <div class="slide" id="s5">
+        <div class="slide-pad">
+          <div class="split">
+            <img class="photo" src="assets/foto_03_familia.png" alt="Público e famílias" />
+            <div>
+              <p class="eyebrow">Audiência</p>
+              <h2>Público <em>premium</em></h2>
+              <p class="lead" style="margin-bottom:16px;">Acesso a atletas, famílias e a comunidade do wake — o público natural da Y'UP para download, XP e ranking no app.</p>
+              <ul class="check-list">
+                <li><span class="chk">✓</span><span><strong>~800 famílias classes A+ e A</strong><br>Residentes e veranistas dos condomínios</span></li>
+                <li><span class="chk">✓</span><span><strong>Alto poder aquisitivo</strong><br>Perfil premium com consumo elevado</span></li>
+                <li><span class="chk">✓</span><span><strong>Lifestyle náutico e esportivo</strong><br>Decisores e famílias em ambiente exclusivo</span></li>
+                <li><span class="chk">✓</span><span><strong>Marina privativa</strong><br>Ativação em condomínios fechados</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 PATROCINADOR -->
+      <div class="slide" id="s6">
+        <div class="slide-pad">
+          <img class="logo" src="assets/yup-icon.png" alt="Y'UP" />
+          <p class="eyebrow" style="margin-top:20px;">Parceria de apoio</p>
+          <h2>Parceiro de <em>apoio</em></h2>
+          <p class="lead">A Y'UP figura como parceira de apoio do campeonato — com ativação do app, marca na água (boia de raia), windbanner e presença digital no evento. O campeonato permanece sob a identidade da organização.</p>
+          <div class="name-lock">Campeonato Brasileiro de Wakeboard &amp; Surf · Apoio Y'UP</div>
+          <div class="box">
+            <strong>Exclusividade app / plataforma wake</strong>
+            <p>Nenhum concorrente de app ou plataforma digital de wakeboard poderá ter a mesma cota de apoio no evento. A Y'UP será a referência digital associada ao campeonato.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 COTA -->
+      <div class="slide" id="s7">
+        <div class="slide-pad">
+          <div class="split">
+            <div>
+              <img class="logo" src="assets/yup-icon.png" alt="Y'UP" />
+              <p class="eyebrow" style="margin-top:18px;">Cota de apoio</p>
+              <h2>O que está <em>incluso</em></h2>
+              <div class="price">R$ 10.000</div>
+              <p class="lead">Investimento · Parceiro de apoio + boia de raia + exclusividade app</p>
+              <div class="rule"></div>
+              <ul class="check-list">
+                <li><span class="chk">✓</span><span>Marca como <strong>parceiro de apoio</strong> nas comunicações do evento</span></li>
+                <li><span class="chk">✓</span><span><strong>Exclusividade na categoria app / plataforma digital de wake</strong></span></li>
+                <li><span class="chk">✓</span><span><strong>Boia de raia</strong> com a marca Y'UP na água</span></li>
+                <li><span class="chk">✓</span><span>Windbanner com a marca</span></li>
+                <li><span class="chk">✓</span><span>Logo em destaque na transmissão ao vivo</span></li>
+                <li><span class="chk">✓</span><span>Presença oficial na cerimônia de premiação</span></li>
+                <li><span class="chk">✓</span><span>Espaço de ativação Y'UP (QR / download do app + stand)</span></li>
+                <li><span class="chk">✓</span><span>Vídeo promocional + inserções em redes sociais</span></li>
+                <li><span class="chk">✓</span><span>Material nos kits dos atletas</span></li>
+              </ul>
+            </div>
+            <div class="photo-stack">
+              <img class="photo" src="assets/foto_14_wakeboard_acao.png" alt="Wakeboard no evento" />
+              <img class="photo" src="assets/screen-xp.webp" alt="Y'UP · XP por manobra" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 EXCLUSIVIDADE -->
+      <div class="slide" id="s8">
+        <div class="slide-pad">
+          <img class="logo" src="assets/yup-icon.png" alt="Y'UP" />
+          <p class="eyebrow" style="margin-top:18px;">Diferencial</p>
+          <h2>Exclusividade no <em>segmento</em></h2>
+          <p class="lead">Proteção de marca na categoria app / plataforma digital de wake, com ativação alinhada ao território Y'UP.</p>
+          <div class="two-col" style="margin-top:20px;">
+            <div class="panel">
+              <span class="chip">Garantido</span>
+              <h3>Categoria app wake</h3>
+              <ul class="check-list">
+                <li><span class="chk">✓</span><span>Única plataforma digital de wake na cota de apoio</span></li>
+                <li><span class="chk">✓</span><span>Bloqueio a apps / plataformas concorrentes de wakeboard</span></li>
+                <li><span class="chk">✓</span><span>Associação exclusiva da Y'UP como apoio na categoria</span></li>
+              </ul>
+            </div>
+            <div class="panel" style="background:var(--blue-soft);">
+              <span class="chip">Posicionamento</span>
+              <h3>Por que importa</h3>
+              <p class="lead" style="max-width:none;">O campeonato é o território natural da Y'UP: atletas, manobras, sessões e comunidade. A exclusividade reforça a Y'UP como o lar digital do wake associado ao Brasileiro.</p>
+              <p style="margin-top:16px;font-weight:700;color:var(--navy);">Y'UP = o app do evento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 GALERIA -->
+      <div class="slide" id="s9">
+        <div class="slide-pad">
+          <p class="eyebrow">Referência</p>
+          <h2>Ativações e <em>experiência</em></h2>
+          <p class="lead" style="margin-bottom:16px;">Como marcas e público se conectam na Represa de Itupararanga</p>
+          <div class="gallery dense">
+            <div class="cell big"><img src="assets/foto_14_wakeboard_acao.png" alt="Wakeboard" /><div class="cap">Wakeboard na represa</div></div>
+            <div class="cell"><img src="assets/foto_09_redbull_tenda.png" alt="Tenda do evento" /><div class="cap">Hospitalidade</div></div>
+            <div class="cell"><img src="assets/foto_14_wakeboard_acao.png" alt="Barra do evento" /><div class="cap">Área de convivência</div></div>
+            <div class="cell"><img src="assets/foto_14_wakeboard_acao.png" alt="Ativação Y'UP" /><div class="cap">Ativação de marca</div></div>
+            <div class="cell"><img src="assets/foto_14_wakeboard_acao.png" alt="Y'UP" /><div class="cap">Download do app</div></div>
+            <div class="cell"><img src="assets/foto_14_wakeboard_acao.png" alt="Ativação Y'UP" /><div class="cap">Ativação Y'UP</div></div>
+            <div class="cell"><img src="assets/foto_15_treino_tenda.png" alt="Treino" /><div class="cap">Treino no evento</div></div>
+            <div class="cell"><img src="assets/foto_08_atletas.png" alt="Fitness" /><div class="cap">Experiência fitness</div></div>
+            <div class="cell"><img src="assets/img_estrutura_evento.png" alt="Estrutura" /><div class="cap">Estrutura na represa</div></div>
+            <div class="cell"><img src="assets/foto_02_experiencia.png" alt="Experiência" /><div class="cap">Experiência</div></div>
+            <div class="cell"><img src="assets/foto_04_wellness.png" alt="Wellness" /><div class="cap">Wellness</div></div>
+            <div class="cell"><img src="assets/foto_08_atletas.png" alt="Hospitalidade" /><div class="cap">Barra</div></div>
+            <div class="cell"><img src="assets/foto_20_podio_campeoes.png" alt="Premiação" /><div class="cap">Premiação</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 POR QUE -->
+      <div class="slide" id="s10">
+        <div class="slide-pad">
+          <p class="eyebrow">Estratégia</p>
+          <h2>Por que a <em>Y'UP</em></h2>
+          <div class="reasons">
+            <div>
+              <div class="reason"><div class="dot">1</div><div><h3>Território natural</h3><p>O Brasileiro de wake é o ambiente certo para a Y'UP: manobras, sessões e comunidade</p></div></div>
+              <div class="reason"><div class="dot">2</div><div><h3>Marca na água</h3><p>Boia de raia + windbanner — presença visual em toda a competição</p></div></div>
+              <div class="reason"><div class="dot">3</div><div><h3>Exclusividade app</h3><p>Única plataforma digital de wake na cota de apoio</p></div></div>
+            </div>
+            <div>
+              <div class="reason"><div class="dot">4</div><div><h3>Download no evento</h3><p>Stand com QR para App Store e Google Play + kits dos atletas</p></div></div>
+              <div class="reason"><div class="dot">5</div><div><h3>Transmissão ao vivo</h3><p>Logo em destaque durante toda a competição via streaming</p></div></div>
+              <div class="reason"><div class="dot">6</div><div><h3>Público A/A+</h3><p>Acesso a ~800 famílias e atletas em marina privativa</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11 PREMIACAO -->
+      <div class="slide" id="s11">
+        <div class="slide-pad">
+          <p class="eyebrow">Edição anterior</p>
+          <h2>Premiação <em>2025</em></h2>
+          <p class="lead" style="margin-bottom:14px;">Celebração e reconhecimento aos campeões</p>
+          <div class="gallery dense premiacao-grid">
+            <div class="cell"><img src="assets/foto_22_grupo_final.png" alt="Cerimônia de premiação" /><div class="cap">Cerimônia de premiação</div></div>
+            <div class="cell"><img src="assets/foto_21_podio_wakeboard.png" alt="Pódio wakeboard" /><div class="cap">Pódio wakeboard</div></div>
+            <div class="cell"><img src="assets/foto_20_podio_campeoes.png" alt="Campeões" /><div class="cap">Campeões</div></div>
+            <div class="cell"><img src="assets/foto_19_podio_familia.png" alt="Pódio família" /><div class="cap">Pódio · família</div></div>
+            <div class="cell"><img src="assets/foto_18_podio_kids.png" alt="Pódio kids" /><div class="cap">Pódio kids</div></div>
+            <div class="cell"><img src="assets/foto_17_publico.png" alt="Público na premiação" /><div class="cap">Público na premiação</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12 CTA -->
+      <div class="slide" id="s12">
+        <div class="slide-pad center">
+          <img class="logo lg" src="assets/yup-icon.png" alt="Y'UP" />
+          <p class="eyebrow" style="margin-top:22px;">Parceria de apoio 2026</p>
+          <h2>Parceiro de <em>apoio</em></h2>
+          <p class="lead" style="margin-top:4px;">Campeonato Brasileiro de Wakeboard &amp; Surf · Ibiúna 2026</p>
+          <div class="price">R$ 10.000</div>
+          <p class="lead">Apoio Y'UP · R$ 10.000 · boia de raia<br>19, 20 e 21 de novembro de 2026</p>
+          <div class="cta-row" style="justify-content:center;">
+            <a class="btn" href="mailto:leandro@hellonext.com.br">Falar com a organização</a>
+            <a class="btn btn-outline" href="https://y-up.app/" target="_blank" rel="noopener">y-up.app</a>
+            <a class="btn btn-outline" href="https://www.instagram.com/ibiunawakeandsurf" target="_blank" rel="noopener">@ibiunawakeandsurf</a>
+          </div>
+          <p class="meta-line" style="margin-top:14px;">Your Life Your Story · o lar digital do wakeboard</p>
+          <div class="contact-grid">
+            <div class="field"><span class="fl">E-mail</span><span class="fv">leandro@hellonext.com.br</span></div>
+            <div class="field"><span class="fl">WhatsApp / Telefone</span><span class="fv">11 93316-5193</span></div>
+            <div class="field"><span class="fl">Site</span><span class="fv">ibiunawakeboard.com.br</span></div>
+            <div class="field"><span class="fl">Instagram</span><a class="fv" href="https://www.instagram.com/ibiunawakeandsurf" target="_blank" rel="noopener">@ibiunawakeandsurf</a></div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 13 ATIVACOES MARCAS -->
+      <div class="slide" id="s13">
+        <div class="slide-pad">
+          <p class="eyebrow">Vídeo marcas</p>
+          <h2>Ativações de <em>marcas</em></h2>
+          <p class="lead" style="margin-bottom:12px;">Conteúdos de marca produzidos no evento</p>
+          <div class="video-grid brands">
+            <div class="vcard">
+              <div class="vcard-frame">
+                <video src="https://hnstvxiystzivw.blob.core.windows.net/media/yh-beyond/6cef021c-f7e3-44f2-9c66-7b95e3c2f246/blobimagescorona_vertical.mp4" controls playsinline preload="metadata"></video>
+              </div>
+              <div class="vcard-label">Corona</div>
+            </div>
+            <div class="vcard">
+              <div class="vcard-frame">
+                <video src="https://hnstvxpfrgrjma.blob.core.windows.net/media/yh-beyond/1e3027a9-36af-480f-80f5-a9a70d77fadd/blobimagesdermage_vertical.mp4" controls playsinline preload="metadata"></video>
+              </div>
+              <div class="vcard-label">Dermage</div>
+            </div>
+            <div class="vcard">
+              <div class="vcard-frame">
+                <video src="https://hnstvwrmcuflqg.blob.core.windows.net/media/yh-beyond/43420782-7054-4121-973e-7cd5583bc2b2/blobimagestechnogym_vertical.mp4" controls playsinline preload="metadata"></video>
+              </div>
+              <div class="vcard-label">Technogym</div>
+            </div>
+            <div class="vcard">
+              <div class="vcard-frame">
+                <video src="https://hnstvthcyke2cg.blob.core.windows.net/media/yh-beyond/5a65a132-56d7-49a3-ac65-fb5281e4724b/blobimagespilula_bside_v2.mp4" controls playsinline preload="metadata"></video>
+              </div>
+              <div class="vcard-label">B-Side</div>
+            </div>
+            <div class="vcard">
+              <div class="vcard-frame">
+                <video src="https://hnstvudmwki1sg.blob.core.windows.net/media/yh-beyond/a12149d9-8a15-4252-80f5-f483ec313fbb/blobimagespilula_beyond_vertical.mp4" controls playsinline preload="metadata"></video>
+              </div>
+              <div class="vcard-label">Beyond</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14 VIDEOS EVENTO -->
+      <div class="slide" id="s14">
+        <div class="slide-pad">
+          <p class="eyebrow">Vídeos evento</p>
+          <h2>Highlights do <em>campeonato</em></h2>
+          <p class="lead" style="margin-bottom:12px;">Registros oficiais · Ibiúna</p>
+          <div class="video-grid events">
+            <div class="vcard">
+              <div class="vcard-frame">
+                <video src="https://hnstvudmwki1sg.blob.core.windows.net/media/yh-beyond/b692ab08-1064-4d31-aeab-b2ddc909aa08/blobimageshighlights_1_dia.mp4" controls playsinline preload="metadata"></video>
+              </div>
+              <div class="vcard-label">1º dia</div>
+            </div>
+            <div class="vcard">
+              <div class="vcard-frame">
+                <video src="https://hnstvxnaoddwwg.blob.core.windows.net/media/yh-beyond/6c729789-1e3d-436c-92b9-66009ee4b20b/blobimagestreino.mp4" controls playsinline preload="metadata"></video>
+              </div>
+              <div class="vcard-label">Treino</div>
+            </div>
+            <div class="vcard">
+              <div class="vcard-frame">
+                <video src="https://hnstvxnaoddwwg.blob.core.windows.net/media/yh-beyond/b9b74bff-4ade-4054-beba-a3342c8f745a/blobimageshighlights_2_dia_.mp4" controls playsinline preload="metadata"></video>
+              </div>
+              <div class="vcard-label">2º dia</div>
+            </div>
+            <div class="vcard">
+              <div class="vcard-frame">
+                <video src="https://hnstvwrmcuflqg.blob.core.windows.net/media/yh-beyond/62594b9a-9917-4e71-972d-1c452d4b44cf/blobimagesfinal_ibiunawakesurf_1.mp4" controls playsinline preload="metadata"></video>
+              </div>
+              <div class="vcard-label">Final</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="lightbox-inner">
+      <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
+      <img id="lightboxImg" src="" alt="" />
+      <div class="lightbox-cap" id="lightboxCap"></div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <button type="button" onclick="go(-1)" aria-label="Anterior">&#8592;</button>
+    <div class="dots" id="dots"></div>
+    <span class="counter" id="ctr">1 / 14</span>
+    <button type="button" onclick="go(1)" aria-label="Próximo">&#8594;</button>
+  </div>
+
+  <script>
+    const N = 14;
+    let cur = 1;
+    const dots = document.getElementById('dots');
+    for (let i = 1; i <= N; i++) {
+      const s = document.createElement('span');
+      if (i === 1) s.className = 'on';
+      s.onclick = () => goTo(i);
+      dots.appendChild(s);
+    }
+    function pauseAllVideos() {
+      document.querySelectorAll('video').forEach(v => { try { v.pause(); } catch (e) {} });
+    }
+    function goTo(n) {
+      pauseAllVideos();
+      document.getElementById('s' + cur).classList.remove('active');
+      dots.children[cur - 1].className = '';
+      cur = Math.max(1, Math.min(n, N));
+      document.getElementById('s' + cur).classList.add('active');
+      dots.children[cur - 1].className = 'on';
+      document.getElementById('ctr').textContent = cur + ' / ' + N;
+      history.replaceState(null, '', '#s' + cur);
+    }
+    function go(d) { goTo(cur + d); }
+    window.goTo = goTo;
+    document.addEventListener('keydown', e => {
+      if (document.getElementById('lightbox')?.classList.contains('open')) return;
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
+      if (e.key === 'ArrowLeft') go(-1);
+    });
+    let tx = 0;
+    document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+    document.addEventListener('touchend', e => {
+      const d = tx - e.changedTouches[0].clientX;
+      if (Math.abs(d) > 40) go(d > 0 ? 1 : -1);
+    }, { passive: true });
+    const hash = location.hash.match(/^#s(\\d+)$/);
+    if (hash) goTo(Number(hash[1]));
+  
+
+    (function setupLightbox() {
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImg');
+      const cap = document.getElementById('lightboxCap');
+      const closeBtn = document.getElementById('lightboxClose');
+      if (!lb || !img) return;
+
+      function openLightbox(src, alt) {
+        img.src = src;
+        img.alt = alt || '';
+        cap.textContent = alt || '';
+        lb.hidden = false;
+        lb.setAttribute('aria-hidden', 'false');
+        requestAnimationFrame(() => lb.classList.add('open'));
+      }
+      function closeLightbox() {
+        lb.classList.remove('open');
+        lb.setAttribute('aria-hidden', 'true');
+        setTimeout(() => {
+          if (!lb.classList.contains('open')) {
+            lb.hidden = true;
+            img.src = '';
+          }
+        }, 250);
+      }
+
+      document.querySelectorAll('img.photo, img.photo-wide, img.cover-photo, .gallery .cell img, .photo-stack img.photo').forEach(el => {
+        if (el.closest('.brand') || el.classList.contains('logo')) return;
+        el.classList.add('zoomable');
+        el.addEventListener('click', e => {
+          e.stopPropagation();
+          const cell = el.closest('.cell');
+          const alt = (cell && cell.querySelector('.cap') ? cell.querySelector('.cap').textContent : el.alt) || '';
+          openLightbox(el.currentSrc || el.src, alt.trim());
+        });
+      });
+
+      closeBtn.addEventListener('click', e => { e.stopPropagation(); closeLightbox(); });
+      lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && lb.classList.contains('open')) {
+          e.preventDefault();
+          closeLightbox();
+          return;
+        }
+        if (lb.classList.contains('open') && (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === ' ')) {
+          e.stopPropagation();
+        }
+      }, true);
+    })();
+
+  </script>
+</body>
+</html>
