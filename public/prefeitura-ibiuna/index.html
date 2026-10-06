@@ -419,6 +419,76 @@
       .contact { grid-template-columns: repeat(4, 1fr); }
     }
 
+    /* ---------- Mobile ---------- */
+    @media (max-width: 959px) {
+      .split > .media { order: -1; }
+    }
+    @media (max-width: 599px) {
+      :root { --header-h: 56px; }
+      .header {
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+      }
+      .brand { gap: 10px; }
+      .brand img { height: 30px; }
+      .brand .txt b { font-size: 0.76rem; }
+      .btn { min-height: 38px; padding: 0 14px; font-size: 0.78rem; }
+
+      .wrap { padding-left: 18px; padding-right: 18px; }
+      h2 { font-size: 1.5rem; }
+      h3 { font-size: 1.08rem; }
+      .lead { font-size: 0.98rem; }
+      .kicker { font-size: 0.68rem; letter-spacing: 0.12em; }
+
+      .capa-copy { padding-top: 32px; padding-bottom: 36px; }
+      .vs { font-size: 0.8rem; gap: 4px 10px; margin-top: 14px; }
+      .vs .x { font-size: 1.2em; }
+      .meta-row { gap: 8px; margin-top: 20px; }
+      .pill { font-size: 0.74rem; padding: 8px 12px; }
+
+      .block { padding: 44px 0; }
+      .pillar { padding: 40px 0; }
+      .split { gap: 22px; }
+      .media { border-radius: 18px; }
+
+      .pillar-head { flex-direction: column; gap: 4px; margin-bottom: 16px; }
+      .pillar-head .kicker { margin-bottom: 6px; }
+      .num { font-size: 2.3rem; }
+
+      .index-grid { gap: 8px; margin-top: 22px; }
+      .index-grid a { padding: 12px 14px; font-size: 0.88rem; }
+
+      .chips { gap: 6px; }
+      .chips li { padding: 8px 12px; font-size: 0.8rem; }
+      .items li { font-size: 0.92rem; }
+      .list-title { margin: 20px 0 10px; font-size: 0.72rem; }
+      .concept { padding: 14px 16px; font-size: 0.98rem; }
+      .ask { padding: 18px; border-radius: 16px; }
+      .ask p { font-size: 0.9rem; }
+
+      .card-grid { gap: 12px; margin-top: 22px; }
+      .pillar .card-grid { margin-top: 0; }
+      .card { padding: 20px 18px; border-radius: 18px; }
+      .check { gap: 8px; margin-top: 22px; }
+      .check li { font-size: 0.9rem; padding: 12px 14px 12px 44px; }
+
+      .formula { gap: 6px; margin-top: 20px; }
+      .formula span { padding: 8px 11px; font-size: 0.78rem; border-radius: 10px; }
+
+      .message { padding: 52px 0; }
+      .message blockquote { font-size: 1.18rem; line-height: 1.4; }
+
+      .contact strong { font-size: 0.9rem; overflow-wrap: anywhere; }
+      .no-print .btn { flex: 1 1 auto; }
+      footer { padding: 28px 18px 40px; font-size: 0.74rem; }
+    }
+    @media (max-width: 380px) {
+      h1 { font-size: 1.9rem; }
+    }
+    @media (max-width: 330px) {
+      .brand .txt { display: none; }
+    }
+
     /* ---------- Print / PDF ---------- */
     @media print {
       @page { size: A4; margin: 14mm; }
