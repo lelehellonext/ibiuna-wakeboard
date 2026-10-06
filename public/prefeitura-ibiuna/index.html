@@ -373,19 +373,6 @@
     .message blockquote::after { content: "”"; color: #e2b866; }
     .message .signoff { margin-top: 24px; color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; }
 
-    /* ---------- Assinatura ---------- */
-    .sign-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
-    .sign {
-      padding: 26px 24px;
-      background: #fff;
-      border-radius: 20px;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-    }
-    .sign .line { height: 1px; background: var(--ink); margin: 56px 0 10px; opacity: 0.6; }
-    .sign b { display: block; font-size: 0.95rem; }
-    .sign span { display: block; color: var(--ink-2); font-size: 0.84rem; }
-    .sign .fields { margin-top: 14px; display: grid; gap: 8px; font-size: 0.84rem; color: var(--ink-2); }
-
     .contact { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 30px; }
     .contact a, .contact div {
       display: block;
@@ -421,7 +408,6 @@
       .index-grid { grid-template-columns: repeat(2, 1fr); }
       .card-grid { grid-template-columns: repeat(2, 1fr); }
       .check { grid-template-columns: repeat(2, 1fr); }
-      .sign-grid { grid-template-columns: repeat(2, 1fr); }
       .contact { grid-template-columns: repeat(2, 1fr); }
     }
     @media (min-width: 960px) {
@@ -441,7 +427,7 @@
       main { padding-top: 0; }
       .pillar, .block, .message { padding: 18pt 0; }
       .pillar:nth-of-type(even), .block.white { background: #fff; }
-      .pillar, .card, .ask, .sign, .media, .concept { break-inside: avoid; }
+      .pillar, .card, .ask, .media, .concept { break-inside: avoid; }
       .message { background: #fff; color: var(--ink); border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold); }
       .message blockquote { color: var(--ink); }
       .message .signoff { color: var(--ink-2); }
@@ -1117,39 +1103,13 @@
       </div>
     </section>
 
-    <!-- ============ ASSINATURA ============ -->
-    <section id="assinatura" class="block">
+    <!-- ============ CONTATO ============ -->
+    <section id="contato" class="block">
       <div class="wrap">
-        <p class="kicker">Formalização</p>
-        <h2 style="margin-top:12px;">De acordo com a proposta de parceria institucional</h2>
-        <p class="lead" style="margin-top:14px;">
-          As partes manifestam interesse em desenvolver, em conjunto, as frentes descritas neste documento, cujos
-          detalhes operacionais serão definidos em instrumento próprio.
-        </p>
-        <div class="sign-grid">
-          <div class="sign">
-            <b>Prefeitura Municipal de Ibiúna</b>
-            <span>Representante legal</span>
-            <div class="line"></div>
-            <div class="fields">
-              <div>Nome: ____________________________________</div>
-              <div>Cargo: ____________________________________</div>
-              <div>Data: ____ / ____ / 2026</div>
-            </div>
-          </div>
-          <div class="sign">
-            <b>Campeonato Brasileiro Ibiúna Wake&amp;Surf</b>
-            <span>Organização</span>
-            <div class="line"></div>
-            <div class="fields">
-              <div>Nome: ____________________________________</div>
-              <div>Cargo: ____________________________________</div>
-              <div>Data: ____ / ____ / 2026</div>
-            </div>
-          </div>
-        </div>
+        <p class="kicker">Contato</p>
+        <h2 style="margin-top:12px;">Vamos construir essa parceria juntos</h2>
 
-        <div class="contact">
+        <div class="contact" style="margin-top:24px;">
           <a href="mailto:leandro@hellonext.com.br"><small>E-mail</small><strong>leandro@hellonext.com.br</strong></a>
           <a href="https://wa.me/5511933165193" target="_blank" rel="noopener"><small>WhatsApp</small><strong>(11) 93316-5193</strong></a>
           <a href="https://www.ibiunawakeboard.com.br" target="_blank" rel="noopener"><small>Site</small><strong>ibiunawakeboard.com.br</strong></a>
