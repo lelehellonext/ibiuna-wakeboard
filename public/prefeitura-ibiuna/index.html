@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#f2f2f4" />
+  <title>Prefeitura de Ibiúna × Campeonato Brasileiro Ibiúna Wake&amp;Surf · Proposta de Parceria Institucional</title>
+  <meta name="description" content="Proposta de parceria institucional entre a Prefeitura de Ibiúna e o Campeonato Brasileiro Ibiúna Wake&Surf 2026." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f2f2f4;
+      --surface: #ffffff;
+      --ink: #1d1d1f;
+      --ink-2: #6e6e73;
+      --ink-3: #86868b;
+      --line: #d2d2d7;
+      --blue: #0071e3;
+      --blue-ink: #0066cc;
+      --gold: #b9832b;
+      --gold-soft: #f6efe2;
+      --navy: #13202e;
+      --radius: 22px;
+      --shadow: 0 10px 28px rgba(0, 0, 0, 0.07);
+      --max: 1180px;
+      --header-h: 60px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.55;
+      overflow-x: clip;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* ---------- Header ---------- */
+    .header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--header-h);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 clamp(16px, 4vw, 48px);
+      background: rgba(242, 242, 244, 0.86);
+      -webkit-backdrop-filter: saturate(180%) blur(18px);
+      backdrop-filter: saturate(180%) blur(18px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
+    .brand img { height: 38px; width: auto; }
+    .brand .txt { line-height: 1.1; min-width: 0; }
+    .brand .txt b { display: block; font-size: 0.82rem; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+    .brand .txt span { display: block; font-size: 0.66rem; color: var(--ink-2); white-space: nowrap; }
+    .header-actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: var(--blue);
+      color: #fff;
+      font: 600 0.82rem/1 "Montserrat", sans-serif;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: filter 0.2s ease, background 0.2s ease;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+    .btn.ghost:hover { background: #fff; filter: none; }
+
+    /* ---------- Layout ---------- */
+    main { padding-top: var(--header-h); }
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); }
+    section { scroll-margin-top: calc(var(--header-h) + 12px); }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .kicker::before { content: ""; width: 22px; height: 2px; background: currentColor; }
+
+    h1, h2, h3 { letter-spacing: -0.025em; line-height: 1.1; color: var(--ink); }
+    h1 { font-size: clamp(2.1rem, 5.4vw, 4rem); font-weight: 800; }
+    h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); font-weight: 750; }
+    h3 { font-size: clamp(1.05rem, 1.6vw, 1.2rem); font-weight: 700; }
+    .lead { font-size: clamp(1rem, 1.5vw, 1.15rem); color: var(--ink-2); max-width: 64ch; }
+    .lead strong { color: var(--ink); font-weight: 650; }
+
+    /* ---------- Capa ---------- */
+    .capa-media { width: 100%; background: #fff; }
+    .capa-media img { width: 100%; height: auto; }
+    .capa-copy { padding: clamp(40px, 6vw, 72px) 0 clamp(36px, 5vw, 56px); }
+    .vs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 16px;
+      margin: 18px 0 8px;
+      font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .vs .x { color: var(--gold); font-size: 1.4em; line-height: 1; }
+    .capa-copy h1 em { font-style: normal; color: var(--gold); }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .pill i { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+
+    /* ---------- Objetivo ---------- */
+    .block { padding: clamp(48px, 7vw, 96px) 0; }
+    .block.white { background: #fff; }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(24px, 4vw, 56px);
+      align-items: center;
+    }
+    .media {
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .media img { width: 100%; height: auto; }
+
+    .formula {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 26px;
+    }
+    .formula span {
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: var(--gold-soft);
+      color: #6b4a14;
+      font-weight: 700;
+      font-size: 0.86rem;
+    }
+    .formula b { color: var(--gold); font-weight: 800; }
+
+    /* ---------- Índice ---------- */
+    .index-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .index-grid a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .index-grid a:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .index-grid a span {
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: var(--navy);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    /* ---------- Pilares ---------- */
+    .pillar { padding: clamp(44px, 6vw, 80px) 0; border-top: 1px solid rgba(0, 0, 0, 0.06); }
+    .pillar:nth-of-type(even) { background: #fff; }
+    .pillar-head { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 22px; }
+    .num {
+      flex: 0 0 auto;
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 0.9;
+      color: var(--gold);
+      letter-spacing: -0.04em;
+    }
+    .pillar-head .kicker { margin-bottom: 8px; }
+    .pillar p + p { margin-top: 12px; }
+
+    .concept {
+      margin: 22px 0 4px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--gold);
+      background: var(--gold-soft);
+      border-radius: 0 16px 16px 0;
+      font-weight: 700;
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      color: #4a3410;
+    }
+    .concept small {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .list-title {
+      margin: 24px 0 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chips li {
+      list-style: none;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      font-size: 0.86rem;
+      font-weight: 550;
+    }
+    .pillar:nth-of-type(odd) .chips li { background: #fff; }
+
+    .items { display: grid; gap: 8px; }
+    .items li {
+      list-style: none;
+      position: relative;
+      padding-left: 22px;
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+    .items li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 0.62em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .note { margin-top: 16px; color: var(--ink-2); font-size: 0.95rem; }
+    .card .note { font-size: 0.9rem; }
+
+    .ask {
+      margin-top: 26px;
+      padding: 20px 22px;
+      border-radius: 18px;
+      background: var(--navy);
+      color: #fff;
+    }
+    .ask small {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #e2b866;
+    }
+    .ask p { color: rgba(255, 255, 255, 0.86); font-size: 0.95rem; }
+    .ask ul { margin-top: 10px; display: grid; gap: 6px; padding-left: 18px; color: rgba(255, 255, 255, 0.86); font-size: 0.92rem; }
+
+    /* ---------- Cards ---------- */
+    .card-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 30px; }
+    .card {
+      padding: 22px 22px 24px;
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+    }
+    .card .tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .card p { color: var(--ink-2); font-size: 0.93rem; margin-top: 6px; }
+
+    .check { display: grid; gap: 10px; margin-top: 28px; grid-template-columns: 1fr; }
+    .check li {
+      list-style: none;
+      position: relative;
+      padding: 14px 16px 14px 46px;
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      font-weight: 550;
+      font-size: 0.93rem;
+    }
+    .check li::before {
+      content: "✓";
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    /* ---------- Mensagem ---------- */
+    .message { background: var(--navy); color: #fff; padding: clamp(56px, 8vw, 110px) 0; }
+    .message .kicker { color: #e2b866; }
+    .message blockquote {
+      margin-top: 22px;
+      font-size: clamp(1.25rem, 2.6vw, 2rem);
+      font-weight: 650;
+      line-height: 1.35;
+      letter-spacing: -0.015em;
+      max-width: 38ch;
+    }
+    .message blockquote::before { content: "“"; color: #e2b866; }
+    .message blockquote::after { content: "”"; color: #e2b866; }
+    .message .signoff { margin-top: 24px; color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; }
+
+    /* ---------- Assinatura ---------- */
+    .sign-grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 34px; }
+    .sign {
+      padding: 26px 24px;
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .sign .line { height: 1px; background: var(--ink); margin: 56px 0 10px; opacity: 0.6; }
+    .sign b { display: block; font-size: 0.95rem; }
+    .sign span { display: block; color: var(--ink-2); font-size: 0.84rem; }
+    .sign .fields { margin-top: 14px; display: grid; gap: 8px; font-size: 0.84rem; color: var(--ink-2); }
+
+    .contact { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 30px; }
+    .contact a, .contact div {
+      display: block;
+      padding: 16px 18px;
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      text-decoration: none;
+    }
+    .contact small {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .contact strong { font-size: 0.95rem; }
+
+    footer {
+      padding: 36px 0 48px;
+      color: var(--ink-3);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 520px) {
+      .brand .txt span { display: none; }
+      .header-actions .btn.ghost { display: none; }
+    }
+    @media (min-width: 720px) {
+      .index-grid { grid-template-columns: repeat(2, 1fr); }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+      .check { grid-template-columns: repeat(2, 1fr); }
+      .sign-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 960px) {
+      .split { grid-template-columns: 1fr 1fr; }
+      .split.reverse > .media { order: -1; }
+      .index-grid { grid-template-columns: repeat(3, 1fr); }
+      .card-grid.four { grid-template-columns: repeat(4, 1fr); }
+      .check { grid-template-columns: repeat(3, 1fr); }
+      .contact { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* ---------- Print / PDF ---------- */
+    @media print {
+      @page { size: A4; margin: 14mm; }
+      body { background: #fff; font-size: 11pt; }
+      .header, .no-print { display: none !important; }
+      main { padding-top: 0; }
+      .pillar, .block, .message { padding: 18pt 0; }
+      .pillar:nth-of-type(even), .block.white { background: #fff; }
+      .pillar, .card, .ask, .sign, .media, .concept { break-inside: avoid; }
+      .message { background: #fff; color: var(--ink); border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold); }
+      .message blockquote { color: var(--ink); }
+      .message .signoff { color: var(--ink-2); }
+      .ask { background: #fff; color: var(--ink); border: 1.5px solid var(--navy); }
+      .ask p, .ask ul { color: var(--ink); }
+      .media, .card, .pill { box-shadow: none; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="#inicio">
+      <img src="/img/logo-ws.png" alt="Ibiúna Wake &amp; Surf" />
+      <span class="txt">
+        <b>Ibiúna Wake &amp; Surf</b>
+        <span>Proposta de Parceria Institucional</span>
+      </span>
+    </a>
+    <div class="header-actions">
+      <a class="btn ghost" href="#indice">Índice</a>
+      <button class="btn" type="button" onclick="window.print()">Salvar PDF</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ CAPA ============ -->
+    <section id="inicio">
+      <div class="capa-media">
+        <img src="/img/capa.jpg?v=7" alt="Campeonato Brasileiro de Wakeboard &amp; Surf 2026 · Ibiúna" />
+      </div>
+      <div class="wrap capa-copy">
+        <p class="kicker">Proposta de Parceria Institucional</p>
+        <div class="vs">
+          <span>Prefeitura de Ibiúna</span>
+          <span class="x">×</span>
+          <span>Campeonato Brasileiro Ibiúna Wake&amp;Surf</span>
+        </div>
+        <h1>O campeonato como plataforma de <em>promoção de Ibiúna</em></h1>
+        <p class="lead" style="margin-top:18px;">
+          Esporte, turismo, hotelaria, gastronomia, comércio e a Represa de Itupararanga — integrados em uma
+          parceria que vai além dos dias de competição.
+        </p>
+        <div class="meta-row">
+          <span class="pill"><i></i>19, 20 e 21 de novembro de 2026</span>
+          <span class="pill"><i></i>Represa de Itupararanga · Ibiúna/SP</span>
+          <span class="pill"><i></i>Nautica Veleiros de Ibiuna</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OBJETIVO ============ -->
+    <section id="objetivo" class="block white">
+      <div class="wrap split">
+        <div>
+          <p class="kicker">Objetivo</p>
+          <h2 style="margin-top:12px;">Integrar o campeonato à cidade</h2>
+          <p class="lead" style="margin-top:16px;">
+            Construir uma parceria entre a <strong>Prefeitura de Ibiúna</strong> e o
+            <strong>Campeonato Brasileiro Ibiúna Wake&amp;Surf</strong>, utilizando o evento como plataforma de
+            promoção do esporte, turismo, hotelaria, gastronomia, comércio e da Represa de Itupararanga.
+          </p>
+          <p class="lead" style="margin-top:12px;">
+            A proposta é integrar o campeonato à cidade e transformar sua realização em uma oportunidade de
+            divulgação de Ibiúna como <strong>destino turístico</strong> e <strong>referência para esportes
+            náuticos</strong>.
+          </p>
+        </div>
+        <div class="media">
+          <img src="/img/sobre-cartoon.jpg?v=1" alt="Ibiúna Wake &amp; Surf 2026" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ÍNDICE ============ -->
+    <section id="indice" class="block">
+      <div class="wrap">
+        <p class="kicker">Frentes da parceria</p>
+        <h2 style="margin-top:12px;">15 frentes de integração com a cidade</h2>
+        <nav class="index-grid" aria-label="Índice da proposta">
+          <a href="#p1"><span>01</span>Hotelaria e hospedagem</a>
+          <a href="#p2"><span>02</span>Vila Gastronômica — Sabores de Ibiúna</a>
+          <a href="#p3"><span>03</span>Divulgação e assessoria de imprensa</a>
+          <a href="#p4"><span>04</span>Integração com o Festival de Verão de Ibiúna</a>
+          <a href="#p5"><span>05</span>Presença institucional da Prefeitura</a>
+          <a href="#p6"><span>06</span>Abertura controlada ao público — Ingresso Solidário</a>
+          <a href="#p7"><span>07</span>Ibiúna como destino de turismo náutico</a>
+          <a href="#p8"><span>08</span>Inclusão no calendário oficial</a>
+          <a href="#p9"><span>09</span>Envolvimento do COMTUR e do trade turístico</a>
+          <a href="#p10"><span>10</span>Ações com crianças e jovens de Ibiúna</a>
+          <a href="#p11"><span>11</span>Meio ambiente e preservação da Represa</a>
+          <a href="#p12"><span>12</span>Segurança aquática</a>
+          <a href="#p13"><span>13</span>Comércio local — Selo Parceiro</a>
+          <a href="#p14"><span>14</span>Welcome Kit Ibiúna</a>
+          <a href="#p15"><span>15</span>Participação institucional na abertura e premiação</a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ============ 1 HOTELARIA ============ -->
+    <section id="p1" class="pillar">
+      <div class="wrap split">
+        <div>
+          <div class="pillar-head">
+            <div class="num">01</div>
+            <div>
+              <p class="kicker">Hotelaria e hospedagem</p>
+              <h2>Hospedagem Oficial do Ibiúna Wake&amp;Surf</h2>
+            </div>
+          </div>
+          <p class="lead">
+            Criar uma parceria com hotéis, pousadas e demais meios de hospedagem de Ibiúna, principalmente aqueles
+            localizados no entorno do Veleiros de Ibiúna e da Represa de Itupararanga.
+          </p>
+          <p class="list-title">Proposta</p>
+          <p>
+            Criar uma rede de <strong>Hospedagem Oficial do Ibiúna Wake&amp;Surf</strong>, oferecendo condições
+            especiais para:
+          </p>
+          <ul class="chips" style="margin-top:12px;">
+            <li>Atletas</li><li>Familiares e acompanhantes</li><li>Equipes técnicas</li>
+            <li>Organização</li><li>Imprensa</li><li>Visitantes do campeonato</li>
+          </ul>
+          <div class="ask">
+            <small>Apoio solicitado à Prefeitura</small>
+            <p>
+              Apoio da Secretaria de Turismo e do COMTUR para aproximar a organização do evento da rede hoteleira e
+              das pousadas da região.
+            </p>
+            <p style="margin-top:8px;">
+              A Prefeitura também poderá auxiliar na divulgação das hospedagens participantes e na criação de um
+              guia oficial de hospedagem do campeonato.
+            </p>
+          </div>
+        </div>
+        <div class="media">
+          <img src="/img/estrutura-bg.jpg" alt="Estrutura do evento às margens da Represa de Itupararanga" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2 VILA GASTRONÔMICA ============ -->
+    <section id="p2" class="pillar">
+      <div class="wrap split reverse">
+        <div>
+          <div class="pillar-head">
+            <div class="num">02</div>
+            <div>
+              <p class="kicker">Vila Gastronômica</p>
+              <h2>Sabores de Ibiúna</h2>
+            </div>
+          </div>
+          <p class="lead">
+            Criar dentro do evento uma área de alimentação e convivência, priorizando empresas, restaurantes,
+            produtores e marcas de Ibiúna e região.
+          </p>
+          <div class="concept">
+            <small>Conceito</small>
+            Vila Gastronômica — Sabores de Ibiúna
+          </div>
+          <p class="note">
+            O objetivo é apresentar aos atletas, familiares e visitantes produtos e experiências gastronômicas da
+            cidade.
+          </p>
+          <p class="list-title">Poderão participar</p>
+          <ul class="chips">
+            <li>Charcutarias</li><li>Queijarias</li><li>Restaurantes</li><li>Hamburguerias</li>
+            <li>Cafeterias</li><li>Docerias</li><li>Empórios</li><li>Cervejarias artesanais</li>
+            <li>Produtores rurais</li><li>Frutas e produtos naturais</li><li>Alimentos artesanais</li>
+            <li>Food trucks selecionados</li>
+          </ul>
+          <div class="ask">
+            <small>Apoio solicitado à Prefeitura</small>
+            <p>
+              Aproximação com estabelecimentos e produtores locais, Secretaria de Turismo, COMTUR e demais
+              entidades relacionadas ao comércio e turismo da cidade.
+            </p>
+          </div>
+        </div>
+        <div class="media">
+          <img src="/img/estrutura-tendas.jpg" alt="Tendas e área de convivência do evento" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3 DIVULGAÇÃO ============ -->
+    <section id="p3" class="pillar">
+      <div class="wrap split">
+        <div>
+          <div class="pillar-head">
+            <div class="num">03</div>
+            <div>
+              <p class="kicker">Comunicação</p>
+              <h2>Divulgação e assessoria de imprensa</h2>
+            </div>
+          </div>
+          <p class="lead">
+            Utilizar a estrutura de comunicação da Prefeitura para ampliar a divulgação do Campeonato Brasileiro
+            Ibiúna Wake&amp;Surf.
+          </p>
+          <p class="list-title">Apoio solicitado</p>
+          <ul class="items">
+            <li>Assessoria de imprensa da Prefeitura;</li>
+            <li>Divulgação nos canais oficiais do município;</li>
+            <li>Redes sociais;</li>
+            <li>Portal da Prefeitura;</li>
+            <li>Portal de Turismo;</li>
+            <li>Agenda oficial de eventos;</li>
+            <li>Produção e distribuição de releases;</li>
+            <li>Contato com imprensa regional;</li>
+            <li>Aproximação com veículos de Sorocaba e São Paulo;</li>
+            <li>Busca de emissoras de TV, portais e outros veículos interessados na cobertura do evento.</li>
+          </ul>
+          <div class="concept">
+            <small>Objetivo de comunicação · Posicionar</small>
+            Ibiúna como sede do Campeonato Brasileiro de Wakeboard &amp; WakeSurf e referência nacional em turismo
+            e esportes náuticos.
+          </div>
+        </div>
+        <div class="media">
+          <img src="/img/wakeboard-cartoon.jpg?v=2" alt="Wakeboard na Represa de Itupararanga" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4 FESTIVAL DE VERÃO ============ -->
+    <section id="p4" class="pillar">
+      <div class="wrap split reverse">
+        <div>
+          <div class="pillar-head">
+            <div class="num">04</div>
+            <div>
+              <p class="kicker">Agenda da cidade</p>
+              <h2>Integração com o Festival de Verão de Ibiúna</h2>
+            </div>
+          </div>
+          <p class="lead">
+            Integrar o Campeonato Brasileiro Ibiúna Wake&amp;Surf às ações e à programação do Festival de Verão
+            realizado na cidade.
+          </p>
+          <p class="list-title">Possibilidades</p>
+          <ul class="items">
+            <li>Divulgação cruzada entre os dois eventos;</li>
+            <li>Chamadas do Festival durante a transmissão do campeonato;</li>
+            <li>Divulgação do campeonato durante o Festival;</li>
+            <li>Exibição de imagens e melhores momentos do campeonato em telões;</li>
+            <li>Divulgação da programação da cidade durante os intervalos das competições;</li>
+            <li>Participação de atletas ou representantes do campeonato no Festival;</li>
+            <li>Criação de conteúdo conjunto para redes sociais.</li>
+          </ul>
+          <div class="concept">
+            <small>Conceito</small>
+            A competição acontece na Represa, mas o evento acontece em Ibiúna.
+          </div>
+          <p class="note">A intenção é conectar o campeonato à programação turística e cultural da cidade.</p>
+        </div>
+        <div class="media">
+          <img src="/img/publico-evento.png" alt="Público acompanhando o campeonato" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5 PRESENÇA INSTITUCIONAL ============ -->
+    <section id="p5" class="pillar">
+      <div class="wrap split">
+        <div>
+          <div class="pillar-head">
+            <div class="num">05</div>
+            <div>
+              <p class="kicker">Marca da cidade</p>
+              <h2>Presença institucional da Prefeitura</h2>
+            </div>
+          </div>
+          <p class="lead">
+            Inserir a Prefeitura de Ibiúna como <strong>parceira institucional</strong> do Campeonato Brasileiro
+            Ibiúna Wake&amp;Surf.
+          </p>
+          <p class="list-title">Possibilidades de exposição</p>
+          <ul class="chips">
+            <li>Portal de entrada</li><li>Backdrop oficial</li><li>Pódio</li><li>Área de premiação</li>
+            <li>Banners</li><li>Bandeiras</li><li>Área gastronômica</li><li>Camisetas da organização</li>
+            <li>Materiais gráficos</li><li>Site oficial</li><li>Redes sociais</li><li>Transmissão</li>
+            <li>Vídeos</li><li>Chamadas dos locutores</li><li>Entrevistas</li>
+            <li>Cerimônia de abertura e encerramento</li>
+          </ul>
+          <div class="concept">
+            <small>Além da marca institucional, explorar o conceito</small>
+            IBIÚNA — TURISMO, NATUREZA E ESPORTES NÁUTICOS
+          </div>
+        </div>
+        <div class="media">
+          <img src="/img/premiacao-grupo.png" alt="Cerimônia de premiação do campeonato" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6 INGRESSO SOLIDÁRIO ============ -->
+    <section id="p6" class="pillar">
+      <div class="wrap split reverse">
+        <div>
+          <div class="pillar-head">
+            <div class="num">06</div>
+            <div>
+              <p class="kicker">Abertura controlada ao público</p>
+              <h2>Ingresso Solidário — Ibiúna Wake&amp;Surf</h2>
+            </div>
+          </div>
+          <p class="lead">
+            Abrir uma quantidade limitada de ingressos para pessoas de fora do condomínio acompanharem
+            presencialmente o campeonato.
+          </p>
+          <p class="note">
+            O acesso deverá respeitar a capacidade, segurança e regras estabelecidas para o Veleiros de Ibiúna.
+          </p>
+          <div class="concept">
+            <small>Ingresso Solidário — Ibiúna Wake&amp;Surf</small>
+            Os ingressos seriam pagos e a proposta é que 100% do valor arrecadado seja destinado a uma instituição
+            ou entidade de Ibiúna, definida em conjunto com a Prefeitura.
+          </div>
+          <p class="list-title">Benefícios</p>
+          <ul class="items">
+            <li>Aproxima a população do campeonato;</li>
+            <li>Cria uma ação social;</li>
+            <li>Aumenta o fluxo de pessoas na Vila Gastronômica;</li>
+            <li>Gera maior integração entre campeonato e cidade;</li>
+            <li>Aumenta o potencial de mídia;</li>
+            <li>Gera recursos para uma instituição local.</li>
+          </ul>
+          <p class="note">
+            Ao final do evento, poderá ser realizada a divulgação oficial do valor arrecadado e a entrega simbólica
+            à instituição beneficiada.
+          </p>
+          <div class="ask">
+            <small>Cota Social</small>
+            <p>Além dos ingressos pagos, estudar uma quantidade limitada de acessos gratuitos destinados a:</p>
+            <ul>
+              <li>Alunos da rede municipal;</li>
+              <li>Projetos esportivos;</li>
+              <li>Projetos sociais;</li>
+              <li>Crianças e jovens atendidos pelo município.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="media">
+          <img src="/img/familia.jpg" alt="Famílias acompanhando o evento" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7 TURISMO NÁUTICO ============ -->
+    <section id="p7" class="pillar">
+      <div class="wrap split">
+        <div>
+          <div class="pillar-head">
+            <div class="num">07</div>
+            <div>
+              <p class="kicker">Posicionamento</p>
+              <h2>Ibiúna como destino de turismo náutico</h2>
+            </div>
+          </div>
+          <p class="lead">
+            Utilizar o Campeonato Brasileiro como ferramenta para consolidar a imagem da Represa de Itupararanga e
+            de Ibiúna como destino para esportes náuticos.
+          </p>
+          <p class="note">O campeonato pode se tornar uma das principais vitrines desse posicionamento.</p>
+          <p class="list-title">Durante a transmissão · Inserir conteúdos turísticos nos intervalos</p>
+          <ul class="chips">
+            <li>Imagens da Represa de Itupararanga</li><li>Pontos turísticos</li><li>Natureza</li>
+            <li>Gastronomia</li><li>Hotelaria</li><li>Turismo rural</li><li>Esportes</li>
+            <li>Eventos da cidade</li>
+          </ul>
+          <p class="note">Pequenos vídeos institucionais de Ibiúna podem ser exibidos entre as baterias.</p>
+        </div>
+        <div class="media">
+          <img src="/img/wakesurf-cartoon.jpg?v=2" alt="WakeSurf na Represa de Itupararanga" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8 + 9 ============ -->
+    <section id="p8" class="pillar">
+      <div class="wrap">
+        <div class="card-grid">
+          <div class="card">
+            <div class="pillar-head" style="margin-bottom:12px;">
+              <div class="num">08</div>
+              <div>
+                <p class="kicker">Longo prazo</p>
+                <h3>Inclusão no calendário oficial</h3>
+              </div>
+            </div>
+            <p>
+              Trabalhar junto à Prefeitura para avaliar a inclusão do Campeonato Brasileiro Ibiúna Wake&amp;Surf no
+              calendário oficial de eventos esportivos e turísticos do município.
+            </p>
+            <p class="note">
+              O objetivo é construir uma parceria de longo prazo e consolidar Ibiúna como uma das sedes de
+              referência do wakeboard e wakesurf brasileiro.
+            </p>
+          </div>
+          <div class="card" id="p9">
+            <div class="pillar-head" style="margin-bottom:12px;">
+              <div class="num">09</div>
+              <div>
+                <p class="kicker">Trade turístico</p>
+                <h3>Envolvimento do COMTUR e do trade turístico</h3>
+              </div>
+            </div>
+            <p>Envolver o Conselho Municipal de Turismo e o trade turístico de Ibiúna no projeto.</p>
+            <p class="note">O COMTUR poderá colaborar principalmente na aproximação com:</p>
+            <ul class="chips" style="margin-top:12px;">
+              <li>Hotéis</li><li>Pousadas</li><li>Restaurantes</li><li>Produtores</li>
+              <li>Comércio</li><li>Prestadores de serviços</li><li>Operadores turísticos</li>
+            </ul>
+            <p class="note">
+              A intenção é fazer com que o impacto econômico do campeonato alcance diferentes setores da cidade.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10 CRIANÇAS E JOVENS ============ -->
+    <section id="p10" class="pillar">
+      <div class="wrap split reverse">
+        <div>
+          <div class="pillar-head">
+            <div class="num">10</div>
+            <div>
+              <p class="kicker">Contrapartida esportiva e social</p>
+              <h2>Ações com crianças e jovens de Ibiúna</h2>
+            </div>
+          </div>
+          <p class="lead">Criar uma contrapartida esportiva e social do campeonato.</p>
+          <p class="list-title">Possibilidades</p>
+          <ul class="items">
+            <li>Visita de alunos da rede municipal;</li>
+            <li>Apresentação do wakeboard e wakesurf;</li>
+            <li>Contato com atletas profissionais;</li>
+            <li>Demonstrações esportivas;</li>
+            <li>Clínicas ou experiências introdutórias;</li>
+            <li>Conversas sobre esporte e qualidade de vida.</li>
+          </ul>
+          <p class="note">
+            O campeonato também pode servir como instrumento para apresentar novos esportes às crianças e jovens
+            da cidade.
+          </p>
+        </div>
+        <div class="media">
+          <img src="/img/criancas.jpg" alt="Crianças no evento" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11 + 12 ============ -->
+    <section id="p11" class="pillar">
+      <div class="wrap">
+        <div class="card-grid">
+          <div class="card">
+            <div class="pillar-head" style="margin-bottom:12px;">
+              <div class="num">11</div>
+              <div>
+                <p class="kicker">Meio ambiente</p>
+                <h3>Meio ambiente e preservação da Represa</h3>
+              </div>
+            </div>
+            <p>Associar o evento à preservação da Represa de Itupararanga.</p>
+            <p class="list-title">Possíveis ações</p>
+            <ul class="items">
+              <li>Campanha de conscientização ambiental;</li>
+              <li>Coleta seletiva;</li>
+              <li>Redução de descartáveis;</li>
+              <li>Utilização de copos reutilizáveis;</li>
+              <li>Pontos de descarte identificados;</li>
+              <li>Comunicação sobre preservação da represa;</li>
+              <li>Participação de entidades ambientais locais.</li>
+            </ul>
+            <div class="concept">
+              <small>A mensagem pode ser</small>
+              Esporte, turismo e preservação juntos pela Represa de Itupararanga.
+            </div>
+          </div>
+          <div class="card" id="p12">
+            <div class="pillar-head" style="margin-bottom:12px;">
+              <div class="num">12</div>
+              <div>
+                <p class="kicker">Boas práticas</p>
+                <h3>Segurança aquática</h3>
+              </div>
+            </div>
+            <p>
+              Utilizar o campeonato também como referência de boas práticas de segurança em atividades náuticas.
+            </p>
+            <p class="note">
+              Avaliar a participação e apoio dos órgãos competentes do município na estrutura do evento,
+              principalmente em:
+            </p>
+            <ul class="chips" style="margin-top:12px;">
+              <li>Segurança aquática</li><li>Primeiros socorros</li><li>Ambulância</li>
+              <li>Controle de público</li><li>Orientação aos visitantes</li><li>Planos de emergência</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 13 + 14 ============ -->
+    <section id="p13" class="pillar">
+      <div class="wrap">
+        <div class="card-grid">
+          <div class="card">
+            <div class="pillar-head" style="margin-bottom:12px;">
+              <div class="num">13</div>
+              <div>
+                <p class="kicker">Comércio local</p>
+                <h3>Selo Parceiro</h3>
+              </div>
+            </div>
+            <p>Criar o selo:</p>
+            <div class="concept" style="margin-top:10px;">PARCEIRO OFICIAL — IBIÚNA WAKE&amp;SURF</div>
+            <p class="note">O selo poderá ser utilizado por estabelecimentos participantes da iniciativa.</p>
+            <p class="list-title">Exemplos</p>
+            <ul class="chips">
+              <li>Hotéis</li><li>Pousadas</li><li>Restaurantes</li><li>Bares</li>
+              <li>Empórios</li><li>Lojas</li><li>Prestadores de serviços</li>
+            </ul>
+            <p class="note">
+              Os estabelecimentos ajudam a divulgar o campeonato e, em contrapartida, passam a fazer parte dos
+              materiais de indicação para atletas e visitantes.
+            </p>
+          </div>
+          <div class="card" id="p14">
+            <div class="pillar-head" style="margin-bottom:12px;">
+              <div class="num">14</div>
+              <div>
+                <p class="kicker">Boas-vindas</p>
+                <h3>Welcome Kit Ibiúna</h3>
+              </div>
+            </div>
+            <p>
+              Criar um material de boas-vindas para atletas e equipes que chegam de outras cidades e estados.
+            </p>
+            <p class="list-title">O kit poderá conter</p>
+            <ul class="items">
+              <li>Guia turístico de Ibiúna;</li>
+              <li>Mapa;</li>
+              <li>Programação do campeonato;</li>
+              <li>Programação da cidade;</li>
+              <li>Restaurantes parceiros;</li>
+              <li>Hotéis e pousadas;</li>
+              <li>Cupons e benefícios;</li>
+              <li>Produtos de produtores locais;</li>
+              <li>QR Code direcionando para informações turísticas.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 15 ABERTURA E PREMIAÇÃO ============ -->
+    <section id="p15" class="pillar">
+      <div class="wrap split">
+        <div>
+          <div class="pillar-head">
+            <div class="num">15</div>
+            <div>
+              <p class="kicker">Participação institucional</p>
+              <h2>Abertura e premiação</h2>
+            </div>
+          </div>
+          <p class="lead">
+            Convidar representantes da Prefeitura, Turismo e Esportes para participar oficialmente do campeonato.
+          </p>
+          <p class="list-title">Possibilidades</p>
+          <ul class="items">
+            <li>Cerimônia de abertura;</li>
+            <li>Entrevistas;</li>
+            <li>Entrega de medalhas e troféus;</li>
+            <li>Premiação das principais categorias;</li>
+            <li>Cerimônia de encerramento;</li>
+            <li>Entrega do valor arrecadado pelo Ingresso Solidário.</li>
+          </ul>
+          <p class="note">
+            Isso também gera conteúdo relevante para imprensa, Prefeitura, campeonato e patrocinadores.
+          </p>
+        </div>
+        <div class="media">
+          <img src="/img/podio-masc.jpg" alt="Pódio do campeonato" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTRAPARTIDAS ============ -->
+    <section id="contrapartidas" class="block white">
+      <div class="wrap">
+        <p class="kicker">Contrapartidas do Ibiúna Wake&amp;Surf</p>
+        <h2 style="margin-top:12px;">O que o campeonato oferece à Prefeitura</h2>
+        <p class="lead" style="margin-top:14px;">
+          Em contrapartida ao apoio institucional, o campeonato poderá oferecer à Prefeitura:
+        </p>
+        <ul class="check">
+          <li>Presença da marca de Ibiúna</li>
+          <li>Divulgação turística durante a transmissão</li>
+          <li>Divulgação nas redes sociais</li>
+          <li>Presença nos materiais oficiais</li>
+          <li>Divulgação da programação turística da cidade</li>
+          <li>Promoção da hotelaria e gastronomia local</li>
+          <li>Conteúdo audiovisual da Represa de Itupararanga</li>
+          <li>Espaço institucional no evento</li>
+          <li>Participação nas cerimônias</li>
+          <li>Ações sociais</li>
+          <li>Ações ambientais</li>
+          <li>Divulgação de Ibiúna para atletas e famílias de diversas regiões do Brasil</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ RESULTADOS ============ -->
+    <section id="resultados" class="block">
+      <div class="wrap">
+        <p class="kicker">Resultados esperados para Ibiúna</p>
+        <h2 style="margin-top:12px;">Resultados que vão além dos dias de competição</h2>
+        <p class="lead" style="margin-top:14px;">
+          A parceria pretende gerar resultados que vão além dos dias de competição:
+        </p>
+        <div class="card-grid four">
+          <div class="card"><span class="tag">Turismo</span><p>Atrair visitantes e divulgar Ibiúna nacionalmente.</p></div>
+          <div class="card"><span class="tag">Hotelaria</span><p>Gerar hospedagens para atletas, familiares, equipes e visitantes.</p></div>
+          <div class="card"><span class="tag">Gastronomia</span><p>Gerar consumo e exposição para estabelecimentos e produtores locais.</p></div>
+          <div class="card"><span class="tag">Comércio</span><p>Movimentar diferentes setores da economia do município.</p></div>
+          <div class="card"><span class="tag">Esporte</span><p>Fortalecer Ibiúna como destino de esportes náuticos.</p></div>
+          <div class="card"><span class="tag">Social</span><p>Destinar a arrecadação dos ingressos ao apoio de uma instituição local.</p></div>
+          <div class="card"><span class="tag">Meio Ambiente</span><p>Utilizar o esporte como ferramenta de conscientização sobre a preservação da Represa de Itupararanga.</p></div>
+          <div class="card"><span class="tag">Imagem da Cidade</span><p>Associar Ibiúna a esporte, natureza, qualidade de vida e turismo.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONCEITO ============ -->
+    <section id="conceito" class="block white">
+      <div class="wrap split">
+        <div>
+          <p class="kicker">Conceito da parceria</p>
+          <h2 style="margin-top:12px;">Uma plataforma de promoção de Ibiúna</h2>
+          <p class="lead" style="margin-top:16px;">
+            O Campeonato Brasileiro Ibiúna Wake&amp;Surf não pretende ser apenas uma competição realizada dentro do
+            município.
+          </p>
+          <p class="lead" style="margin-top:12px;">
+            A proposta é transformar o campeonato em uma <strong>plataforma de promoção de Ibiúna</strong>.
+          </p>
+          <div class="formula" aria-label="Represa + Esporte + Turismo + Hotelaria + Gastronomia + Comércio + Ação Social + Preservação Ambiental">
+            <span>Represa</span><b>+</b><span>Esporte</span><b>+</b><span>Turismo</span><b>+</b>
+            <span>Hotelaria</span><b>+</b><span>Gastronomia</span><b>+</b><span>Comércio</span><b>+</b>
+            <span>Ação Social</span><b>+</b><span>Preservação Ambiental</span>
+          </div>
+        </div>
+        <div class="media">
+          <img src="/img/nautique-team.jpg?v=1" alt="Equipe e barco oficial do campeonato" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MENSAGEM ============ -->
+    <section id="mensagem" class="message">
+      <div class="wrap">
+        <p class="kicker">Mensagem principal</p>
+        <blockquote>
+          Não estamos buscando apenas o apoio da Prefeitura para realizar um campeonato. Queremos utilizar o
+          Campeonato Brasileiro Ibiúna Wake&amp;Surf como uma plataforma para promover Ibiúna, movimentar sua
+          hotelaria, gastronomia e comércio, aproximar a população do esporte e consolidar a Represa de
+          Itupararanga como um dos principais destinos de esportes náuticos do Brasil.
+        </blockquote>
+        <p class="signoff">Organização · Campeonato Brasileiro Ibiúna Wake&amp;Surf 2026</p>
+      </div>
+    </section>
+
+    <!-- ============ ASSINATURA ============ -->
+    <section id="assinatura" class="block">
+      <div class="wrap">
+        <p class="kicker">Formalização</p>
+        <h2 style="margin-top:12px;">De acordo com a proposta de parceria institucional</h2>
+        <p class="lead" style="margin-top:14px;">
+          As partes manifestam interesse em desenvolver, em conjunto, as frentes descritas neste documento, cujos
+          detalhes operacionais serão definidos em instrumento próprio.
+        </p>
+        <div class="sign-grid">
+          <div class="sign">
+            <b>Prefeitura Municipal de Ibiúna</b>
+            <span>Representante legal</span>
+            <div class="line"></div>
+            <div class="fields">
+              <div>Nome: ____________________________________</div>
+              <div>Cargo: ____________________________________</div>
+              <div>Data: ____ / ____ / 2026</div>
+            </div>
+          </div>
+          <div class="sign">
+            <b>Campeonato Brasileiro Ibiúna Wake&amp;Surf</b>
+            <span>Organização</span>
+            <div class="line"></div>
+            <div class="fields">
+              <div>Nome: ____________________________________</div>
+              <div>Cargo: ____________________________________</div>
+              <div>Data: ____ / ____ / 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact">
+          <a href="mailto:leandro@hellonext.com.br"><small>E-mail</small><strong>leandro@hellonext.com.br</strong></a>
+          <a href="https://wa.me/5511933165193" target="_blank" rel="noopener"><small>WhatsApp</small><strong>(11) 93316-5193</strong></a>
+          <a href="https://www.ibiunawakeboard.com.br" target="_blank" rel="noopener"><small>Site</small><strong>ibiunawakeboard.com.br</strong></a>
+          <a href="https://instagram.com/ibiunawakeandsurf" target="_blank" rel="noopener"><small>Instagram</small><strong>@ibiunawakeandsurf</strong></a>
+        </div>
+
+        <div class="no-print" style="margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;">
+          <button class="btn" type="button" onclick="window.print()">Salvar em PDF</button>
+          <a class="btn ghost" href="#inicio">Voltar ao início</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Campeonato Brasileiro de Wakeboard &amp; Surf 2026 · Represa de Itupararanga · Ibiúna — SP · 19 a 21 de novembro
+  </footer>
+</body>
+</html>
