@@ -4181,6 +4181,13 @@ body,
 .vf-consent input {
   width: 18px;
   height: 18px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  -webkit-appearance: auto;
+  appearance: auto;
   accent-color: var(--blue-soft);
   flex-shrink: 0;
 }
