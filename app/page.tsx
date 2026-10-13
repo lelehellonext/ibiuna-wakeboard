@@ -155,10 +155,10 @@ export default function Home() {
                   <span className="dc-wk">Sexta</span>
                 </div>
                 <div className="dc-body">
-                  <div className="dc-name">WakeSurf</div>
+                  <div className="dc-name">Eliminatórias</div>
                   <p className="dc-desc">
-                    Competição oficial de WakeSurf com todas as categorias. Alta performance nas
-                    ondas do Nautique G23.
+                    Eliminatórias de Wakeboard e WakeSurf em todas as categorias. Alta performance
+                    atrás do Nautique G23.
                   </p>
                   <div className="dc-time">A partir das 8h00</div>
                 </div>
@@ -170,10 +170,10 @@ export default function Home() {
                   <span className="dc-wk">Sábado</span>
                 </div>
                 <div className="dc-body">
-                  <div className="dc-name">Wakeboard + Premiação</div>
+                  <div className="dc-name">Finais + Premiação</div>
                   <p className="dc-desc">
-                    Final do Brasileiro de Wakeboard, cerimônia de premiação e encerramento no Bar
-                    da Náutica.
+                    Finais de Wakeboard e WakeSurf e, logo após, festa de premiação no Bar da
+                    Náutica.
                   </p>
                   <div className="dc-time">A partir das 8h00</div>
                 </div>
