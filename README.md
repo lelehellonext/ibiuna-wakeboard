@@ -41,16 +41,21 @@ para a raiz do site no servidor.
 O formulário envia `POST` para o webhook `hndemowakesurfveleiros` da tenant **hn-demo**
 (`VELEIROS_FORM_ENDPOINT` em `app/sections.ts`), que grava uma linha por atleta na entidade
 **WakeSurf Veleiros Cadastro** (`66a57953-ed15-4b2e-807a-90e7ce05a41c`) com Status "Pendente".
-A administração valida no CRM: Status = "Validado" e preenche o Cupom.
+A administração valida pela página oculta `/veleiros-admin/` (sem link no site, noindex, protegida
+por senha): lista os cadastros por status (`listar`), edita Status, Cupom e Observações (`atualizar`)
+e dispara o envio. Também dá para validar direto no CRM (Status = "Validado" + Cupom).
 
-Envio do cupom: a página oculta `/veleiros-admin/` (sem link no site, noindex) chama o webhook com
-`{ "command": "enviarCupons" }`. Cada linha Validado, com Cupom e sem "Cupom enviado em" (`date1`),
+A senha fica em `ADMIN_SENHA` no webhook. Este repositório é público, então aqui ela fica vazia
+(administração bloqueada): a senha real só existe na cópia publicada no HelloNext.
+
+Envio do cupom: `{ "command": "enviarCupons" }`. Cada linha Validado, com Cupom e sem "Cupom enviado em" (`date1`),
 vai para a estratégia `1f0cc84d-8963-4f73-8f46-4455b1662867` (`ruler.addLeadToJourney`, mailing em
 `hellonext/filtro-estrategia-cupom-veleiros.xlsx`, e-mail em `hellonext/email-cupom-veleiros.html`)
 e recebe a data de envio, então ninguém recebe duas vezes.
 
 Para publicar ou alterar o webhook: no HelloNext (hn-demo), webhook com slug
-`hndemowakesurfveleiros`, colar o conteúdo de `hellonext/hndemowakesurfveleiros.js` e publicar.
+`hndemowakesurfveleiros`, colar o conteúdo de `hellonext/hndemowakesurfveleiros.js`, preencher
+`ADMIN_SENHA` e publicar.
 
 ## Como atualizar conteúdo
 

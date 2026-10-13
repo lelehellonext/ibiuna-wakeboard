@@ -4,86 +4,292 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Cupons Veleiros · Ibiúna Wake &amp; Surf</title>
+  <title>Cadastros Veleiros · Ibiúna Wake &amp; Surf</title>
   <style>
-    :root { --bg: #f2f2f4; --ink: #1d1d1f; --ink-2: #6e6e73; --ink-3: #86868b; --blue: #0071e3; --line: rgba(0,0,0,.08); }
+    :root { --bg: #f2f2f4; --ink: #1d1d1f; --ink-2: #6e6e73; --ink-3: #86868b; --blue: #0071e3; --green: #1d8a3a; --red: #c62828; --amber: #b26a00; --line: rgba(0,0,0,.08); }
     * { box-sizing: border-box; }
     body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Arial, sans-serif; }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 48px 22px; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 40px 20px 64px; }
     .kicker { color: var(--ink-3); font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; margin: 0; }
-    h1 { margin: 6px 0 10px; font-size: clamp(1.8rem, 5vw, 2.4rem); letter-spacing: -.02em; }
-    p { color: var(--ink-2); }
-    .card { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 24px; margin-top: 24px; box-shadow: 0 8px 28px rgba(0,0,0,.06); }
-    ol { margin: 0; padding-left: 20px; color: var(--ink-2); }
-    ol li { margin: 4px 0; }
-    button { margin-top: 20px; width: 100%; min-height: 50px; border: 0; border-radius: 980px; background: var(--blue); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
-    button:disabled { opacity: .6; cursor: progress; }
-    #out { margin-top: 20px; }
-    .msg { padding: 14px 16px; border-radius: 14px; font-weight: 600; }
-    .ok { background: rgba(0,113,227,.08); color: var(--ink); }
-    .err { background: rgba(198,40,40,.08); color: #c62828; }
-    h3 { margin: 20px 0 8px; font-size: 1rem; }
-    ul { margin: 0; padding-left: 20px; color: var(--ink-2); }
-    small { color: var(--ink-3); }
+    h1 { margin: 6px 0 6px; font-size: clamp(1.8rem, 5vw, 2.4rem); letter-spacing: -.02em; }
+    p { color: var(--ink-2); margin: 0; }
+    .card { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 22px; margin-top: 20px; box-shadow: 0 8px 28px rgba(0,0,0,.05); }
+    input, select, textarea { font: inherit; color: var(--ink); width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid rgba(0,0,0,.14); border-radius: 12px; background: #fff; }
+    textarea { min-height: 44px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { outline: 2px solid rgba(0,113,227,.35); border-color: var(--blue); }
+    button { font: inherit; font-weight: 600; min-height: 44px; padding: 0 18px; border: 0; border-radius: 980px; background: var(--blue); color: #fff; cursor: pointer; }
+    button.ghost { background: rgba(0,113,227,.08); color: var(--blue); }
+    button.green { background: var(--green); }
+    button:disabled { opacity: .55; cursor: progress; }
+    .hidden { display: none !important; }
+    .msg { margin-top: 14px; padding: 12px 14px; border-radius: 12px; font-weight: 600; font-size: .95rem; }
+    .ok { background: rgba(0,113,227,.08); }
+    .err { background: rgba(198,40,40,.08); color: var(--red); }
+    #login form { display: flex; gap: 10px; margin-top: 14px; }
+    #login input { flex: 1; }
+
+    .bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tab { background: #fff; color: var(--ink-2); border: 1px solid var(--line); min-height: 38px; padding: 0 14px; font-size: .92rem; }
+    .tab.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .tab b { font-weight: 700; margin-left: 4px; }
+    .tools { display: flex; gap: 8px; flex: 1; justify-content: flex-end; min-width: 260px; }
+    .tools input { max-width: 260px; min-height: 38px; }
+    .tools button { min-height: 38px; font-size: .92rem; }
+
+    .row { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; }
+    @media (max-width: 760px) { .row { grid-template-columns: 1fr; } .tools { justify-content: stretch; } .tools input { max-width: none; } }
+    .who h2 { margin: 0; font-size: 1.15rem; letter-spacing: -.01em; }
+    .who .sub { color: var(--ink-2); font-size: .92rem; margin-top: 2px; }
+    .info { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin-top: 12px; font-size: .92rem; }
+    .info dt { color: var(--ink-3); }
+    .info dd { margin: 0; overflow-wrap: anywhere; }
+    .info a { color: var(--blue); text-decoration: none; }
+    .pill { display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 3px 9px; border-radius: 980px; margin-left: 8px; vertical-align: 2px; }
+    .p-Pendente { background: rgba(178,106,0,.12); color: var(--amber); }
+    .p-Validado { background: rgba(29,138,58,.12); color: var(--green); }
+    .p-Recusado { background: rgba(198,40,40,.1); color: var(--red); }
+    .edit label { display: block; font-size: .8rem; font-weight: 600; color: var(--ink-2); margin: 0 0 4px; }
+    .edit .f { margin-bottom: 10px; }
+    .edit .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 4px; }
+    .sent { color: var(--green); font-size: .88rem; font-weight: 600; }
+    .note { font-size: .85rem; color: var(--ink-3); }
+    .empty { text-align: center; color: var(--ink-3); padding: 36px 0; }
+    ul.res { margin: 8px 0 0; padding-left: 20px; color: var(--ink-2); font-size: .92rem; }
   </style>
 </head>
 <body>
   <main class="wrap">
     <p class="kicker">Administração · Condôminos Veleiros</p>
-    <h1>Envio de cupons</h1>
-    <p>Envia o e-mail com o cupom para os atletas já validados no HelloNext.</p>
+    <h1>Cadastros e cupons</h1>
+    <p>Valide os cadastros, preencha o cupom e envie o e-mail para o atleta.</p>
 
-    <div class="card">
-      <ol>
-        <li>No HelloNext, na entidade <b>WakeSurf Veleiros Cadastro</b>, mude o Status para <b>Validado</b> e preencha o <b>Cupom</b>.</li>
-        <li>Clique no botão abaixo.</li>
-        <li>Só recebe quem está validado, tem cupom e ainda não recebeu: pode clicar quantas vezes quiser.</li>
-      </ol>
-      <button id="send" type="button">Enviar cupons validados</button>
-      <div id="out" aria-live="polite"></div>
-    </div>
+    <section id="login" class="card">
+      <b>Senha da administração</b>
+      <form id="loginForm">
+        <input id="senha" type="password" autocomplete="current-password" placeholder="Senha" required />
+        <button type="submit">Entrar</button>
+      </form>
+      <div id="loginOut" aria-live="polite"></div>
+    </section>
+
+    <section id="app" class="hidden">
+      <div class="card">
+        <div class="bar">
+          <div class="tabs" id="tabs"></div>
+          <div class="tools">
+            <input id="busca" type="search" placeholder="Buscar nome, e-mail, lote…" />
+            <button id="reload" class="ghost" type="button">Atualizar</button>
+          </div>
+        </div>
+        <div class="actions" style="margin-top:14px">
+          <button id="sendAll" class="green" type="button">Enviar cupons validados</button>
+          <span class="note" id="sendHint"></span>
+        </div>
+        <div id="out" aria-live="polite"></div>
+      </div>
+      <div id="list"></div>
+    </section>
   </main>
 
   <script>
     const ENDPOINT = "https://backend-core.hellonext.com.br/api/core/tenant/hn-demo/webhook/hndemowakesurfveleiros";
-    const btn = document.getElementById("send");
-    const out = document.getElementById("out");
+    const STATUS = ["Pendente", "Validado", "Recusado"];
+    const TABS = [["Pendente", "Pendentes"], ["Validado", "Validados"], ["Recusado", "Recusados"], ["", "Todos"]];
+    const $ = (id) => document.getElementById(id);
+    let senha = sessionStorage.getItem("veleirosAdmin") || "";
+    let cadastros = [];
+    let tab = "Pendente";
 
     function esc(s) {
       return String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
     }
-    function list(title, items, fmt) {
-      if (!items || !items.length) return "";
-      return "<h3>" + title + " (" + items.length + ")</h3><ul>" + items.map((i) => "<li>" + fmt(i) + "</li>").join("") + "</ul>";
+    function msg(el, text, ok) {
+      el.innerHTML = text ? '<div class="msg ' + (ok ? "ok" : "err") + '">' + esc(text) + "</div>" : "";
     }
 
-    btn.addEventListener("click", async () => {
-      btn.disabled = true;
-      btn.textContent = "Enviando…";
-      out.innerHTML = "";
+    async function call(payload) {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        // text/plain sem Accept: requisição simples, sem preflight de CORS (o Safari recusa o preflight do HelloNext)
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
+        body: JSON.stringify(Object.assign({ senha }, payload)),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!(data.sucesso || data.Status === 1)) {
+        const err = String(data.StatusDescription || "Falha na comunicação").replace(/^\[[^\]]*\]\s*/, "");
+        if (/senha/i.test(err)) logout(err);
+        throw new Error(err);
+      }
+      return data;
+    }
+
+    function logout(reason) {
+      senha = "";
+      sessionStorage.removeItem("veleirosAdmin");
+      $("app").classList.add("hidden");
+      $("login").classList.remove("hidden");
+      msg($("loginOut"), reason, false);
+    }
+
+    function prontoParaEnviar(c) {
+      return c.status === "Validado" && c.cupom && c.email && !c.cupomEnviadoEm;
+    }
+
+    function renderTabs() {
+      const count = (st) => cadastros.filter((c) => !st || c.status === st).length;
+      $("tabs").innerHTML = TABS.map(([st, label]) =>
+        '<button type="button" class="tab' + (tab === st ? " on" : "") + '" data-tab="' + st + '">' + label + "<b>" + count(st) + "</b></button>"
+      ).join("");
+      const prontos = cadastros.filter(prontoParaEnviar).length;
+      $("sendHint").textContent = prontos ? prontos + " pronto(s) para enviar" : "Nenhum validado com cupom aguardando envio";
+    }
+
+    function card(c) {
+      const tel = String(c.telefone || "");
+      const opts = STATUS.map((s) => '<option' + (s === c.status ? " selected" : "") + ">" + s + "</option>").join("");
+      return (
+        '<div class="card" data-id="' + esc(c.id) + '"><div class="row">' +
+          '<div class="who">' +
+            "<h2>" + esc(c.atleta) + '<span class="pill p-' + esc(c.status) + '">' + esc(c.status) + "</span></h2>" +
+            '<div class="sub">' + esc(c.modalidade) + " · nascimento " + esc(c.nascimento) + "</div>" +
+            '<dl class="info">' +
+              "<dt>Quadra / lote</dt><dd>" + esc(c.quadra) + " / " + esc(c.lote) + "</dd>" +
+              "<dt>" + esc(c.vinculo || "Responsável") + "</dt><dd>" + esc(c.responsavel) + "</dd>" +
+              '<dt>Telefone</dt><dd><a href="https://wa.me/' + esc(tel) + '" target="_blank" rel="noopener">' + esc(tel) + "</a></dd>" +
+              '<dt>E-mail</dt><dd><a href="mailto:' + esc(c.email) + '">' + esc(c.email) + "</a></dd>" +
+              "<dt>Recebido em</dt><dd>" + esc(c.recebidoEm || "—") + "</dd>" +
+            "</dl>" +
+          "</div>" +
+          '<form class="edit">' +
+            '<div class="two">' +
+              '<div class="f"><label>Status</label><select name="status">' + opts + "</select></div>" +
+              '<div class="f"><label>Cupom</label><input name="cupom" value="' + esc(c.cupom) + '" placeholder="Código do cupom" autocomplete="off" /></div>' +
+            "</div>" +
+            '<div class="f"><label>Observações</label><textarea name="observacoes" rows="1">' + esc(c.observacoes) + "</textarea></div>" +
+            '<div class="actions">' +
+              '<button type="submit">Salvar</button>' +
+              (c.cupomEnviadoEm
+                ? '<span class="sent">Cupom enviado em ' + esc(c.cupomEnviadoEm) + "</span>"
+                : prontoParaEnviar(c) ? '<button type="button" class="green" data-send>Enviar cupom</button>' : "") +
+            "</div>" +
+            '<div class="out" aria-live="polite"></div>' +
+          "</form>" +
+        "</div></div>"
+      );
+    }
+
+    function render() {
+      renderTabs();
+      const q = $("busca").value.trim().toLowerCase();
+      const items = cadastros
+        .filter((c) => !tab || c.status === tab)
+        .filter((c) => !q || [c.atleta, c.email, c.telefone, c.quadra, c.lote, c.responsavel, c.cupom].join(" ").toLowerCase().includes(q));
+      $("list").innerHTML = items.length ? items.map(card).join("") : '<div class="card empty">Nenhum cadastro aqui.</div>';
+    }
+
+    function toTime(br) {
+      const m = /^(\d{2})\/(\d{2})\/(\d{4})(?:\s+(\d{2}):(\d{2}))?/.exec(br || "");
+      return m ? new Date(+m[3], +m[2] - 1, +m[1], +(m[4] || 0), +(m[5] || 0)).getTime() : 0;
+    }
+
+    async function load() {
+      $("reload").disabled = true;
       try {
-        const res = await fetch(ENDPOINT, {
-          method: "POST",
-          // text/plain sem Accept: requisição simples, sem preflight de CORS (o Safari recusa o preflight do HelloNext)
-          headers: { "Content-Type": "text/plain;charset=UTF-8" },
-          body: JSON.stringify({ command: "enviarCupons" }),
-        });
-        const data = await res.json();
-        if (!(data.sucesso || data.Status === 1)) throw new Error(data.StatusDescription || "Falha no envio");
-        const d = data.Data || {};
-        out.innerHTML =
-          '<div class="msg ok">' + esc(data.StatusDescription) + "</div>" +
-          list("Enviados agora", d.enviados, (i) => esc(i.nome) + " · " + esc(i.email)) +
-          list("Validados sem cupom (preencha o Cupom)", d.semCupom, (i) => esc(i.nome)) +
-          list("Falhas", d.falhas, (i) => esc(i.nome) + " — " + esc(i.erro)) +
-          "<p><small>Validados: " + esc(d.validados) + " · já tinham recebido: " + esc(d.jaEnviados) + "</small></p>";
-      } catch (e) {
-        out.innerHTML = '<div class="msg err">' + esc(e.message) + "</div>";
+        const data = await call({ command: "listar" });
+        cadastros = ((data.Data || {}).cadastros || []).sort((a, b) => toTime(b.recebidoEm) - toTime(a.recebidoEm));
+        $("login").classList.add("hidden");
+        $("app").classList.remove("hidden");
+        render();
+        return true;
+      } finally {
+        $("reload").disabled = false;
+      }
+    }
+
+    $("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      senha = $("senha").value;
+      const btn = e.target.querySelector("button");
+      btn.disabled = true;
+      msg($("loginOut"), "");
+      try {
+        await load();
+        sessionStorage.setItem("veleirosAdmin", senha);
+      } catch (err) {
+        msg($("loginOut"), err.message, false);
       } finally {
         btn.disabled = false;
-        btn.textContent = "Enviar cupons validados";
       }
     });
+
+    $("tabs").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-tab]");
+      if (!b) return;
+      tab = b.dataset.tab;
+      render();
+    });
+    $("busca").addEventListener("input", render);
+    $("reload").addEventListener("click", () => load().catch((err) => msg($("out"), err.message, false)));
+
+    $("list").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const id = form.closest("[data-id]").dataset.id;
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = "Salvando…";
+      try {
+        const data = await call({
+          command: "atualizar",
+          cadastroId: id,
+          status: form.status.value,
+          cupom: form.cupom.value.trim(),
+          observacoes: form.observacoes.value.trim(),
+        });
+        const i = cadastros.findIndex((c) => c.id === id);
+        if (i >= 0) cadastros[i] = Object.assign(cadastros[i], data.Data || {});
+        render();
+        msg($("out"), "Salvo: " + (cadastros[i] ? cadastros[i].atleta : "cadastro") + " → " + form.status.value, true);
+      } catch (err) {
+        msg(form.querySelector(".out"), err.message, false);
+        btn.disabled = false;
+        btn.textContent = "Salvar";
+      }
+    });
+
+    async function enviar(cadastroId, btn, outEl) {
+      const label = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Enviando…";
+      try {
+        const data = await call(Object.assign({ command: "enviarCupons" }, cadastroId ? { cadastroId } : {}));
+        const d = data.Data || {};
+        const li = (items, fmt) => (items || []).map((x) => "<li>" + fmt(x) + "</li>").join("");
+        const extra = li(d.enviados, (x) => "Enviado: " + esc(x.nome) + " · " + esc(x.email)) +
+          li(d.semCupom, (x) => "Sem cupom: " + esc(x.nome)) +
+          li(d.falhas, (x) => "Falha: " + esc(x.nome) + " — " + esc(x.erro));
+        await load();
+        outEl.innerHTML = '<div class="msg ' + ((d.falhas || []).length ? "err" : "ok") + '">' + esc(data.StatusDescription) + "</div>" +
+          (extra ? '<ul class="res">' + extra + "</ul>" : "");
+      } catch (err) {
+        msg(outEl, err.message, false);
+      } finally {
+        outEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        btn.disabled = false;
+        btn.textContent = label;
+      }
+    }
+
+    $("list").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-send]");
+      if (!b) return;
+      enviar(b.closest("[data-id]").dataset.id, b, $("out"));
+    });
+    $("sendAll").addEventListener("click", (e) => enviar("", e.currentTarget, $("out")));
+
+    if (senha) load().catch((err) => logout(err.message));
   </script>
 </body>
 </html>

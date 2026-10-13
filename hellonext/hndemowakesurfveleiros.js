@@ -9,12 +9,20 @@ function run() {
   // "Cupom enviado em", manda o atleta para a jornada do e-mail (ruler.addLeadToJourney) e grava date1.
   // Mailing da estratégia: Id · nome · email · cupom · telefone · modalidade · cadastroId.
   //
+  // Página /veleiros-admin/ (todos exigem "senha" = ADMIN_SENHA):
+  // { "command": "listar" } → todos os cadastros
+  // { "command": "atualizar", "cadastroId", "status", "cupom", "observacoes" } → regrava a linha
+  // { "command": "enviarCupons" }
+  //
   // Slots da entidade:
   // text0 Id (uuid) · text1 Atleta · text2 Nascimento (dd/mm/aaaa) · text3 Telefone (DDI+DDD+número)
   // text4 E-mail · text5 Modalidade · text6 Quadra · text7 Lote · text8 Proprietário/Inquilino (nome)
   // text9 Vínculo · text10 Status · text11 Cupom · text12 Observações · text13 ContactId
   // date0 Recebido em · date1 Cupom enviado em
-  var WEBHOOK_VERSION = "2026-10-13-hn-demo-wakesurf-veleiros-v4";
+  var WEBHOOK_VERSION = "2026-10-13-hn-demo-wakesurf-veleiros-v5";
+  // Definida só na cópia publicada no HelloNext (este repositório é público). Vazia = administração bloqueada.
+  var ADMIN_SENHA = "";
+  var STATUS_OPCOES = ["Pendente", "Validado", "Recusado"];
   var LAYOUT_ID = "66a57953-ed15-4b2e-807a-90e7ce05a41c";
   var CUPOM_FILTER_ID = "1f0cc84d-8963-4f73-8f46-4455b1662867";
   var TEXT_SLOTS = ["text0", "text1", "text2", "text3", "text4", "text5", "text6", "text7",
@@ -213,13 +221,12 @@ function run() {
     return out;
   }
 
-  /** Linhas "Validado"; se o filtro por campo não trouxer nada, lista tudo e filtra aqui. */
-  function listValidados() {
-    var strategies = [
-      function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text10", Value: "Validado" }], false); },
-      function () { return entity.searchEntityByField(LAYOUT_ID, [], true); },
-      function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text0", Value: "" }], true); }
-    ];
+  function isValidado(r) {
+    return r.text10.toLowerCase().indexOf("validad") === 0;
+  }
+
+  /** Roda as buscas em ordem e para na primeira que trouxer linhas aceitas por `accept`. */
+  function searchRows(strategies, accept) {
     var byId = {};
     var out = [];
     for (var s = 0; s < strategies.length; s++) {
@@ -227,8 +234,7 @@ function run() {
         var rows = parseRowsRaw(strategies[s]()).map(flattenRow);
         for (var i = 0; i < rows.length; i++) {
           var r = rows[i];
-          if (!r.text0 || byId[r.text0]) continue;
-          if (r.text10.toLowerCase().indexOf("validad") !== 0) continue;
+          if (!r.text0 || byId[r.text0] || !accept(r)) continue;
           byId[r.text0] = true;
           out.push(r);
         }
@@ -238,6 +244,40 @@ function run() {
       if (out.length) break;
     }
     return out;
+  }
+
+  function allRowsStrategies() {
+    return [
+      function () { return entity.searchEntityByField(LAYOUT_ID, [], true); },
+      function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text0", Value: "" }], true); }
+    ];
+  }
+
+  /** Linhas "Validado"; se o filtro por campo não trouxer nada, lista tudo e filtra aqui. */
+  function listValidados() {
+    return searchRows([
+      function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text10", Value: "Validado" }], false); }
+    ].concat(allRowsStrategies()), isValidado);
+  }
+
+  /** Todos os cadastros; se listar tudo falhar, junta as buscas por cada status. */
+  function listTodos() {
+    var rows = searchRows(allRowsStrategies(), function () { return true; });
+    if (rows.length) return rows;
+    var byId = {};
+    STATUS_OPCOES.forEach(function (st) {
+      searchRows([function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text10", Value: st }], false); }],
+        function (r) { return !byId[r.text0]; }).forEach(function (r) { byId[r.text0] = true; rows.push(r); });
+    });
+    return rows;
+  }
+
+  function findById(id) {
+    var same = function (r) { return r.text0 === id; };
+    var rows = searchRows([
+      function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text0", Value: id }], false); }
+    ], same);
+    return rows.length ? rows[0] : (listTodos().filter(same)[0] || null);
   }
 
   var TICKS_AT_UNIX_EPOCH = 621355968000000000;
@@ -273,12 +313,40 @@ function run() {
   }
 
   /** A linha é regravada inteira (com RowKey) para a atualização não apagar os outros slots. */
-  function marcarCupomEnviado(row) {
+  function regravarLinha(row, date1) {
     var fields = TEXT_SLOTS.map(function (slot) { return kv(slot, row[slot]); });
     fields.push(kv("date0", toEntityDateValue(row.date0)));
-    fields.push(kv("date1", nowEntityDate()));
+    if (date1) fields.push(kv("date1", date1));
     if (row.rowKey) fields.push(kv("RowKey", row.rowKey));
     entity.addOrUpdateAuxTableContact(LAYOUT_ID, fields);
+  }
+
+  function marcarCupomEnviado(row) {
+    regravarLinha(row, nowEntityDate());
+  }
+
+  function toRecord(r) {
+    return {
+      id: r.text0, atleta: r.text1, nascimento: r.text2, telefone: r.text3, email: r.text4,
+      modalidade: r.text5, quadra: r.text6, lote: r.text7, responsavel: r.text8, vinculo: r.text9,
+      status: r.text10 || "Pendente", cupom: r.text11, observacoes: r.text12,
+      recebidoEm: toEntityDateValue(r.date0),
+      cupomEnviadoEm: hasRealDate(r.date1) ? toEntityDateValue(r.date1) : ""
+    };
+  }
+
+  function atualizar(body) {
+    var id = field(body, "cadastroId", 60);
+    if (!id) return fail("cadastroId obrigatorio");
+    var status = pickOption(getOwnValue(body, "status"), STATUS_OPCOES);
+    if (!status) return fail("status invalido (Pendente, Validado ou Recusado)");
+    var row = findById(id);
+    if (!row) return fail("cadastro nao encontrado");
+    row.text10 = status;
+    row.text11 = field(body, "cupom", 60);
+    row.text12 = field(body, "observacoes", 500);
+    regravarLinha(row, hasRealDate(row.date1) ? toEntityDateValue(row.date1) : "");
+    return ok(toRecord(row), "Cadastro atualizado");
   }
 
   function enviarCupons(somenteId) {
@@ -373,8 +441,16 @@ function run() {
       return ok({ diag: diag, webhookVersion: WEBHOOK_VERSION }, "diagnostico");
     }
 
-    if (field(body, "command") === "enviarCupons") {
+    var command = field(body, "command");
+    if (command === "listar" || command === "atualizar" || command === "enviarCupons") {
+      if (!ADMIN_SENHA) return fail("senha da administracao nao configurada no webhook");
+      if (field(body, "senha", 200) !== ADMIN_SENHA) return fail("senha incorreta");
       if (typeof entity === "undefined") return fail("objeto entity indisponivel neste webhook");
+      if (command === "listar") {
+        var todos = listTodos().map(toRecord);
+        return ok({ cadastros: todos, webhookVersion: WEBHOOK_VERSION }, todos.length + " cadastro(s)");
+      }
+      if (command === "atualizar") return atualizar(body);
       return enviarCupons(field(body, "cadastroId", 60));
     }
 
