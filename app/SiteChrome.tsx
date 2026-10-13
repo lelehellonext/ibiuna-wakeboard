@@ -68,7 +68,7 @@ export default function SiteChrome() {
         </button>
 
         <nav className="topnav" aria-label="Navegação principal">
-          {NAV_ITEMS.map((n) => (
+          {NAV_ITEMS.filter((n) => !n.drawerOnly).map((n) => (
             <a
               key={n.id}
               href={`#${n.id}`}

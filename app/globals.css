@@ -220,7 +220,7 @@ a {
   filter: brightness(1.06);
 }
 
-@media (min-width: 1140px) {
+@media (min-width: 1240px) {
   .topnav {
     display: flex;
     align-items: center;
@@ -3859,4 +3859,467 @@ body,
   .barco .boat-feats {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+/* ===== INSCRIÇÕES ===== */
+.capa-insc {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 4px 0 18px;
+  padding: 9px 16px;
+  border-radius: 980px;
+  background: rgba(0, 113, 227, 0.08);
+  border: 1px solid rgba(0, 113, 227, 0.25);
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.capa-insc .dot,
+.contato .insc-status .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--blue-soft);
+  flex-shrink: 0;
+}
+
+.crono-note {
+  margin: 22px auto 0;
+  text-align: center;
+  color: var(--ink-2);
+  font-size: 0.92rem;
+}
+
+.insc {
+  background: var(--surface) !important;
+}
+.insc .center-top h2 .accent-blue {
+  color: var(--blue-soft) !important;
+}
+.insc .center-top p {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.insc-condo {
+  display: grid;
+  gap: 8px;
+  margin: 28px auto 0;
+  max-width: 760px;
+  padding: 26px 24px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #0a2540 0%, #0066cc 100%);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 14px 34px rgba(0, 102, 204, 0.22);
+  transition: transform 0.2s ease;
+}
+.insc-condo:hover {
+  transform: translateY(-2px);
+}
+.ic-tag {
+  justify-self: start;
+  padding: 5px 11px;
+  border-radius: 980px;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.ic-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.ic-price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.ic-price small {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.8;
+  letter-spacing: 0;
+}
+.ic-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+.ic-link {
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+.insc-subtitle {
+  margin: 40px 0 16px;
+  text-align: center;
+  color: var(--ink);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.lote-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.lote-card {
+  padding: 20px;
+  border-radius: 20px;
+  background: var(--bg);
+  border: 1px solid var(--line-soft);
+}
+.lote-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.lote-name {
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.lote-period {
+  color: var(--ink-3);
+  font-size: 0.85rem;
+}
+.lote-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 0;
+  border-top: 1px solid var(--line-soft);
+  color: var(--ink-2);
+  font-size: 0.92rem;
+}
+.lote-row strong {
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+.insc-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+}
+.insc-soon {
+  background: var(--bg) !important;
+  border: 1px dashed var(--line) !important;
+  color: var(--ink-2) !important;
+  border-radius: 980px !important;
+  cursor: default;
+}
+.insc-notes {
+  max-width: 760px;
+  margin: 24px auto 0;
+  padding: 0 0 0 18px;
+  color: var(--ink-2);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 760px) {
+  .lote-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .insc-condo {
+    padding: 32px 36px;
+  }
+}
+
+/* ===== CONDÔMINOS VELEIROS ===== */
+.veleiros {
+  background: var(--bg) !important;
+}
+.veleiros-layout {
+  display: grid;
+  gap: 28px;
+  align-items: start;
+}
+.veleiros-copy h2 {
+  margin: 6px 0 12px;
+  color: var(--ink);
+  font-size: clamp(1.9rem, 4.4vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.1;
+}
+.veleiros-copy h2 span {
+  color: var(--blue-soft);
+}
+.veleiros-lead {
+  color: var(--ink-2);
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+.veleiros-lead strong {
+  color: var(--ink);
+}
+.veleiros-steps {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: vstep;
+}
+.veleiros-steps li {
+  position: relative;
+  padding: 0 0 0 42px;
+  color: var(--ink-2);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  counter-increment: vstep;
+}
+.veleiros-steps li::before {
+  content: counter(vstep);
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--blue-soft);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.veleiros-steps b {
+  color: var(--ink);
+}
+.veleiros-obs {
+  margin-top: 18px;
+  color: var(--ink-3);
+  font-size: 0.82rem;
+}
+.veleiros-card {
+  padding: 24px 20px;
+  border-radius: 22px;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow);
+}
+
+.vf-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+.vf-field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.vf-field > span,
+.vf-field legend {
+  color: var(--ink-2);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.vf-field input,
+.vf-field select {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.vf-field select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink-3) 50%),
+    linear-gradient(135deg, var(--ink-3) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 36px;
+}
+.vf-field input:focus,
+.vf-field select:focus {
+  outline: none;
+  border-color: var(--blue-soft);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.18);
+}
+.vf-radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+.vf-radios legend {
+  width: 100%;
+  margin-bottom: 6px;
+}
+.vf-radios label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+.vf-radios input,
+.vf-consent input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--blue-soft);
+  flex-shrink: 0;
+}
+.vf-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--ink-2);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+.vf-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.vf-submit {
+  width: 100%;
+  margin-top: 18px;
+  justify-content: center;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+.vf-submit:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+.vf-error {
+  margin: 14px 0 0;
+  color: #c62828;
+  font-size: 0.88rem;
+}
+.vf-note {
+  margin: 12px 0 0;
+  color: var(--ink-3);
+  font-size: 0.8rem;
+  text-align: center;
+}
+.vf-success {
+  text-align: center;
+  padding: 18px 6px;
+}
+.vf-success h3 {
+  margin: 12px 0 8px;
+  color: var(--ink);
+  font-size: 1.35rem;
+}
+.vf-success p {
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+.vf-success strong {
+  color: var(--ink);
+}
+.vf-check {
+  display: inline-grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(0, 113, 227, 0.12);
+  color: var(--blue-soft);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.vf-again {
+  margin-top: 16px;
+  cursor: pointer;
+  font: inherit;
+  background: transparent !important;
+  border: 1px solid var(--line) !important;
+  color: var(--ink) !important;
+}
+
+@media (min-width: 640px) {
+  .vf-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .vf-full {
+    grid-column: 1 / -1;
+  }
+  .veleiros-card {
+    padding: 30px 28px;
+  }
+}
+@media (min-width: 980px) {
+  .veleiros-layout {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 48px;
+  }
+}
+
+/* ===== FAQ ===== */
+.faq {
+  background: var(--surface) !important;
+  min-height: 0 !important;
+}
+.faq-list {
+  display: grid;
+  gap: 10px;
+  max-width: 820px;
+  margin: 26px auto 0;
+}
+.faq-item {
+  border-radius: 16px;
+  background: var(--bg);
+  border: 1px solid var(--line-soft);
+}
+.faq-item summary {
+  position: relative;
+  padding: 16px 48px 16px 18px;
+  color: var(--ink);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-3);
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.faq-item[open] summary::after {
+  content: "–";
+}
+.faq-item p {
+  margin: 0;
+  padding: 0 18px 16px;
+  color: var(--ink-2);
+  line-height: 1.55;
 }

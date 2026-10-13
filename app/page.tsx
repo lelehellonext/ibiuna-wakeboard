@@ -2,7 +2,45 @@ import SiteChrome from "./SiteChrome";
 import ScrollReveal from "./ScrollReveal";
 import MediaLightbox from "./MediaLightbox";
 import LocalMapClient from "./LocalMapClient";
-import { CONTACT } from "./sections";
+import VeleirosForm from "./VeleirosForm";
+import { ABW_INSCRICAO_URL, CONTACT } from "./sections";
+
+const lotes = [
+  { name: "1º Lote", period: "Até 25 de outubro", filiado: "R$ 380,00", naoFiliado: "R$ 440,00" },
+  { name: "2º Lote", period: "26/10 a 08/11", filiado: "R$ 430,00", naoFiliado: "R$ 490,00" },
+  { name: "3º Lote", period: "09/11 a 13/11", filiado: "R$ 480,00", naoFiliado: "R$ 540,00" },
+];
+
+const faq = [
+  {
+    q: "Atleta tem que fazer check-in?",
+    a: "Sim. Ao chegar, dirija-se ao stand da ABW e retire seu kit atleta.",
+  },
+  {
+    q: "Qual a ordem de entrada? E as baterias?",
+    a: "O cronograma detalhado com todas as categorias será publicado até a véspera da competição, às 20h, no site da CBEAW e no grupo do WhatsApp dos atletas.",
+  },
+  {
+    q: "Como entro no grupo do WhatsApp dos atletas?",
+    a: "Você será adicionado após confirmar sua inscrição. Confira se o seu número de celular no cadastro do Ticket Sports está correto!",
+  },
+  {
+    q: "A inscrição encerra?",
+    a: "Sim! As inscrições se encerram no dia 13 de novembro de 2026, ou até acabarem as vagas.",
+  },
+  {
+    q: "Posso me inscrever depois de encerrar as inscrições?",
+    a: "Não. Ninguém pode se inscrever após o término das inscrições / vagas.",
+  },
+  {
+    q: "No dia do treino, posso marcar horário?",
+    a: "Não. O treino é feito por ordem de chegada, agrupado por categorias, devido ao lastro do barco / tamanho da onda (andam todos da estreantes, depois iniciante, depois todos da intermediário, e assim vai; ao término da Pró, voltamos para os estreantes).",
+  },
+  {
+    q: "Tem translado do hotel para o campeonato?",
+    a: "Infelizmente não. Recomendamos que os atletas utilizem o grupo do WhatsApp para combinar caronas, ou peguem Uber em grupo.",
+  },
+];
 
 const wakeboardCats = [
   { title: "Adaptado", desc: "Categoria adaptada." },
@@ -66,6 +104,10 @@ export default function Home() {
               </h1>
               <p className="sub">Etapa Ibiúna · São Paulo</p>
               <p className="loc">Represa de Itupararanga — Ibiúna/SP</p>
+              <a className="capa-insc" href="#inscricoes">
+                <span className="dot" />
+                Inscrições a partir de 15/10/2026
+              </a>
               <div className="cta-row">
                 <a className="btn primary" href="#inscricoes">
                   Quero participar
@@ -140,10 +182,11 @@ export default function Home() {
                   <span className="dc-wk">Quinta</span>
                 </div>
                 <div className="dc-body">
-                  <div className="dc-name">Treinos</div>
+                  <div className="dc-name">Treino oficial</div>
                   <p className="dc-desc">
-                    Aquecimento oficial e treinos livres na represa. Atletas se preparam para as
-                    competições dos dias seguintes.
+                    Treino pago (R$ 200,00): ida e volta na raia do campeonato ou 3 quedas, por
+                    ordem de chegada e agrupado por categoria. Retirada de kits a partir das 10h e
+                    reunião técnica ABW às 17h30.
                   </p>
                   <div className="dc-time">A partir das 8h00</div>
                 </div>
@@ -179,6 +222,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <p className="crono-note" data-reveal>
+              O cronograma detalhado com todas as categorias será publicado até 19 de novembro, às
+              20h.
+            </p>
           </div>
         </section>
 
@@ -647,8 +694,137 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ============ INSCRIÇÕES / CONTATO ============ */}
-        <section id="inscricoes" className="section contato">
+        {/* ============ INSCRIÇÕES ============ */}
+        <section id="inscricoes" className="section insc">
+          <div className="section-inner">
+            <div className="center-top" data-reveal>
+              <p className="kicker">Inscrições · Realização ABW</p>
+              <h2>
+                Inscrições a partir de <span className="accent-blue">15/10/2026</span>
+              </h2>
+              <p>
+                Inscrições até 13 de novembro de 2026 ou até acabarem as vagas. Mínimo de 3 atletas
+                para cada categoria — categorias com menos de 3 atletas terão os participantes
+                realocados para outras.
+              </p>
+            </div>
+
+            <a className="insc-condo" href="#veleiros" data-reveal>
+              <span className="ic-tag">Exclusivo condôminos</span>
+              <span className="ic-title">Atletas da Associação Veleiros de Ibiúna</span>
+              <span className="ic-price">
+                R$ 50,00 <small>valor de compromisso</small>
+              </span>
+              <span className="ic-text">
+                Faça o cadastro do atleta, aguarde a validação pela administração da associação e
+                receba por e-mail o cupom de desconto para a inscrição.
+              </span>
+              <span className="ic-link">Fazer cadastro de condômino →</span>
+            </a>
+
+            <h3 className="insc-subtitle" data-reveal>
+              Demais atletas (não condôminos)
+            </h3>
+            <div className="lote-grid" data-reveal-group>
+              {lotes.map((l) => (
+                <div className="lote-card" key={l.name}>
+                  <div className="lote-head">
+                    <span className="lote-name">{l.name}</span>
+                    <span className="lote-period">{l.period}</span>
+                  </div>
+                  <div className="lote-row">
+                    <span>Filiados ABW</span>
+                    <strong>{l.filiado}</strong>
+                  </div>
+                  <div className="lote-row">
+                    <span>Não filiados</span>
+                    <strong>{l.naoFiliado}</strong>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="insc-cta" data-reveal>
+              {ABW_INSCRICAO_URL ? (
+                <a
+                  className="btn primary"
+                  href={ABW_INSCRICAO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Inscrever-se pela ABW
+                </a>
+              ) : (
+                <span className="btn insc-soon" aria-disabled="true">
+                  Link de inscrição disponível em 15/10/2026
+                </span>
+              )}
+            </div>
+            <ul className="insc-notes" data-reveal>
+              <li>*Valores não incluem a taxa de serviço da plataforma de inscrição.</li>
+              <li>Treino oficial (19/11): R$ 200,00 — ida e volta na raia do campeonato ou 3 quedas.</li>
+              <li>
+                Retirada de kits em 19/11 a partir das 10h · Reunião técnica ABW às 17h30 · Festa
+                de premiação em 21/11, após as finais, no Bar da Náutica.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* ============ CONDÔMINOS VELEIROS ============ */}
+        <section id="veleiros" className="section veleiros">
+          <div className="section-inner veleiros-layout">
+            <div className="veleiros-copy" data-reveal>
+              <p className="kicker">Somente condôminos</p>
+              <h2>
+                Atletas da <span>Veleiros de Ibiúna</span>
+              </h2>
+              <p className="veleiros-lead">
+                Proprietários, inquilinos e familiares de lotes da Associação Veleiros de Ibiúna
+                competem pelo valor de compromisso de <strong>R$ 50,00</strong>.
+              </p>
+              <ol className="veleiros-steps">
+                <li>
+                  <b>Cadastre o atleta</b> com quadra, lote e o nome do proprietário ou inquilino.
+                </li>
+                <li>
+                  <b>A administração da associação valida</b> os dados do cadastro.
+                </li>
+                <li>
+                  <b>Você recebe um e-mail com o cupom de desconto</b> assim que os dados forem
+                  validados e conclui a inscrição.
+                </li>
+              </ol>
+              <p className="veleiros-obs">
+                Exclusivo para atletas vinculados a lotes da Associação Veleiros de Ibiúna. Um
+                cadastro por atleta.
+              </p>
+            </div>
+            <div className="veleiros-card" data-reveal>
+              <VeleirosForm />
+            </div>
+          </div>
+        </section>
+
+        {/* ============ FAQ ============ */}
+        <section id="faq" className="section faq">
+          <div className="section-inner">
+            <div className="center-top" data-reveal>
+              <p className="kicker">Dúvidas</p>
+              <h2>Perguntas frequentes</h2>
+            </div>
+            <div className="faq-list" data-reveal-group>
+              {faq.map((f) => (
+                <details className="faq-item" key={f.q}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============ CONTATO ============ */}
+        <section id="contato" className="section contato">
           <div className="section-inner content" data-reveal-group>
             <h2 className="cta">
               Seja parte do <span>evento</span>
@@ -660,7 +836,7 @@ export default function Home() {
             </p>
             <div className="insc-status">
               <span className="dot" />
-              Inscrições ainda não abertas — em breve por aqui e pelo Instagram
+              Inscrições a partir de 15/10/2026 — acompanhe por aqui e pelo Instagram
             </div>
             <div className="cf">
               <a
