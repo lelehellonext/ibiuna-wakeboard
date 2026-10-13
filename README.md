@@ -33,6 +33,18 @@ para a raiz do site no servidor.
 - `app/sections.ts` — lista de navegação e dados de contato (WhatsApp, e-mail, Instagram, Google Maps).
 - `app/globals.css` — sistema de design (cores, tipografia, componentes).
 - `public/img/` — fotos e vídeo do evento.
+- `app/VeleirosForm.tsx` — formulário de cadastro dos condôminos Veleiros (seção `#veleiros`).
+- `hellonext/hndemowakesurfveleiros.js` — webhook do HelloNext que recebe esse formulário.
+
+## Cadastro de condôminos Veleiros (HelloNext)
+
+O formulário envia `POST` para o webhook `hndemowakesurfveleiros` da tenant **hn-demo**
+(`VELEIROS_FORM_ENDPOINT` em `app/sections.ts`), que grava uma linha por atleta na entidade
+**WakeSurf Veleiros Cadastro** (`66a57953-ed15-4b2e-807a-90e7ce05a41c`) com Status "Pendente".
+A administração valida no CRM: Status = "Validado" e preenche o Cupom.
+
+Para publicar ou alterar o webhook: no HelloNext (hn-demo), webhook com slug
+`hndemowakesurfveleiros`, colar o conteúdo de `hellonext/hndemowakesurfveleiros.js` e publicar.
 
 ## Como atualizar conteúdo
 
