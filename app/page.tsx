@@ -43,7 +43,6 @@ const wakesurfCats = [
   { title: "Pro Masculino", desc: "A elite do Brasileiro de WakeSurf.", highlight: true },
   { title: "Open Feminino", desc: "Categoria aberta feminina." },
   { title: "Veteranos", desc: "40+." },
-  { title: "Seniors", desc: "50+." },
 ];
 
 export default function Home() {
