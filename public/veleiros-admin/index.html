@@ -85,6 +85,7 @@
         </div>
         <div class="actions" style="margin-top:14px">
           <button id="sendAll" class="green" type="button">Enviar cupons validados</button>
+          <button id="export" class="ghost" type="button">Exportar Excel</button>
           <span class="note" id="sendHint"></span>
         </div>
         <div id="out" aria-live="polite"></div>
@@ -180,12 +181,17 @@
       );
     }
 
-    function render() {
-      renderTabs();
+    function visiveis() {
       const q = $("busca").value.trim().toLowerCase();
-      const items = cadastros
+      return cadastros
         .filter((c) => !tab || c.status === tab)
         .filter((c) => !q || [c.atleta, c.email, c.telefone, c.quadra, c.lote, c.responsavel, c.cupom].join(" ").toLowerCase().includes(q));
+    }
+
+    function render() {
+      renderTabs();
+      const items = visiveis();
+      $("export").textContent = "Exportar Excel (" + items.length + ")";
       $("list").innerHTML = items.length ? items.map(card).join("") : '<div class="card empty">Nenhum cadastro aqui.</div>';
     }
 
@@ -288,6 +294,48 @@
       enviar(b.closest("[data-id]").dataset.id, b, $("out"));
     });
     $("sendAll").addEventListener("click", (e) => enviar("", e.currentTarget, $("out")));
+
+    function loadXlsx() {
+      if (window.XLSX) return Promise.resolve();
+      return new Promise((resolve, reject) => {
+        const s = document.createElement("script");
+        s.src = "xlsx.full.min.js";
+        s.onload = resolve;
+        s.onerror = () => reject(new Error("Não foi possível carregar o gerador de Excel"));
+        document.head.appendChild(s);
+      });
+    }
+
+    const COLUNAS = [
+      ["Atleta", "atleta", 28], ["Nascimento", "nascimento", 12], ["Modalidade", "modalidade", 20],
+      ["Quadra", "quadra", 8], ["Lote", "lote", 8], ["Proprietário/Inquilino", "responsavel", 28],
+      ["Vínculo", "vinculo", 13], ["Telefone", "telefone", 16], ["E-mail", "email", 30],
+      ["Recebido em", "recebidoEm", 19], ["Status", "status", 11], ["Cupom", "cupom", 14],
+      ["Observações", "observacoes", 30], ["Cupom enviado em", "cupomEnviadoEm", 19], ["Id", "id", 38],
+    ];
+
+    $("export").addEventListener("click", async (e) => {
+      const btn = e.currentTarget;
+      const items = visiveis();
+      if (!items.length) return msg($("out"), "Nada para exportar nesta aba.", false);
+      btn.disabled = true;
+      try {
+        await loadXlsx();
+        const rows = [COLUNAS.map((c) => c[0])].concat(items.map((it) => COLUNAS.map((c) => String(it[c[1]] || ""))));
+        const ws = XLSX.utils.aoa_to_sheet(rows);
+        ws["!cols"] = COLUNAS.map((c) => ({ wch: c[2] }));
+        ws["!autofilter"] = { ref: ws["!ref"] };
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Cadastros");
+        const nomeAba = (TABS.find((t) => t[0] === tab) || ["", "todos"])[1].toLowerCase();
+        const hoje = new Date().toLocaleDateString("pt-BR").split("/").reverse().join("-");
+        XLSX.writeFile(wb, "veleiros-cadastros-" + nomeAba + "-" + hoje + ".xlsx");
+      } catch (err) {
+        msg($("out"), err.message, false);
+      } finally {
+        btn.disabled = false;
+      }
+    });
 
     if (senha) load().catch((err) => logout(err.message));
   </script>
