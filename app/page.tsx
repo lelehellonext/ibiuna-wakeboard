@@ -17,6 +17,7 @@ const wakeboardCats = [
   { title: "Open", desc: "Categoria aberta em busca do pódio." },
   { title: "Profissional", desc: "O topo do Brasileiro de Wakeboard.", highlight: true },
   { title: "Veterano Masculino", desc: "40+." },
+  { title: "Seniors", desc: "50+." },
 ];
 
 const PersonIcon = () => (
@@ -42,6 +43,7 @@ const wakesurfCats = [
   { title: "Pro Masculino", desc: "A elite do Brasileiro de WakeSurf.", highlight: true },
   { title: "Open Feminino", desc: "Categoria aberta feminina." },
   { title: "Veteranos", desc: "40+." },
+  { title: "Seniors", desc: "50+." },
 ];
 
 export default function Home() {
