@@ -4257,7 +4257,7 @@ body,
   font-size: 1.6rem;
   font-weight: 700;
 }
-.vf-again {
+.btn.ghost.vf-again {
   margin-top: 16px;
   cursor: pointer;
   font: inherit;
