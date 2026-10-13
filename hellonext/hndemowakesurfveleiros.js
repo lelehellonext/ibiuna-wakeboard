@@ -14,7 +14,7 @@ function run() {
   // text4 E-mail · text5 Modalidade · text6 Quadra · text7 Lote · text8 Proprietário/Inquilino (nome)
   // text9 Vínculo · text10 Status · text11 Cupom · text12 Observações · text13 ContactId
   // date0 Recebido em · date1 Cupom enviado em
-  var WEBHOOK_VERSION = "2026-10-13-hn-demo-wakesurf-veleiros-v3";
+  var WEBHOOK_VERSION = "2026-10-13-hn-demo-wakesurf-veleiros-v4";
   var LAYOUT_ID = "66a57953-ed15-4b2e-807a-90e7ce05a41c";
   var CUPOM_FILTER_ID = "1f0cc84d-8963-4f73-8f46-4455b1662867";
   var TEXT_SLOTS = ["text0", "text1", "text2", "text3", "text4", "text5", "text6", "text7",
@@ -259,6 +259,13 @@ function run() {
       pad2(d.getUTCHours()) + ":" + pad2(d.getUTCMinutes()) + ":" + pad2(d.getUTCSeconds());
   }
 
+  /** Data vazia pode vir como "0", ticks zerados ou 01/01/0001: só conta como preenchida a partir de 2020. */
+  function hasRealDate(value) {
+    var v = toEntityDateValue(value);
+    var m = /^\d{2}\/\d{2}\/(\d{4})/.exec(v);
+    return !!m && Number(m[1]) >= 2020;
+  }
+
   function readRulerRet(ret) {
     var parsed = typeof ret === "string" ? (safeParseJSON(ret) || {}) : (ret || {});
     var n = parseInt(toStr(parsed.Status !== undefined ? parsed.Status : parsed.status), 10);
@@ -283,7 +290,7 @@ function run() {
     for (var i = 0; i < rows.length; i++) {
       var r = rows[i];
       if (somenteId && r.text0 !== somenteId) continue;
-      if (r.date1) { jaEnviados++; continue; }
+      if (hasRealDate(r.date1)) { jaEnviados++; continue; }
       if (!r.text11) { semCupom.push({ cadastroId: r.text0, nome: r.text1 }); continue; }
       if (!r.text4) { falhas.push({ cadastroId: r.text0, nome: r.text1, erro: "sem e-mail" }); continue; }
       var lead = [
@@ -355,7 +362,8 @@ function run() {
             linhas: linhas.length,
             comId: linhas.filter(function (l) { return l.text0; }).length,
             comCupom: linhas.filter(function (l) { return l.text11; }).length,
-            comEnvio: linhas.filter(function (l) { return l.date1; }).length,
+            comEnvio: linhas.filter(function (l) { return hasRealDate(l.date1); }).length,
+            date1Bruto: linhas.slice(0, 5).map(function (l) { return l.date1; }),
             status: status
           });
         } catch (eD) {
