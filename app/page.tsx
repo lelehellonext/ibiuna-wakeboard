@@ -790,8 +790,8 @@ export default function Home() {
                   <b>A administração da associação valida</b> os dados do cadastro.
                 </li>
                 <li>
-                  <b>Você recebe um e-mail com o cupom de desconto</b> assim que os dados forem
-                  validados e conclui a inscrição.
+                  <b>Você recebe um e-mail de demo@hellonext.com.br com o cupom de desconto</b>{" "}
+                  assim que os dados forem validados e conclui a inscrição.
                 </li>
               </ol>
               <p className="veleiros-obs">
