@@ -14,7 +14,7 @@ function run() {
   // text4 E-mail · text5 Modalidade · text6 Quadra · text7 Lote · text8 Proprietário/Inquilino (nome)
   // text9 Vínculo · text10 Status · text11 Cupom · text12 Observações · text13 ContactId
   // date0 Recebido em · date1 Cupom enviado em
-  var WEBHOOK_VERSION = "2026-10-13-hn-demo-wakesurf-veleiros-v2";
+  var WEBHOOK_VERSION = "2026-10-13-hn-demo-wakesurf-veleiros-v3";
   var LAYOUT_ID = "66a57953-ed15-4b2e-807a-90e7ce05a41c";
   var CUPOM_FILTER_ID = "1f0cc84d-8963-4f73-8f46-4455b1662867";
   var TEXT_SLOTS = ["text0", "text1", "text2", "text3", "text4", "text5", "text6", "text7",
@@ -228,7 +228,7 @@ function run() {
         for (var i = 0; i < rows.length; i++) {
           var r = rows[i];
           if (!r.text0 || byId[r.text0]) continue;
-          if (r.text10.toLowerCase() !== "validado") continue;
+          if (r.text10.toLowerCase().indexOf("validad") !== 0) continue;
           byId[r.text0] = true;
           out.push(r);
         }
@@ -327,6 +327,43 @@ function run() {
   try {
     logD("[hndemowakesurfveleiros] " + WEBHOOK_VERSION);
     var body = readBody();
+
+    // Diagnóstico da leitura da entidade: só contagens e status, sem dados pessoais.
+    if (field(body, "command") === "diagnostico") {
+      var buscas = [
+        function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text10", Value: "Validado" }], false); },
+        function () { return entity.searchEntityByField(LAYOUT_ID, [], true); },
+        function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text0", Value: "" }], true); }
+      ];
+      var diag = [];
+      for (var b = 0; b < buscas.length; b++) {
+        try {
+          var raw = buscas[b]();
+          var brutas = parseRowsRaw(raw);
+          var linhas = brutas.map(flattenRow);
+          var chaves = [];
+          try { chaves = brutas.length && typeof brutas[0] === "object" ? Object.keys(brutas[0]).slice(0, 30) : []; } catch (_) { }
+          var status = {};
+          linhas.forEach(function (l) {
+            var k = l.text10 || "(vazio)";
+            status[k] = (status[k] || 0) + 1;
+          });
+          diag.push({
+            busca: b,
+            tipo: typeof raw,
+            chavesDaLinha: chaves,
+            linhas: linhas.length,
+            comId: linhas.filter(function (l) { return l.text0; }).length,
+            comCupom: linhas.filter(function (l) { return l.text11; }).length,
+            comEnvio: linhas.filter(function (l) { return l.date1; }).length,
+            status: status
+          });
+        } catch (eD) {
+          diag.push({ busca: b, erro: errMsg(eD) });
+        }
+      }
+      return ok({ diag: diag, webhookVersion: WEBHOOK_VERSION }, "diagnostico");
+    }
 
     if (field(body, "command") === "enviarCupons") {
       if (typeof entity === "undefined") return fail("objeto entity indisponivel neste webhook");

@@ -59,7 +59,8 @@ export default function VeleirosForm() {
     try {
       const res = await fetch(VELEIROS_FORM_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        // text/plain sem Accept: requisição simples, sem preflight de CORS (o Safari recusa o preflight do HelloNext)
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
         body: JSON.stringify(data),
       });
       const out = await res.json().catch(() => ({}));
