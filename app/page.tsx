@@ -17,7 +17,6 @@ const wakeboardCats = [
   { title: "Open", desc: "Categoria aberta em busca do pódio." },
   { title: "Profissional", desc: "O topo do Brasileiro de Wakeboard.", highlight: true },
   { title: "Veterano Masculino", desc: "40+." },
-  { title: "Seniors", desc: "Masculino · 50+." },
 ];
 
 const PersonIcon = () => (
