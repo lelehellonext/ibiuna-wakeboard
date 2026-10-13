@@ -18,8 +18,9 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "contato", label: "Contato", short: "Contato", drawerOnly: true },
 ];
 
-/** URL do Web App do Google Apps Script que grava os cadastros na planilha. */
-export const VELEIROS_FORM_ENDPOINT = "";
+/** Webhook do HelloNext (tenant hn-demo) que grava os cadastros na entidade "WakeSurf Veleiros Cadastro". */
+export const VELEIROS_FORM_ENDPOINT =
+  "https://backend-core.hellonext.com.br/api/core/tenant/hn-demo/webhook/hndemowakesurfveleiros";
 
 /** Link de inscrição da ABW (não condôminos). Vazio = botão "disponível em 15/10". */
 export const ABW_INSCRICAO_URL = "";

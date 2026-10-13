@@ -59,12 +59,11 @@ export default function VeleirosForm() {
     try {
       const res = await fetch(VELEIROS_FORM_ENDPOINT, {
         method: "POST",
-        // text/plain evita o preflight de CORS no Google Apps Script
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(data),
       });
-      const out = await res.json().catch(() => ({ ok: res.ok }));
-      if (!out.ok) throw new Error(out.error || "Falha no envio");
+      const out = await res.json().catch(() => ({}));
+      if (!(out.sucesso || out.Status === 1)) throw new Error(out.StatusDescription || "Falha no envio");
       setStatus("ok");
       form.reset();
     } catch {
