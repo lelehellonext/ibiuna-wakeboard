@@ -5,13 +5,21 @@ function run() {
   // "WakeSurf Veleiros Cadastro" com Status "Pendente"; a administração valida no CRM
   // (Status = Validado + Cupom) e o cupom é enviado ao atleta.
   //
+  // { "command": "enviarCupons" } (opcional "cadastroId"): para cada linha Validado, com Cupom e sem
+  // "Cupom enviado em", manda o atleta para a jornada do e-mail (ruler.addLeadToJourney) e grava date1.
+  // Mailing da estratégia: Id · nome · email · cupom · telefone · modalidade · cadastroId.
+  //
   // Slots da entidade:
   // text0 Id (uuid) · text1 Atleta · text2 Nascimento (dd/mm/aaaa) · text3 Telefone (DDI+DDD+número)
   // text4 E-mail · text5 Modalidade · text6 Quadra · text7 Lote · text8 Proprietário/Inquilino (nome)
   // text9 Vínculo · text10 Status · text11 Cupom · text12 Observações · text13 ContactId
   // date0 Recebido em · date1 Cupom enviado em
-  var WEBHOOK_VERSION = "2026-10-12-hn-demo-wakesurf-veleiros-v1";
+  var WEBHOOK_VERSION = "2026-10-13-hn-demo-wakesurf-veleiros-v2";
   var LAYOUT_ID = "66a57953-ed15-4b2e-807a-90e7ce05a41c";
+  var CUPOM_FILTER_ID = "1f0cc84d-8963-4f73-8f46-4455b1662867";
+  var TEXT_SLOTS = ["text0", "text1", "text2", "text3", "text4", "text5", "text6", "text7",
+    "text8", "text9", "text10", "text11", "text12", "text13"];
+  var DATE_SLOTS = ["date0", "date1"];
   var MODALIDADES = ["Wakeboard", "Wakesurf", "Wakeboard e Wakesurf"];
   var VINCULOS = ["Proprietário", "Inquilino"];
 
@@ -153,9 +161,177 @@ function run() {
     });
   }
 
+  // ---------- Leitura das linhas da entidade (objetos do host .NET) ----------
+  function fGetOwn(o, k) {
+    if (!o || typeof o !== "object") return undefined;
+    try { if (Object.prototype.hasOwnProperty.call(o, k)) return o[k]; } catch (_) { }
+    return undefined;
+  }
+
+  function getEntityField(row, slot) {
+    if (!row || !slot) return "";
+    try { if (row[slot] !== undefined && row[slot] !== null && toStr(row[slot])) return toStr(row[slot]); } catch (_) { }
+    try { if (typeof row.GetValue === "function" && toStr(row.GetValue(slot))) return toStr(row.GetValue(slot)); } catch (_) { }
+    var containers = [row, fGetOwn(row, "Entity"), fGetOwn(row, "entity"), fGetOwn(row, "Fields"), fGetOwn(row, "fields"),
+      fGetOwn(row, "Values"), fGetOwn(row, "values"), fGetOwn(row, "Data"), fGetOwn(row, "data")];
+    for (var i = 0; i < containers.length; i++) {
+      var c = containers[i];
+      if (!c || typeof c !== "object") continue;
+      if (!Array.isArray(c)) {
+        var direct = toStr(fGetOwn(c, slot));
+        if (direct) return direct;
+      }
+      var list = Array.isArray(c) ? c : [c];
+      for (var j = 0; j < list.length; j++) {
+        var it = list[j] || {};
+        var key = toStr(fGetOwn(it, "Key") || fGetOwn(it, "key") || fGetOwn(it, "Name") || fGetOwn(it, "name"));
+        if (key && key.toLowerCase() === slot.toLowerCase()) {
+          var val = fGetOwn(it, "Value");
+          if (val === undefined || val === "") val = fGetOwn(it, "value");
+          if (toStr(val)) return toStr(val);
+        }
+      }
+    }
+    return "";
+  }
+
+  function parseRowsRaw(ret) {
+    var parsed = typeof ret === "string" ? safeParseJSON(ret) : ret;
+    var data = parsed && (parsed.Data || parsed.data) ? (parsed.Data || parsed.data) : parsed;
+    if (typeof data === "string") data = safeParseJSON(data) || data;
+    if (Array.isArray(data)) return data;
+    if (data && Array.isArray(data.Items)) return data.Items;
+    if (data && typeof data === "object") return [data];
+    return [];
+  }
+
+  /** Linha → { text0…text13, date0, date1, rowKey } como texto. */
+  function flattenRow(row) {
+    var out = {};
+    TEXT_SLOTS.concat(DATE_SLOTS).forEach(function (slot) { out[slot] = getEntityField(row, slot); });
+    out.rowKey = toStr(row && (row.RowKey || row.rowKey)) || getEntityField(row, "RowKey");
+    return out;
+  }
+
+  /** Linhas "Validado"; se o filtro por campo não trouxer nada, lista tudo e filtra aqui. */
+  function listValidados() {
+    var strategies = [
+      function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text10", Value: "Validado" }], false); },
+      function () { return entity.searchEntityByField(LAYOUT_ID, [], true); },
+      function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text0", Value: "" }], true); }
+    ];
+    var byId = {};
+    var out = [];
+    for (var s = 0; s < strategies.length; s++) {
+      try {
+        var rows = parseRowsRaw(strategies[s]()).map(flattenRow);
+        for (var i = 0; i < rows.length; i++) {
+          var r = rows[i];
+          if (!r.text0 || byId[r.text0]) continue;
+          if (r.text10.toLowerCase() !== "validado") continue;
+          byId[r.text0] = true;
+          out.push(r);
+        }
+      } catch (e) {
+        logD("[hndemowakesurfveleiros] busca " + s + ": " + errMsg(e));
+      }
+      if (out.length) break;
+    }
+    return out;
+  }
+
+  var TICKS_AT_UNIX_EPOCH = 621355968000000000;
+  /** Datas lidas da entidade (ticks, ISO ou dd/MM/yyyy) → dd/MM/yyyy HH:mm:ss para regravar. */
+  function toEntityDateValue(value) {
+    var raw = toStr(value);
+    if (!raw || raw === "0") return "";
+    if (/^\d{2}\/\d{2}\/\d{4}\s+\d{2}:\d{2}:\d{2}/.test(raw)) return raw.slice(0, 19);
+    if (/^\d{2}\/\d{2}\/\d{4}$/.test(raw)) return raw + " 00:00:00";
+    var ms = NaN;
+    if (/^\d{17,}$/.test(raw)) ms = (Number(raw) - TICKS_AT_UNIX_EPOCH) / 10000;
+    else if (/^\d{4}-\d{2}-\d{2}/.test(raw)) {
+      var iso = raw.indexOf("T") >= 0 ? raw : raw.replace(" ", "T");
+      ms = Date.parse(iso.length === 19 ? iso + "-03:00" : iso);
+    }
+    if (isNaN(ms)) return raw;
+    var d = new Date(ms - 3 * 3600000);
+    return pad2(d.getUTCDate()) + "/" + pad2(d.getUTCMonth() + 1) + "/" + d.getUTCFullYear() + " " +
+      pad2(d.getUTCHours()) + ":" + pad2(d.getUTCMinutes()) + ":" + pad2(d.getUTCSeconds());
+  }
+
+  function readRulerRet(ret) {
+    var parsed = typeof ret === "string" ? (safeParseJSON(ret) || {}) : (ret || {});
+    var n = parseInt(toStr(parsed.Status !== undefined ? parsed.Status : parsed.status), 10);
+    return { status: isNaN(n) ? -1 : n, desc: toStr(parsed.StatusDescription || parsed.statusDescription || "erro") };
+  }
+
+  /** A linha é regravada inteira (com RowKey) para a atualização não apagar os outros slots. */
+  function marcarCupomEnviado(row) {
+    var fields = TEXT_SLOTS.map(function (slot) { return kv(slot, row[slot]); });
+    fields.push(kv("date0", toEntityDateValue(row.date0)));
+    fields.push(kv("date1", nowEntityDate()));
+    if (row.rowKey) fields.push(kv("RowKey", row.rowKey));
+    entity.addOrUpdateAuxTableContact(LAYOUT_ID, fields);
+  }
+
+  function enviarCupons(somenteId) {
+    if (typeof ruler === "undefined" || typeof ruler.addLeadToJourney !== "function") {
+      return fail("ruler.addLeadToJourney indisponivel neste webhook");
+    }
+    var enviados = [], semCupom = [], falhas = [], jaEnviados = 0;
+    var rows = listValidados();
+    for (var i = 0; i < rows.length; i++) {
+      var r = rows[i];
+      if (somenteId && r.text0 !== somenteId) continue;
+      if (r.date1) { jaEnviados++; continue; }
+      if (!r.text11) { semCupom.push({ cadastroId: r.text0, nome: r.text1 }); continue; }
+      if (!r.text4) { falhas.push({ cadastroId: r.text0, nome: r.text1, erro: "sem e-mail" }); continue; }
+      var lead = [
+        kv("Id", uuid()),
+        kv("nome", r.text1),
+        kv("email", r.text4),
+        kv("cupom", r.text11),
+        kv("telefone", r.text3),
+        kv("modalidade", r.text5),
+        kv("cadastroId", r.text0)
+      ];
+      try {
+        var ret = readRulerRet(ruler.addLeadToJourney(lead, CUPOM_FILTER_ID));
+        if (ret.status !== 1) {
+          falhas.push({ cadastroId: r.text0, nome: r.text1, erro: "jornada status " + ret.status + ": " + ret.desc });
+          continue;
+        }
+      } catch (eJ) {
+        falhas.push({ cadastroId: r.text0, nome: r.text1, erro: "jornada: " + errMsg(eJ) });
+        continue;
+      }
+      try {
+        marcarCupomEnviado(r);
+        enviados.push({ cadastroId: r.text0, nome: r.text1, email: r.text4 });
+      } catch (eM) {
+        // E-mail já foi para a jornada: registra para não reenviar às cegas.
+        falhas.push({ cadastroId: r.text0, nome: r.text1, erro: "enviado, mas não gravou 'Cupom enviado em': " + errMsg(eM) });
+      }
+    }
+    logD("[hndemowakesurfveleiros] cupons " + safeStringify({ enviados: enviados.length, falhas: falhas.length }));
+    return ok({
+      enviados: enviados,
+      semCupom: semCupom,
+      falhas: falhas,
+      jaEnviados: jaEnviados,
+      validados: rows.length,
+      webhookVersion: WEBHOOK_VERSION
+    }, enviados.length + " cupom(ns) enviado(s)");
+  }
+
   try {
     logD("[hndemowakesurfveleiros] " + WEBHOOK_VERSION);
     var body = readBody();
+
+    if (field(body, "command") === "enviarCupons") {
+      if (typeof entity === "undefined") return fail("objeto entity indisponivel neste webhook");
+      return enviarCupons(field(body, "cadastroId", 60));
+    }
 
     // Campo invisível no formulário: só robô preenche. Responde sucesso sem gravar.
     if (field(body, "website")) return ok({ ignorado: true }, "ok");

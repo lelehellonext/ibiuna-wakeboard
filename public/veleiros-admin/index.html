@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Cupons Veleiros · Ibiúna Wake &amp; Surf</title>
+  <style>
+    :root { --bg: #f2f2f4; --ink: #1d1d1f; --ink-2: #6e6e73; --ink-3: #86868b; --blue: #0071e3; --line: rgba(0,0,0,.08); }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Arial, sans-serif; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 48px 22px; }
+    .kicker { color: var(--ink-3); font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; margin: 0; }
+    h1 { margin: 6px 0 10px; font-size: clamp(1.8rem, 5vw, 2.4rem); letter-spacing: -.02em; }
+    p { color: var(--ink-2); }
+    .card { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 24px; margin-top: 24px; box-shadow: 0 8px 28px rgba(0,0,0,.06); }
+    ol { margin: 0; padding-left: 20px; color: var(--ink-2); }
+    ol li { margin: 4px 0; }
+    button { margin-top: 20px; width: 100%; min-height: 50px; border: 0; border-radius: 980px; background: var(--blue); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+    button:disabled { opacity: .6; cursor: progress; }
+    #out { margin-top: 20px; }
+    .msg { padding: 14px 16px; border-radius: 14px; font-weight: 600; }
+    .ok { background: rgba(0,113,227,.08); color: var(--ink); }
+    .err { background: rgba(198,40,40,.08); color: #c62828; }
+    h3 { margin: 20px 0 8px; font-size: 1rem; }
+    ul { margin: 0; padding-left: 20px; color: var(--ink-2); }
+    small { color: var(--ink-3); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="kicker">Administração · Condôminos Veleiros</p>
+    <h1>Envio de cupons</h1>
+    <p>Envia o e-mail com o cupom para os atletas já validados no HelloNext.</p>
+
+    <div class="card">
+      <ol>
+        <li>No HelloNext, na entidade <b>WakeSurf Veleiros Cadastro</b>, mude o Status para <b>Validado</b> e preencha o <b>Cupom</b>.</li>
+        <li>Clique no botão abaixo.</li>
+        <li>Só recebe quem está validado, tem cupom e ainda não recebeu: pode clicar quantas vezes quiser.</li>
+      </ol>
+      <button id="send" type="button">Enviar cupons validados</button>
+      <div id="out" aria-live="polite"></div>
+    </div>
+  </main>
+
+  <script>
+    const ENDPOINT = "https://backend-core.hellonext.com.br/api/core/tenant/hn-demo/webhook/hndemowakesurfveleiros";
+    const btn = document.getElementById("send");
+    const out = document.getElementById("out");
+
+    function esc(s) {
+      return String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+    }
+    function list(title, items, fmt) {
+      if (!items || !items.length) return "";
+      return "<h3>" + title + " (" + items.length + ")</h3><ul>" + items.map((i) => "<li>" + fmt(i) + "</li>").join("") + "</ul>";
+    }
+
+    btn.addEventListener("click", async () => {
+      btn.disabled = true;
+      btn.textContent = "Enviando…";
+      out.innerHTML = "";
+      try {
+        const res = await fetch(ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({ command: "enviarCupons" }),
+        });
+        const data = await res.json();
+        if (!(data.sucesso || data.Status === 1)) throw new Error(data.StatusDescription || "Falha no envio");
+        const d = data.Data || {};
+        out.innerHTML =
+          '<div class="msg ok">' + esc(data.StatusDescription) + "</div>" +
+          list("Enviados agora", d.enviados, (i) => esc(i.nome) + " · " + esc(i.email)) +
+          list("Validados sem cupom (preencha o Cupom)", d.semCupom, (i) => esc(i.nome)) +
+          list("Falhas", d.falhas, (i) => esc(i.nome) + " — " + esc(i.erro)) +
+          "<p><small>Validados: " + esc(d.validados) + " · já tinham recebido: " + esc(d.jaEnviados) + "</small></p>";
+      } catch (e) {
+        out.innerHTML = '<div class="msg err">' + esc(e.message) + "</div>";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Enviar cupons validados";
+      }
+    });
+  </script>
+</body>
+</html>
