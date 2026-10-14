@@ -5,6 +5,7 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "sobre", label: "Sobre o Evento", short: "Sobre" },
   { id: "cronograma", label: "Cronograma", short: "Cronograma" },
   { id: "local", label: "Local", short: "Local" },
+  { id: "hospedagem", label: "Hospedagem", short: "Hospedagem" },
   { id: "wakeboard", label: "Wakeboard", short: "Wakeboard" },
   { id: "wakesurf", label: "WakeSurf", short: "WakeSurf" },
   { id: "barco", label: "Barco Oficial", short: "Barco" },

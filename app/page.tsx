@@ -42,6 +42,77 @@ const faq = [
   },
 ];
 
+type Hospedagem = {
+  nome: string;
+  endereco?: string;
+  telefones: string[];
+  instagram?: string;
+  site?: string;
+  email?: string;
+};
+
+const hospedagens: Hospedagem[] = [
+  { nome: "Chalé Antilhas", endereco: "Rua Itajaí, 210 · Paruru", telefones: ["(11) 99954-6827"] },
+  {
+    nome: "Pousada Chácara Abibi",
+    endereco: "Via Rio Paraná · Paruru (Piratuba)",
+    telefones: ["(15) 99811-3005"],
+    instagram: "chacaraabibi",
+  },
+  { nome: "Glamping da Represa", telefones: ["(15) 98813-7070"], instagram: "glampingdarepresa" },
+  {
+    nome: "Bat Caverna",
+    endereco: "Av. Rio Madeira, 1455 · Piratuba",
+    telefones: ["(11) 93805-0635"],
+    instagram: "batcaverna011",
+  },
+  { nome: "Iúna Natureza", telefones: ["(11) 96830-9030"], site: "iunanatureza.com.br" },
+  {
+    nome: "Hotel Fazenda Bandeirantes",
+    endereco: "Rod. Bunjiro Nakao, km 86",
+    telefones: ["(15) 3289-1117", "(15) 99779-6699"],
+    email: "neto@pousadaband.com.br",
+  },
+  { nome: "Tupará Glamping", telefones: ["(15) 99821-4861"], instagram: "tuparaglamping" },
+  {
+    nome: "Sr. Capitão Pousada e Náutica",
+    endereco: "Av. Rio Madeira · Piratuba",
+    telefones: ["(11) 99772-9018"],
+    instagram: "sr_capitao",
+  },
+  {
+    nome: "O Pirata Restaurante e Pousada",
+    endereco: "Av. Rio Madeira, 1455 · Piratuba",
+    telefones: ["(15) 99745-4603"],
+  },
+  {
+    nome: "Haras Pura Vida",
+    endereco: "Rod. Bunjiro Nakao, km 74 · Rio de Una de Cima",
+    telefones: ["(11) 98204-2503"],
+    instagram: "haraspuravida",
+  },
+  {
+    nome: "Ibitur Hotel",
+    endereco: "Rua 24 de Março, 27 · Centro",
+    telefones: ["(15) 3241-1002", "(15) 99733-9644"],
+    email: "ibitur@hotmail.com",
+  },
+  {
+    nome: "Hotel Terra Preta",
+    endereco: "Av. São Sebastião, 90 · Centro",
+    telefones: ["(15) 3248-1592", "(15) 3248-1729"],
+    email: "contato@hotelterrapreta.com.br",
+  },
+  {
+    nome: "Arena JK",
+    endereco: "Av. Rio Madeira, 1290 · Piratuba",
+    telefones: ["(11) 94226-6697"],
+    instagram: "chacara_arena_jk",
+  },
+];
+
+const telHref = (tel: string) => `tel:+55${tel.replace(/\D/g, "")}`;
+
 const wakeboardCats = [
   { title: "Adaptado", desc: "Categoria adaptada." },
   { title: "Mirim Masculino", desc: "Até 12 anos." },
@@ -276,6 +347,51 @@ export default function Home() {
                 Abrir no Google Maps
               </a>
             </div>
+          </div>
+        </section>
+
+        {/* ============ HOSPEDAGEM ============ */}
+        <section id="hospedagem" className="section hospedagem">
+          <div className="section-inner">
+            <div className="center-top" data-reveal>
+              <p className="kicker">Onde ficar</p>
+              <h2>Hospedagem</h2>
+              <p>Hotéis, pousadas e glampings em Ibiúna, perto da Represa de Itupararanga.</p>
+            </div>
+            <ul className="hosp-grid" data-reveal-group>
+              {hospedagens.map((h) => (
+                <li className="hosp-card" key={h.nome}>
+                  <h3>{h.nome}</h3>
+                  {h.endereco && <p className="hosp-end">{h.endereco}</p>}
+                  <div className="hosp-links">
+                    {h.telefones.map((t) => (
+                      <a key={t} href={telHref(t)}>
+                        {t}
+                      </a>
+                    ))}
+                    {h.instagram && (
+                      <a
+                        href={`https://instagram.com/${h.instagram}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        @{h.instagram}
+                      </a>
+                    )}
+                    {h.site && (
+                      <a href={`https://www.${h.site}`} target="_blank" rel="noopener noreferrer">
+                        {h.site}
+                      </a>
+                    )}
+                    {h.email && <a href={`mailto:${h.email}`}>{h.email}</a>}
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="hosp-note" data-reveal>
+              Reservas, valores e disponibilidade direto com cada hospedagem. Não há translado
+              oficial até o campeonato.
+            </p>
           </div>
         </section>
 
