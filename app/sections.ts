@@ -23,8 +23,8 @@ export const NAV_ITEMS: NavItem[] = [
 export const VELEIROS_FORM_ENDPOINT =
   "https://backend-core.hellonext.com.br/api/core/tenant/hn-demo/webhook/hndemowakesurfveleiros";
 
-/** Link de inscrição da ABW (não condôminos). Vazio = botão "disponível em 15/10". */
-export const ABW_INSCRICAO_URL = "";
+/** Página oficial da inscrição (CBEAW). */
+export const ABW_INSCRICAO_URL = "https://www.cbeaw.com.br/ibiuna-2026.html";
 
 export const CONTACT = {
   whatsapp: "5511933165193",

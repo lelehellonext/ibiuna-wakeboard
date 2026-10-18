@@ -175,12 +175,22 @@ export default function Home() {
               </h1>
               <p className="sub">Etapa Ibiúna · São Paulo</p>
               <p className="loc">Represa de Itupararanga — Ibiúna/SP</p>
-              <a className="capa-insc" href="#inscricoes">
+              <a
+                className="capa-insc"
+                href={ABW_INSCRICAO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className="dot" />
-                Inscrições a partir de 15/10/2026
+                Inscrições abertas
               </a>
               <div className="cta-row">
-                <a className="btn primary" href="#inscricoes">
+                <a
+                  className="btn primary"
+                  href={ABW_INSCRICAO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Quero participar
                 </a>
                 <a className="btn ghost" href="#cronograma">
@@ -816,7 +826,7 @@ export default function Home() {
             <div className="center-top" data-reveal>
               <p className="kicker">Inscrições · Realização ABW</p>
               <h2>
-                Inscrições a partir de <span className="accent-blue">15/10/2026</span>
+                Inscrições <span className="accent-blue">abertas</span>
               </h2>
               <p>
                 Inscrições até 13 de novembro de 2026 ou até acabarem as vagas. Mínimo de 3 atletas
@@ -950,10 +960,15 @@ export default function Home() {
               <br />
               19, 20 e 21 de Novembro de 2026 · Ibiúna — SP
             </p>
-            <div className="insc-status">
+            <a
+              className="insc-status"
+              href={ABW_INSCRICAO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span className="dot" />
-              Inscrições a partir de 15/10/2026 — acompanhe por aqui e pelo Instagram
-            </div>
+              Inscrições abertas — inscreva-se no site da CBEAW
+            </a>
             <div className="cf">
               <a
                 className="field"
