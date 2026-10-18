@@ -836,16 +836,9 @@ export default function Home() {
             </div>
 
             <a className="insc-condo" href="#veleiros" data-reveal>
-              <span className="ic-tag">Exclusivo condôminos</span>
+              <span className="ic-tag">Associados Veleiros</span>
               <span className="ic-title">Atletas da Associação Veleiros de Ibiúna</span>
-              <span className="ic-price">
-                R$ 50,00 <small>valor de compromisso</small>
-              </span>
-              <span className="ic-text">
-                Faça o cadastro do atleta, aguarde a validação pela administração da associação e
-                receba por e-mail o cupom de desconto para a inscrição.
-              </span>
-              <span className="ic-link">Fazer cadastro de condômino →</span>
+              <span className="ic-link">Solicitar inscrição →</span>
             </a>
 
             <h3 className="insc-subtitle" data-reveal>
@@ -906,7 +899,7 @@ export default function Home() {
               </h2>
               <p className="veleiros-lead">
                 Proprietários, inquilinos e familiares de lotes da Associação Veleiros de Ibiúna
-                competem pelo valor de compromisso de <strong>R$ 50,00</strong>.
+                solicitam a inscrição por este cadastro.
               </p>
               <ol className="veleiros-steps">
                 <li>
