@@ -85,7 +85,8 @@ export default function VeleirosForm() {
         <p>
           Assim que a administração da Associação Veleiros de Ibiúna validar seus dados, você
           receberá um <strong>e-mail de demo@hellonext.com.br com o cupom de desconto</strong> para
-          concluir a inscrição. Confira também a caixa de spam.
+          fazer sua inscrição pelo valor de compromisso de <strong>R$ 50,00</strong>. Confira também
+          a caixa de spam.
         </p>
         <button type="button" className="btn ghost vf-again" onClick={() => setStatus("idle")}>
           Cadastrar outro atleta
@@ -175,8 +176,8 @@ export default function VeleirosForm() {
       </button>
       <p className="vf-note">
         Caso o cadastro seja validado pela administração da associação, você receberá um e-mail de{" "}
-        <strong>demo@hellonext.com.br</strong> com o cupom de desconto para a inscrição. Confira
-        também a caixa de spam.
+        <strong>demo@hellonext.com.br</strong> com o cupom de desconto para a inscrição pelo valor
+        de compromisso de <strong>R$ 50,00</strong>. Confira também a caixa de spam.
       </p>
     </form>
   );

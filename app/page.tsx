@@ -899,7 +899,7 @@ export default function Home() {
               </h2>
               <p className="veleiros-lead">
                 Proprietários, inquilinos e familiares de lotes da Associação Veleiros de Ibiúna
-                solicitam a inscrição por este cadastro.
+                competem pelo valor de compromisso de <strong>R$ 50,00</strong>.
               </p>
               <ol className="veleiros-steps">
                 <li>
@@ -910,7 +910,8 @@ export default function Home() {
                 </li>
                 <li>
                   <b>Você recebe um e-mail de demo@hellonext.com.br com o cupom de desconto</b>{" "}
-                  assim que os dados forem validados e conclui a inscrição.
+                  assim que os dados forem validados e conclui a inscrição pelo valor de{" "}
+                  <b>R$ 50,00</b>.
                 </li>
               </ol>
               <p className="veleiros-obs">
