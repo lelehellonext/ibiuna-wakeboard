@@ -19,7 +19,7 @@ function run() {
   // text4 E-mail · text5 Modalidade · text6 Quadra · text7 Lote · text8 Proprietário/Inquilino (nome)
   // text9 Vínculo · text10 Status · text11 Cupom · text12 Observações · text13 ContactId
   // date0 Recebido em · date1 Cupom enviado em
-  var WEBHOOK_VERSION = "2026-10-13-hn-demo-wakesurf-veleiros-v5";
+  var WEBHOOK_VERSION = "2026-10-18-hn-demo-wakesurf-veleiros-v8";
   // Definida só na cópia publicada no HelloNext (este repositório é público). Vazia = administração bloqueada.
   var ADMIN_SENHA = "";
   var STATUS_OPCOES = ["Pendente", "Validado", "Recusado"];
@@ -213,11 +213,36 @@ function run() {
     return [];
   }
 
+  /** A busca completa devolve o rótulo (Id, Atleta, Cupom). A busca por status devolve o slot (text0). Os dois são a mesma linha. */
+  var SLOT_POR_ROTULO = {
+    "id": "text0", "atleta": "text1", "nascimento": "text2", "telefone": "text3", "e-mail": "text4", "email": "text4",
+    "modalidade": "text5", "quadra": "text6", "lote": "text7", "proprietário/inquilino": "text8", "proprietario/inquilino": "text8",
+    "vínculo": "text9", "vinculo": "text9", "status": "text10", "cupom": "text11", "observações": "text12", "observacoes": "text12",
+    "contactid": "text13", "recebido em": "date0", "cupom enviado em": "date1"
+  };
+
+  function valorPorRotulo(row, slot) {
+    var keys = [];
+    try { keys = Object.keys(row || {}); } catch (_) { return ""; }
+    for (var i = 0; i < keys.length; i++) {
+      if (SLOT_POR_ROTULO[String(keys[i] || "").toLowerCase()] !== slot) continue;
+      var v = toStr(row[keys[i]]);
+      if (v) return v;
+    }
+    return "";
+  }
+
   /** Linha → { text0…text13, date0, date1, rowKey } como texto. */
   function flattenRow(row) {
     var out = {};
-    TEXT_SLOTS.concat(DATE_SLOTS).forEach(function (slot) { out[slot] = getEntityField(row, slot); });
-    out.rowKey = toStr(row && (row.RowKey || row.rowKey)) || getEntityField(row, "RowKey");
+    TEXT_SLOTS.concat(DATE_SLOTS).forEach(function (slot) {
+      out[slot] = getEntityField(row, slot) || valorPorRotulo(row, slot);
+    });
+    var keyNames = ["RowKey", "rowKey", "Rowkey", "rowkey"];
+    out.rowKey = "";
+    for (var k = 0; k < keyNames.length && !out.rowKey; k++) {
+      out.rowKey = toStr(row && row[keyNames[k]]) || getEntityField(row, keyNames[k]);
+    }
     return out;
   }
 
@@ -246,38 +271,37 @@ function run() {
     return out;
   }
 
-  function allRowsStrategies() {
-    return [
-      function () { return entity.searchEntityByField(LAYOUT_ID, [], true); },
-      function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text0", Value: "" }], true); }
-    ];
+  /** O terceiro argumento `false` devolve text0, RowKey e o restante. `true` devolve o rótulo do campo e a tela perde a linha. */
+  function buscarPorCampo(slot, value) {
+    return function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: slot, Value: value }], false); };
   }
 
-  /** Linhas "Validado"; se o filtro por campo não trouxer nada, lista tudo e filtra aqui. */
   function listValidados() {
-    return searchRows([
-      function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text10", Value: "Validado" }], false); }
-    ].concat(allRowsStrategies()), isValidado);
+    return searchRows([buscarPorCampo("text10", "Validado")], isValidado);
   }
 
-  /** Todos os cadastros; se listar tudo falhar, junta as buscas por cada status. */
   function listTodos() {
-    var rows = searchRows(allRowsStrategies(), function () { return true; });
-    if (rows.length) return rows;
-    var byId = {};
+    var porStatus = [];
+    var vistas = {};
     STATUS_OPCOES.forEach(function (st) {
-      searchRows([function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text10", Value: st }], false); }],
-        function (r) { return !byId[r.text0]; }).forEach(function (r) { byId[r.text0] = true; rows.push(r); });
+      searchRows([buscarPorCampo("text10", st)], function (r) { return !vistas[r.text0]; }).forEach(function (r) {
+        vistas[r.text0] = true;
+        porStatus.push(r);
+      });
     });
-    return rows;
+    var todas = searchRows([
+      function () { return entity.searchEntityByField(LAYOUT_ID, [], true); }
+    ], function (r) { return !vistas[r.text0]; });
+    return porStatus.concat(todas);
   }
 
   function findById(id) {
     var same = function (r) { return r.text0 === id; };
-    var rows = searchRows([
-      function () { return entity.searchEntityByField(LAYOUT_ID, [{ Key: "text0", Value: id }], false); }
-    ], same);
-    return rows.length ? rows[0] : (listTodos().filter(same)[0] || null);
+    var rows = searchRows([buscarPorCampo("text0", id)], same);
+    if (rows.length) return rows[0];
+    var todos = listTodos();
+    for (var i = 0; i < todos.length; i++) if (same(todos[i])) return todos[i];
+    return null;
   }
 
   var TICKS_AT_UNIX_EPOCH = 621355968000000000;
@@ -314,11 +338,19 @@ function run() {
 
   /** A linha é regravada inteira (com RowKey) para a atualização não apagar os outros slots. */
   function regravarLinha(row, date1) {
-    var fields = TEXT_SLOTS.map(function (slot) { return kv(slot, row[slot]); });
+    if (!row.rowKey) {
+      throw new Error("linha sem RowKey — não gravei, para não criar um cadastro duplicado");
+    }
+    var fields = [kv("RowKey", row.rowKey)];
+    TEXT_SLOTS.forEach(function (slot) { fields.push(kv(slot, row[slot])); });
     fields.push(kv("date0", toEntityDateValue(row.date0)));
     if (date1) fields.push(kv("date1", date1));
-    if (row.rowKey) fields.push(kv("RowKey", row.rowKey));
-    entity.addOrUpdateAuxTableContact(LAYOUT_ID, fields);
+    var ret = entity.addOrUpdateAuxTableContact(LAYOUT_ID, fields);
+    var parsed = typeof ret === "string" ? (safeParseJSON(ret) || {}) : (ret || {});
+    var status = toStr(parsed.Status !== undefined ? parsed.Status : parsed.status);
+    if (status && status !== "1") {
+      throw new Error(toStr(parsed.StatusDescription || parsed.statusDescription) || ("Status=" + status));
+    }
   }
 
   function marcarCupomEnviado(row) {
@@ -345,7 +377,11 @@ function run() {
     row.text10 = status;
     row.text11 = field(body, "cupom", 60);
     row.text12 = field(body, "observacoes", 500);
-    regravarLinha(row, hasRealDate(row.date1) ? toEntityDateValue(row.date1) : "");
+    try {
+      regravarLinha(row, hasRealDate(row.date1) ? toEntityDateValue(row.date1) : "");
+    } catch (eSave) {
+      return fail("nao salvou: " + errMsg(eSave));
+    }
     return ok(toRecord(row), "Cadastro atualizado");
   }
 

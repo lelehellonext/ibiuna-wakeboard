@@ -102,6 +102,7 @@
     let senha = sessionStorage.getItem("veleirosAdmin") || "";
     let cadastros = [];
     let tab = "Pendente";
+    let versao = "";
 
     function esc(s) {
       return String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -144,7 +145,8 @@
         '<button type="button" class="tab' + (tab === st ? " on" : "") + '" data-tab="' + st + '">' + label + "<b>" + count(st) + "</b></button>"
       ).join("");
       const prontos = cadastros.filter(prontoParaEnviar).length;
-      $("sendHint").textContent = prontos ? prontos + " pronto(s) para enviar" : "Nenhum validado com cupom aguardando envio";
+        $("sendHint").textContent = (prontos ? prontos + " pronto(s) para enviar" : "Nenhum validado com cupom aguardando envio") +
+          (versao ? " · " + versao : "");
     }
 
     function card(c) {
@@ -192,7 +194,8 @@
       renderTabs();
       const items = visiveis();
       $("export").textContent = "Exportar Excel (" + items.length + ")";
-      $("list").innerHTML = items.length ? items.map(card).join("") : '<div class="card empty">Nenhum cadastro aqui.</div>';
+      $("list").innerHTML = items.length ? items.map(card).join("") : '<div class="card empty">' +
+        (cadastros.length ? "Nenhum cadastro nesta aba." : "Nenhum cadastro voltou nesta leitura. Esta tela não apaga registros.") + "</div>";
     }
 
     function toTime(br) {
@@ -205,6 +208,7 @@
       try {
         const data = await call({ command: "listar" });
         cadastros = ((data.Data || {}).cadastros || []).sort((a, b) => toTime(b.recebidoEm) - toTime(a.recebidoEm));
+        versao = (data.Data || {}).webhookVersion || "";
         $("login").classList.add("hidden");
         $("app").classList.remove("hidden");
         render();
