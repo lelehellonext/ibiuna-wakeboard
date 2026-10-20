@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#f2f2f4" />
+  <title>Campeonato Brasileiro Wakeboard &amp; Surf 2026 · Operação Veleiros</title>
+  <meta name="description" content="Briefing técnico do Campeonato Brasileiro de Wakeboard &amp; Surf 2026 na Náutica Veleiros de Ibiúna: cronograma, parceiros, apoiadores e operação fechada com a Prefeitura." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f2f2f4;
+      --surface: #ffffff;
+      --ink: #1d1d1f;
+      --ink-2: #6e6e73;
+      --ink-3: #86868b;
+      --line: #d2d2d7;
+      --blue: #0071e3;
+      --blue-ink: #0066cc;
+      --navy: #0e3254;
+      --gold: #b9832b;
+      --gold-soft: #f6efe2;
+      --green: #1f7a4d;
+      --green-soft: #e8f5ee;
+      --radius: 20px;
+      --shadow: 0 10px 28px rgba(0, 0, 0, 0.07);
+      --max: 1100px;
+      --header-h: 60px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.55;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .header {
+      position: fixed; inset: 0 0 auto 0; height: var(--header-h); z-index: 100;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 0 clamp(16px, 4vw, 40px);
+      background: rgba(242, 242, 244, 0.92);
+      -webkit-backdrop-filter: saturate(180%) blur(18px);
+      backdrop-filter: saturate(180%) blur(18px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand img { height: 36px; width: auto; }
+    .brand b { display: block; font-size: 0.82rem; font-weight: 700; }
+    .brand span { display: block; font-size: 0.66rem; color: var(--ink-2); }
+    .nav { display: flex; flex-wrap: wrap; gap: 6px; }
+    .nav a, .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 36px; padding: 0 14px; border-radius: 999px;
+      font: 600 0.75rem/1 "Montserrat", sans-serif;
+      border: 1px solid var(--line); background: #fff; color: var(--ink);
+    }
+    .btn.primary { background: var(--blue); color: #fff; border-color: transparent; }
+
+    main { padding-top: var(--header-h); }
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+    section { scroll-margin-top: calc(var(--header-h) + 16px); }
+
+    .kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--blue-ink);
+    }
+    .kicker::before {
+      content: ""; width: 18px; height: 2px; background: var(--gold); border-radius: 2px;
+    }
+    h1, h2, h3 { letter-spacing: -0.03em; line-height: 1.15; font-weight: 800; }
+    h1 { font-size: clamp(2.1rem, 5.2vw, 3.6rem); }
+    h2 { font-size: clamp(1.5rem, 3.2vw, 2.25rem); }
+    h3 { font-size: 1.05rem; }
+    .lead { font-size: 1.05rem; color: var(--ink-2); max-width: 68ch; }
+    .lead strong { color: var(--ink); font-weight: 700; }
+
+    .hero {
+      padding: clamp(40px, 7vw, 72px) 0 clamp(28px, 5vw, 44px);
+      background:
+        radial-gradient(900px 420px at 8% 0%, rgba(0, 113, 227, 0.12), transparent 60%),
+        radial-gradient(700px 360px at 92% 18%, rgba(185, 131, 43, 0.14), transparent 55%),
+        var(--bg);
+    }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 999px;
+      background: #fff; border: 1px solid var(--line);
+      font-size: 0.78rem; font-weight: 600;
+    }
+    .pill i {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--green);
+      box-shadow: 0 0 0 3px rgba(31, 122, 77, 0.15);
+    }
+
+    .block { padding: clamp(36px, 6vw, 64px) 0; }
+    .block.white { background: #fff; }
+    .block.navy { background: var(--navy); color: #fff; }
+    .block.navy .kicker { color: #8ec5ff; }
+    .block.navy .kicker::before { background: var(--gold); }
+    .block.navy .lead { color: rgba(255,255,255,0.72); }
+    .block.navy .lead strong { color: #fff; }
+
+    .facts {
+      display: grid; gap: 12px; grid-template-columns: repeat(4, 1fr); margin-top: 24px;
+    }
+    .fact {
+      background: #fff; border: 1px solid var(--line); border-radius: 18px;
+      padding: 18px 16px; text-align: center; box-shadow: var(--shadow);
+    }
+    .fact .n { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.03em; color: var(--navy); }
+    .fact .l { margin-top: 4px; font-size: 0.76rem; color: var(--ink-2); font-weight: 600; }
+
+    .day-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); margin-top: 24px; }
+    .day {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow);
+    }
+    .day .head {
+      display: flex; align-items: baseline; gap: 12px;
+      padding: 18px 20px; background: var(--navy); color: #fff;
+    }
+    .day .head .d { font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+    .day .head .m { font-size: 0.85rem; color: rgba(255,255,255,0.7); font-weight: 600; }
+    .day .body { padding: 18px 20px; }
+    .day .body h3 { margin-bottom: 8px; }
+    .day .body p { color: var(--ink-2); font-size: 0.92rem; }
+    .day .body ul {
+      margin-top: 12px; padding-left: 18px; color: var(--ink-2); font-size: 0.88rem;
+      display: grid; gap: 6px;
+    }
+    .day .body .time {
+      margin-top: 14px; display: inline-flex; padding: 6px 12px;
+      border-radius: 999px; background: var(--gold-soft); color: #7a5412;
+      font-size: 0.78rem; font-weight: 700;
+    }
+
+    .tech-grid { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; margin-top: 24px; }
+    .tech {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 22px 20px; box-shadow: var(--shadow);
+    }
+    .tech .num {
+      width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center;
+      background: var(--blue); color: #fff; font-size: 0.82rem; font-weight: 800; margin-bottom: 12px;
+    }
+    .tech h3 { margin-bottom: 8px; }
+    .tech p { color: var(--ink-2); font-size: 0.9rem; }
+    .tech ul {
+      margin-top: 12px; padding-left: 18px; color: var(--ink-2); font-size: 0.88rem;
+      display: grid; gap: 5px;
+    }
+    .tech.wide { grid-column: 1 / -1; }
+
+    .table-wrap {
+      margin-top: 22px; overflow: auto; border-radius: 18px;
+      border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow);
+    }
+    table { width: 100%; border-collapse: collapse; min-width: 640px; }
+    th, td {
+      text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line);
+      font-size: 0.9rem; vertical-align: top;
+    }
+    th {
+      background: #f7f7f9; font-size: 0.72rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--ink-2); font-weight: 700;
+    }
+    tr:last-child td { border-bottom: 0; }
+    td strong { display: block; margin-bottom: 2px; }
+    .status {
+      display: inline-flex; padding: 4px 10px; border-radius: 999px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .status.ok { background: var(--green-soft); color: var(--green); }
+    .status.neg { background: var(--gold-soft); color: #7a5412; }
+    .status.concorrente { background: #fde8e8; color: #b42318; }
+    .status.loja { background: #e8f1fd; color: #0066cc; }
+    .subhead {
+      margin-top: 28px; margin-bottom: 10px;
+      font-size: 1rem; font-weight: 800; letter-spacing: -0.02em;
+    }
+    .subhead span {
+      display: inline-flex; align-items: center; margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .sponsors {
+      display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr); margin-top: 24px;
+    }
+    .sponsor {
+      background: #fff; border: 1px solid var(--line); border-radius: 20px;
+      min-height: 128px; padding: 18px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+      box-shadow: var(--shadow);
+    }
+    .sponsor img { max-height: 48px; width: auto; max-width: 72%; object-fit: contain; }
+    .sponsor.pending { border-style: dashed; background: #fafafa; }
+    .sponsor .tag {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--ink-3);
+    }
+    .sponsor.pending .tag { color: var(--gold); }
+    .sponsor .role { font-size: 0.78rem; color: var(--ink-2); text-align: center; font-weight: 500; }
+
+    .split { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; margin-top: 22px; }
+    .panel {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px; padding: 20px;
+    }
+    .panel h3 { color: #fff; margin-bottom: 10px; }
+    .panel ul { padding-left: 18px; color: rgba(255,255,255,0.78); font-size: 0.9rem; display: grid; gap: 7px; }
+    .panel.light {
+      background: #fff; border-color: var(--line); box-shadow: var(--shadow);
+    }
+    .panel.light h3 { color: var(--ink); }
+    .panel.light ul { color: var(--ink-2); }
+
+    .note {
+      margin-top: 18px; padding: 14px 16px; border-radius: 14px;
+      background: #f7f7f9; border: 1px solid var(--line);
+      font-size: 0.88rem; color: var(--ink-2);
+    }
+    .block.navy .note {
+      background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.78);
+    }
+
+    .footer {
+      padding: 28px 0 40px; color: var(--ink-3); font-size: 0.8rem; text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .nav { display: none; }
+      .facts, .day-grid, .tech-grid, .sponsors, .split { grid-template-columns: 1fr; }
+      .sponsors { grid-template-columns: 1fr 1fr; }
+      .facts { grid-template-columns: 1fr 1fr; }
+      .tech.wide { grid-column: auto; }
+    }
+    @media print {
+      .header, .btn, .nav { display: none !important; }
+      main { padding-top: 0; }
+      .block, .hero, .day, .tech { break-inside: avoid; }
+      body { background: #fff; }
+      .day, .tech, .sponsor, .fact, .table-wrap { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="https://www.ibiunawakeboard.com.br">
+      <img src="assets/logo-ws.png" alt="Ibiúna Wake &amp; Surf" />
+      <div>
+        <b>Ibiúna Wake &amp; Surf 2026</b>
+        <span>Operação · Veleiros</span>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#cronograma">Cronograma</a>
+      <a href="#parceiros">Parceiros</a>
+      <a href="#apoiadores">Apoiadores</a>
+      <a href="#operacao">Operação</a>
+      <a href="#prefeitura">Prefeitura</a>
+    </nav>
+    <button class="btn primary" type="button" onclick="window.print()">Imprimir / PDF</button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="wrap">
+        <p class="kicker">Náutica Veleiros de Ibiúna · Represa de Itupararanga</p>
+        <h1 style="margin-top:14px;">Campeonato Brasileiro de Wakeboard &amp; Surf 2026</h1>
+        <p class="lead" style="margin-top:16px;">
+          3ª etapa do Circuito Brasileiro, homologada pela <strong>ABW</strong>.
+          Briefing técnico com o que já está fechado: cronograma, negociações com parceiros,
+          apoiadores e a operação no condomínio — incluindo a <strong>Prefeitura de Ibiúna</strong>
+          como parte do evento.
+        </p>
+        <div class="pills">
+          <span class="pill"><i></i>19 a 21 de novembro de 2026</span>
+          <span class="pill"><i></i>Realização ABW</span>
+          <span class="pill"><i></i>Barco oficial Nautique G23</span>
+          <span class="pill"><i></i>Transmissão ao vivo</span>
+        </div>
+        <div class="facts">
+          <div class="fact"><div class="n">3</div><div class="l">Dias de evento</div></div>
+          <div class="fact"><div class="n">800+</div><div class="l">Famílias previstas</div></div>
+          <div class="fact"><div class="n">12+</div><div class="l">Categorias</div></div>
+          <div class="fact"><div class="n">Ao vivo</div><div class="l">TV + praça de Ibiúna</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRONOGRAMA -->
+    <section class="block white" id="cronograma">
+      <div class="wrap">
+        <p class="kicker">Cronograma</p>
+        <h2 style="margin-top:12px;">Programação oficial · 19 a 21 de novembro</h2>
+        <p class="lead" style="margin-top:14px;">
+          Operação concentrada na Náutica Veleiros. Cronograma detalhado por categoria será
+          publicado até 19/11, às 20h, no site da CBEAW e no grupo dos atletas.
+        </p>
+        <div class="day-grid">
+          <article class="day">
+            <div class="head"><div class="d">19</div><div class="m">Quinta · Novembro</div></div>
+            <div class="body">
+              <h3>Treinos e montagem do evento</h3>
+              <p>Dia de preparação da estrutura e treinos oficiais de Wakeboard e Wakesurf.</p>
+              <ul>
+                <li>Montagem da área técnica, gastronomia e demarcação</li>
+                <li>Treino oficial (pago): ida e volta na raia ou 3 quedas</li>
+                <li>Ordem de chegada, agrupado por categoria</li>
+                <li>Retirada de kits a partir das 10h</li>
+                <li>Reunião técnica ABW às 17h30</li>
+              </ul>
+              <span class="time">A partir das 8h / 9h</span>
+            </div>
+          </article>
+          <article class="day">
+            <div class="head"><div class="d">20</div><div class="m">Sexta · Novembro</div></div>
+            <div class="body">
+              <h3>Eliminatórias Wakeboard e Wakesurf</h3>
+              <p>Dia competitivo completo atrás do Nautique G23.</p>
+              <ul>
+                <li>Eliminatórias de Wakeboard — todas as categorias</li>
+                <li>Eliminatórias de Wakesurf — todas as categorias</li>
+                <li>Operação da área gastronômica e estrutura de apoio</li>
+                <li>Transmissão ao vivo do campeonato</li>
+              </ul>
+              <span class="time">A partir das 8h</span>
+            </div>
+          </article>
+          <article class="day">
+            <div class="head"><div class="d">21</div><div class="m">Sábado · Novembro</div></div>
+            <div class="body">
+              <h3>Finais e festa de premiação</h3>
+              <p>Finais do Brasileiro e encerramento no Bar da Náutica.</p>
+              <ul>
+                <li>Finais de Wakeboard e Wakesurf</li>
+                <li>Cerimônia de premiação</li>
+                <li>Festa às 18h no Bar da Náutica</li>
+                <li>Duas bandas dividindo o palco</li>
+              </ul>
+              <span class="time">Finais a partir das 8h · Festa 18h</span>
+            </div>
+          </article>
+        </div>
+        <p class="note">
+          Local: Rod. Bunjiro Nakao, Km 82,5 — Ibiúna/SP · Marina da Associação Veleiros de Ibiúna.
+          Inscrições oficiais: cbeaw.com.br/ibiuna-2026.html · até 13/11 ou até acabarem as vagas.
+        </p>
+      </div>
+    </section>
+
+    <!-- PARCEIROS -->
+    <section class="block" id="parceiros">
+      <div class="wrap">
+        <p class="kicker">Negociações fechadas</p>
+        <h2 style="margin-top:12px;">Parceiros de gastronomia e hospedagem</h2>
+        <p class="lead" style="margin-top:14px;">
+          Rede local já negociada para atender atletas, famílias e convidados durante os três dias.
+          A gastronomia opera na área coberta do evento; a hospedagem, em estabelecimentos próximos.
+        </p>
+
+        <h3 style="margin-top:28px;">Gastronomia — confirmados</h3>
+        <p class="note" style="margin-top:12px;">
+          Separação em relação ao <strong>Bar da Náutica</strong>: quem opera comida/bebida
+          concorrente fica marcado como <span class="status concorrente">Concorrente</span>;
+          quem só vende produto fica como <span class="status loja">Loja de produtos</span>.
+        </p>
+
+        <p class="subhead">
+          Concorrentes do Bar da Náutica
+          <span class="status concorrente">Concorrente</span>
+        </p>
+        <div class="table-wrap" style="margin-top:10px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Parceiro</th>
+                <th>Oferta</th>
+                <th>Função no evento</th>
+                <th>Tag</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Valentinari</strong></td>
+                <td>Hambúrguer</td>
+                <td>Alimentação quente na área gastronômica</td>
+                <td><span class="status concorrente">Concorrente</span></td>
+              </tr>
+              <tr>
+                <td><strong>Casa Brito</strong></td>
+                <td>Massas e doces</td>
+                <td>Alimentação e doceria na área gastronômica</td>
+                <td><span class="status concorrente">Concorrente</span></td>
+              </tr>
+              <tr>
+                <td><strong>Área Corona</strong></td>
+                <td>Bar e lounge</td>
+                <td>Área Corona com bar e lounge fornecidos pela Corona</td>
+                <td><span class="status concorrente">Concorrente</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="subhead">
+          Lojas de produtos
+          <span class="status loja">Loja de produtos</span>
+        </p>
+        <div class="table-wrap" style="margin-top:10px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Parceiro</th>
+                <th>Oferta</th>
+                <th>Função no evento</th>
+                <th>Tag</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Yumis Coffee Shop</strong></td>
+                <td>Café e beverages</td>
+                <td>Ponto de café na área gastronômica</td>
+                <td><span class="status loja">Loja de produtos</span></td>
+              </tr>
+              <tr>
+                <td><strong>Mulekinha</strong></td>
+                <td>Queijos artesanais</td>
+                <td>Produto local / degustação e venda</td>
+                <td><span class="status loja">Loja de produtos</span></td>
+              </tr>
+              <tr>
+                <td><strong>Charcutaria D’Paula</strong></td>
+                <td>Charcutaria</td>
+                <td>Produto local / degustação e venda</td>
+                <td><span class="status loja">Loja de produtos</span></td>
+              </tr>
+              <tr>
+                <td><strong>Cachaça Alves</strong></td>
+                <td>Cachaça</td>
+                <td>Ativação / produto regional</td>
+                <td><span class="status loja">Loja de produtos</span></td>
+              </tr>
+              <tr>
+                <td><strong>Apiário Giancoli</strong></td>
+                <td>Mel e hidromel</td>
+                <td>Produto local / degustação e venda</td>
+                <td><span class="status loja">Loja de produtos</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:32px;">Hospedagem — negociado</h3>
+        <div class="split" style="margin-top:14px;">
+          <div class="panel light">
+            <h3>Descontos em pousadas e hotéis</h3>
+            <ul>
+              <li>Condições especiais em meios de hospedagem próximos ao campeonato</li>
+              <li>Público: atletas, familiares, equipes e convidados</li>
+              <li>Foco no entorno da Represa / Veleiros de Ibiúna</li>
+              <li>Indicação e encaminhamento via organização + trade local</li>
+            </ul>
+          </div>
+          <div class="panel light">
+            <h3>Operação prática</h3>
+            <ul>
+              <li>Lista de hospedagens parceiras divulgada aos inscritos</li>
+              <li>Sem translado oficial hotel → evento (caronas / Uber em grupo)</li>
+              <li>Reserva e pagamento direto com cada estabelecimento</li>
+              <li>Referência pública também em ibiunawakeboard.com.br/#hospedagem</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APOIADORES -->
+    <section class="block white" id="apoiadores">
+      <div class="wrap">
+        <p class="kicker">Apoiadores</p>
+        <h2 style="margin-top:12px;">Marcas com o campeonato</h2>
+        <p class="lead" style="margin-top:14px;">
+          Apoiadores confirmados e em negociação. Compõem a estrutura comercial e de ativação do Brasileiro no Veleiros.
+        </p>
+        <div class="sponsors">
+          <div class="sponsor">
+            <img src="assets/clsolar-logo.png" alt="CL Solar" />
+            <span class="tag">Confirmado</span>
+            <span class="role">Apoio · energia solar · windbanner</span>
+          </div>
+          <div class="sponsor">
+            <img src="assets/vissla-logo-dark.png" alt="Vissla" />
+            <span class="tag">Confirmado</span>
+            <span class="role">Apoio · apparel / surf lifestyle</span>
+          </div>
+          <div class="sponsor">
+            <img src="assets/rb-logo-color.svg" alt="Red Bull" />
+            <span class="tag">Confirmado</span>
+            <span class="role">Apoio · ativação e presença de marca</span>
+          </div>
+          <div class="sponsor">
+            <img src="assets/corona-logo.png" alt="Corona" />
+            <span class="tag">Confirmado</span>
+            <span class="role">Apoio · área Corona com bar e lounge</span>
+          </div>
+          <div class="sponsor">
+            <img src="assets/yup-logo.png" alt="Y'UP" />
+            <span class="tag">Confirmado</span>
+            <span class="role">Apoio · app wake · boia de raia</span>
+          </div>
+          <div class="sponsor pending">
+            <img src="assets/btg-logo-navy-trim.png" alt="BTG" />
+            <span class="tag">Em negociação</span>
+            <span class="role">BTG · proposta em andamento</span>
+          </div>
+        </div>
+        <p class="note">
+          A Prefeitura de Ibiúna integra o evento como parceira institucional (não como marca comercial
+          de apoio). Detalhamento da operação com a Prefeitura na seção abaixo.
+        </p>
+      </div>
+    </section>
+
+    <!-- OPERAÇÃO TÉCNICA -->
+    <section class="block" id="operacao">
+      <div class="wrap">
+        <p class="kicker">Operação técnica</p>
+        <h2 style="margin-top:12px;">Estrutura no condomínio</h2>
+        <p class="lead" style="margin-top:14px;">
+          Separação clara: o que a <strong>Prefeitura fornece</strong> e o que a
+          <strong>organização do campeonato monta</strong> na área do evento.
+        </p>
+
+        <h3 style="margin-top:28px;">Prefeitura — responsável por fornecer</h3>
+        <div class="tech-grid">
+          <article class="tech">
+            <div class="num">01</div>
+            <h3>Banheiro químico masculino</h3>
+            <p>Fornecimento de banheiro químico para homens, posicionado próximo à área do evento.</p>
+            <ul>
+              <li>Uso durante treinos, eliminatórias e finais</li>
+              <li>Complementa a infraestrutura sanitária do local</li>
+              <li>Posicionamento alinhado com organização e condomínio</li>
+            </ul>
+          </article>
+          <article class="tech">
+            <div class="num">02</div>
+            <h3>Gradil de demarcação</h3>
+            <p>Gradil para demarcar e organizar o perímetro e fluxos do campeonato.</p>
+            <ul>
+              <li>Separação de áreas (água / público / operação)</li>
+              <li>Controle de acesso e segurança de circulação</li>
+              <li>Montagem a partir do dia 19 (montagem do evento)</li>
+            </ul>
+          </article>
+          <article class="tech wide">
+            <div class="num">03</div>
+            <h3>Área gastronômica — 5 coberturas brancas 3×3</h3>
+            <p>
+              Cinco coberturas / tendas brancas 3×3 destinadas à área gastronômica, para abrigar os
+              parceiros locais confirmados.
+            </p>
+            <ul>
+              <li>Dimensão unitária: 3 m × 3 m · cor branca</li>
+              <li>Quantidade: 5 unidades</li>
+              <li>Uso: stands / pontos dos parceiros de gastronomia</li>
+              <li>Distribuição definida na planta de montagem com a organização</li>
+              <li>Operação nos dias 19 (montagem/treino), 20 e 21</li>
+            </ul>
+          </article>
+        </div>
+        <p class="note">
+          Também sob responsabilidade da Prefeitura (já detalhado nas seções anteriores):
+          descontos em pousadas/hotéis próximos e negociação dos parceiros de gastronomia.
+        </p>
+
+        <h3 style="margin-top:36px;">Organização do campeonato — o que vamos fazer</h3>
+        <div class="tech-grid">
+          <article class="tech wide">
+            <div class="num">01</div>
+            <h3>Estrutura elevada 4 m × 12 m</h3>
+            <p>
+              Montagem de estrutura elevada de <strong>4 m × 12 m</strong> na área do evento,
+              concentrando operação técnica, transmissão, loja e convivência.
+            </p>
+            <ul>
+              <li><strong>Júri</strong> — mesa / área de arbitragem ABW</li>
+              <li><strong>Transmissão</strong> — operação da transmissão ao vivo do campeonato</li>
+              <li><strong>Loja Vissla</strong> — ponto de venda e ativação do apoiador</li>
+              <li><strong>Área de convivência</strong> — espaço de permanência para atletas, staff e convidados</li>
+              <li>Montagem a partir do dia 19 · operação nos dias 19, 20 e 21</li>
+            </ul>
+          </article>
+          <article class="tech">
+            <div class="num">02</div>
+            <h3>Bar da Náutica — estrutura de premiação e show</h3>
+            <p>Montagem de estrutura coberta no Bar da Náutica para a festa de premiação e o show.</p>
+            <ul>
+              <li>Estrutura coberta para a cerimônia de premiação</li>
+              <li>Rider de banda (backline / requisitos técnicos das bandas)</li>
+              <li>Estrutura de show / palco</li>
+              <li>Sábado 21/11 · a partir das 18h · duas bandas no palco</li>
+            </ul>
+          </article>
+          <article class="tech">
+            <div class="num">03</div>
+            <h3>ABW — operação do campeonato</h3>
+            <p>Contratação da ABW para cuidar de todo o processo competitivo.</p>
+            <ul>
+              <li>Condução do campeonato e regulamentação</li>
+              <li>Júri / arbitragem</li>
+              <li>Software de notas</li>
+              <li>Categorias com ordem de ranking</li>
+            </ul>
+          </article>
+          <article class="tech">
+            <div class="num">04</div>
+            <h3>UTI móvel</h3>
+            <p>Contratação de UTI móvel para cobertura médica do evento.</p>
+            <ul>
+              <li>Presença nos dias de treino e competição</li>
+              <li>Apoio a atletas, staff e público da área do evento</li>
+              <li>Posicionamento alinhado com a organização e o condomínio</li>
+            </ul>
+          </article>
+          <article class="tech">
+            <div class="num">05</div>
+            <h3>Gramado sintético</h3>
+            <p>Gramado sintético em toda a área do evento.</p>
+            <ul>
+              <li>Cobertura da área de circulação e convivência</li>
+              <li>Padronização visual e conforto do piso</li>
+              <li>Montagem junto com a estrutura do dia 19</li>
+            </ul>
+          </article>
+          <article class="tech">
+            <div class="num">06</div>
+            <h3>Água / raia / barco</h3>
+            <p>Competição na raia do campeonato com barco oficial Nautique G23.</p>
+            <ul>
+              <li>Wakeboard e Wakesurf</li>
+              <li>Treino pago no dia 19 (R$ 200)</li>
+              <li>Cronograma por categoria no dia 19 à noite</li>
+            </ul>
+          </article>
+          <article class="tech wide">
+            <div class="num">07</div>
+            <h3>Produção — material de atletas e premiação</h3>
+            <p>Itens a produzir / contratar pela organização do campeonato.</p>
+            <ul>
+              <li><strong>120 camisetas</strong> de atletas / staff</li>
+              <li><strong>36 troféus</strong></li>
+              <li><strong>10 lycras</strong> de competição</li>
+              <li><strong>100 kits de atleta</strong> com squeeze e amenities</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREFEITURA COMO PARTE DO EVENTO -->
+    <section class="block navy" id="prefeitura">
+      <div class="wrap">
+        <p class="kicker">Parte do evento</p>
+        <h2 style="margin-top:12px;">Prefeitura de Ibiúna no Campeonato</h2>
+        <p class="lead" style="margin-top:14px;">
+          A Prefeitura entra como <strong>parceira institucional do Brasileiro</strong>: apoia a
+          operação (hospedagem, gastronomia e estrutura) e, em contrapartida, tem presença e
+          divulgação da Estância de Ibiúna dentro e fora do condomínio.
+        </p>
+        <div class="split">
+          <div class="panel">
+            <h3>Entrega da Prefeitura (fechado)</h3>
+            <ul>
+              <li>Descontos em pousadas e hotéis próximos</li>
+              <li>Negociação e confirmação dos parceiros de gastronomia</li>
+              <li>Banheiro químico masculino próximo ao evento</li>
+              <li>Gradil para demarcação</li>
+              <li>5 coberturas brancas 3×3 para a área gastronômica</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Integração da Estância no evento</h3>
+            <ul>
+              <li>Área da Estância de Ibiúna no evento, para divulgação da cidade</li>
+              <li>Formulário de pesquisa da Estância para atletas e convidados</li>
+              <li>Equipe de fotógrafos cobrindo o campeonato para divulgação da cidade e da Represa</li>
+              <li>Evento na praça de Ibiúna com telão: transmissão ao vivo e interação com o campeonato</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">
+          A transmissão ao vivo do campeonato alimenta tanto a cobertura do evento quanto a ativação
+          na praça de Ibiúna, conectando o público da cidade à raia no Veleiros.
+        </p>
+      </div>
+    </section>
+
+    <!-- RESUMO TÉCNICO -->
+    <section class="block white" id="resumo">
+      <div class="wrap">
+        <p class="kicker">Resumo técnico</p>
+        <h2 style="margin-top:12px;">O que está fechado, em uma página</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Frente</th>
+                <th>Detalhe</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Datas</strong></td>
+                <td>19/11 treinos + montagem · 20/11 eliminatórias · 21/11 finais + festa 18h</td>
+                <td><span class="status ok">Fechado</span></td>
+              </tr>
+              <tr>
+                <td><strong>Local</strong></td>
+                <td>Náutica Veleiros de Ibiúna · Represa de Itupararanga</td>
+                <td><span class="status ok">Fechado</span></td>
+              </tr>
+              <tr>
+                <td><strong>Gastronomia</strong></td>
+                <td>3 concorrentes do Bar da Náutica + 5 lojas de produtos · 5 coberturas 3×3</td>
+                <td><span class="status ok">Fechado</span></td>
+              </tr>
+              <tr>
+                <td><strong>Hospedagem</strong></td>
+                <td>Descontos negociados em pousadas/hotéis próximos</td>
+                <td><span class="status ok">Fechado</span></td>
+              </tr>
+              <tr>
+                <td><strong>Estrutura Prefeitura</strong></td>
+                <td>Banheiro químico masculino + gradil + 5 coberturas 3×3</td>
+                <td><span class="status ok">Fechado</span></td>
+              </tr>
+              <tr>
+                <td><strong>Estrutura organização</strong></td>
+                <td>4×12 m (júri / TX / Vissla / convivência) · Bar da Náutica (cobertura + show) · gramado sintético · UTI móvel · ABW</td>
+                <td><span class="status ok">Fechado</span></td>
+              </tr>
+              <tr>
+                <td><strong>Produção</strong></td>
+                <td>120 camisetas atletas/staff · 36 troféus · 10 lycras · 100 kits (squeeze + amenities)</td>
+                <td><span class="status neg">A produzir</span></td>
+              </tr>
+              <tr>
+                <td><strong>Apoiadores</strong></td>
+                <td>CL Solar · Vissla · Red Bull · Corona · Y'UP</td>
+                <td><span class="status ok">Confirmados</span></td>
+              </tr>
+              <tr>
+                <td><strong>BTG</strong></td>
+                <td>Proposta comercial em andamento</td>
+                <td><span class="status neg">Em negociação</span></td>
+              </tr>
+              <tr>
+                <td><strong>Prefeitura</strong></td>
+                <td>Parceira institucional · Estância no evento · pesquisa · fotos · telão na praça</td>
+                <td><span class="status ok">Fechado</span></td>
+              </tr>
+              <tr>
+                <td><strong>Encerramento</strong></td>
+                <td>Festa de premiação 21/11 · 18h · Bar da Náutica · 2 bandas</td>
+                <td><span class="status ok">Fechado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">
+          Contato da organização: leandro@hellonext.com.br · (11) 93316-5193 ·
+          <a href="https://www.ibiunawakeboard.com.br" target="_blank" rel="noopener">ibiunawakeboard.com.br</a>
+          · @ibiunawakeandsurf
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        Campeonato Brasileiro de Wakeboard &amp; Surf 2026 · Náutica Veleiros de Ibiúna<br />
+        Realização ABW · 3ª etapa do Circuito Brasileiro
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
