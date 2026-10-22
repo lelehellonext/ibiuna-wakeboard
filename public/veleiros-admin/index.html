@@ -139,6 +139,10 @@
       return c.status === "Validado" && c.cupom && c.email && !c.cupomEnviadoEm;
     }
 
+    function podeReenviar(c) {
+      return c.status === "Validado" && c.cupom && c.email && !!c.cupomEnviadoEm;
+    }
+
     function renderTabs() {
       const count = (st) => cadastros.filter((c) => !st || c.status === st).length;
       $("tabs").innerHTML = TABS.map(([st, label]) =>
@@ -173,9 +177,12 @@
             '<div class="f"><label>Observações</label><textarea name="observacoes" rows="1">' + esc(c.observacoes) + "</textarea></div>" +
             '<div class="actions">' +
               '<button type="submit">Salvar</button>' +
-              (c.cupomEnviadoEm
-                ? '<span class="sent">Cupom enviado em ' + esc(c.cupomEnviadoEm) + "</span>"
-                : prontoParaEnviar(c) ? '<button type="button" class="green" data-send>Enviar cupom</button>' : "") +
+              (prontoParaEnviar(c)
+                ? '<button type="button" class="green" data-send>Enviar cupom</button>'
+                : podeReenviar(c)
+                  ? '<span class="sent">Cupom enviado em ' + esc(c.cupomEnviadoEm) + '</span>' +
+                    '<button type="button" class="ghost" data-resend>Reenviar cupom</button>'
+                  : "") +
             "</div>" +
             '<div class="out" aria-live="polite"></div>' +
           "</form>" +
@@ -269,12 +276,17 @@
       }
     });
 
-    async function enviar(cadastroId, btn, outEl) {
+    async function enviar(cadastroId, btn, outEl, reenviar) {
+      if (reenviar && !confirm("Reenviar o cupom por e-mail para este atleta?")) return;
       const label = btn.textContent;
       btn.disabled = true;
-      btn.textContent = "Enviando…";
+      btn.textContent = reenviar ? "Reenviando…" : "Enviando…";
       try {
-        const data = await call(Object.assign({ command: "enviarCupons" }, cadastroId ? { cadastroId } : {}));
+        const data = await call(Object.assign(
+          { command: "enviarCupons" },
+          cadastroId ? { cadastroId } : {},
+          reenviar ? { reenviar: true } : {}
+        ));
         const d = data.Data || {};
         const li = (items, fmt) => (items || []).map((x) => "<li>" + fmt(x) + "</li>").join("");
         const extra = li(d.enviados, (x) => "Enviado: " + esc(x.nome) + " · " + esc(x.email)) +
@@ -293,9 +305,9 @@
     }
 
     $("list").addEventListener("click", (e) => {
-      const b = e.target.closest("[data-send]");
+      const b = e.target.closest("[data-send], [data-resend]");
       if (!b) return;
-      enviar(b.closest("[data-id]").dataset.id, b, $("out"));
+      enviar(b.closest("[data-id]").dataset.id, b, $("out"), !!b.hasAttribute("data-resend"));
     });
     $("sendAll").addEventListener("click", (e) => enviar("", e.currentTarget, $("out")));
 
