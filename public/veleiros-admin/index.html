@@ -20,6 +20,7 @@
     button { font: inherit; font-weight: 600; min-height: 44px; padding: 0 18px; border: 0; border-radius: 980px; background: var(--blue); color: #fff; cursor: pointer; }
     button.ghost { background: rgba(0,113,227,.08); color: var(--blue); }
     button.green { background: var(--green); }
+    button.danger { background: rgba(198,40,40,.1); color: var(--red); }
     button:disabled { opacity: .55; cursor: progress; }
     .hidden { display: none !important; }
     .msg { margin-top: 14px; padding: 12px 14px; border-radius: 12px; font-weight: 600; font-size: .95rem; }
@@ -183,6 +184,7 @@
                   ? '<span class="sent">Cupom enviado em ' + esc(c.cupomEnviadoEm) + '</span>' +
                     '<button type="button" class="ghost" data-resend>Reenviar cupom</button>'
                   : "") +
+              '<button type="button" class="danger" data-delete>Excluir</button>' +
             "</div>" +
             '<div class="out" aria-live="polite"></div>' +
           "</form>" +
@@ -309,6 +311,29 @@
       if (!b) return;
       enviar(b.closest("[data-id]").dataset.id, b, $("out"), !!b.hasAttribute("data-resend"));
     });
+
+    $("list").addEventListener("click", async (e) => {
+      const b = e.target.closest("[data-delete]");
+      if (!b) return;
+      const card = b.closest("[data-id]");
+      const id = card.dataset.id;
+      const nome = (cadastros.find((c) => c.id === id) || {}).atleta || "este cadastro";
+      if (!confirm("Excluir a solicitação de " + nome + "? Esta ação não pode ser desfeita.")) return;
+      const label = b.textContent;
+      b.disabled = true;
+      b.textContent = "Excluindo…";
+      try {
+        const data = await call({ command: "excluir", cadastroId: id });
+        cadastros = cadastros.filter((c) => c.id !== id);
+        render();
+        msg($("out"), data.StatusDescription || ("Excluído: " + nome), true);
+      } catch (err) {
+        msg($("out"), err.message, false);
+        b.disabled = false;
+        b.textContent = label;
+      }
+    });
+
     $("sendAll").addEventListener("click", (e) => enviar("", e.currentTarget, $("out")));
 
     function loadXlsx() {
