@@ -49,7 +49,7 @@ A senha fica em `ADMIN_SENHA` no webhook. Este repositório é público, então 
 (administração bloqueada): a senha real só existe na cópia publicada no HelloNext.
 
 Envio do cupom: `{ "command": "enviarCupons" }`. Cada linha Validado, com Cupom e sem "Cupom enviado em" (`date1`),
-vai para a estratégia `1f0cc84d-8963-4f73-8f46-4455b1662867` (`ruler.addLeadToJourney`, mailing em
+vai para a estratégia `850546e9-9588-473b-8b35-483a35b11688` (`ruler.addLeadToJourney`, mailing em
 `hellonext/filtro-estrategia-cupom-veleiros.xlsx`, e-mail em `hellonext/email-cupom-veleiros.html`)
 e recebe a data de envio, então ninguém recebe duas vezes.
 
