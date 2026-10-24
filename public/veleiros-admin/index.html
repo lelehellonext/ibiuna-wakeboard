@@ -150,8 +150,10 @@
         '<button type="button" class="tab' + (tab === st ? " on" : "") + '" data-tab="' + st + '">' + label + "<b>" + count(st) + "</b></button>"
       ).join("");
       const prontos = cadastros.filter(prontoParaEnviar).length;
+        const cup = window.__cupons || {};
+        const cupTxt = cup.livres !== undefined ? (" · " + cup.livres + " cupom(ns) livre(s) na remessa") : "";
         $("sendHint").textContent = (prontos ? prontos + " pronto(s) para enviar" : "Nenhum validado com cupom aguardando envio") +
-          (versao ? " · " + versao : "");
+          cupTxt + (versao ? " · " + versao : "");
     }
 
     function card(c) {
@@ -218,6 +220,8 @@
         const data = await call({ command: "listar" });
         cadastros = ((data.Data || {}).cadastros || []).sort((a, b) => toTime(b.recebidoEm) - toTime(a.recebidoEm));
         versao = (data.Data || {}).webhookVersion || "";
+        const cup = (data.Data || {}).cupons || {};
+        window.__cupons = cup;
         $("login").classList.add("hidden");
         $("app").classList.remove("hidden");
         render();
