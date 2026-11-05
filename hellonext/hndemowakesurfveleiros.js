@@ -2,34 +2,89 @@ function run() {
   // WEBHOOK: hndemowakesurfveleiros (HN-DEMO)
   // Formulário público do site ibiunawakeboard.com.br (#veleiros): cadastro de atleta condômino
   // da Associação Veleiros de Ibiúna. Grava uma linha por atleta na entidade
-  // "WakeSurf Veleiros Cadastro" com Status "Pendente"; a administração valida no CRM
-  // (Status = Validado + Cupom) e o cupom é enviado ao atleta.
+  // "WakeSurf Veleiros Cadastro" com Status "Pendente" e um cupom livre da remessa (text11).
+  // A administração valida (Status = Validado) e envia o e-mail do cupom ao atleta.
   //
-  // { "command": "enviarCupons" } (opcional "cadastroId"): para cada linha Validado, com Cupom e sem
-  // "Cupom enviado em", manda o atleta para a jornada do e-mail (ruler.addLeadToJourney) e grava date1.
+  // { "command": "enviarCupons" } (opcional "cadastroId"; "reenviar": true força reenvio de um já enviado):
+  // para cada linha Validado, com Cupom e (sem "Cupom enviado em" ou reenvio), manda o atleta para a jornada
+  // do e-mail (ruler.addLeadToJourney) e grava date1.
   // Mailing da estratégia: Id · nome · email · cupom · telefone · modalidade · cadastroId.
   //
   // Página /veleiros-admin/ (todos exigem "senha" = ADMIN_SENHA):
   // { "command": "listar" } → todos os cadastros
   // { "command": "atualizar", "cadastroId", "status", "cupom", "observacoes" } → regrava a linha
-  // { "command": "enviarCupons" }
+  // { "command": "excluir", "cadastroId" } → remove a linha da entidade
+  // { "command": "enviarCupons" } (opcional "cadastroId" + "reenviar": true para forçar reenvio de um já enviado)
   //
   // Slots da entidade:
   // text0 Id (uuid) · text1 Atleta · text2 Nascimento (dd/mm/aaaa) · text3 Telefone (DDI+DDD+número)
   // text4 E-mail · text5 Modalidade · text6 Quadra · text7 Lote · text8 Proprietário/Inquilino (nome)
   // text9 Vínculo · text10 Status · text11 Cupom · text12 Observações · text13 ContactId
   // date0 Recebido em · date1 Cupom enviado em
-  var WEBHOOK_VERSION = "2026-10-18-hn-demo-wakesurf-veleiros-v8";
+  var WEBHOOK_VERSION = "2026-10-24-hn-demo-wakesurf-veleiros-v12";
   // Definida só na cópia publicada no HelloNext (este repositório é público). Vazia = administração bloqueada.
-  var ADMIN_SENHA = "";
+  var ADMIN_SENHA = "0315Lean@!";
   var STATUS_OPCOES = ["Pendente", "Validado", "Recusado"];
   var LAYOUT_ID = "66a57953-ed15-4b2e-807a-90e7ce05a41c";
-  var CUPOM_FILTER_ID = "1f0cc84d-8963-4f73-8f46-4455b1662867";
+  var CUPOM_FILTER_ID = "850546e9-9588-473b-8b35-483a35b11688";
   var TEXT_SLOTS = ["text0", "text1", "text2", "text3", "text4", "text5", "text6", "text7",
     "text8", "text9", "text10", "text11", "text12", "text13"];
   var DATE_SLOTS = ["date0", "date1"];
   var MODALIDADES = ["Wakeboard", "Wakesurf", "Wakeboard e Wakesurf"];
   var VINCULOS = ["Proprietário", "Inquilino"];
+
+  // Remessa Ticket Sports (Cupons usados.xlsx). Baixa = código já gravado em algum cadastro (text11).
+  var CUPONS_REMESSA = [
+    "CUPB235",
+    "CUPC418",
+    "CUPD527",
+    "CUPE639",
+    "CUPF741",
+    "CUPG853",
+    "CUPH964",
+    "CUPJ126",
+    "CUPK248",
+    "CUPL359",
+    "CUPM471",
+    "CUPN582",
+    "CUPP693",
+    "CUPR714",
+    "CUPS825",
+    "CUPT936",
+    "CUPV147",
+    "CUPX258",
+    "CUPZ369",
+    "CUPA481",
+    "CUPB592",
+    "CUPC613",
+    "CUPD724",
+    "CUPE835",
+    "CUPF946",
+    "CUPG157",
+    "CUPH268",
+    "CUPJ379",
+    "CUPK491",
+    "CUPL512",
+    "CUPM623",
+    "CUPN734",
+    "CUPP845",
+    "CUPR956",
+    "CUPS167",
+    "CUPT278",
+    "CUPV389",
+    "CUPX412",
+    "CUPZ523",
+    "CUPA634",
+    "CUPB745",
+    "CUPC856",
+    "CUPD967",
+    "CUPE178",
+    "CUPF289",
+    "CUPG312",
+    "CUPH423",
+    "CUPJ534",
+    "CUPK645"
+  ];
 
   function logD(msg) {
     try { system.logDebug(String(msg)); } catch (_) { }
@@ -357,6 +412,37 @@ function run() {
     regravarLinha(row, nowEntityDate());
   }
 
+
+  function cuponsUsados() {
+    var used = {};
+    listTodos().forEach(function (r) {
+      var c = toStr(r.text11).toUpperCase();
+      if (c) used[c] = true;
+    });
+    return used;
+  }
+
+  function proximoCupomLivre() {
+    var used = cuponsUsados();
+    for (var i = 0; i < CUPONS_REMESSA.length; i++) {
+      var code = toStr(CUPONS_REMESSA[i]).toUpperCase();
+      if (code && !used[code]) return CUPONS_REMESSA[i];
+    }
+    return "";
+  }
+
+  function situacaoCupons() {
+    var used = cuponsUsados();
+    var livres = [], usados = [];
+    CUPONS_REMESSA.forEach(function (code) {
+      var c = toStr(code);
+      if (!c) return;
+      if (used[c.toUpperCase()]) usados.push(c);
+      else livres.push(c);
+    });
+    return { total: CUPONS_REMESSA.length, livres: livres.length, usados: usados.length, proximos: livres.slice(0, 5) };
+  }
+
   function toRecord(r) {
     return {
       id: r.text0, atleta: r.text1, nascimento: r.text2, telefone: r.text3, email: r.text4,
@@ -385,7 +471,22 @@ function run() {
     return ok(toRecord(row), "Cadastro atualizado");
   }
 
-  function enviarCupons(somenteId) {
+  function excluir(body) {
+    var id = field(body, "cadastroId", 60);
+    if (!id) return fail("cadastroId obrigatorio");
+    var row = findById(id);
+    if (!row) return fail("cadastro nao encontrado");
+    if (!row.rowKey) return fail("linha sem RowKey — nao exclui");
+    if (typeof entity.removeByKey !== "function") return fail("entity.removeByKey indisponivel neste webhook");
+    try {
+      entity.removeByKey(String(LAYOUT_ID), [{ Key: "RowKey", Value: row.rowKey }]);
+    } catch (eDel) {
+      return fail("nao excluiu: " + errMsg(eDel));
+    }
+    return ok({ id: id, atleta: row.text1 }, "Cadastro excluido");
+  }
+
+  function enviarCupons(somenteId, reenviar) {
     if (typeof ruler === "undefined" || typeof ruler.addLeadToJourney !== "function") {
       return fail("ruler.addLeadToJourney indisponivel neste webhook");
     }
@@ -394,7 +495,8 @@ function run() {
     for (var i = 0; i < rows.length; i++) {
       var r = rows[i];
       if (somenteId && r.text0 !== somenteId) continue;
-      if (hasRealDate(r.date1)) { jaEnviados++; continue; }
+      // Reenvio só vale para um cadastro específico; o "Enviar cupons validados" continua ignorando quem já recebeu.
+      if (hasRealDate(r.date1) && !(reenviar && somenteId && r.text0 === somenteId)) { jaEnviados++; continue; }
       if (!r.text11) { semCupom.push({ cadastroId: r.text0, nome: r.text1 }); continue; }
       if (!r.text4) { falhas.push({ cadastroId: r.text0, nome: r.text1, erro: "sem e-mail" }); continue; }
       var lead = [
@@ -478,16 +580,18 @@ function run() {
     }
 
     var command = field(body, "command");
-    if (command === "listar" || command === "atualizar" || command === "enviarCupons") {
+    if (command === "listar" || command === "atualizar" || command === "enviarCupons" || command === "excluir") {
       if (!ADMIN_SENHA) return fail("senha da administracao nao configurada no webhook");
       if (field(body, "senha", 200) !== ADMIN_SENHA) return fail("senha incorreta");
       if (typeof entity === "undefined") return fail("objeto entity indisponivel neste webhook");
       if (command === "listar") {
         var todos = listTodos().map(toRecord);
-        return ok({ cadastros: todos, webhookVersion: WEBHOOK_VERSION }, todos.length + " cadastro(s)");
+        return ok({ cadastros: todos, cupons: situacaoCupons(), webhookVersion: WEBHOOK_VERSION }, todos.length + " cadastro(s)");
       }
       if (command === "atualizar") return atualizar(body);
-      return enviarCupons(field(body, "cadastroId", 60));
+      if (command === "excluir") return excluir(body);
+      var reenviar = toStr(getOwnValue(body, "reenviar")).toLowerCase();
+      return enviarCupons(field(body, "cadastroId", 60), reenviar === "true" || reenviar === "1" || getOwnValue(body, "reenviar") === true);
     }
 
     // Campo invisível no formulário: só robô preenche. Responde sucesso sem gravar.
@@ -520,6 +624,9 @@ function run() {
       return fail("entity.addOrUpdateAuxTableContact indisponivel neste webhook");
     }
 
+    var cupomLivre = proximoCupomLivre();
+    if (!cupomLivre) return fail("nao ha cupom livre na remessa dos associados Veleiros");
+
     var id = uuid();
     var recebidoEm = nowEntityDate();
     try {
@@ -535,6 +642,7 @@ function run() {
         kv("text8", cadastro.responsavel),
         kv("text9", cadastro.vinculo),
         kv("text10", "Pendente"),
+        kv("text11", cupomLivre),
         kv("date0", recebidoEm)
       ]);
       var parsed = typeof ret === "string" ? (safeParseJSON(ret) || {}) : (ret || {});
@@ -546,7 +654,7 @@ function run() {
       return fail("Falha ao gravar cadastro: " + errMsg(eEnt));
     }
 
-    return ok({ id: id, status: "Pendente", recebidoEm: recebidoEm, webhookVersion: WEBHOOK_VERSION }, "Cadastro recebido");
+    return ok({ id: id, status: "Pendente", cupom: cupomLivre, recebidoEm: recebidoEm, webhookVersion: WEBHOOK_VERSION }, "Cadastro recebido");
   } catch (e) {
     return fail(errMsg(e));
   }
