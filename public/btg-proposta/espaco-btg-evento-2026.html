@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BTG Pactual Wealth Management — Espaço e Ativações · Campeonato Brasileiro 2026</title>
+  <style>
+    @font-face {
+      font-family: "BTG Pactual Sans";
+      src: url("assets/fonts/BTGPactualSans-Regular.woff2") format("woff2");
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: "BTG Pactual Sans";
+      src: url("assets/fonts/BTGPactualSans-SemiBold.woff2") format("woff2");
+      font-weight: 600; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: "BTG Pactual Sans";
+      src: url("assets/fonts/BTGPactualSans-Bold.woff2") format("woff2");
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+
+    :root {
+      --navy: #05132A;
+      --blue: #195AB4;
+      --blue-soft: #E8F1FF;
+      --line: #D7E4F5;
+      --muted: #5A6B82;
+      --white: #FFFFFF;
+      --font: "BTG Pactual Sans", system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @page { size: A4; margin: 12mm; }
+
+    html, body {
+      background: #FFFFFF;
+      color: var(--navy);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: var(--white);
+      padding: 14mm 14mm 12mm;
+    }
+
+    .top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .top .brand { background: transparent; }
+    .top .brand img {
+      height: 48px;
+      width: auto;
+      display: block;
+      background: transparent;
+    }
+
+    .top .meta { text-align: right; max-width: 34ch; }
+
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+
+    .top h1 {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 14px;
+      background: var(--white);
+    }
+
+    .card h2 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .space-size {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .space-size .n {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .space-size .u {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .card p, .card li {
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: var(--navy);
+    }
+
+    .card p.muted { color: var(--muted); }
+    .addr { margin-top: 4px; font-weight: 600; }
+
+    .timeline { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .timeline li {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+    .timeline .day { font-size: 13px; font-weight: 700; color: var(--blue); }
+    .timeline .lab { font-size: 12.5px; font-weight: 600; }
+    .timeline .sub {
+      display: block;
+      margin-top: 2px;
+      font-size: 11.5px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .activations {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .activations > h2 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--blue);
+      padding: 14px 14px 0;
+      margin: 0;
+    }
+
+    .activations > .subhead {
+      padding: 4px 14px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    table { width: 100%; border-collapse: collapse; }
+
+    th, td {
+      text-align: left;
+      padding: 12px 14px;
+      border-top: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 12.5px;
+      line-height: 1.4;
+    }
+
+    th {
+      width: 42%;
+      font-weight: 700;
+      color: var(--navy);
+      background: #FAFCFF;
+    }
+
+    td { color: var(--navy); }
+
+    .foot {
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 10.5px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    @media print {
+      html, body { background: white; }
+      .sheet { margin: 0; width: auto; min-height: auto; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header class="top">
+      <div class="brand">
+        <img src="assets/btg-wm-logo.png" alt="BTG Pactual Wealth Management" />
+        <div class="badge">Patrocinador Oficial</div>
+      </div>
+      <div class="meta">
+        <div class="eyebrow">Campeonato Brasileiro 2026</div>
+        <h1>Espaço coberto e ativações BTG Pactual Wealth Management no evento</h1>
+      </div>
+    </header>
+
+    <section class="grid-2">
+      <div class="card">
+        <h2>Espaço coberto</h2>
+        <div class="space-size">
+          <span class="n">4 × 4</span>
+          <span class="u">metros</span>
+        </div>
+        <p class="muted">Área exclusiva BTG Pactual Wealth Management no local do campeonato, coberta, para ativação e hospitalidade da marca.</p>
+      </div>
+
+      <div class="card">
+        <h2>Cronograma</h2>
+        <ul class="timeline">
+          <li>
+            <span class="day">19/11</span>
+            <span><span class="lab">Montagem</span><span class="sub">Instalação do espaço e das ativações</span></span>
+          </li>
+          <li>
+            <span class="day">20/11</span>
+            <span><span class="lab">Dia de evento</span><span class="sub">Eliminatórias · marca em transmissão</span></span>
+          </li>
+          <li>
+            <span class="day">21/11</span>
+            <span><span class="lab">Dia de evento</span><span class="sub">Finais + Premiação · marca em transmissão</span></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:14px;">
+      <h2>Local do evento</h2>
+      <p class="addr">Marina Veleiros de Ibiúna</p>
+      <p>Estr. dos Veleiros — Paruru, Ibiúna — SP, 18158-439</p>
+    </section>
+
+    <section class="activations">
+      <h2>Ativações e presença de marca</h2>
+      <div class="subhead">19 a 21 de novembro</div>
+      <table>
+        <tr>
+          <th>Blimp branco com logo BTG</th>
+          <td>Diâmetro de <strong>2,5 m</strong></td>
+        </tr>
+        <tr>
+          <th>WindBanner brancos com logo BTG</th>
+          <td><strong>3 unidades</strong></td>
+        </tr>
+        <tr>
+          <th>Lycra do atleta na competição</th>
+          <td>Logotipo BTG aplicado na lycra oficial</td>
+        </tr>
+        <tr>
+          <th>Transmissão drone</th>
+          <td>Marca visível na transmissão nos <strong>dois dias de evento</strong> (20 e 21/11)</td>
+        </tr>
+        <tr>
+          <th>Backdrop LED — Premiação</th>
+          <td>Marca BTG no backdrop LED da premiação</td>
+        </tr>
+      </table>
+    </section>
+
+    <footer class="foot">
+      <span>Wakeboard &amp; Surf · Campeonato Brasileiro 2026</span>
+      <span>Documento de briefing — espaço e ativações BTG Pactual Wealth Management</span>
+    </footer>
+  </div>
+</body>
+</html>
