@@ -2876,8 +2876,8 @@ a {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  min-height: 148px;
-  padding: 18px 16px 14px;
+  height: 160px;
+  padding: 16px;
   border-radius: 16px;
   border: 1px solid var(--line);
   background: #fff;
@@ -2899,9 +2899,9 @@ a.sponsor-logo:focus-visible {
 }
 
 .sponsor-logo img {
-  width: auto;
-  max-width: 78%;
-  max-height: 72px;
+  width: 100%;
+  height: 96px;
+  max-width: 80%;
   object-fit: contain;
   display: block;
 }
@@ -2933,84 +2933,16 @@ a.sponsor-logo:focus-visible {
   color: rgba(255, 255, 255, 0.92);
 }
 
-.sponsor-logo.brand img {
-  max-height: 88px;
-}
-
-.sponsor-logo.brand.nautique img {
-  max-height: none;
-}
-
-.sponsor-logo.nautique {
-  padding: 4px 4px 8px;
-  gap: 4px;
-  overflow: hidden;
-}
-
-.sponsor-logo.nautique img {
-  max-width: 100%;
-  max-height: none;
-  width: 100%;
-  height: auto;
-  flex: 1 1 auto;
-  object-fit: contain;
-}
-
-.sponsor-logo.iwc {
-  padding: 12px 10px 12px;
-}
-
-.sponsor-logo.iwc img {
-  max-width: 96%;
-  max-height: 170px;
-}
-
-.sponsor-logo.vissla img {
-  max-height: 92px;
-  border-radius: 8px;
-}
-
-.sponsor-logo.hellonext img {
-  max-height: 78px;
-  max-width: 90%;
-}
-
-.sponsor-logo.yh img {
-  max-height: 112px;
-}
-
 @media (min-width: 700px) {
   .sponsor-logo-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
   .sponsor-logo {
-    min-height: 168px;
+    height: 200px;
   }
   .sponsor-logo img {
-    max-height: 80px;
-  }
-  .sponsor-logo.nautique,
-  .sponsor-logo.iwc {
-    min-height: 230px;
-  }
-  .sponsor-logo.nautique img,
-  .sponsor-logo.brand.nautique img {
-    max-height: none;
-    width: 100%;
-  }
-  .sponsor-logo.iwc img {
-    max-height: 190px;
-    max-width: 96%;
-  }
-  .sponsor-logo.hellonext img {
-    max-height: 88px;
-  }
-  .sponsor-logo.yh img {
-    max-height: 122px;
-  }
-  .sponsor-logo.vissla img {
-    max-height: 100px;
+    height: 124px;
   }
 }
 
