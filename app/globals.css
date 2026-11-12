@@ -2923,6 +2923,27 @@ a {
   max-height: 88px;
 }
 
+.sponsor-logo.nautique {
+  padding: 10px 12px 12px;
+}
+
+.sponsor-logo.nautique img {
+  max-width: 94%;
+  max-height: 124px;
+}
+
+.sponsor-logo.vissla img {
+  max-height: 68px;
+}
+
+.sponsor-logo.hellonext img {
+  max-height: 100px;
+}
+
+.sponsor-logo.yh img {
+  max-height: 108px;
+}
+
 @media (min-width: 700px) {
   .sponsor-logo-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -2933,6 +2954,18 @@ a {
   }
   .sponsor-logo img {
     max-height: 80px;
+  }
+  .sponsor-logo.nautique img {
+    max-height: 136px;
+  }
+  .sponsor-logo.hellonext img {
+    max-height: 110px;
+  }
+  .sponsor-logo.yh img {
+    max-height: 118px;
+  }
+  .sponsor-logo.vissla img {
+    max-height: 72px;
   }
 }
 
