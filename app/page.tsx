@@ -719,7 +719,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     aria-label={`${item.alt} — abrir site`}
                   >
-                    <img src={`${item.src}?v=7`} alt={item.alt} />
+                    <img src={`${item.src}?v=8`} alt={item.alt} />
                     <span>{item.alt}</span>
                   </a>
                 ))}
