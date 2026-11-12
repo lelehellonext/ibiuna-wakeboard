@@ -211,6 +211,103 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ============ APOIADORES ============ */}
+        <section id="apoiadores" className="section apoiadores">
+          <div className="section-inner">
+            <div className="center-top" data-reveal>
+              <p className="kicker">Campeonato 2026</p>
+              <h2>Apoiadores</h2>
+              <p>Marcas com o Campeonato Brasileiro de Wakeboard &amp; Surf 2026</p>
+            </div>
+
+            <div className="sponsor-master" data-reveal>
+              <p className="sponsor-role">Patrocinador master</p>
+              <a
+                className="sponsor-master-card"
+                href="https://www.btgpactual.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="BTG Pactual Wealth Management — abrir site"
+              >
+                <img
+                  src="/img/apoiadores/btg-wm.png"
+                  alt="BTG Pactual Wealth Management"
+                />
+              </a>
+            </div>
+
+            <div className="sponsor-apoio" data-reveal>
+              <p className="sponsor-role">Apoio</p>
+              <div className="sponsor-logo-grid">
+                {[
+                  {
+                    src: "/img/apoiadores/vissla.png",
+                    alt: "Vissla",
+                    tone: "light",
+                    href: "https://vissla.com.br",
+                  },
+                  {
+                    src: "/img/apoiadores/clsolar.png",
+                    alt: "CL Solar",
+                    tone: "light",
+                    href: "https://clsolar.com.br",
+                  },
+                  {
+                    src: "/img/apoiadores/corona.png",
+                    alt: "Corona",
+                    tone: "light",
+                    href: "https://www.corona.com/pt-br",
+                  },
+                  {
+                    src: "/img/apoiadores/yh-brasil.png",
+                    alt: "YH Brasil",
+                    tone: "light yh",
+                    href: "https://www.yhbrasil.com.br",
+                  },
+                  {
+                    src: "/img/apoiadores/hellonext.png",
+                    alt: "Hello Next",
+                    tone: "light hellonext",
+                    href: "https://www.hellonext.com.br",
+                  },
+                  {
+                    src: "/img/apoiadores/iwc-logo.png",
+                    alt: "Ibiúna Wake Center",
+                    tone: "light iwc",
+                    href: "https://www.instagram.com/ibiuna_wakecenter/",
+                  },
+                  {
+                    src: "/img/apoiadores/nautique.png",
+                    alt: "Nautique Boats",
+                    tone: "brand nautique",
+                    href: "https://www.instagram.com/nautiquebrasil/",
+                  },
+                ].map((item) => (
+                  <a
+                    className={`sponsor-logo ${item.tone}`}
+                    key={item.alt}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${item.alt} — abrir site`}
+                  >
+                    <img src={`${item.src}?v=9`} alt={item.alt} />
+                    <span>{item.alt}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <p className="apoio-note">
+              Quer apoiar o evento? Fale com a organização pelo{" "}
+              <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer">
+                WhatsApp
+              </a>
+              .
+            </p>
+          </div>
+        </section>
+
         {/* ============ SOBRE ============ */}
         <section id="sobre" className="section light sobre">
           <div className="media-box hero-media">
@@ -642,103 +739,6 @@ export default function Home() {
                 </article>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* ============ APOIADORES ============ */}
-        <section id="apoiadores" className="section apoiadores">
-          <div className="section-inner">
-            <div className="center-top" data-reveal>
-              <p className="kicker">Campeonato 2026</p>
-              <h2>Apoiadores</h2>
-              <p>Marcas com o Campeonato Brasileiro de Wakeboard &amp; Surf 2026</p>
-            </div>
-
-            <div className="sponsor-master" data-reveal>
-              <p className="sponsor-role">Patrocinador master</p>
-              <a
-                className="sponsor-master-card"
-                href="https://www.btgpactual.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="BTG Pactual Wealth Management — abrir site"
-              >
-                <img
-                  src="/img/apoiadores/btg-wm.png"
-                  alt="BTG Pactual Wealth Management"
-                />
-              </a>
-            </div>
-
-            <div className="sponsor-apoio" data-reveal>
-              <p className="sponsor-role">Apoio</p>
-              <div className="sponsor-logo-grid">
-                {[
-                  {
-                    src: "/img/apoiadores/vissla.png",
-                    alt: "Vissla",
-                    tone: "light",
-                    href: "https://vissla.com.br",
-                  },
-                  {
-                    src: "/img/apoiadores/clsolar.png",
-                    alt: "CL Solar",
-                    tone: "light",
-                    href: "https://clsolar.com.br",
-                  },
-                  {
-                    src: "/img/apoiadores/corona.png",
-                    alt: "Corona",
-                    tone: "light",
-                    href: "https://www.corona.com/pt-br",
-                  },
-                  {
-                    src: "/img/apoiadores/yh-brasil.png",
-                    alt: "YH Brasil",
-                    tone: "light yh",
-                    href: "https://www.yhbrasil.com.br",
-                  },
-                  {
-                    src: "/img/apoiadores/hellonext.png",
-                    alt: "Hello Next",
-                    tone: "light hellonext",
-                    href: "https://www.hellonext.com.br",
-                  },
-                  {
-                    src: "/img/apoiadores/iwc-logo.png",
-                    alt: "Ibiúna Wake Center",
-                    tone: "light iwc",
-                    href: "https://www.instagram.com/ibiuna_wakecenter/",
-                  },
-                  {
-                    src: "/img/apoiadores/nautique.png",
-                    alt: "Nautique Boats",
-                    tone: "brand nautique",
-                    href: "https://www.instagram.com/nautiquebrasil/",
-                  },
-                ].map((item) => (
-                  <a
-                    className={`sponsor-logo ${item.tone}`}
-                    key={item.alt}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${item.alt} — abrir site`}
-                  >
-                    <img src={`${item.src}?v=9`} alt={item.alt} />
-                    <span>{item.alt}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <p className="apoio-note">
-              Quer apoiar o evento? Fale com a organização pelo{" "}
-              <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer">
-                WhatsApp
-              </a>
-              .
-            </p>
           </div>
         </section>
 

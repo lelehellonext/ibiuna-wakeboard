@@ -2,6 +2,7 @@ export type NavItem = { id: string; label: string; short: string; drawerOnly?: b
 
 export const NAV_ITEMS: NavItem[] = [
   { id: "inicio", label: "Início", short: "Início" },
+  { id: "apoiadores", label: "Apoiadores", short: "Apoio" },
   { id: "sobre", label: "Sobre o Evento", short: "Sobre" },
   { id: "cronograma", label: "Cronograma", short: "Cronograma" },
   { id: "local", label: "Local", short: "Local" },
@@ -11,7 +12,6 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "barco", label: "Barco Oficial", short: "Barco" },
   { id: "abw", label: "ABW", short: "ABW" },
   { id: "galeria", label: "Galeria", short: "Galeria" },
-  { id: "apoiadores", label: "Apoiadores", short: "Apoio" },
   { id: "video", label: "Vídeos", short: "Vídeos" },
   { id: "inscricoes", label: "Inscrições", short: "Inscrições" },
   { id: "veleiros", label: "Condôminos Veleiros", short: "Veleiros" },
