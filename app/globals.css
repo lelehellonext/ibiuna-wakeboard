@@ -2882,6 +2882,20 @@ a {
   border: 1px solid var(--line);
   background: #fff;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+a.sponsor-logo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+  border-color: rgba(39, 45, 69, 0.22);
+}
+
+a.sponsor-logo:focus-visible {
+  outline: 2px solid var(--blue-soft);
+  outline-offset: 3px;
 }
 
 .sponsor-logo img {

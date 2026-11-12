@@ -668,30 +668,60 @@ export default function Home() {
               <p className="sponsor-role">Apoio</p>
               <div className="sponsor-logo-grid">
                 {[
-                  { src: "/img/apoiadores/vissla.png", alt: "Vissla", tone: "light vissla" },
-                  { src: "/img/apoiadores/clsolar.png", alt: "CL Solar", tone: "light" },
-                  { src: "/img/apoiadores/corona.png", alt: "Corona", tone: "light" },
-                  { src: "/img/apoiadores/yh-brasil.png", alt: "YH Brasil", tone: "light yh" },
+                  {
+                    src: "/img/apoiadores/vissla.png",
+                    alt: "Vissla",
+                    tone: "light vissla",
+                    href: "https://vissla.com.br",
+                  },
+                  {
+                    src: "/img/apoiadores/clsolar.png",
+                    alt: "CL Solar",
+                    tone: "light",
+                    href: "https://clsolar.com.br",
+                  },
+                  {
+                    src: "/img/apoiadores/corona.png",
+                    alt: "Corona",
+                    tone: "light",
+                    href: "https://www.corona.com/pt-br",
+                  },
+                  {
+                    src: "/img/apoiadores/yh-brasil.png",
+                    alt: "YH Brasil",
+                    tone: "light yh",
+                    href: "https://www.yhbrasil.com.br",
+                  },
                   {
                     src: "/img/apoiadores/hellonext.png",
                     alt: "Hello Next",
                     tone: "light hellonext",
+                    href: "https://www.hellonext.com.br",
                   },
                   {
                     src: "/img/apoiadores/iwc-logo.png",
                     alt: "Ibiúna Wake Center",
                     tone: "light iwc",
+                    href: "https://www.instagram.com/ibiuna_wakecenter/",
                   },
                   {
                     src: "/img/apoiadores/nautique.png",
                     alt: "Nautique Boats",
                     tone: "brand nautique",
+                    href: "https://www.instagram.com/nautiquebrasil/",
                   },
                 ].map((item) => (
-                  <div className={`sponsor-logo ${item.tone}`} key={item.alt}>
+                  <a
+                    className={`sponsor-logo ${item.tone}`}
+                    key={item.alt}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${item.alt} — abrir site`}
+                  >
                     <img src={`${item.src}?v=5`} alt={item.alt} />
                     <span>{item.alt}</span>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
