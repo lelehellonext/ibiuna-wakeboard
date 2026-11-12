@@ -2923,21 +2923,28 @@ a {
   max-height: 88px;
 }
 
+.sponsor-logo.brand.nautique img {
+  max-height: 148px;
+}
+
 .sponsor-logo.nautique {
-  padding: 10px 12px 12px;
+  padding: 8px 8px 10px;
+  gap: 8px;
 }
 
 .sponsor-logo.nautique img {
-  max-width: 94%;
-  max-height: 124px;
+  max-width: 100%;
+  max-height: 148px;
+  width: 86%;
 }
 
 .sponsor-logo.vissla img {
-  max-height: 68px;
+  max-height: 72px;
 }
 
 .sponsor-logo.hellonext img {
-  max-height: 100px;
+  max-height: 78px;
+  max-width: 90%;
 }
 
 .sponsor-logo.yh img {
@@ -2955,17 +2962,22 @@ a {
   .sponsor-logo img {
     max-height: 80px;
   }
-  .sponsor-logo.nautique img {
-    max-height: 136px;
+  .sponsor-logo.nautique {
+    min-height: 200px;
+  }
+  .sponsor-logo.nautique img,
+  .sponsor-logo.brand.nautique img {
+    max-height: 168px;
+    width: 92%;
   }
   .sponsor-logo.hellonext img {
-    max-height: 110px;
+    max-height: 88px;
   }
   .sponsor-logo.yh img {
     max-height: 118px;
   }
   .sponsor-logo.vissla img {
-    max-height: 72px;
+    max-height: 78px;
   }
 }
 

@@ -668,11 +668,15 @@ export default function Home() {
               <p className="sponsor-role">Apoio</p>
               <div className="sponsor-logo-grid">
                 {[
-                  { src: "/img/apoiadores/vissla.png", alt: "Vissla", tone: "dark vissla" },
+                  { src: "/img/apoiadores/vissla.png", alt: "Vissla", tone: "light vissla" },
                   { src: "/img/apoiadores/clsolar.png", alt: "CL Solar", tone: "light" },
                   { src: "/img/apoiadores/corona.png", alt: "Corona", tone: "light" },
                   { src: "/img/apoiadores/yh-brasil.png", alt: "YH Brasil", tone: "dark yh" },
-                  { src: "/img/apoiadores/hellonext.png", alt: "Hello Next", tone: "dark hellonext" },
+                  {
+                    src: "/img/apoiadores/hellonext.png",
+                    alt: "Hello Next",
+                    tone: "light hellonext",
+                  },
                   {
                     src: "/img/apoiadores/iwc-logo.png",
                     alt: "Ibiúna Wake Center",
@@ -685,7 +689,7 @@ export default function Home() {
                   },
                 ].map((item) => (
                   <div className={`sponsor-logo ${item.tone}`} key={item.alt}>
-                    <img src={`${item.src}?v=2`} alt={item.alt} />
+                    <img src={`${item.src}?v=3`} alt={item.alt} />
                     <span>{item.alt}</span>
                   </div>
                 ))}
