@@ -671,7 +671,7 @@ export default function Home() {
                   { src: "/img/apoiadores/vissla.png", alt: "Vissla", tone: "light vissla" },
                   { src: "/img/apoiadores/clsolar.png", alt: "CL Solar", tone: "light" },
                   { src: "/img/apoiadores/corona.png", alt: "Corona", tone: "light" },
-                  { src: "/img/apoiadores/yh-brasil.png", alt: "YH Brasil", tone: "dark yh" },
+                  { src: "/img/apoiadores/yh-brasil.png", alt: "YH Brasil", tone: "light yh" },
                   {
                     src: "/img/apoiadores/hellonext.png",
                     alt: "Hello Next",
@@ -680,7 +680,7 @@ export default function Home() {
                   {
                     src: "/img/apoiadores/iwc-logo.png",
                     alt: "Ibiúna Wake Center",
-                    tone: "light",
+                    tone: "light iwc",
                   },
                   {
                     src: "/img/apoiadores/nautique.png",
@@ -689,7 +689,7 @@ export default function Home() {
                   },
                 ].map((item) => (
                   <div className={`sponsor-logo ${item.tone}`} key={item.alt}>
-                    <img src={`${item.src}?v=3`} alt={item.alt} />
+                    <img src={`${item.src}?v=5`} alt={item.alt} />
                     <span>{item.alt}</span>
                   </div>
                 ))}
