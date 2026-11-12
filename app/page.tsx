@@ -649,62 +649,45 @@ export default function Home() {
         <section id="apoiadores" className="section apoiadores">
           <div className="section-inner">
             <div className="center-top" data-reveal>
+              <p className="kicker">Campeonato 2026</p>
               <h2>Apoiadores</h2>
-              <p>Marcas que fizeram parte do Campeonato Brasileiro de Wakeboard &amp; Surf 2025</p>
+              <p>Marcas com o Campeonato Brasileiro de Wakeboard &amp; Surf 2026</p>
             </div>
-            <div className="story-grid act-story-grid" data-reveal-group>
-              {[
-                {
-                  src: "/img/porte.jpg",
-                  title: "Porte",
-                  excerpt: "Estande exclusivo e presença forte na arena.",
-                  tag: "Ativação",
-                },
-                {
-                  src: "/img/dermage.jpg",
-                  title: "Dermage",
-                  excerpt: "Skincare e experiência de marca no evento.",
-                  tag: "Skincare",
-                },
-                {
-                  src: "/img/dermage2.jpg",
-                  title: "Dermage · Experiência",
-                  excerpt: "Ativação e stands ao longo da programação.",
-                  tag: "Skincare",
-                },
-                {
-                  src: "/img/technogym.jpg",
-                  title: "Technogym",
-                  excerpt: "Performance e wellness na beira da represa.",
-                  tag: "Wellness",
-                },
-                {
-                  src: "/img/corona.jpg",
-                  title: "Corona",
-                  excerpt: "Bar e clima de verão no encerramento.",
-                  tag: "Lifestyle",
-                },
-                {
-                  src: "/img/beyond.jpg",
-                  title: "Beyond The Club",
-                  excerpt: "Conteúdo e energia ao redor da competição.",
-                  tag: "Conteúdo",
-                },
-              ].map((item) => (
-                <article className="story-card act-item" key={item.src + item.title}>
-                  <div className="story-media">
-                    <img src={item.src} alt={item.title} />
-                  </div>
-                  <div className="story-body">
-                    <h3 className="story-title al">{item.title}</h3>
-                    <p className="story-excerpt">{item.excerpt}</p>
-                    <div className="story-meta">
-                      <span>{item.tag}</span>
-                    </div>
-                  </div>
-                </article>
-              ))}
+
+            <div className="sponsor-master" data-reveal>
+              <p className="sponsor-role">Patrocinador master</p>
+              <div className="sponsor-master-card">
+                <img
+                  src="/img/apoiadores/btg-wm.png"
+                  alt="BTG Pactual Wealth Management"
+                />
+              </div>
             </div>
+
+            <div className="sponsor-apoio" data-reveal>
+              <p className="sponsor-role">Apoio</p>
+              <div className="sponsor-logo-grid">
+                {[
+                  { src: "/img/apoiadores/vissla.svg", alt: "Vissla", tone: "light" },
+                  { src: "/img/apoiadores/clsolar.png", alt: "CL Solar", tone: "light" },
+                  { src: "/img/apoiadores/corona.png", alt: "Corona", tone: "dark" },
+                  { src: "/img/apoiadores/yh-brasil.png", alt: "YH Brasil", tone: "dark" },
+                  { src: "/img/apoiadores/hellonext.png", alt: "Hello Next", tone: "dark" },
+                  {
+                    src: "/img/apoiadores/iwc-logo.png",
+                    alt: "Ibiúna Wake Center",
+                    tone: "light",
+                  },
+                  { src: "/img/apoiadores/nautique.png", alt: "Nautique Boats", tone: "brand" },
+                ].map((item) => (
+                  <div className={`sponsor-logo ${item.tone}`} key={item.alt}>
+                    <img src={item.src} alt={item.alt} />
+                    <span>{item.alt}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <p className="apoio-note">
               Quer apoiar o evento? Fale com a organização pelo{" "}
               <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener noreferrer">

@@ -2824,6 +2824,125 @@ a {
   font-weight: 600;
 }
 
+/* ----- Apoiadores 2026 (logos) ----- */
+.sponsor-master {
+  margin: 28px auto 18px;
+  max-width: 560px;
+  text-align: center;
+}
+
+.sponsor-role {
+  margin: 0 0 12px;
+  color: var(--ink-3);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sponsor-master-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 32px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.sponsor-master-card img {
+  width: min(100%, 420px);
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.sponsor-apoio {
+  margin-top: 34px;
+  text-align: center;
+}
+
+.sponsor-logo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.sponsor-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 148px;
+  padding: 18px 16px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+}
+
+.sponsor-logo img {
+  width: auto;
+  max-width: 78%;
+  max-height: 72px;
+  object-fit: contain;
+  display: block;
+}
+
+.sponsor-logo span {
+  color: var(--ink-2);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.sponsor-logo.dark {
+  background: #111318;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.sponsor-logo.dark span {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.sponsor-logo.brand {
+  background: #ed1c24;
+  border-color: #ed1c24;
+}
+
+.sponsor-logo.brand span {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.sponsor-logo.brand img {
+  max-height: 88px;
+}
+
+@media (min-width: 700px) {
+  .sponsor-logo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .sponsor-logo {
+    min-height: 168px;
+  }
+  .sponsor-logo img {
+    max-height: 80px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .sponsor-logo-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+}
+
 @media (min-width: 700px) {
   .story-grid {
     grid-template-columns: 1fr 1fr;
