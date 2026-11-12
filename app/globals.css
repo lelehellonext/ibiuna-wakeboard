@@ -2938,27 +2938,36 @@ a.sponsor-logo:focus-visible {
 }
 
 .sponsor-logo.brand.nautique img {
-  max-height: 170px;
+  max-height: none;
 }
 
 .sponsor-logo.nautique {
-  padding: 6px 6px 10px;
-  gap: 6px;
+  padding: 4px 4px 8px;
+  gap: 4px;
+  overflow: hidden;
 }
 
 .sponsor-logo.nautique img {
   max-width: 100%;
-  max-height: 170px;
-  width: 96%;
+  max-height: none;
+  width: 100%;
+  height: auto;
+  flex: 1 1 auto;
+  object-fit: contain;
+}
+
+.sponsor-logo.iwc {
+  padding: 12px 10px 12px;
 }
 
 .sponsor-logo.iwc img {
-  max-width: 92%;
-  max-height: 150px;
+  max-width: 96%;
+  max-height: 170px;
 }
 
 .sponsor-logo.vissla img {
-  max-height: 78px;
+  max-height: 92px;
+  border-radius: 8px;
 }
 
 .sponsor-logo.hellonext img {
@@ -2983,16 +2992,16 @@ a.sponsor-logo:focus-visible {
   }
   .sponsor-logo.nautique,
   .sponsor-logo.iwc {
-    min-height: 210px;
+    min-height: 230px;
   }
   .sponsor-logo.nautique img,
   .sponsor-logo.brand.nautique img {
-    max-height: 180px;
-    width: 98%;
+    max-height: none;
+    width: 100%;
   }
   .sponsor-logo.iwc img {
-    max-height: 168px;
-    max-width: 94%;
+    max-height: 190px;
+    max-width: 96%;
   }
   .sponsor-logo.hellonext img {
     max-height: 88px;
@@ -3001,7 +3010,7 @@ a.sponsor-logo:focus-visible {
     max-height: 122px;
   }
   .sponsor-logo.vissla img {
-    max-height: 84px;
+    max-height: 100px;
   }
 }
 

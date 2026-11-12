@@ -671,7 +671,7 @@ export default function Home() {
                   {
                     src: "/img/apoiadores/vissla.png",
                     alt: "Vissla",
-                    tone: "light vissla",
+                    tone: "dark vissla",
                     href: "https://vissla.com.br",
                   },
                   {
@@ -719,7 +719,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     aria-label={`${item.alt} — abrir site`}
                   >
-                    <img src={`${item.src}?v=5`} alt={item.alt} />
+                    <img src={`${item.src}?v=6`} alt={item.alt} />
                     <span>{item.alt}</span>
                   </a>
                 ))}
