@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#272D45" />
-  <meta name="description" content="Proposta de parceria de apoio para Liquidz — Campeonato Brasileiro de Wakeboard & Surf 2026 por R$ 15.000." />
+  <meta name="description" content="Proposta de parceria de apoio para Liquidz — Campeonato Brasileiro de Wakeboard & Surf 2026, com produtos para premiação e kits de atletas." />
   <title>Liquidz — Parceria de Apoio · Wakeboard & Surf 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -237,12 +237,7 @@
     }
     .cover-photo {
       margin-top: 16px;
-      max-height: none;
-      aspect-ratio: 2 / 1;
-      height: auto;
-      object-fit: contain;
-      object-position: center top;
-      background: transparent;
+      max-height: min(38vh, 360px);
     }
     .photo-wide {
       width: 100%;
@@ -259,15 +254,6 @@
       margin-top: 18px;
       flex: 0 0 auto;
     }
-    .photo-wide.cover-photo {
-      aspect-ratio: 2 / 1;
-      max-height: none;
-      height: auto;
-      object-fit: contain;
-      object-position: center top;
-      background: transparent;
-    }
-
 
     .local-top {
       display: flex;
@@ -947,12 +933,7 @@
     }
     .cover-photo {
       margin-top: 16px;
-      max-height: none;
-      aspect-ratio: 2 / 1;
-      height: auto;
-      object-fit: contain;
-      object-position: center top;
-      background: transparent;
+      max-height: min(38vh, 360px);
     }
     .photo-wide { max-height: min(36vh, 280px); margin-top: 14px; }
       .site-header .meta span { display: none; }
@@ -1111,17 +1092,11 @@
         padding: 20px 16px 88px;
       }
       .photo-wide,
+      .cover-photo,
       #s4 .photo-wide {
         max-height: none;
         width: 100%;
         aspect-ratio: 16 / 9;
-      }
-      .cover-photo {
-        max-height: none;
-        width: 100%;
-        aspect-ratio: 2 / 1;
-        object-fit: contain;
-        object-position: center top;
       }
       #s4 .photo-wide {
         object-position: center bottom;
@@ -1227,12 +1202,9 @@
 
     @media (max-height: 740px) and (min-width: 901px) {
       .photo-wide,
+      .cover-photo,
       #s4 .photo-wide {
         max-height: min(34vh, 280px);
-      }
-      .cover-photo {
-        max-height: none;
-        object-fit: contain;
       }
       .vcard-frame {
         max-height: min(48vh, 420px);
@@ -1439,15 +1411,16 @@
             <h1>Parceiro de <span class="accent">apoio</span></h1>
             <p class="lead" style="margin-top:12px;">Campeonato Brasileiro de Wakeboard &amp; Surf · Represa de Itupararanga, Ibiúna/SP · 19, 20 e 21 de novembro de 2026</p>
             <div class="cta-row">
-              <button class="btn" type="button" onclick="goTo(7)">Ver investimento</button>
+              <button class="btn" type="button" onclick="goTo(7)">Ver apoio</button>
               <button class="btn btn-outline" type="button" onclick="goTo(6)">Ver proposta</button>
             </div>
             <div class="chips">
               <span class="chip">Exclusividade hidratação</span>
+              <span class="chip">Produtos na premiação</span>
             </div>
-            <p class="meta-line">Ativação hidrataçãa Liquidz</p>
+            <p class="meta-line">Produtos Liquidz na premiação e nos kits</p>
           </div>
-          <img class="photo-wide cover-photo" src="/img/capa.jpg?v=6" alt="Ibiúna Wake & Surf 2026" />
+          <img class="photo-wide cover-photo" src="assets/foto_14_wakeboard_acao.png" alt="Wakeboard na Represa de Itupararanga" />
         </div>
       </div>
 
@@ -1459,7 +1432,7 @@
             <p class="eyebrow">O evento</p>
             <h2>Sobre o <em>campeonato</em></h2>
             <p class="lead">A edição 2026 do <strong>Campeonato Brasileiro de Wakeboard e Surf</strong> acontece na Represa de Itupararanga, em Ibiúna (SP). O evento reúne atletas de todo o Brasil e cerca de 800 famílias de altíssimo padrão (classes A+ e A) dos condomínios Veleiros de Ibiúna e Porto de Ibiúna.</p>
-            <p class="lead" style="margin-top:12px;">Como <strong>parceiro de apoio</strong>, a Liquidz ativa hidratação, eletrólitos e performance no evento — com presença de marca, produto e experiência para o público, sem naming rights.</p>
+            <p class="lead" style="margin-top:12px;">Como <strong>parceiro de apoio</strong>, a Liquidz entra com produtos de hidratação e eletrólitos — na cerimônia de premiação e nos kits dos atletas —, sem naming rights.</p>
             <div class="stat-row">
               <div class="stat"><div class="n">800+</div><div class="l">Famílias A/A+</div></div>
               <div class="stat"><div class="n">3</div><div class="l">Dias de evento</div></div>
@@ -1525,7 +1498,7 @@
                 <li><span class="chk">✓</span><span><strong>~800 famílias classes A+ e A</strong><br>Residentes e veranistas dos condomínios</span></li>
                 <li><span class="chk">✓</span><span><strong>Alto poder aquisitivo</strong><br>Perfil premium com consumo elevado</span></li>
                 <li><span class="chk">✓</span><span><strong>Lifestyle náutico e esportivo</strong><br>Decisores e famílias em ambiente exclusivo</span></li>
-                <li><span class="chk">✓</span><span><strong>Marina privativa</strong><br>Ativação em condomínios fechados</span></li>
+                <li><span class="chk">✓</span><span><strong>Marina privativa</strong><br>Ambiente exclusivo em condomínios fechados</span></li>
               </ul>
             </div>
           </div>
@@ -1538,11 +1511,11 @@
           <img class="logo" src="assets/liquidz-logo.png" alt="Liquidz" />
           <p class="eyebrow" style="margin-top:20px;">Parceria de apoio</p>
           <h2>Parceiro de <em>apoio</em></h2>
-          <p class="lead">A Liquidz figura como parceira de apoio do campeonato — com ativação de marca, produto e experiência de hidratação e performance no evento. O campeonato permanece sob a identidade da organização.</p>
+          <p class="lead">A Liquidz figura como parceira de apoio do campeonato — com produtos na cerimônia de premiação e nos kits dos atletas. O campeonato permanece sob a identidade da organização.</p>
           <div class="name-lock">Campeonato Brasileiro de Wakeboard &amp; Surf · Apoio Liquidz</div>
           <div class="box">
             <strong>Exclusividade hidratação</strong>
-            <p>Nenhum concorrente de eletrólitos poderá ter a mesma cota de apoio no evento. A Liquidz será a marca de referência em hospitalidade e hidratação e performance associada ao campeonato.</p>
+            <p>Nenhum concorrente de eletrólitos poderá ter a mesma cota de apoio no evento. A Liquidz será a marca de referência em hidratação e performance associada ao campeonato.</p>
           </div>
         </div>
       </div>
@@ -1555,23 +1528,19 @@
               <img class="logo" src="assets/liquidz-logo.png" alt="Liquidz" />
               <p class="eyebrow" style="margin-top:18px;">Cota de apoio</p>
               <h2>O que está <em>incluso</em></h2>
-              <div class="price">R$ 15.000</div>
-              <p class="lead">Investimento · Parceiro de apoio + exclusividade hidratação</p>
+              <p class="lead">Parceria via produtos · Apoio + exclusividade hidratação</p>
+              <p class="lead" style="margin-top:8px;"><strong>Formato:</strong> ação na cerimônia com <strong>produtos Liquidz</strong> para premiação e materiais nos kits dos atletas.</p>
               <div class="rule"></div>
               <ul class="check-list">
                 <li><span class="chk">✓</span><span>Marca como <strong>parceiro de apoio</strong> nas comunicações do evento</span></li>
                 <li><span class="chk">✓</span><span><strong>Exclusividade na categoria eletrólitos / hidratação</strong></span></li>
-                <li><span class="chk">✓</span><span>Logo em destaque na transmissão ao vivo</span></li>
-                <li><span class="chk">✓</span><span>Presença oficial na cerimônia de premiação</span></li>
-                <li><span class="chk">✓</span><span>Espaço de ativaçãa Liquidz (stands / ativação de hidratação com eletrólitos Liquidz)</span></li>
-                <li><span class="chk">✓</span><span>Boia de raia e windbanner com a marca</span></li>
-                <li><span class="chk">✓</span><span>Vídeo promocional + inserções em redes sociais</span></li>
+                <li><span class="chk">✓</span><span>Ação na cerimônia de premiação com <strong>produtos Liquidz</strong></span></li>
                 <li><span class="chk">✓</span><span>Material nos kits dos atletas</span></li>
               </ul>
             </div>
             <div class="photo-stack">
-              <img class="photo" src="assets/foto_14_wakeboard_acao.png" alt="Ativação Liquidz" />
-              <img class="photo" src="assets/foto_14_wakeboard_acao.png" alt="Liquidz Checkup" />
+              <img class="photo" src="assets/foto_20_podio_campeoes.png" alt="Cerimônia de premiação" />
+              <img class="photo" src="assets/foto_08_atletas.png" alt="Kits e atletas" />
             </div>
           </div>
         </div>
@@ -1583,7 +1552,7 @@
           <img class="logo" src="assets/liquidz-logo.png" alt="Liquidz" />
           <p class="eyebrow" style="margin-top:18px;">Diferencial</p>
           <h2>Exclusividade no <em>segmento</em></h2>
-          <p class="lead">Proteção de marca na categoria eletrólitos / hidratação, com ativação alinhada ao territória Liquidz.</p>
+          <p class="lead">Proteção de marca na categoria eletrólitos / hidratação, alinhada ao território Liquidz.</p>
           <div class="two-col" style="margin-top:20px;">
             <div class="panel">
               <span class="chip">Garantido</span>
@@ -1608,22 +1577,22 @@
       <div class="slide" id="s9">
         <div class="slide-pad">
           <p class="eyebrow">Referência</p>
-          <h2>Ativações e <em>experiência</em></h2>
-          <p class="lead" style="margin-bottom:16px;">Como marcas e público se conectam na Represa de Itupararanga</p>
+          <h2>Evento e <em>premiação</em></h2>
+          <p class="lead" style="margin-bottom:16px;">Como o público e os atletas vivem a Represa de Itupararanga</p>
           <div class="gallery dense">
             <div class="cell big"><img src="assets/foto_14_wakeboard_acao.png" alt="Wakeboard" /><div class="cap">Wakeboard na represa</div></div>
             <div class="cell"><img src="assets/foto_09_redbull_tenda.png" alt="Tenda do evento" /><div class="cap">Hospitalidade</div></div>
             <div class="cell"><img src="assets/foto_14_wakeboard_acao.png" alt="Barra do evento" /><div class="cap">Área de convivência</div></div>
-            <div class="cell"><img src="assets/foto_14_wakeboard_acao.png" alt="Ativação Liquidz" /><div class="cap">Ativação de marca</div></div>
-            <div class="cell"><img src="assets/foto_14_wakeboard_acao.png" alt="Liquidz" /><div class="cap">Wellness checkup</div></div>
-            <div class="cell"><img src="assets/foto_14_wakeboard_acao.png" alt="Stands Liquidz" /><div class="cap">Ativação Liquidz</div></div>
+            <div class="cell"><img src="assets/foto_20_podio_campeoes.png" alt="Premiação" /><div class="cap">Cerimônia de premiação</div></div>
+            <div class="cell"><img src="assets/foto_08_atletas.png" alt="Atletas" /><div class="cap">Atletas e kits</div></div>
+            <div class="cell"><img src="assets/foto_21_podio_wakeboard.png" alt="Pódio" /><div class="cap">Pódio</div></div>
             <div class="cell"><img src="assets/foto_15_treino_tenda.png" alt="Treino" /><div class="cap">Treino no evento</div></div>
             <div class="cell"><img src="assets/foto_08_atletas.png" alt="Fitness" /><div class="cap">Experiência fitness</div></div>
             <div class="cell"><img src="assets/img_estrutura_evento.png" alt="Estrutura" /><div class="cap">Estrutura na represa</div></div>
             <div class="cell"><img src="assets/foto_02_experiencia.png" alt="Experiência" /><div class="cap">Experiência</div></div>
             <div class="cell"><img src="assets/foto_04_wellness.png" alt="Wellness" /><div class="cap">Wellness</div></div>
-            <div class="cell"><img src="assets/foto_08_atletas.png" alt="Hospitalidade" /><div class="cap">Barra</div></div>
-            <div class="cell"><img src="assets/foto_20_podio_campeoes.png" alt="Premiação" /><div class="cap">Premiação</div></div>
+            <div class="cell"><img src="assets/foto_22_grupo_final.png" alt="Grupo" /><div class="cap">Campeões</div></div>
+            <div class="cell"><img src="assets/foto_19_podio_familia.png" alt="Premiação" /><div class="cap">Premiação</div></div>
           </div>
         </div>
       </div>
@@ -1636,13 +1605,13 @@
           <div class="reasons">
             <div>
               <div class="reason"><div class="dot">1</div><div><h3>Público premium</h3><p>Acesso direto a ~800 famílias A/A+ com alto poder aquisitivo</p></div></div>
-              <div class="reason"><div class="dot">2</div><div><h3>Parceiro de apoio</h3><p>Marca em destaque em todas as plataformas, sem transferir a titularidade do evento</p></div></div>
+              <div class="reason"><div class="dot">2</div><div><h3>Parceiro de apoio</h3><p>Marca associada ao campeonato nas comunicações, sem naming rights</p></div></div>
               <div class="reason"><div class="dot">3</div><div><h3>Exclusividade no segmento</h3><p>Nenhuma outra marca de eletrólitos na mesma cota</p></div></div>
             </div>
             <div>
-              <div class="reason"><div class="dot">4</div><div><h3>Transmissão ao vivo</h3><p>Visibilidade durante toda a competição via streaming</p></div></div>
-              <div class="reason"><div class="dot">5</div><div><h3>Lifestyle alinhado</h3><p>Associação com esporte de alto desempenho e lifestyle premium</p></div></div>
-              <div class="reason"><div class="dot">6</div><div><h3>Ambiente exclusivo</h3><p>Ativação em marina privativa e condomínios fechados</p></div></div>
+              <div class="reason"><div class="dot">4</div><div><h3>Produtos na premiação</h3><p>Ação na cerimônia com produtos Liquidz para os campeões</p></div></div>
+              <div class="reason"><div class="dot">5</div><div><h3>Kits dos atletas</h3><p>Materiais Liquidz chegando direto a quem compete</p></div></div>
+              <div class="reason"><div class="dot">6</div><div><h3>Lifestyle alinhado</h3><p>Associação com esporte de alto desempenho e lifestyle premium</p></div></div>
             </div>
           </div>
         </div>
@@ -1672,8 +1641,7 @@
           <p class="eyebrow" style="margin-top:22px;">Parceria de apoio 2026</p>
           <h2>Parceiro de <em>apoio</em></h2>
           <p class="lead" style="margin-top:4px;">Campeonato Brasileiro de Wakeboard &amp; Surf · Ibiúna 2026</p>
-          <div class="price">R$ 15.000</div>
-          <p class="lead">Apoio Liquidz · R$ 15.000<br>19, 20 e 21 de novembro de 2026</p>
+          <p class="lead" style="margin-top:12px;">Apoio Liquidz · produtos na premiação e nos kits<br>19, 20 e 21 de novembro de 2026</p>
           <div class="cta-row" style="justify-content:center;">
             <a class="btn" href="mailto:leandro@hellonext.com.br">Falar com a organização</a>
             <a class="btn btn-outline" href="https://www.instagram.com/ibiunawakeandsurf" target="_blank" rel="noopener">Instagram</a>
@@ -1684,83 +1652,6 @@
             <div class="field"><span class="fl">WhatsApp / Telefone</span><span class="fv">11 93316-5193</span></div>
             <div class="field"><span class="fl">Site</span><span class="fv">ibiunawakeboard.com.br</span></div>
             <div class="field"><span class="fl">Instagram</span><a class="fv" href="https://www.instagram.com/ibiunawakeandsurf" target="_blank" rel="noopener">@ibiunawakeandsurf</a></div>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- 13 ATIVACOES MARCAS -->
-      <div class="slide" id="s13">
-        <div class="slide-pad">
-          <p class="eyebrow">Vídeo marcas</p>
-          <h2>Ativações de <em>marcas</em></h2>
-          <p class="lead" style="margin-bottom:12px;">Conteúdos de marca produzidos no evento</p>
-          <div class="video-grid brands">
-            <div class="vcard">
-              <div class="vcard-frame">
-                <video src="https://hnstvxiystzivw.blob.core.windows.net/media/yh-beyond/6cef021c-f7e3-44f2-9c66-7b95e3c2f246/blobimagescorona_vertical.mp4" controls playsinline preload="metadata"></video>
-              </div>
-              <div class="vcard-label">Corona</div>
-            </div>
-            <div class="vcard">
-              <div class="vcard-frame">
-                <video src="https://hnstvxpfrgrjma.blob.core.windows.net/media/yh-beyond/1e3027a9-36af-480f-80f5-a9a70d77fadd/blobimagesdermage_vertical.mp4" controls playsinline preload="metadata"></video>
-              </div>
-              <div class="vcard-label">Dermage</div>
-            </div>
-            <div class="vcard">
-              <div class="vcard-frame">
-                <video src="https://hnstvwrmcuflqg.blob.core.windows.net/media/yh-beyond/43420782-7054-4121-973e-7cd5583bc2b2/blobimagestechnogym_vertical.mp4" controls playsinline preload="metadata"></video>
-              </div>
-              <div class="vcard-label">Technogym</div>
-            </div>
-            <div class="vcard">
-              <div class="vcard-frame">
-                <video src="https://hnstvthcyke2cg.blob.core.windows.net/media/yh-beyond/5a65a132-56d7-49a3-ac65-fb5281e4724b/blobimagespilula_bside_v2.mp4" controls playsinline preload="metadata"></video>
-              </div>
-              <div class="vcard-label">B-Side</div>
-            </div>
-            <div class="vcard">
-              <div class="vcard-frame">
-                <video src="https://hnstvudmwki1sg.blob.core.windows.net/media/yh-beyond/a12149d9-8a15-4252-80f5-f483ec313fbb/blobimagespilula_beyond_vertical.mp4" controls playsinline preload="metadata"></video>
-              </div>
-              <div class="vcard-label">Beyond</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 14 VIDEOS EVENTO -->
-      <div class="slide" id="s14">
-        <div class="slide-pad">
-          <p class="eyebrow">Vídeos evento</p>
-          <h2>Highlights do <em>campeonato</em></h2>
-          <p class="lead" style="margin-bottom:12px;">Registros oficiais · Ibiúna</p>
-          <div class="video-grid events">
-            <div class="vcard">
-              <div class="vcard-frame">
-                <video src="https://hnstvudmwki1sg.blob.core.windows.net/media/yh-beyond/b692ab08-1064-4d31-aeab-b2ddc909aa08/blobimageshighlights_1_dia.mp4" controls playsinline preload="metadata"></video>
-              </div>
-              <div class="vcard-label">1º dia</div>
-            </div>
-            <div class="vcard">
-              <div class="vcard-frame">
-                <video src="https://hnstvxnaoddwwg.blob.core.windows.net/media/yh-beyond/6c729789-1e3d-436c-92b9-66009ee4b20b/blobimagestreino.mp4" controls playsinline preload="metadata"></video>
-              </div>
-              <div class="vcard-label">Treino</div>
-            </div>
-            <div class="vcard">
-              <div class="vcard-frame">
-                <video src="https://hnstvxnaoddwwg.blob.core.windows.net/media/yh-beyond/b9b74bff-4ade-4054-beba-a3342c8f745a/blobimageshighlights_2_dia_.mp4" controls playsinline preload="metadata"></video>
-              </div>
-              <div class="vcard-label">2º dia</div>
-            </div>
-            <div class="vcard">
-              <div class="vcard-frame">
-                <video src="https://hnstvwrmcuflqg.blob.core.windows.net/media/yh-beyond/62594b9a-9917-4e71-972d-1c452d4b44cf/blobimagesfinal_ibiunawakesurf_1.mp4" controls playsinline preload="metadata"></video>
-              </div>
-              <div class="vcard-label">Final</div>
-            </div>
           </div>
         </div>
       </div>
@@ -1781,12 +1672,12 @@
   <div class="nav">
     <button type="button" onclick="go(-1)" aria-label="Anterior">&#8592;</button>
     <div class="dots" id="dots"></div>
-    <span class="counter" id="ctr">1 / 14</span>
+    <span class="counter" id="ctr">1 / 12</span>
     <button type="button" onclick="go(1)" aria-label="Próximo">&#8594;</button>
   </div>
 
   <script>
-    const N = 14;
+    const N = 12;
     let cur = 1;
     const dots = document.getElementById('dots');
     for (let i = 1; i <= N; i++) {
