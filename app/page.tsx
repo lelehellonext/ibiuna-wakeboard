@@ -656,12 +656,18 @@ export default function Home() {
 
             <div className="sponsor-master" data-reveal>
               <p className="sponsor-role">Patrocinador master</p>
-              <div className="sponsor-master-card">
+              <a
+                className="sponsor-master-card"
+                href="https://www.btgpactual.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="BTG Pactual Wealth Management — abrir site"
+              >
                 <img
                   src="/img/apoiadores/btg-wm.png"
                   alt="BTG Pactual Wealth Management"
                 />
-              </div>
+              </a>
             </div>
 
             <div className="sponsor-apoio" data-reveal>

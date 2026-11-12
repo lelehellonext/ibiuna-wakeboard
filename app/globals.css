@@ -2851,6 +2851,21 @@ a {
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
 }
 
+a.sponsor-master-card {
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.sponsor-master-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
+}
+
+a.sponsor-master-card:focus-visible {
+  outline: 2px solid var(--blue-soft);
+  outline-offset: 3px;
+}
+
 .sponsor-master-card img {
   width: min(100%, 420px);
   height: auto;
