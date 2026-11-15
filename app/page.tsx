@@ -2,8 +2,7 @@ import SiteChrome from "./SiteChrome";
 import ScrollReveal from "./ScrollReveal";
 import MediaLightbox from "./MediaLightbox";
 import LocalMapClient from "./LocalMapClient";
-import VeleirosForm from "./VeleirosForm";
-import { ABW_INSCRICAO_URL, CONTACT } from "./sections";
+import { CONTACT } from "./sections";
 
 const lotes = [
   { name: "1º Lote", period: "Até 25 de outubro", filiado: "R$ 380,00", naoFiliado: "R$ 440,00" },
@@ -26,11 +25,11 @@ const faq = [
   },
   {
     q: "A inscrição encerra?",
-    a: "Sim! As inscrições se encerram no dia 13 de novembro de 2026, ou até acabarem as vagas.",
+    a: "Sim. As inscrições foram encerradas em 13 de novembro de 2026.",
   },
   {
     q: "Posso me inscrever depois de encerrar as inscrições?",
-    a: "Não. Ninguém pode se inscrever após o término das inscrições / vagas.",
+    a: "Não. As inscrições já foram encerradas em 13/11 e não é mais possível se inscrever.",
   },
   {
     q: "No dia do treino, posso marcar horário?",
@@ -176,26 +175,16 @@ export default function Home() {
               </h1>
               <p className="sub">Etapa Ibiúna · São Paulo</p>
               <p className="loc">Represa de Itupararanga — Ibiúna/SP</p>
-              <a
-                className="capa-insc"
-                href={ABW_INSCRICAO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <span className="capa-insc capa-insc-closed" role="status">
                 <span className="dot" />
-                Inscrições abertas
-              </a>
+                Inscrições encerradas · 13/11
+              </span>
               <div className="cta-row">
-                <a
-                  className="btn primary"
-                  href={ABW_INSCRICAO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Quero participar
-                </a>
-                <a className="btn ghost" href="#cronograma">
+                <a className="btn primary" href="#cronograma">
                   Ver programação
+                </a>
+                <a className="btn ghost" href="#inscricoes">
+                  Ver informações
                 </a>
               </div>
             </div>
@@ -854,23 +843,23 @@ export default function Home() {
             <div className="center-top" data-reveal>
               <p className="kicker">Inscrições · Realização ABW</p>
               <h2>
-                Inscrições <span className="accent-blue">abertas</span>
+                Inscrições <span className="accent-closed">encerradas</span>
               </h2>
-              <p>
-                Inscrições até 13 de novembro de 2026 ou até acabarem as vagas. Mínimo de 3 atletas
-                para cada categoria — categorias com menos de 3 atletas terão os participantes
-                realocados para outras.
+              <p className="insc-notice">
+                As inscrições foram encerradas em <strong>13 de novembro de 2026 (13/11)</strong>.
+                Não há novas vagas. Mínimo de 3 atletas para cada categoria — categorias com menos
+                de 3 atletas terão os participantes realocados para outras.
               </p>
             </div>
 
-            <a className="insc-condo" href="#veleiros" data-reveal>
+            <div className="insc-condo insc-condo-closed" data-reveal>
               <span className="ic-tag">Associados Veleiros</span>
               <span className="ic-title">Atletas da Associação Veleiros de Ibiúna</span>
-              <span className="ic-link">Solicitar inscrição →</span>
-            </a>
+              <span className="ic-link">Inscrições encerradas em 13/11</span>
+            </div>
 
             <h3 className="insc-subtitle" data-reveal>
-              Demais atletas (não condôminos)
+              Demais atletas (não condôminos) — valores de referência
             </h3>
             <div className="lote-grid" data-reveal-group>
               {lotes.map((l) => (
@@ -891,20 +880,9 @@ export default function Home() {
               ))}
             </div>
             <div className="insc-cta" data-reveal>
-              {ABW_INSCRICAO_URL ? (
-                <a
-                  className="btn primary"
-                  href={ABW_INSCRICAO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Inscrever-se pela ABW
-                </a>
-              ) : (
-                <span className="btn insc-soon" aria-disabled="true">
-                  Link de inscrição disponível em 15/10/2026
-                </span>
-              )}
+              <span className="btn insc-soon" aria-disabled="true">
+                Inscrições encerradas em 13/11/2026
+              </span>
             </div>
             <ul className="insc-notes" data-reveal>
               <li>*Valores não incluem a taxa de serviço da plataforma de inscrição.</li>
@@ -927,28 +905,23 @@ export default function Home() {
               </h2>
               <p className="veleiros-lead">
                 Proprietários, inquilinos e familiares de lotes da Associação Veleiros de Ibiúna
-                competem pelo valor de compromisso de <strong>R$ 50,00</strong>.
+                competiam pelo valor de compromisso de <strong>R$ 50,00</strong>.
               </p>
-              <ol className="veleiros-steps">
-                <li>
-                  <b>Cadastre o atleta</b> com quadra, lote e o nome do proprietário ou inquilino.
-                </li>
-                <li>
-                  <b>A administração da associação valida</b> os dados do cadastro.
-                </li>
-                <li>
-                  <b>Você recebe um e-mail de demo@hellonext.com.br com o cupom de desconto</b>{" "}
-                  assim que os dados forem validados e conclui a inscrição pelo valor de{" "}
-                  <b>R$ 50,00</b>.
-                </li>
-              </ol>
               <p className="veleiros-obs">
-                Exclusivo para atletas vinculados a lotes da Associação Veleiros de Ibiúna. Um
-                cadastro por atleta.
+                As inscrições de condôminos também foram encerradas em{" "}
+                <strong>13 de novembro de 2026 (13/11)</strong>. Novos cadastros não estão mais
+                sendo aceitos.
               </p>
             </div>
-            <div className="veleiros-card" data-reveal>
-              <VeleirosForm />
+            <div className="veleiros-card veleiros-closed" data-reveal role="status">
+              <span className="vf-check" aria-hidden>
+                —
+              </span>
+              <h3>Cadastros encerrados</h3>
+              <p>
+                O prazo de inscrição encerrou em <strong>13/11/2026</strong>. Em caso de dúvida
+                sobre um cadastro já enviado, fale conosco pelos canais oficiais.
+              </p>
             </div>
           </div>
         </section>
@@ -982,15 +955,10 @@ export default function Home() {
               <br />
               19, 20 e 21 de Novembro de 2026 · Ibiúna — SP
             </p>
-            <a
-              className="insc-status"
-              href={ABW_INSCRICAO_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <span className="insc-status insc-status-closed" role="status">
               <span className="dot" />
-              Inscrições abertas — inscreva-se no site da CBEAW
-            </a>
+              Inscrições encerradas em 13 de novembro de 2026 (13/11)
+            </span>
             <div className="cf">
               <a
                 className="field"
@@ -1032,7 +1000,9 @@ export default function Home() {
                 <img src="/img/organizacao.jpg?v=1" alt="Organização — Ibiúna Wake & Surf" />
               </div>
             </div>
-            <p className="obs">Inscrições e informações pelos canais oficiais acima.</p>
+            <p className="obs">
+              Inscrições encerradas em 13/11/2026. Informações pelos canais oficiais acima.
+            </p>
             <p className="footer">
               Campeonato Brasileiro de Wakeboard &amp; Surf 2026 · Represa de Itupararanga · Ibiúna —
               SP · Barco Oficial: Nautique G23
