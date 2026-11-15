@@ -33,17 +33,24 @@ para a raiz do site no servidor.
 - `app/sections.ts` — lista de navegação e dados de contato (WhatsApp, e-mail, Instagram, Google Maps).
 - `app/globals.css` — sistema de design (cores, tipografia, componentes).
 - `public/img/` — fotos e vídeo do evento.
-- `app/VeleirosForm.tsx` — formulário de cadastro dos condôminos Veleiros (seção `#veleiros`).
-- `hellonext/hndemowakesurfveleiros.js` — webhook do HelloNext que recebe esse formulário.
+- `app/VeleirosForm.tsx` — formulário de cadastro dos condôminos Veleiros (mantido no código;
+  a seção `#veleiros` do site não o exibe mais após o encerramento das inscrições).
+- `hellonext/hndemowakesurfveleiros.js` — webhook do HelloNext (admin + rejeição de signup pós-corte).
 
 ## Cadastro de condôminos Veleiros (HelloNext)
 
-O formulário envia `POST` para o webhook `hndemowakesurfveleiros` da tenant **hn-demo**
-(`VELEIROS_FORM_ENDPOINT` em `app/sections.ts`), que grava uma linha por atleta na entidade
-**WakeSurf Veleiros Cadastro** (`66a57953-ed15-4b2e-807a-90e7ce05a41c`) com Status "Pendente".
-A administração valida pela página oculta `/veleiros-admin/` (sem link no site, noindex, protegida
-por senha): lista os cadastros por status (`listar`), edita Status, Cupom e Observações (`atualizar`)
-e dispara o envio. Também dá para validar direto no CRM (Status = "Validado" + Cupom).
+**Inscrições encerradas em 13 de novembro de 2026 (13/11).** O site mostra só o aviso de
+encerramento na seção `#veleiros` (não renderiza mais `VeleirosForm`). O webhook
+`hndemowakesurfveleiros` rejeita novos POSTs de cadastro após essa data; comandos de
+administração (`listar`, `atualizar`, `excluir`, `enviarCupons`) continuam ativos.
+
+Enquanto as inscrições estavam abertas, o formulário enviava `POST` para o webhook da tenant
+**hn-demo** (`VELEIROS_FORM_ENDPOINT` em `app/sections.ts`), que gravava uma linha por atleta na
+entidade **WakeSurf Veleiros Cadastro** (`66a57953-ed15-4b2e-807a-90e7ce05a41c`) com Status
+"Pendente". A administração valida pela página oculta `/veleiros-admin/` (sem link no site,
+noindex, protegida por senha): lista os cadastros por status (`listar`), edita Status, Cupom e
+Observações (`atualizar`) e dispara o envio. Também dá para validar direto no CRM
+(Status = "Validado" + Cupom).
 
 A senha fica em `ADMIN_SENHA` no webhook. Este repositório é público, então aqui ela fica vazia
 (administração bloqueada): a senha real só existe na cópia publicada no HelloNext.
