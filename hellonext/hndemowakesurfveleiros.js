@@ -1,8 +1,10 @@
 function run() {
   // WEBHOOK: hndemowakesurfveleiros (HN-DEMO)
   // Formulário público do site ibiunawakeboard.com.br (#veleiros): cadastro de atleta condômino
-  // da Associação Veleiros de Ibiúna. Grava uma linha por atleta na entidade
-  // "WakeSurf Veleiros Cadastro" com Status "Pendente" e um cupom livre da remessa (text11).
+  // da Associação Veleiros de Ibiúna. Inscrições públicas encerradas em 13/11/2026 — o path
+  // de signup rejeita POSTs após essa data; admin (listar/atualizar/excluir/enviarCupons) segue.
+  // Enquanto aberto: grava uma linha por atleta na entidade "WakeSurf Veleiros Cadastro"
+  // com Status "Pendente" e um cupom livre da remessa (text11).
   // A administração valida (Status = Validado) e envia o e-mail do cupom ao atleta.
   //
   // { "command": "enviarCupons" } (opcional "cadastroId"; "reenviar": true força reenvio de um já enviado):
@@ -21,17 +23,32 @@ function run() {
   // text4 E-mail · text5 Modalidade · text6 Quadra · text7 Lote · text8 Proprietário/Inquilino (nome)
   // text9 Vínculo · text10 Status · text11 Cupom · text12 Observações · text13 ContactId
   // date0 Recebido em · date1 Cupom enviado em
-  var WEBHOOK_VERSION = "2026-10-24-hn-demo-wakesurf-veleiros-v12";
+  var WEBHOOK_VERSION = "2026-11-15-hn-demo-wakesurf-veleiros-v13";
   // Definida só na cópia publicada no HelloNext (este repositório é público). Vazia = administração bloqueada.
   var ADMIN_SENHA = "0315Lean@!";
   var STATUS_OPCOES = ["Pendente", "Validado", "Recusado"];
   var LAYOUT_ID = "66a57953-ed15-4b2e-807a-90e7ce05a41c";
   var CUPOM_FILTER_ID = "850546e9-9588-473b-8b35-483a35b11688";
+  /** Último dia em que o POST público de cadastro ainda era aceito (horário de Brasília). */
+  var INSCRICOES_ENCERRADAS_DIA = 13;
+  var INSCRICOES_ENCERRADAS_MES = 11; // novembro
+  var INSCRICOES_ENCERRADAS_ANO = 2026;
   var TEXT_SLOTS = ["text0", "text1", "text2", "text3", "text4", "text5", "text6", "text7",
     "text8", "text9", "text10", "text11", "text12", "text13"];
   var DATE_SLOTS = ["date0", "date1"];
   var MODALIDADES = ["Wakeboard", "Wakesurf", "Wakeboard e Wakesurf"];
   var VINCULOS = ["Proprietário", "Inquilino"];
+
+  /** true a partir de 14/11/2026 00:00 em Brasília (UTC−3). Admin commands não usam isto. */
+  function inscricoesPublicasEncerradas() {
+    var d = new Date(Date.now() - 3 * 3600000);
+    var y = d.getUTCFullYear();
+    var m = d.getUTCMonth() + 1;
+    var day = d.getUTCDate();
+    if (y !== INSCRICOES_ENCERRADAS_ANO) return y > INSCRICOES_ENCERRADAS_ANO;
+    if (m !== INSCRICOES_ENCERRADAS_MES) return m > INSCRICOES_ENCERRADAS_MES;
+    return day > INSCRICOES_ENCERRADAS_DIA;
+  }
 
   // Remessa Ticket Sports (Cupons usados.xlsx). Baixa = código já gravado em algum cadastro (text11).
   var CUPONS_REMESSA = [
@@ -596,6 +613,14 @@ function run() {
 
     // Campo invisível no formulário: só robô preenche. Responde sucesso sem gravar.
     if (field(body, "website")) return ok({ ignorado: true }, "ok");
+
+    // Inscrições públicas encerradas em 13/11/2026 — rejeita antes de validar ou gravar.
+    if (inscricoesPublicasEncerradas()) {
+      return fail(
+        "Inscricoes encerradas em 13/11/2026. Novos cadastros nao sao mais aceitos.",
+        { encerradoEm: "13/11/2026", webhookVersion: WEBHOOK_VERSION }
+      );
+    }
 
     var cadastro = {
       nome: field(body, "nome"),

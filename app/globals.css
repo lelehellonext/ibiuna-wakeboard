@@ -1419,6 +1419,13 @@ a {
   font-weight: 700;
   letter-spacing: 0.01em;
 }
+.insc-status-closed {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.78);
+  cursor: default;
+  text-decoration: none;
+}
 
 .insc-status .dot {
   width: 9px;
@@ -4020,6 +4027,12 @@ body,
   font-weight: 700;
   text-decoration: none;
 }
+.capa-insc-closed {
+  background: rgba(110, 110, 115, 0.08);
+  border-color: rgba(110, 110, 115, 0.28);
+  color: var(--ink-2);
+  cursor: default;
+}
 .capa-insc .dot,
 .contato .insc-status .dot {
   width: 9px;
@@ -4027,6 +4040,12 @@ body,
   border-radius: 50%;
   background: var(--blue-soft);
   flex-shrink: 0;
+}
+.capa-insc-closed .dot,
+.contato .insc-status-closed .dot {
+  background: var(--ink-3);
+  box-shadow: none;
+  animation: none;
 }
 
 .crono-note {
@@ -4042,10 +4061,16 @@ body,
 .insc .center-top h2 .accent-blue {
   color: var(--blue-soft) !important;
 }
+.insc .center-top h2 .accent-closed {
+  color: var(--ink-2) !important;
+}
 .insc .center-top p {
   max-width: 640px;
   margin-left: auto;
   margin-right: auto;
+}
+.insc-notice strong {
+  color: var(--ink);
 }
 
 .insc-condo {
@@ -4063,6 +4088,14 @@ body,
 }
 .insc-condo:hover {
   transform: translateY(-2px);
+}
+.insc-condo-closed {
+  background: linear-gradient(135deg, #3a3a3c 0%, #6e6e73 100%);
+  box-shadow: none;
+  cursor: default;
+}
+.insc-condo-closed:hover {
+  transform: none;
 }
 .ic-tag {
   justify-self: start;
@@ -4255,6 +4288,29 @@ body,
   background: var(--surface);
   border: 1px solid var(--line-soft);
   box-shadow: var(--shadow);
+}
+.veleiros-closed {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  text-align: center;
+  padding: 36px 28px;
+}
+.veleiros-closed .vf-check {
+  margin: 0 auto;
+  background: rgba(110, 110, 115, 0.12);
+  color: var(--ink-2);
+}
+.veleiros-closed h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.25rem;
+}
+.veleiros-closed p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .vf-grid {
