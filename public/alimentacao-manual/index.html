@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Convite e Manual do Expositor — Alimentação · Ibiúna Wake&amp;Surf 2026</title>
+<style>
+@font-face { font-family: "Montserrat"; src: url("assets/Montserrat.ttf"); font-weight: 100 900; }
+@page { size: A4; margin: 0; }
+:root {
+  --ink: #141414; --cream: #f4efe6; --gold: #be8a34; --gold-l: #e2b866;
+  --grey: #5a5a5a; --line: #e2d9c8; --white: #fff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { font-family: "Montserrat", sans-serif; color: var(--ink); background: #ccc; }
+.page {
+  width: 210mm; height: 297mm; overflow: hidden; position: relative;
+  background: var(--cream); page-break-after: always; break-after: page;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+@media screen { .page { margin: 10mm auto; box-shadow: 0 6px 24px rgba(0,0,0,.2); } }
+
+.pad { padding: 18mm 18mm 16mm; }
+.kicker { color: var(--gold); font-weight: 800; font-size: 9.5pt; letter-spacing: .22em; text-transform: uppercase; }
+h1 { font-weight: 900; font-size: 34pt; line-height: 1.02; letter-spacing: -.01em; }
+h2 { font-weight: 900; font-size: 22pt; line-height: 1.1; margin-top: 2mm; }
+h3 { font-weight: 800; font-size: 12pt; margin-bottom: 1.5mm; }
+p, li { font-size: 10.5pt; line-height: 1.55; color: #2a2a2a; }
+.divider { width: 22mm; height: 1.6mm; border-radius: 1mm; background: var(--gold); margin: 6mm 0; }
+.gold { color: var(--gold); }
+.foot {
+  position: absolute; left: 18mm; right: 18mm; bottom: 9mm; display: flex; justify-content: space-between;
+  font-size: 8pt; color: var(--grey); letter-spacing: .04em; border-top: .3mm solid var(--line); padding-top: 3mm;
+}
+
+/* capa */
+.cover { background: var(--ink); color: var(--white); }
+.cover .hero { position: absolute; inset: 0 0 auto 0; height: 168mm; background: url("assets/capa.jpg") 80% center / cover; }
+.cover .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,20,20,0) 45%, var(--ink) 100%); }
+.cover .body { position: absolute; left: 18mm; right: 18mm; top: 150mm; }
+.cover .logo { position: absolute; top: 14mm; left: 18mm; width: 34mm; background: var(--cream); border-radius: 4mm; padding: 3mm 4mm; }
+.cover .logo img { width: 100%; display: block; }
+.cover h1 { color: var(--white); font-size: 38pt; margin-top: 3mm; }
+.cover .sub { color: var(--gold-l); font-weight: 800; font-size: 14pt; margin-top: 3mm; }
+.cover .chips { display: flex; gap: 3mm; margin-top: 8mm; flex-wrap: wrap; }
+.chip { border: .4mm solid var(--gold); color: var(--white); border-radius: 20mm; padding: 2.2mm 5mm; font-weight: 700; font-size: 9.5pt; letter-spacing: .04em; }
+.chip.solid { background: var(--gold); color: var(--ink); }
+.cover .list { margin-top: 12mm; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm 8mm; }
+.cover .list span { font-weight: 700; font-size: 10.5pt; color: #f1ece2; padding-left: 5mm; position: relative; }
+.cover .list span::before { content: ""; position: absolute; left: 0; top: 2mm; width: 2mm; height: 2mm; border-radius: 50%; background: var(--gold); }
+.cover .foot { color: rgba(255,255,255,.6); border-color: rgba(255,255,255,.15); }
+
+/* convite */
+.lead { font-size: 12pt; line-height: 1.6; color: var(--ink); }
+.photo { width: 100%; border-radius: 5mm; object-fit: cover; display: block; }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 7mm; }
+.fact { background: var(--white); border: .3mm solid var(--line); border-radius: 4mm; padding: 4.5mm; }
+.fact b { display: block; font-size: 16pt; font-weight: 900; color: var(--gold); }
+.fact span { font-size: 9pt; color: var(--grey); font-weight: 600; }
+.vendors { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; margin-top: 5mm; }
+.vendor { background: var(--white); border: .3mm solid var(--line); border-radius: 4mm; padding: 4mm 5mm; }
+.vendor b { font-weight: 800; font-size: 11pt; display: block; }
+.vendor span { font-size: 9pt; color: var(--grey); }
+
+/* agenda */
+.days { display: grid; gap: 5mm; margin-top: 8mm; }
+.day { display: grid; grid-template-columns: 30mm 1fr; background: var(--white); border: .3mm solid var(--line); border-radius: 5mm; overflow: hidden; }
+.day .d { background: var(--ink); color: var(--white); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 5mm 0; }
+.day .d b { font-size: 26pt; font-weight: 900; line-height: 1; }
+.day .d span { font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-l); font-weight: 700; margin-top: 1.5mm; }
+.day.hl .d { background: var(--gold); }
+.day.hl .d span { color: var(--ink); }
+.day .c { padding: 5mm 6mm; }
+.day .c h3 { font-size: 13pt; }
+.day .c .t { display: inline-block; margin-top: 2.5mm; background: var(--cream); border-radius: 10mm; padding: 1.2mm 4mm; font-weight: 800; font-size: 9pt; }
+.note { margin-top: 7mm; background: var(--ink); color: var(--white); border-radius: 5mm; padding: 6mm 7mm; }
+.note p { color: #eee; }
+.note b { color: var(--gold-l); }
+
+/* estrutura */
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 6mm; }
+.box { background: var(--white); border: .3mm solid var(--line); border-radius: 5mm; padding: 6mm; }
+.box.dark { background: var(--ink); border-color: var(--ink); }
+.box.dark h3, .box.dark li { color: var(--white); }
+ul.ck { list-style: none; margin-top: 2mm; }
+ul.ck li { padding-left: 6mm; position: relative; margin-bottom: 1.8mm; font-size: 10pt; }
+ul.ck li::before { content: ""; position: absolute; left: 0; top: 1.6mm; width: 2.4mm; height: 2.4mm; border-radius: .6mm; background: var(--gold); }
+.rules { margin-top: 6mm; display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.rule { border-left: 1.2mm solid var(--gold); background: var(--white); border-radius: 0 4mm 4mm 0; padding: 4mm 5mm; }
+.rule h3 { font-size: 10.5pt; }
+.rule p { font-size: 9.3pt; line-height: 1.5; }
+
+/* contato */
+.contact { display: grid; gap: 3.5mm; margin-top: 6mm; }
+.cline { display: grid; grid-template-columns: 34mm 1fr; background: var(--white); border: .3mm solid var(--line); border-radius: 4mm; padding: 4mm 5mm; align-items: center; }
+.cline span { font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; font-weight: 800; color: var(--gold); }
+.cline b { font-size: 11pt; font-weight: 700; }
+.sponsors { margin-top: 9mm; }
+.master { background: var(--white); border: .3mm solid var(--line); border-radius: 4mm; height: 26mm; display: flex; align-items: center; justify-content: center; margin-top: 3mm; }
+.master img { height: 18mm; }
+.apoio { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2.5mm; margin-top: 3mm; }
+.apoio div { background: var(--white); border: .3mm solid var(--line); border-radius: 3mm; height: 17mm; display: flex; align-items: center; justify-content: center; padding: 2mm; }
+.apoio div.red { background: #ed1c24; border-color: #ed1c24; }
+.apoio img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.thanks { margin-top: 9mm; text-align: center; }
+.thanks h2 { font-size: 20pt; }
+</style>
+</head>
+<body>
+
+<!-- 1 · CAPA -->
+<section class="page cover">
+  <div class="hero"></div>
+  <div class="logo"><img src="assets/logo-ws.png" alt="W&S"></div>
+  <div class="body">
+    <p class="kicker">Ibiúna Wake&amp;Surf 2026 · Gastronomia</p>
+    <h1>Convite &amp; Manual<br>do Expositor</h1>
+    <p class="sub">Alimentação no Campeonato Brasileiro de Wakeboard &amp; Surf</p>
+    <div class="chips">
+      <span class="chip solid">20 e 21 de novembro</span>
+      <span class="chip">Abertura às 9h</span>
+      <span class="chip">Náutica Veleiros de Ibiúna</span>
+    </div>
+    <div class="list">
+      <span>De Paula Charcuterie</span>
+      <span>Yumi's Coffee Shop</span>
+      <span>Britto Massas</span>
+      <span>Cabanha Mulekinha</span>
+      <span>Hambúrguer Valentinari</span>
+    </div>
+  </div>
+  <div class="foot"><span>@ibiunawakeandsurf</span><span>ibiunawakeboard.com.br</span></div>
+</section>
+
+<!-- 2 · CONVITE -->
+<section class="page">
+  <div class="pad">
+    <p class="kicker">Convite</p>
+    <h2>A gastronomia de Ibiúna<br>também sobe no pódio</h2>
+    <div class="divider"></div>
+    <p class="lead">
+      É com muita alegria que convidamos vocês para fazer a <b>alimentação oficial</b> do
+      Campeonato Brasileiro de Wakeboard &amp; Surf 2026, etapa Ibiúna. Serão dois dias de
+      competição na Represa de Itupararanga, com atletas de todo o Brasil, famílias, crianças e
+      público da região — e queremos que cada um deles prove o melhor do nosso território.
+    </p>
+    <div class="facts">
+      <div class="fact"><b>2 dias</b><span>de competição aberta ao público</span></div>
+      <div class="fact"><b>Brasil todo</b><span>atletas de várias regiões do país</span></div>
+      <div class="fact"><b>Família</b><span>adultos, crianças e convidados</span></div>
+    </div>
+    <img class="photo" src="assets/publico-evento.png" alt="Público do evento" style="height: 62mm; margin-top: 7mm;">
+    <h3 style="margin-top: 7mm;">Quem está com a gente</h3>
+    <div class="vendors">
+      <div class="vendor"><b>De Paula Charcuterie</b><span>Charcutaria artesanal · cava em Ibiúna</span></div>
+      <div class="vendor"><b>Cabanha Mulekinha</b><span>Queijos artesanais · leite Jersey</span></div>
+      <div class="vendor"><b>Yumi's Coffee Shop</b><span>Cafés e doces</span></div>
+      <div class="vendor"><b>Britto Massas</b><span>Massas</span></div>
+      <div class="vendor"><b>Hambúrguer Valentinari</b><span>Hambúrgueres</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Ibiúna Wake&amp;Surf 2026 · Manual do Expositor</span><span>2</span></div>
+</section>
+
+<!-- 3 · AGENDA -->
+<section class="page">
+  <div class="pad">
+    <p class="kicker">Agenda do expositor</p>
+    <h2>Montagem e funcionamento</h2>
+    <div class="divider"></div>
+    <p>A estrutura do evento é montada na quinta-feira. A alimentação funciona nos dois dias de
+      competição, sexta e sábado, a partir das 9h.</p>
+    <div class="days">
+      <div class="day">
+        <div class="d"><b>19</b><span>Quinta</span></div>
+        <div class="c">
+          <h3>Montagem do evento</h3>
+          <p>Dia de montagem da estrutura e das tendas. Combine com a organização o horário de
+            chegada para reconhecer seu espaço e deixar sua montagem adiantada. Neste dia
+            acontecem o treino oficial dos atletas e a reunião técnica.</p>
+          <span class="t">Montagem · horário a combinar</span>
+        </div>
+      </div>
+      <div class="day hl">
+        <div class="d"><b>20</b><span>Sexta</span></div>
+        <div class="c">
+          <h3>Eliminatórias</h3>
+          <p>Eliminatórias de Wakeboard e WakeSurf em todas as categorias. Estrutura pronta e
+            operação aberta para atletas e público.</p>
+          <span class="t">Início do evento · 9h</span>
+        </div>
+      </div>
+      <div class="day hl">
+        <div class="d"><b>21</b><span>Sábado</span></div>
+        <div class="c">
+          <h3>Finais + Premiação</h3>
+          <p>Finais de Wakeboard e WakeSurf e, logo após, festa de premiação no Bar da Náutica —
+            o dia de maior movimento do evento.</p>
+          <span class="t">Início do evento · 9h</span>
+        </div>
+      </div>
+    </div>
+    <div class="note">
+      <p><b>Importante:</b> esteja com tudo pronto e funcionando <b>antes das 9h</b> nos dias 20 e
+        21. Abastecimento e reposição devem ser feitos preferencialmente antes da abertura ou nos
+        intervalos, sem circulação de veículos na área do público durante as provas.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Ibiúna Wake&amp;Surf 2026 · Manual do Expositor</span><span>3</span></div>
+</section>
+
+<!-- 4 · ESTRUTURA E REGRAS -->
+<section class="page">
+  <div class="pad">
+    <p class="kicker">Estrutura</p>
+    <h2>O que está incluso e o que trazer</h2>
+    <div class="divider"></div>
+    <img class="photo" src="assets/estrutura-tendas.jpg" alt="Tendas do evento" style="height: 50mm;">
+    <div class="cols">
+      <div class="box dark">
+        <h3>A organização fornece</h3>
+        <ul class="ck">
+          <li>Tenda para o seu espaço</li>
+          <li>Energia, se necessário (o evento é diurno)</li>
+          <li>Divulgação nas redes do evento</li>
+          <li>Público de atletas, famílias e convidados</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>O expositor traz</h3>
+        <ul class="ck">
+          <li>Mesas, balcão, cadeiras e decoração</li>
+          <li>Equipamentos, utensílios e embalagens</li>
+          <li>Extensões, gelo e água</li>
+          <li>Equipe, maquininha de cartão e PIX</li>
+          <li>Sacos de lixo para o seu espaço</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rules">
+      <div class="rule"><h3>Higiene e segurança</h3><p>Alimentos protegidos e refrigerados, equipe com touca/avental e cuidado redobrado com chapas, gás e fritura.</p></div>
+      <div class="rule"><h3>Limpeza</h3><p>Mantenha o espaço limpo durante o dia e deixe a área como recebeu ao final de cada jornada.</p></div>
+      <div class="rule"><h3>Cardápio visível</h3><p>Cardápio e preços expostos de forma clara. Ofereça opções rápidas para atletas entre baterias.</p></div>
+      <div class="rule"><h3>Bebidas alcoólicas</h3><p>A <b>Corona</b> é a patrocinadora de bebidas alcoólicas do evento. Só a Corona vende álcool no campeonato — os expositores de alimentação <b>não podem vender bebida alcoólica</b>.</p></div>
+      <div class="rule"><h3>Outras bebidas</h3><p>Água, refrigerante, suco e café podem ser vendidos normalmente. Alinhe com a organização se for incluir isotônico ou outra marca.</p></div>
+      <div class="rule"><h3>Divulgação</h3><p>Poste e marque <b>@ibiunawakeandsurf</b> — repostamos os expositores durante o evento.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Ibiúna Wake&amp;Surf 2026 · Manual do Expositor</span><span>4</span></div>
+</section>
+
+<!-- 5 · LOCAL E CONTATO -->
+<section class="page">
+  <div class="pad">
+    <p class="kicker">Local e contato</p>
+    <h2>Como chegar e com quem falar</h2>
+    <div class="divider"></div>
+    <img class="photo" src="assets/local.jpg" alt="Represa de Itupararanga" style="height: 58mm;">
+    <div class="contact">
+      <div class="cline"><span>Local</span><b>Náutica Veleiros de Ibiúna · Represa de Itupararanga</b></div>
+      <div class="cline"><span>Endereço</span><b>Rod. Bunjiro Nakao, Km 82,5 · Ibiúna/SP</b></div>
+      <div class="cline"><span>Organização</span><b>WhatsApp (11) 93316-5193</b></div>
+      <div class="cline"><span>Instagram</span><b>@ibiunawakeandsurf</b></div>
+      <div class="cline"><span>Site</span><b>ibiunawakeboard.com.br</b></div>
+    </div>
+    <div class="sponsors">
+      <p class="kicker">Patrocinador master</p>
+      <div class="master"><img src="assets/apoiadores/btg-wm.png" alt="BTG Pactual Wealth Management"></div>
+      <p class="kicker" style="margin-top: 5mm;">Apoio</p>
+      <div class="apoio">
+        <div><img src="assets/apoiadores/vissla.png" alt="Vissla"></div>
+        <div><img src="assets/apoiadores/clsolar.png" alt="CL Solar"></div>
+        <div><img src="assets/apoiadores/corona.png" alt="Corona"></div>
+        <div><img src="assets/apoiadores/yh-brasil.png" alt="YH Brasil"></div>
+        <div><img src="assets/apoiadores/hellonext.png" alt="Hello Next"></div>
+        <div><img src="assets/apoiadores/iwc-logo.png" alt="Ibiúna Wake Center"></div>
+        <div class="red"><img src="assets/apoiadores/nautique.png" alt="Nautique Boats"></div>
+      </div>
+    </div>
+    <div class="thanks">
+      <h2>Obrigado por fazer parte! <span class="gold">Nos vemos na represa.</span></h2>
+    </div>
+  </div>
+  <div class="foot"><span>Ibiúna Wake&amp;Surf 2026 · Manual do Expositor</span><span>5</span></div>
+</section>
+
+</body>
+</html>
