@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Patrocinadores e alimentação oficial do Campeonato Brasileiro de Wakeboard & Surf 2026 em Ibiúna.">
+<meta property="og:title" content="Patrocinadores e Gastronomia · Ibiúna Wake&Surf 2026">
+<meta property="og:description" content="BTG master, apoiadores e toda a gastronomia do campeonato.">
+<meta property="og:image" content="https://www.ibiunawakeboard.com.br/materiais-divulgacao/01-header/header-campeonato-1terco.jpg">
+<title>Patrocinadores e Gastronomia · Ibiúna Wake&amp;Surf 2026</title>
+<style>
+@font-face {
+  font-family: "Montserrat";
+  src: url("/alimentacao-manual/assets/Montserrat.ttf");
+  font-weight: 100 900;
+}
+:root {
+  --ink: #141414;
+  --cream: #f4efe6;
+  --gold: #be8a34;
+  --gold-l: #e2b866;
+  --grey: #5a5a5a;
+  --line: #e2d9c8;
+  --white: #fff;
+  --navy: #13202e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: "Montserrat", system-ui, sans-serif;
+  color: var(--ink);
+  background: #ddd;
+}
+.page {
+  width: min(210mm, 100%);
+  min-height: 297mm;
+  margin: 0 auto;
+  background: var(--cream);
+  position: relative;
+}
+@media screen {
+  .page { margin: 16px auto; box-shadow: 0 8px 28px rgba(0,0,0,.18); }
+}
+.banner {
+  width: 100%;
+  height: clamp(120px, 28vw, 180px);
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+}
+.pad { padding: clamp(22px, 4vw, 36px) clamp(20px, 4vw, 40px) clamp(28px, 4vw, 40px); }
+.kicker {
+  color: var(--gold);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+h1 {
+  font-weight: 900;
+  font-size: clamp(1.7rem, 4vw, 2.35rem);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  margin-top: 6px;
+}
+.lead {
+  margin-top: 10px;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: #2a2a2a;
+  max-width: 52ch;
+}
+.divider {
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--gold);
+  margin: 16px 0 22px;
+}
+h2 {
+  font-size: 1.05rem;
+  font-weight: 900;
+  margin: 22px 0 12px;
+  letter-spacing: -.01em;
+}
+.master-card {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  align-items: center;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+.master-card img {
+  width: 100%;
+  height: auto;
+  max-height: 48px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px;
+}
+.master-card .tag {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold-l);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.master-card b {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.master-card span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,.78);
+  font-weight: 600;
+  line-height: 1.35;
+}
+.list {
+  display: grid;
+  gap: 8px;
+}
+.row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px 14px;
+}
+.row.no-logo { grid-template-columns: 1fr; }
+.row .logo {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.row .logo img {
+  max-width: 100%;
+  max-height: 34px;
+  object-fit: contain;
+}
+.row b {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.row span {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.82rem;
+  color: var(--grey);
+  font-weight: 600;
+  line-height: 1.35;
+}
+.food .row {
+  grid-template-columns: 1fr;
+  padding: 12px 16px;
+}
+.food .row b { font-size: 1rem; }
+.note {
+  margin-top: 18px;
+  font-size: 0.8rem;
+  color: var(--grey);
+  font-weight: 600;
+  line-height: 1.4;
+}
+.foot {
+  margin-top: 22px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  color: var(--grey);
+  font-weight: 600;
+}
+@media print {
+  body { background: #fff; }
+  .page { box-shadow: none; margin: 0; width: 100%; }
+}
+@media (max-width: 560px) {
+  .master-card { grid-template-columns: 1fr; }
+  .row { grid-template-columns: 56px 1fr; }
+}
+</style>
+</head>
+<body>
+<section class="page">
+  <img class="banner" src="/materiais-divulgacao/01-header/header-campeonato-1terco.jpg" alt="Ibiúna Wake&amp;Surf 2026">
+
+  <div class="pad">
+    <p class="kicker">Ibiúna Wake&amp;Surf 2026</p>
+    <h1>Patrocinadores<br>e gastronomia</h1>
+    <p class="lead">Quem torna o Campeonato Brasileiro de Wakeboard &amp; Surf possível — e quem alimenta o público na beira da represa.</p>
+    <div class="divider"></div>
+
+    <h2>Patrocinador master</h2>
+    <div class="master-card">
+      <img src="/alimentacao-manual/assets/apoiadores/btg-wm.png" alt="BTG Pactual Wealth Management">
+      <div>
+        <span class="tag">Patrocinador master</span>
+        <b>BTG Pactual Wealth Management</b>
+        <span>Patrocinador principal do campeonato e do Espaço BTG no evento.</span>
+      </div>
+    </div>
+
+    <h2>Apoiadores</h2>
+    <div class="list">
+      <div class="row">
+        <div class="logo"><img src="/alimentacao-manual/assets/apoiadores/vissla.png" alt="Vissla"></div>
+        <div>
+          <b>Vissla</b>
+          <span>Apoio · marca de lifestyle, surf e beachwear.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="logo"><img src="/alimentacao-manual/assets/apoiadores/clsolar.png" alt="CL Solar"></div>
+        <div>
+          <b>CL Solar</b>
+          <span>Apoio · energia solar e soluções sustentáveis.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="logo"><img src="/alimentacao-manual/assets/apoiadores/corona.png" alt="Corona"></div>
+        <div>
+          <b>Corona</b>
+          <span>Apoio · patrocinadora oficial de bebidas alcoólicas do evento.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="logo"><img src="/alimentacao-manual/assets/apoiadores/yh-brasil.png" alt="YH Brasil"></div>
+        <div>
+          <b>YH Brasil</b>
+          <span>Apoio · parceira oficial do campeonato.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="logo"><img src="/alimentacao-manual/assets/apoiadores/hellonext.png" alt="Hello Next"></div>
+        <div>
+          <b>Hello Next</b>
+          <span>Apoio · tecnologia, relacionamento e operação digital do evento.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="logo"><img src="/alimentacao-manual/assets/apoiadores/iwc-logo.png" alt="Ibiúna Wake Center"></div>
+        <div>
+          <b>Ibiúna Wake Center</b>
+          <span>Apoio · centro e escola de wakeboard em Ibiúna.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="logo"><img src="/alimentacao-manual/assets/apoiadores/nautique.png" alt="Nautique Boats"></div>
+        <div>
+          <b>Nautique Boats</b>
+          <span>Apoio · barco oficial do campeonato (Nautique G23).</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>Alimentação oficial</h2>
+    <div class="list food">
+      <div class="row">
+        <div>
+          <b>De Paula Charcuterie</b>
+          <span>Charcutaria artesanal e cava em Ibiúna.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <b>Yumi’s Coffee Shop</b>
+          <span>Cafés, doces e pausa rapidinha entre as baterias.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <b>Britto Massas</b>
+          <span>Massas frescas para o público do campeonato.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <b>Cabanha Mulekinha</b>
+          <span>Queijos artesanais de leite Jersey.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <b>Hambúrguer Valentinari</b>
+          <span>Hambúrgueres para atletas, famílias e visitantes.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <b>Acarajé da Rosa</b>
+          <span>Acarajé e petiscos baianos na beira da represa.</span>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <b>Apiário Giancoli</b>
+          <span>Mel e produtos da colmeia.</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">Bebida alcoólica no evento: exclusiva da Corona. Demais expositores de alimentação não vendem álcool.</p>
+
+    <div class="foot">
+      <span>19 a 21/11 · Náutica Veleiros de Ibiúna</span>
+      <span>@ibiunawakeandsurf · ibiunawakeboard.com.br</span>
+    </div>
+  </div>
+</section>
+</body>
+</html>
