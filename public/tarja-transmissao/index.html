@@ -3,19 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tarja transmissão · BTG destaque</title>
+<title>Tarja rodapé · BTG destaque</title>
 <style>
 body{font-family:Montserrat,system-ui,sans-serif;background:#111;color:#eee;margin:0;padding:24px}
 a{color:#e2b866}
-img{max-width:100%;background:#fff;border-radius:8px;display:block;margin:12px 0 24px}
+.stage{background:#1a1a1a;border-radius:12px;overflow:hidden;margin:16px 0 24px;aspect-ratio:16/9;position:relative}
+.stage .fake{position:absolute;inset:0;background:linear-gradient(135deg,#234,#456)}
+.stage img{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;display:block}
 .meta{opacity:.7;font-size:.9rem}
 </style>
 </head>
 <body>
-  <h1>Tarja transmissão</h1>
-  <p>Fundo branco · IWC · Vissla · <b>BTG (destaque)</b> · ABW</p>
-  <p class="meta">1920×240 · use como lower-third / overlay no OBS</p>
-  <img src="tarja-transmissao-btg-destaque.png" alt="Tarja 1920">
-  <p><a href="tarja-transmissao-btg-destaque.png" download>Baixar 1920px</a> · <a href="tarja-transmissao-btg-destaque-1280.png" download>Baixar 1280px</a></p>
+  <h1>Tarja rodapé (transmissão)</h1>
+  <p>Fundo branco · fina · IWC · Vissla · <b>BTG (destaque)</b> · ABW</p>
+  <p class="meta">1920×100 — não cobre a imagem; use colada no rodapé do OBS</p>
+  <div class="stage"><div class="fake"></div><img src="tarja-transmissao-btg-destaque.png" alt="Tarja rodapé"></div>
+  <p>
+    <a href="tarja-transmissao-btg-destaque.png" download>Baixar 1920×100</a> ·
+    <a href="tarja-transmissao-btg-destaque-1280.png" download>Baixar 1280</a> ·
+    <a href="tarja-transmissao-btg-destaque-80.png" download>Baixar 1920×80 (ainda mais fina)</a>
+  </p>
 </body>
 </html>
