@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relatório do Evento — Vissla · Ibiúna Wake&amp;Surf 2026</title>
+  <style>
+    :root {
+      --ink: #111111;
+      --teal: #2BB5A0;
+      --teal-soft: #E8F7F4;
+      --line: #E2E6EA;
+      --muted: #5C6670;
+      --white: #FFFFFF;
+      --font: "Montserrat", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @page { size: A4; margin: 0; }
+
+    html, body {
+      background: #F3F4F6;
+      color: var(--ink);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 12px;
+      background: var(--white);
+      padding: 12mm 14mm 14mm;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+    }
+    .sheet:last-child { page-break-after: auto; margin-bottom: 0; }
+
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+    .muted { color: var(--muted); }
+
+    .top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .top img { height: 48px; width: auto; display: block; }
+    .top .meta { text-align: right; max-width: 36ch; }
+    .top .meta strong { display: block; font-size: 13px; margin-top: 4px; }
+
+    h1 {
+      font-size: 26px;
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 14px 0 8px;
+    }
+    h2 {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin: 0 0 6px;
+    }
+    h3 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin: 0 0 8px;
+    }
+
+    p.lead {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--muted);
+      max-width: 64ch;
+    }
+
+    .hero {
+      margin-top: 12px;
+      height: 58mm;
+      border-radius: 12px;
+      background: url("assets/capa-campeonato.jpg") center 35% / cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .hero .chip {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      background: rgba(255,255,255,.95);
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 7px 11px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .stat {
+      background: var(--teal-soft);
+      border: 1px solid #CDEAE4;
+      border-radius: 10px;
+      padding: 12px 10px;
+    }
+    .stat b {
+      display: block;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .stat span {
+      display: block;
+      margin-top: 7px;
+      font-size: 10.5px;
+      line-height: 1.35;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+    }
+    .card.soft { background: linear-gradient(180deg, #F7FBFA, #FFFFFF); }
+    .card p, .card li {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .card ul { margin: 8px 0 0 16px; }
+    .card li { margin-bottom: 3px; }
+    .card a {
+      color: #0F7668;
+      font-weight: 700;
+      word-break: break-all;
+      text-decoration: underline;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .photo-action {
+      border-radius: 12px;
+      min-height: 58mm;
+      background: url("assets/foto_14_wakeboard_acao.png") center / cover no-repeat;
+    }
+
+    .bars { margin-top: 10px; display: grid; gap: 7px; }
+    .bar {
+      display: grid;
+      grid-template-columns: 110px 1fr 36px;
+      gap: 8px;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .bar .track {
+      height: 7px;
+      background: #EEF2F4;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .bar .fill {
+      height: 100%;
+      background: linear-gradient(90deg, #1A9A86, #2BB5A0);
+      border-radius: 99px;
+    }
+    .bar .n { text-align: right; color: var(--ink); font-weight: 800; }
+
+    .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .pill {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+    }
+
+    .winner-layout {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 12px;
+      align-items: stretch;
+      min-height: 195mm;
+    }
+    .winner-photo {
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      background: #111;
+      min-height: 195mm;
+    }
+    .winner-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .winner-photo .chip {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      background: rgba(0,0,0,.82);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .winner-side {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 195mm;
+    }
+    .winner-banner {
+      border-radius: 12px;
+      padding: 14px 14px 12px;
+      background: linear-gradient(135deg, #111 0%, #1C1C1C 55%, #0F7668 120%);
+      color: #fff;
+    }
+    .winner-banner .label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: .8;
+      font-weight: 700;
+      color: var(--teal);
+    }
+    .winner-banner .name {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 6px 0 4px;
+      line-height: 1.1;
+    }
+    .winner-banner .prize {
+      font-size: 11.5px;
+      line-height: 1.4;
+      opacity: .92;
+    }
+
+    .dados {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      flex: 1;
+    }
+    .dados .head {
+      background: var(--teal-soft);
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .dados table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5px;
+    }
+    .dados th, .dados td {
+      padding: 7px 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .dados tr:last-child th,
+    .dados tr:last-child td { border-bottom: none; }
+    .dados th {
+      width: 36%;
+      color: var(--muted);
+      font-weight: 600;
+      background: #FBFCFC;
+    }
+    .dados td { font-weight: 700; color: var(--ink); }
+    .dados a { color: #0F7668; text-decoration: none; word-break: break-all; }
+
+    .link-list { margin-top: 10px; display: grid; gap: 8px; }
+    .link-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: #FBFCFC;
+    }
+    .link-item b { display: block; font-size: 12px; margin-bottom: 3px; }
+    .link-item .desc {
+      display: block;
+      font-size: 10.5px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+    .link-item a {
+      display: block;
+      color: #0F7668;
+      font-size: 10.5px;
+      font-weight: 600;
+      text-decoration: underline;
+      word-break: break-all;
+      line-height: 1.35;
+    }
+
+    .footer {
+      position: absolute;
+      left: 14mm;
+      right: 14mm;
+      bottom: 8mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9.5px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 7px;
+    }
+
+    @media print {
+      html, body { background: #fff; }
+      .sheet { margin: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <section class="sheet">
+    <div class="top">
+      <img src="assets/vissla-logo.png" alt="Vissla" />
+      <div class="meta">
+        <div class="eyebrow">Relatório do Evento</div>
+        <strong>Ibiúna Wake&amp;Surf 2026</strong>
+        <span class="muted" style="display:block;font-size:12px;margin-top:4px;">19 a 21 de novembro · Ibiúna/SP</span>
+      </div>
+    </div>
+
+    <h1>Apoio Vissla no<br />Campeonato Brasileiro<br />de Wakeboard &amp; Surf</h1>
+    <p class="lead">
+      Três dias de competição na Represa de Itupararanga, com a Vissla como apoiadora oficial —
+      presença de marca, ativação e sorteio de um <b>Short John Vissla</b> na premiação do evento.
+    </p>
+
+    <div class="hero">
+      <div class="chip">BG oficial · 3ª etapa do Circuito Brasileiro · Homologado ABW</div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>~400</b><span>pessoas/dia de circulação no local</span></div>
+      <div class="stat"><b>95</b><span>atletas inscritos no campeonato</span></div>
+      <div class="stat"><b>57</b><span>cadastros no sorteio geral (Vissla)</span></div>
+      <div class="stat"><b>144</b><span>cadastros no sorteio Prancha BTG</span></div>
+    </div>
+
+    <div class="card soft" style="margin-top:12px;padding:12px 14px;">
+      <h3 style="margin-bottom:6px;">Bases CSV (download)</h3>
+      <p style="font-size:11px;line-height:1.45;margin:0;">
+        Pacote completo (ZIP):<br>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/bases-completas-ibiuna-wake-surf-2026.zip">https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/bases-completas-ibiuna-wake-surf-2026.zip</a>
+      </p>
+      <p style="font-size:11px;line-height:1.55;margin:8px 0 0;">
+        Sorteio geral (Vissla / Short John):<br>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/sorteio-geral.csv">https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/sorteio-geral.csv</a><br>
+        Sorteio Prancha BTG:<br>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/sorteio-prancha-btg.csv">https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/sorteio-prancha-btg.csv</a><br>
+        Inscritos atletas:<br>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/inscritos-atletas.csv">https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/inscritos-atletas.csv</a>
+      </p>
+    </div>
+
+    <div class="footer">
+      <span>Ibiúna Wake&amp;Surf 2026 · Relatório para Vissla</span>
+      <span>1 / 4</span>
+    </div>
+  </section>
+
+  <!-- PAGE 2 -->
+  <section class="sheet">
+    <div class="top">
+      <img src="assets/vissla-logo.png" alt="Vissla" />
+      <div class="meta">
+        <div class="eyebrow">Como foi o evento</div>
+        <strong>Competição · Público · Ativação</strong>
+      </div>
+    </div>
+
+    <h1 style="font-size:22px;">Um fim de semana de alto nível na represa</h1>
+    <p class="lead">
+      O Ibiúna Wake&amp;Surf 2026 reuniu atletas de várias regiões do Brasil, famílias e
+      público dos condomínios da orla da Represa de Itupararanga. A programação esportiva
+      aconteceu entre 19 e 21 de novembro, com treino oficial, eliminatórias, finais e
+      festa de premiação.
+    </p>
+
+    <div class="grid-2">
+      <div class="card soft">
+        <h3>Em números</h3>
+        <ul>
+          <li><b>95 atletas</b> inscritos (62 wakeboard · 33 wakesurf)</li>
+          <li>Atletas de <b>SP, DF, MG, PR, SC, ES e GO</b></li>
+          <li>Circulação média de <b>~400 pessoas por dia</b> no local</li>
+          <li>Presença forte de famílias, convidados e condôminos</li>
+          <li>Resultados oficiais no LiveHeats + transmissão no YouTube</li>
+        </ul>
+        <div class="pill-row">
+          <span class="pill">Nautique G23</span>
+          <span class="pill">ABW / CBEAW</span>
+          <span class="pill">Veleiros de Ibiúna</span>
+        </div>
+      </div>
+      <div class="photo-action" aria-hidden="true"></div>
+    </div>
+
+    <div class="card" style="margin-top:12px;">
+      <h3>Perfil do sorteio geral — Vissla (57 cadastros)</h3>
+      <div class="bars">
+        <div class="bar"><span>Atletas</span><div class="track"><div class="fill" style="width:39%"></div></div><span class="n">22</span></div>
+        <div class="bar"><span>Público geral</span><div class="track"><div class="fill" style="width:25%"></div></div><span class="n">14</span></div>
+        <div class="bar"><span>Familiares</span><div class="track"><div class="fill" style="width:23%"></div></div><span class="n">13</span></div>
+        <div class="bar"><span>Convidados</span><div class="track"><div class="fill" style="width:14%"></div></div><span class="n">8</span></div>
+      </div>
+      <p style="margin-top:10px;">
+        Entre os cadastros do sorteio geral, <b>26 pessoas</b> declararam vínculo com os
+        condomínios Veleiros ou Porto de Ibiúna.
+      </p>
+    </div>
+
+    <div class="footer">
+      <span>Ibiúna Wake&amp;Surf 2026 · Relatório para Vissla</span>
+      <span>2 / 4</span>
+    </div>
+  </section>
+
+  <!-- PAGE 3 — SORTEIO + DADOS -->
+  <section class="sheet">
+    <div class="top">
+      <img src="assets/vissla-logo.png" alt="Vissla" />
+      <div class="meta">
+        <div class="eyebrow">Sorteio Vissla</div>
+        <strong>Ganhador e dados do cadastro</strong>
+      </div>
+    </div>
+
+    <h1 style="font-size:22px;">Sorteio do Short John Vissla</h1>
+    <p class="lead">
+      Prêmio definido: <b>Short John Vissla</b>, sorteado na cerimônia de premiação a partir
+      da base do sorteio geral do evento.
+    </p>
+
+    <div class="winner-layout">
+      <div class="winner-photo">
+        <img src="assets/sorteado-vissla.jpg" alt="Rafael Janandis Pedro — ganhador Short John Vissla" />
+        <div class="chip">Sorteio Vissla · Premiação</div>
+      </div>
+
+      <div class="winner-side">
+        <div class="winner-banner">
+          <div class="label">Ganhador</div>
+          <div class="name">Rafael Janandis Pedro</div>
+          <div class="prize">Short John Vissla · cadastro validado no mailing do sorteio geral do evento.</div>
+        </div>
+
+        <div class="dados">
+          <div class="head"><h3 style="margin:0;">Dados do sorteado (mailing sorteio geral)</h3></div>
+          <table>
+            <tr><th>Nome completo</th><td>Rafael Janandis Pedro</td></tr>
+            <tr><th>Idade</th><td>45 anos</td></tr>
+            <tr><th>Telefone / WhatsApp</th><td><a href="https://wa.me/5511989179738">(11) 98917-9738</a></td></tr>
+            <tr><th>E-mail</th><td><a href="mailto:rafaeljpedro@me.com">rafaeljpedro@me.com</a></td></tr>
+            <tr><th>Instagram</th><td><a href="https://instagram.com/rafaeljpedro">@rafaeljpedro</a></td></tr>
+            <tr><th>Perfil no evento</th><td>Familiar de atleta</td></tr>
+            <tr><th>Nome do atleta</th><td>Guilherme Tomaz Pedro</td></tr>
+            <tr><th>Condômino</th><td>Não</td></tr>
+            <tr><th>Recebido em</th><td>20/11/2026, 18:04:21</td></tr>
+            <tr><th>ID da resposta</th><td>76753e04-9371-4404-adce-845eb3707268</td></tr>
+            <tr><th>Privacidade / LGPD</th><td>Sim, aceito</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>Ibiúna Wake&amp;Surf 2026 · Relatório para Vissla</span>
+      <span>3 / 4</span>
+    </div>
+  </section>
+
+  <!-- PAGE 4 — LINKS -->
+  <section class="sheet">
+    <div class="top">
+      <img src="assets/vissla-logo.png" alt="Vissla" />
+      <div class="meta">
+        <div class="eyebrow">Bases · Transmissão · Resultados</div>
+        <strong>Links para download e acesso</strong>
+      </div>
+    </div>
+
+    <h1 style="font-size:22px;">Bases e cobertura</h1>
+    <p class="lead">Arquivos CSV atualizados em 23/11/2026. Links completos abaixo (clique ou copie).</p>
+
+    <h2 style="margin-top:12px;">Bases para download (CSV + ZIP)</h2>
+    <div class="link-list">
+      <div class="link-item" style="background:var(--teal-soft);border-color:#CDEAE4;">
+        <b>Pacote completo — todas as bases (ZIP)</b>
+        <span class="desc">Inclui os 3 arquivos CSV abaixo em um único download.</span>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/bases-completas-ibiuna-wake-surf-2026.zip">https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/bases-completas-ibiuna-wake-surf-2026.zip</a>
+      </div>
+      <div class="link-item">
+        <b>1) Sorteio geral — 57 registros (base do Short John Vissla)</b>
+        <span class="desc">Nome, idade, telefone, e-mail, Instagram, perfil no evento e vínculo com condomínio.</span>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/sorteio-geral.csv">https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/sorteio-geral.csv</a>
+      </div>
+      <div class="link-item">
+        <b>2) Sorteio Prancha BTG — 144 registros</b>
+        <span class="desc">Mailing do sorteio da prancha no evento (mesmo formato de campos).</span>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/sorteio-prancha-btg.csv">https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/sorteio-prancha-btg.csv</a>
+      </div>
+      <div class="link-item">
+        <b>3) Inscritos atletas — 95 registros</b>
+        <span class="desc">Lista oficial de inscrição (categorias wakeboard e wakesurf, cidade/UF e contato).</span>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/inscritos-atletas.csv">https://www.ibiunawakeboard.com.br/relatorio-vissla-2026/bases/inscritos-atletas.csv</a>
+      </div>
+    </div>
+
+    <h2 style="margin-top:14px;">Transmissão ao vivo (YouTube)</h2>
+    <div class="link-list">
+      <div class="link-item">
+        <b>1º dia — competição</b>
+        <a href="https://www.youtube.com/watch?v=BODCpKO27qQ">https://www.youtube.com/watch?v=BODCpKO27qQ</a>
+      </div>
+      <div class="link-item">
+        <b>2º dia — competição</b>
+        <a href="https://www.youtube.com/watch?v=nX3KpgzKpxg">https://www.youtube.com/watch?v=nX3KpgzKpxg</a>
+      </div>
+      <div class="link-item">
+        <b>Premiação</b>
+        <a href="https://www.youtube.com/watch?v=Od_6B12GzX8">https://www.youtube.com/watch?v=Od_6B12GzX8</a>
+      </div>
+    </div>
+
+    <h2 style="margin-top:14px;">Resultados · Instagram</h2>
+    <div class="link-list">
+      <div class="link-item">
+        <b>LiveHeats — programação, heats e resultados</b>
+        <a href="https://liveheats.com/events/596060/schedule">https://liveheats.com/events/596060/schedule</a>
+      </div>
+      <div class="link-item">
+        <b>@ibiunawakeandsurf</b>
+        <a href="https://www.instagram.com/ibiunawakeandsurf/">https://www.instagram.com/ibiunawakeandsurf/</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>www.ibiunawakeboard.com.br/relatorio-vissla-2026/ · @ibiunawakeandsurf</span>
+      <span>4 / 4</span>
+    </div>
+  </section>
+
+</body>
+</html>
