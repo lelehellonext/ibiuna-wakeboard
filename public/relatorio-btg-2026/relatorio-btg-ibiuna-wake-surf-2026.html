@@ -223,32 +223,54 @@
       padding: 6px 10px;
     }
 
+    .winner-layout {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 12px;
+      align-items: stretch;
+      min-height: 195mm;
+    }
+
     .winner-photo {
-      margin-top: 10px;
-      height: 78mm;
       border-radius: 12px;
-      background: url("assets/sorteio.jpg") center 30% / cover no-repeat;
       border: 1px solid var(--line);
       position: relative;
+      overflow: hidden;
+      background: #0B1526;
+      min-height: 195mm;
+    }
+    .winner-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center top;
+      display: block;
     }
     .winner-photo .chip {
       position: absolute;
-      left: 12px;
-      bottom: 12px;
+      left: 10px;
+      bottom: 10px;
       background: rgba(5,19,42,.88);
       color: #fff;
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 700;
-      padding: 7px 11px;
+      padding: 6px 10px;
       border-radius: 999px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
+    .winner-side {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 195mm;
+    }
+
     .winner-banner {
-      margin-top: 10px;
       border-radius: 12px;
-      padding: 14px 16px;
+      padding: 14px 14px 12px;
       background: linear-gradient(135deg, #05132A 0%, #0B2A5A 55%, #195AB4 100%);
       color: #fff;
     }
@@ -260,35 +282,36 @@
       font-weight: 700;
     }
     .winner-banner .name {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       letter-spacing: -0.02em;
       margin: 6px 0 4px;
+      line-height: 1.1;
     }
     .winner-banner .prize {
-      font-size: 12px;
+      font-size: 11.5px;
       line-height: 1.4;
       opacity: .92;
     }
 
     .dados {
-      margin-top: 10px;
       border: 1px solid var(--line);
       border-radius: 12px;
       overflow: hidden;
+      flex: 1;
     }
     .dados .head {
       background: var(--blue-soft);
-      padding: 10px 14px;
+      padding: 9px 12px;
       border-bottom: 1px solid var(--line);
     }
     .dados table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 11.5px;
+      font-size: 10.5px;
     }
     .dados th, .dados td {
-      padding: 8px 14px;
+      padding: 7px 10px;
       text-align: left;
       border-bottom: 1px solid var(--line);
       vertical-align: top;
@@ -296,7 +319,7 @@
     .dados tr:last-child th,
     .dados tr:last-child td { border-bottom: none; }
     .dados th {
-      width: 34%;
+      width: 36%;
       color: var(--muted);
       font-weight: 600;
       background: #FBFCFE;
@@ -463,30 +486,35 @@
       sorteada na cerimônia de premiação do evento.
     </p>
 
-    <div class="winner-photo">
-      <div class="chip">Entrega da prancha · Premiação</div>
-    </div>
+    <div class="winner-layout">
+      <div class="winner-photo">
+        <img src="assets/sorteio.jpg" alt="Joana Armando Costa com a prancha Mormaii BTG Pactual" />
+        <div class="chip">Entrega da prancha · Premiação</div>
+      </div>
 
-    <div class="winner-banner">
-      <div class="label">Ganhadora</div>
-      <div class="name">Joana Armando Costa</div>
-      <div class="prize">Cadastro validado na base do sorteio BTG Pactual Wealth Management (mailing do evento).</div>
-    </div>
+      <div class="winner-side">
+        <div class="winner-banner">
+          <div class="label">Ganhadora</div>
+          <div class="name">Joana Armando Costa</div>
+          <div class="prize">Prancha Mormaii com assinatura de Marcos Protta · cadastro validado no mailing BTG.</div>
+        </div>
 
-    <div class="dados">
-      <div class="head"><h3 style="margin:0;">Dados da sorteada (mailing BTG)</h3></div>
-      <table>
-        <tr><th>Nome completo</th><td>Joana Armando Costa</td></tr>
-        <tr><th>Idade</th><td>16 anos</td></tr>
-        <tr><th>Telefone / WhatsApp</th><td><a href="https://wa.me/5511976363023">(11) 97636-3023</a></td></tr>
-        <tr><th>E-mail</th><td><a href="mailto:armandocostajoana@gmail.com">armandocostajoana@gmail.com</a></td></tr>
-        <tr><th>Instagram</th><td><a href="https://instagram.com/joana.armandoo">@joana.armandoo</a></td></tr>
-        <tr><th>Perfil no evento</th><td>Convidado</td></tr>
-        <tr><th>Condômino</th><td>Não</td></tr>
-        <tr><th>Recebido em</th><td>20/11/2026, 14:11:42</td></tr>
-        <tr><th>ID da resposta</th><td>55216c5b-2ba6-4ee3-9aa6-bd9c80df6d7d</td></tr>
-        <tr><th>Privacidade / LGPD</th><td>Sim, aceito</td></tr>
-      </table>
+        <div class="dados">
+          <div class="head"><h3 style="margin:0;">Dados da sorteada (mailing BTG)</h3></div>
+          <table>
+            <tr><th>Nome completo</th><td>Joana Armando Costa</td></tr>
+            <tr><th>Idade</th><td>16 anos</td></tr>
+            <tr><th>Telefone / WhatsApp</th><td><a href="https://wa.me/5511976363023">(11) 97636-3023</a></td></tr>
+            <tr><th>E-mail</th><td><a href="mailto:armandocostajoana@gmail.com">armandocostajoana@gmail.com</a></td></tr>
+            <tr><th>Instagram</th><td><a href="https://instagram.com/joana.armandoo">@joana.armandoo</a></td></tr>
+            <tr><th>Perfil no evento</th><td>Convidado</td></tr>
+            <tr><th>Condômino</th><td>Não</td></tr>
+            <tr><th>Recebido em</th><td>20/11/2026, 14:11:42</td></tr>
+            <tr><th>ID da resposta</th><td>55216c5b-2ba6-4ee3-9aa6-bd9c80df6d7d</td></tr>
+            <tr><th>Privacidade / LGPD</th><td>Sim, aceito</td></tr>
+          </table>
+        </div>
+      </div>
     </div>
 
     <div class="footer">
