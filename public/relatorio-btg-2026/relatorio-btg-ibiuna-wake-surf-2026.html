@@ -38,7 +38,6 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     @page { size: A4; margin: 0; }
 
     html, body {
@@ -55,7 +54,7 @@
       min-height: 297mm;
       margin: 0 auto 12px;
       background: var(--white);
-      padding: 14mm 16mm 12mm;
+      padding: 12mm 14mm 14mm;
       position: relative;
       overflow: hidden;
       page-break-after: always;
@@ -70,7 +69,6 @@
       text-transform: uppercase;
       color: var(--blue);
     }
-
     .muted { color: var(--muted); }
 
     .top {
@@ -78,28 +76,28 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 24px;
-      padding-bottom: 14px;
+      padding-bottom: 12px;
       border-bottom: 1px solid var(--line);
     }
-    .top img { height: 44px; width: auto; display: block; }
+    .top img { height: 40px; width: auto; display: block; }
     .top .meta { text-align: right; max-width: 36ch; }
     .top .meta strong { display: block; font-size: 13px; margin-top: 4px; }
 
     h1 {
-      font-size: 28px;
+      font-size: 26px;
       line-height: 1.12;
       font-weight: 800;
       letter-spacing: -0.02em;
-      margin: 18px 0 10px;
+      margin: 14px 0 8px;
     }
     h2 {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 800;
       letter-spacing: -0.01em;
-      margin: 0 0 8px;
+      margin: 0 0 6px;
     }
     h3 {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -108,31 +106,30 @@
     }
 
     p.lead {
-      font-size: 13.5px;
-      line-height: 1.55;
+      font-size: 12.5px;
+      line-height: 1.5;
       color: var(--muted);
-      max-width: 62ch;
+      max-width: 64ch;
     }
 
     .hero {
-      margin-top: 16px;
-      height: 78mm;
-      border-radius: 14px;
-      background:
-        linear-gradient(120deg, rgba(5,19,42,.55), rgba(25,90,180,.25)),
-        url("assets/foto_17_publico.png") center 40% / cover no-repeat;
+      margin-top: 12px;
+      height: 92mm;
+      border-radius: 12px;
+      background: url("assets/capa-campeonato.jpg") center 35% / cover no-repeat;
       position: relative;
       overflow: hidden;
+      border: 1px solid var(--line);
     }
     .hero .chip {
       position: absolute;
-      left: 16px;
-      bottom: 16px;
-      background: rgba(255,255,255,.94);
+      left: 14px;
+      bottom: 14px;
+      background: rgba(255,255,255,.95);
       color: var(--navy);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
-      padding: 8px 12px;
+      padding: 7px 11px;
       border-radius: 999px;
       letter-spacing: 0.04em;
     }
@@ -140,28 +137,26 @@
     .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 16px;
+      gap: 8px;
+      margin-top: 12px;
     }
     .stat {
       background: var(--blue-soft);
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 14px 12px;
-      min-height: 78px;
+      border-radius: 10px;
+      padding: 12px 10px;
     }
     .stat b {
       display: block;
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 800;
       letter-spacing: -0.03em;
-      color: var(--navy);
       line-height: 1;
     }
     .stat span {
       display: block;
-      margin-top: 8px;
-      font-size: 11px;
+      margin-top: 7px;
+      font-size: 10.5px;
       line-height: 1.35;
       color: var(--muted);
       font-weight: 600;
@@ -170,102 +165,42 @@
     .grid-2 {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 14px;
-      margin-top: 16px;
+      gap: 12px;
+      margin-top: 12px;
     }
     .card {
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 16px;
+      border-radius: 12px;
+      padding: 14px;
       background: #fff;
     }
     .card.soft { background: linear-gradient(180deg, #F7FAFF, #FFFFFF); }
-    .card p {
-      font-size: 12.5px;
+    .card p, .card li {
+      font-size: 12px;
       line-height: 1.5;
       color: var(--muted);
     }
-    .card ul {
-      margin: 10px 0 0 16px;
-      color: var(--muted);
-      font-size: 12.5px;
-      line-height: 1.55;
-    }
-    .card li { margin-bottom: 4px; }
+    .card ul { margin: 8px 0 0 16px; }
+    .card li { margin-bottom: 3px; }
 
-    .photo {
-      border-radius: 14px;
-      overflow: hidden;
-      height: 100%;
+    .photo-action {
+      border-radius: 12px;
       min-height: 58mm;
       background: url("assets/foto_14_wakeboard_acao.png") center / cover no-repeat;
     }
 
-    .winner {
-      margin-top: 16px;
-      border-radius: 16px;
-      padding: 18px 18px 16px;
-      background: linear-gradient(135deg, #05132A 0%, #0B2A5A 55%, #195AB4 100%);
-      color: #fff;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 16px;
-      align-items: center;
-    }
-    .winner .label {
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      opacity: .8;
-      font-weight: 700;
-    }
-    .winner .name {
-      font-size: 26px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin: 8px 0 6px;
-      line-height: 1.1;
-    }
-    .winner .prize {
-      font-size: 13px;
-      line-height: 1.45;
-      opacity: .92;
-      max-width: 42ch;
-    }
-    .winner .side {
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 12px;
-      padding: 14px;
-    }
-    .winner .side strong {
-      display: block;
-      font-size: 12px;
-      margin-bottom: 6px;
-    }
-    .winner .side span {
-      display: block;
-      font-size: 12px;
-      line-height: 1.45;
-      opacity: .9;
-    }
-
-    .bars {
-      margin-top: 12px;
-      display: grid;
-      gap: 8px;
-    }
+    .bars { margin-top: 10px; display: grid; gap: 7px; }
     .bar {
       display: grid;
-      grid-template-columns: 120px 1fr 42px;
+      grid-template-columns: 110px 1fr 36px;
       gap: 8px;
       align-items: center;
-      font-size: 11.5px;
+      font-size: 11px;
       color: var(--muted);
       font-weight: 600;
     }
     .bar .track {
-      height: 8px;
+      height: 7px;
       background: #EEF3FA;
       border-radius: 99px;
       overflow: hidden;
@@ -277,103 +212,140 @@
     }
     .bar .n { text-align: right; color: var(--navy); font-weight: 800; }
 
-    .downloads {
-      margin-top: 14px;
-      display: grid;
-      gap: 10px;
-    }
-    .dl {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
-      align-items: center;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 12px 14px;
-      background: #FBFCFE;
-    }
-    .dl b { display: block; font-size: 13px; margin-bottom: 3px; }
-    .dl span { display: block; font-size: 11.5px; color: var(--muted); line-height: 1.4; }
-    .dl a {
-      display: inline-block;
-      text-decoration: none;
-      background: var(--blue);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 10px 12px;
-      border-radius: 8px;
-      white-space: nowrap;
-    }
-    .dl a.alt { background: var(--navy); }
-
-    .linkbox {
-      margin-top: 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      padding: 14px 16px;
-      background: var(--blue-soft);
-    }
-    .linkbox a {
-      color: var(--blue);
-      font-weight: 700;
-      font-size: 12.5px;
-      word-break: break-all;
-    }
-    .linkbox p { margin-top: 6px; font-size: 12px; color: var(--muted); line-height: 1.45; }
-
-    .footer {
-      position: absolute;
-      left: 16mm;
-      right: 16mm;
-      bottom: 10mm;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 10px;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-      padding-top: 8px;
-    }
-    .footer .gold {
-      color: var(--gold);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
-    }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
     .pill {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       color: var(--navy);
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 999px;
-      padding: 7px 11px;
+      padding: 6px 10px;
     }
 
-    .split-photos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 14px;
+    .winner-photo {
+      margin-top: 10px;
+      height: 78mm;
+      border-radius: 12px;
+      background: url("assets/sorteio.jpg") center 30% / cover no-repeat;
+      border: 1px solid var(--line);
+      position: relative;
     }
-    .split-photos .p1,
-    .split-photos .p2 {
-      height: 48mm;
+    .winner-photo .chip {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      background: rgba(5,19,42,.88);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 7px 11px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .winner-banner {
+      margin-top: 10px;
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, #05132A 0%, #0B2A5A 55%, #195AB4 100%);
+      color: #fff;
+    }
+    .winner-banner .label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: .8;
+      font-weight: 700;
+    }
+    .winner-banner .name {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 6px 0 4px;
+    }
+    .winner-banner .prize {
+      font-size: 12px;
+      line-height: 1.4;
+      opacity: .92;
+    }
+
+    .dados {
+      margin-top: 10px;
+      border: 1px solid var(--line);
       border-radius: 12px;
       overflow: hidden;
     }
-    .p1 { background: url("assets/foto_20_podio_campeoes.png") center 30% / cover no-repeat; }
-    .p2 { background: url("assets/foto_14_wakeboard_acao.png") center / cover no-repeat; }
+    .dados .head {
+      background: var(--blue-soft);
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .dados table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+    }
+    .dados th, .dados td {
+      padding: 8px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .dados tr:last-child th,
+    .dados tr:last-child td { border-bottom: none; }
+    .dados th {
+      width: 34%;
+      color: var(--muted);
+      font-weight: 600;
+      background: #FBFCFE;
+    }
+    .dados td { font-weight: 700; color: var(--navy); }
+    .dados a { color: var(--blue); text-decoration: none; word-break: break-all; }
+
+    .link-list { margin-top: 10px; display: grid; gap: 8px; }
+    .link-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: #FBFCFE;
+    }
+    .link-item b {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 3px;
+    }
+    .link-item .desc {
+      display: block;
+      font-size: 10.5px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+    .link-item a {
+      display: block;
+      color: var(--blue);
+      font-size: 10.5px;
+      font-weight: 600;
+      text-decoration: underline;
+      word-break: break-all;
+      line-height: 1.35;
+    }
+
+    .footer {
+      position: absolute;
+      left: 14mm;
+      right: 14mm;
+      bottom: 8mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9.5px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 7px;
+    }
 
     @media print {
       html, body { background: #fff; }
@@ -402,7 +374,7 @@
     </p>
 
     <div class="hero">
-      <div class="chip">3ª etapa do Circuito Brasileiro · Homologado ABW</div>
+      <div class="chip">BG oficial · 3ª etapa do Circuito Brasileiro · Homologado ABW</div>
     </div>
 
     <div class="stats">
@@ -414,7 +386,7 @@
 
     <div class="footer">
       <span>Ibiúna Wake&amp;Surf 2026 · Relatório para BTG Pactual Wealth Management</span>
-      <span>1 / 3</span>
+      <span>1 / 4</span>
     </div>
   </section>
 
@@ -428,7 +400,7 @@
       </div>
     </div>
 
-    <h1 style="font-size:24px;margin-top:16px;">Um fim de semana de alto nível na represa</h1>
+    <h1 style="font-size:22px;">Um fim de semana de alto nível na represa</h1>
     <p class="lead">
       O Ibiúna Wake&amp;Surf 2026 reuniu atletas de várias regiões do Brasil, famílias e
       público dos condomínios da orla da Represa de Itupararanga. A programação esportiva
@@ -444,7 +416,7 @@
           <li>Atletas de <b>SP, DF, MG, PR, SC, ES e GO</b></li>
           <li>Circulação média de <b>~400 pessoas por dia</b> no local</li>
           <li>Presença forte de famílias, convidados e condôminos</li>
-          <li>Resultados oficiais no LiveHeats + transmissão ao vivo no YouTube</li>
+          <li>Resultados oficiais no LiveHeats + transmissão no YouTube</li>
         </ul>
         <div class="pill-row">
           <span class="pill">Nautique G23</span>
@@ -452,10 +424,10 @@
           <span class="pill">Veleiros de Ibiúna</span>
         </div>
       </div>
-      <div class="photo" aria-hidden="true"></div>
+      <div class="photo-action" aria-hidden="true"></div>
     </div>
 
-    <div class="card" style="margin-top:14px;">
+    <div class="card" style="margin-top:12px;">
       <h3>Perfil do sorteio BTG (144 cadastros)</h3>
       <div class="bars">
         <div class="bar"><span>Atletas</span><div class="track"><div class="fill" style="width:39%"></div></div><span class="n">56</span></div>
@@ -463,7 +435,7 @@
         <div class="bar"><span>Público geral</span><div class="track"><div class="fill" style="width:15%"></div></div><span class="n">21</span></div>
         <div class="bar"><span>Convidados</span><div class="track"><div class="fill" style="width:13%"></div></div><span class="n">19</span></div>
       </div>
-      <p style="margin-top:12px;">
+      <p style="margin-top:10px;">
         Entre os cadastros BTG, <b>56 pessoas</b> declararam vínculo com os condomínios
         Veleiros ou Porto de Ibiúna. Idade média da base: <b>36,5 anos</b>.
       </p>
@@ -471,104 +443,126 @@
 
     <div class="footer">
       <span>Ibiúna Wake&amp;Surf 2026 · Relatório para BTG Pactual Wealth Management</span>
-      <span>2 / 3</span>
+      <span>2 / 4</span>
     </div>
   </section>
 
-  <!-- PAGE 3 -->
+  <!-- PAGE 3 — SORTEIO + DADOS -->
   <section class="sheet">
     <div class="top">
       <img src="assets/btg-wm-logo.png" alt="BTG Pactual Wealth Management" />
       <div class="meta">
-        <div class="eyebrow">Sorteio · Bases · Resultados</div>
-        <strong>Entrega consolidada</strong>
+        <div class="eyebrow">Sorteio BTG</div>
+        <strong>Ganhadora e dados do cadastro</strong>
       </div>
     </div>
 
-    <h1 style="font-size:24px;margin-top:16px;">Sorteio da prancha Mormaii</h1>
+    <h1 style="font-size:22px;">Sorteio da prancha Mormaii</h1>
     <p class="lead">
-      O BTG Pactual Wealth Management realizou o sorteio de uma prancha de surf Mormaii
-      com a assinatura do campeão brasileiro <b>Marcos Protta</b>, em cerimônia no evento.
+      Prancha de surf Mormaii com a assinatura do campeão brasileiro <b>Marcos Protta</b>,
+      sorteada na cerimônia de premiação do evento.
     </p>
 
-    <div class="winner">
-      <div>
-        <div class="label">Ganhadora</div>
-        <div class="name">Joana Armando Costa</div>
-        <div class="prize">
-          Prêmio: prancha de surf Mormaii autografada por Marcos Protta,
-          campeão brasileiro. Cadastro validado na base do sorteio BTG.
-        </div>
-      </div>
-      <div class="side">
-        <strong>Participação</strong>
-        <span>144 cadastros no formulário BTG</span>
-        <span style="margin-top:8px;">+ 57 no sorteio geral do evento</span>
-        <span style="margin-top:8px;">175 e-mails únicos nas duas bases</span>
+    <div class="winner-photo">
+      <div class="chip">Entrega da prancha · Premiação</div>
+    </div>
+
+    <div class="winner-banner">
+      <div class="label">Ganhadora</div>
+      <div class="name">Joana Armando Costa</div>
+      <div class="prize">Cadastro validado na base do sorteio BTG Pactual Wealth Management (mailing do evento).</div>
+    </div>
+
+    <div class="dados">
+      <div class="head"><h3 style="margin:0;">Dados da sorteada (mailing BTG)</h3></div>
+      <table>
+        <tr><th>Nome completo</th><td>Joana Armando Costa</td></tr>
+        <tr><th>Idade</th><td>16 anos</td></tr>
+        <tr><th>Telefone / WhatsApp</th><td><a href="https://wa.me/5511976363023">(11) 97636-3023</a></td></tr>
+        <tr><th>E-mail</th><td><a href="mailto:armandocostajoana@gmail.com">armandocostajoana@gmail.com</a></td></tr>
+        <tr><th>Instagram</th><td><a href="https://instagram.com/joana.armandoo">@joana.armandoo</a></td></tr>
+        <tr><th>Perfil no evento</th><td>Convidado</td></tr>
+        <tr><th>Condômino</th><td>Não</td></tr>
+        <tr><th>Recebido em</th><td>20/11/2026, 14:11:42</td></tr>
+        <tr><th>ID da resposta</th><td>55216c5b-2ba6-4ee3-9aa6-bd9c80df6d7d</td></tr>
+        <tr><th>Privacidade / LGPD</th><td>Sim, aceito</td></tr>
+      </table>
+    </div>
+
+    <div class="footer">
+      <span>Ibiúna Wake&amp;Surf 2026 · Relatório para BTG Pactual Wealth Management</span>
+      <span>3 / 4</span>
+    </div>
+  </section>
+
+  <!-- PAGE 4 — LINKS -->
+  <section class="sheet">
+    <div class="top">
+      <img src="assets/btg-wm-logo.png" alt="BTG Pactual Wealth Management" />
+      <div class="meta">
+        <div class="eyebrow">Bases · Transmissão · Resultados</div>
+        <strong>Links para download e acesso</strong>
       </div>
     </div>
 
-    <h2 style="margin-top:18px;">Bases para download</h2>
-    <p class="lead" style="margin-top:4px;">Arquivos CSV atualizados em 23/11/2026 — prontos para importação.</p>
+    <h1 style="font-size:22px;">Bases e cobertura</h1>
+    <p class="lead">Arquivos CSV atualizados em 23/11/2026. Links completos abaixo (clique ou copie).</p>
 
-    <div class="downloads">
-      <div class="dl">
-        <div>
-          <b>Sorteio BTG Pactual — 144 registros</b>
-          <span>Nome, idade, telefone, e-mail, Instagram, perfil no evento e vínculo com condomínio.</span>
-        </div>
-        <a href="https://www.ibiunawakeboard.com.br/relatorio-btg-2026/bases/sorteio-btg-pactual.csv">Baixar CSV</a>
+    <h2 style="margin-top:12px;">Bases para download</h2>
+    <div class="link-list">
+      <div class="link-item">
+        <b>Sorteio BTG Pactual — 144 registros</b>
+        <span class="desc">Nome, idade, telefone, e-mail, Instagram, perfil no evento e vínculo com condomínio.</span>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-btg-2026/bases/sorteio-btg-pactual.csv">https://www.ibiunawakeboard.com.br/relatorio-btg-2026/bases/sorteio-btg-pactual.csv</a>
       </div>
-      <div class="dl">
-        <div>
-          <b>Sorteio geral do evento — 57 registros</b>
-          <span>Base complementar de participantes do sorteio aberto do campeonato.</span>
-        </div>
-        <a class="alt" href="https://www.ibiunawakeboard.com.br/relatorio-btg-2026/bases/sorteio-geral.csv">Baixar CSV</a>
+      <div class="link-item">
+        <b>Sorteio geral do evento — 57 registros</b>
+        <span class="desc">Base complementar de participantes do sorteio aberto do campeonato.</span>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-btg-2026/bases/sorteio-geral.csv">https://www.ibiunawakeboard.com.br/relatorio-btg-2026/bases/sorteio-geral.csv</a>
       </div>
-      <div class="dl">
-        <div>
-          <b>Inscritos atletas — 95 registros</b>
-          <span>Lista oficial de inscrição (categorias wakeboard e wakesurf, cidade/UF e dados de contato).</span>
-        </div>
-        <a href="https://www.ibiunawakeboard.com.br/relatorio-btg-2026/bases/inscritos-atletas.csv">Baixar CSV</a>
+      <div class="link-item">
+        <b>Inscritos atletas — 95 registros</b>
+        <span class="desc">Lista oficial de inscrição (categorias wakeboard e wakesurf, cidade/UF e contato).</span>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-btg-2026/bases/inscritos-atletas.csv">https://www.ibiunawakeboard.com.br/relatorio-btg-2026/bases/inscritos-atletas.csv</a>
       </div>
     </div>
 
-    <div class="linkbox">
-      <div class="eyebrow" style="margin-bottom:6px;">Resultados da competição</div>
-      <a href="https://liveheats.com/events/596060/schedule">https://liveheats.com/events/596060/schedule</a>
-      <p>LiveHeats com programação, heats e resultados oficiais do Ibiúna Wake&amp;Surf 2026.</p>
+    <h2 style="margin-top:14px;">Transmissão ao vivo (YouTube)</h2>
+    <div class="link-list">
+      <div class="link-item">
+        <b>1º dia — competição</b>
+        <a href="https://www.youtube.com/watch?v=BODCpKO27qQ">https://www.youtube.com/watch?v=BODCpKO27qQ</a>
+      </div>
+      <div class="link-item">
+        <b>2º dia — competição</b>
+        <a href="https://www.youtube.com/watch?v=nX3KpgzKpxg">https://www.youtube.com/watch?v=nX3KpgzKpxg</a>
+      </div>
+      <div class="link-item">
+        <b>Premiação (inclui o sorteio BTG)</b>
+        <a href="https://www.youtube.com/watch?v=Od_6B12GzX8">https://www.youtube.com/watch?v=Od_6B12GzX8</a>
+      </div>
     </div>
 
-    <h2 style="margin-top:14px;font-size:16px;">Transmissão ao vivo</h2>
-    <div class="downloads" style="margin-top:8px;">
-      <div class="dl">
-        <div>
-          <b>1º dia — competição</b>
-          <span>YouTube · transmissão completa do primeiro dia.</span>
-        </div>
-        <a href="https://www.youtube.com/watch?v=BODCpKO27qQ">Assistir</a>
+    <h2 style="margin-top:14px;">Resultados da competição (LiveHeats)</h2>
+    <div class="link-list">
+      <div class="link-item">
+        <b>Programação, heats e resultados oficiais</b>
+        <a href="https://liveheats.com/events/596060/schedule">https://liveheats.com/events/596060/schedule</a>
       </div>
-      <div class="dl">
-        <div>
-          <b>2º dia — competição</b>
-          <span>YouTube · transmissão completa do segundo dia.</span>
-        </div>
-        <a class="alt" href="https://www.youtube.com/watch?v=nX3KpgzKpxg">Assistir</a>
-      </div>
-      <div class="dl">
-        <div>
-          <b>Premiação</b>
-          <span>YouTube · cerimônia de premiação (inclui o sorteio BTG).</span>
-        </div>
-        <a href="https://www.youtube.com/watch?v=Od_6B12GzX8">Assistir</a>
+    </div>
+
+    <h2 style="margin-top:14px;">Instagram do campeonato</h2>
+    <div class="link-list">
+      <div class="link-item">
+        <b>@ibiunawakeandsurf</b>
+        <span class="desc">Perfil oficial do Ibiúna Wake&amp;Surf — fotos, bastidores e cobertura do evento.</span>
+        <a href="https://www.instagram.com/ibiunawakeandsurf/">https://www.instagram.com/ibiunawakeandsurf/</a>
       </div>
     </div>
 
     <div class="footer">
-      <span>Página do relatório: www.ibiunawakeboard.com.br/relatorio-btg-2026/</span>
-      <span>3 / 3</span>
+      <span>www.ibiunawakeboard.com.br/relatorio-btg-2026/ · @ibiunawakeandsurf</span>
+      <span>4 / 4</span>
     </div>
   </section>
 
