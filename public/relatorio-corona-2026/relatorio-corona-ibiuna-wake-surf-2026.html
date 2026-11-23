@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relatório do Evento — Corona · Ibiúna Wake&amp;Surf 2026</title>
+  <style>
+    :root {
+      --navy: #00205B;
+      --gold: #C4A35A;
+      --ink: #111827;
+      --soft: #F4F1E8;
+      --line: #E5DFD0;
+      --muted: #5B6472;
+      --white: #FFFFFF;
+      --font: "Montserrat", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @page { size: A4; margin: 0; }
+    html, body {
+      background: #EEEBE3;
+      color: var(--ink);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 12px;
+      background: var(--white);
+      padding: 12mm 14mm 14mm;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+    }
+    .sheet:last-child { page-break-after: auto; margin-bottom: 0; }
+
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .muted { color: var(--muted); }
+
+    .top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .top img { height: 46px; width: auto; display: block; }
+    .top .meta { text-align: right; max-width: 36ch; }
+    .top .meta strong { display: block; font-size: 13px; margin-top: 4px; }
+
+    h1 {
+      font-size: 26px;
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 14px 0 8px;
+      color: var(--navy);
+    }
+    h2 {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin: 0 0 6px;
+      color: var(--navy);
+    }
+    h3 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 8px;
+    }
+    p.lead {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--muted);
+      max-width: 64ch;
+    }
+
+    .hero {
+      margin-top: 12px;
+      height: 56mm;
+      border-radius: 12px;
+      background: url("assets/capa-campeonato.jpg") center 35% / cover no-repeat;
+      position: relative;
+      border: 1px solid var(--line);
+    }
+    .hero .chip {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      background: rgba(255,255,255,.95);
+      color: var(--navy);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 7px 11px;
+      border-radius: 999px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .stat {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 10px;
+    }
+    .stat b {
+      display: block;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--navy);
+    }
+    .stat span {
+      display: block;
+      margin-top: 7px;
+      font-size: 10.5px;
+      line-height: 1.35;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+    }
+    .card.soft { background: linear-gradient(180deg, #FBF8F0, #FFFFFF); }
+    .card p, .card li {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .card ul { margin: 8px 0 0 16px; }
+    .card li { margin-bottom: 3px; }
+    .card a {
+      color: var(--navy);
+      font-weight: 700;
+      word-break: break-all;
+      text-decoration: underline;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .mini {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      background: var(--soft);
+    }
+    .mini b {
+      display: block;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .mini span {
+      display: block;
+      margin-top: 6px;
+      font-size: 10.5px;
+      color: var(--muted);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .bars { margin-top: 10px; display: grid; gap: 7px; }
+    .bar {
+      display: grid;
+      grid-template-columns: 120px 1fr 40px;
+      gap: 8px;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .bar .track {
+      height: 7px;
+      background: #EEE8DA;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .bar .fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--navy), #2A4F8F);
+      border-radius: 99px;
+    }
+    .bar .n { text-align: right; color: var(--navy); font-weight: 800; }
+
+    .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .pill {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--navy);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+    }
+
+    .photos {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .photo-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0B1220;
+      min-height: 168mm;
+      position: relative;
+    }
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center top;
+      display: block;
+      background: #0B1220;
+    }
+    .photo-card .cap {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      background: rgba(0,32,91,.92);
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+    .photo-card .cap .lbl {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .photo-card .cap b {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+    }
+    .photo-card .cap span {
+      display: block;
+      margin-top: 3px;
+      font-size: 10.5px;
+      opacity: .9;
+      line-height: 1.35;
+    }
+
+    .link-list { margin-top: 10px; display: grid; gap: 8px; }
+    .link-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: #FBF9F3;
+    }
+    .link-item b { display: block; font-size: 12px; margin-bottom: 3px; color: var(--navy); }
+    .link-item .desc {
+      display: block;
+      font-size: 10.5px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+    .link-item a {
+      display: block;
+      color: #1F4B96;
+      font-size: 10.5px;
+      font-weight: 600;
+      text-decoration: underline;
+      word-break: break-all;
+      line-height: 1.35;
+    }
+
+    .footer {
+      position: absolute;
+      left: 14mm;
+      right: 14mm;
+      bottom: 8mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9.5px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 7px;
+    }
+
+    @media print {
+      html, body { background: #fff; }
+      .sheet { margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <section class="sheet">
+    <div class="top">
+      <img src="assets/corona-logo.png" alt="Corona" />
+      <div class="meta">
+        <div class="eyebrow">Relatório do Evento</div>
+        <strong>Ibiúna Wake&amp;Surf 2026</strong>
+        <span class="muted" style="display:block;font-size:12px;margin-top:4px;">19 a 21 de novembro · Ibiúna/SP</span>
+      </div>
+    </div>
+
+    <h1>Corona no Campeonato<br />Brasileiro de Wakeboard<br />&amp; Surf</h1>
+    <p class="lead">
+      Três dias de competição na Represa de Itupararanga, com ativação Corona no evento,
+      circulação de público, gastronomia no stand e cobertura completa da premiação e dos sorteios.
+    </p>
+
+    <div class="hero">
+      <div class="chip">BG oficial · 3ª etapa do Circuito Brasileiro · Homologado ABW</div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>~400</b><span>pessoas/dia de circulação no local</span></div>
+      <div class="stat"><b>95</b><span>atletas inscritos no campeonato</span></div>
+      <div class="stat"><b>201</b><span>cadastros nos 2 sorteios (mailings)</span></div>
+      <div class="stat"><b>175</b><span>e-mails únicos nas bases de sorteio</span></div>
+    </div>
+
+    <div class="card soft" style="margin-top:12px;padding:12px 14px;">
+      <h3 style="margin-bottom:6px;">Bases CSV (3 mailings)</h3>
+      <p style="font-size:11px;line-height:1.45;margin:0;">
+        Pacote completo (ZIP):<br>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/bases-completas-ibiuna-wake-surf-2026.zip">https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/bases-completas-ibiuna-wake-surf-2026.zip</a>
+      </p>
+      <p style="font-size:11px;line-height:1.55;margin:8px 0 0;">
+        1) Sorteio Prancha — 144 registros<br>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/sorteio-prancha.csv">https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/sorteio-prancha.csv</a><br>
+        2) Sorteio geral — 57 registros<br>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/sorteio-geral.csv">https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/sorteio-geral.csv</a><br>
+        3) Inscritos atletas — 95 registros<br>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/inscritos-atletas.csv">https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/inscritos-atletas.csv</a>
+      </p>
+    </div>
+
+    <div class="footer">
+      <span>Ibiúna Wake&amp;Surf 2026 · Relatório para Corona</span>
+      <span>1 / 4</span>
+    </div>
+  </section>
+
+  <!-- PAGE 2 — STATS AGRUPADAS -->
+  <section class="sheet">
+    <div class="top">
+      <img src="assets/corona-logo.png" alt="Corona" />
+      <div class="meta">
+        <div class="eyebrow">Mailings agrupados</div>
+        <strong>Estatísticas consolidadas</strong>
+      </div>
+    </div>
+
+    <h1 style="font-size:22px;">Visão consolidada das 3 bases</h1>
+    <p class="lead">
+      Números abaixo somam/agrupam o mailing do <b>sorteio da prancha</b> (144),
+      o mailing do <b>sorteio geral</b> (57) e a base de <b>inscritos atletas</b> (95).
+    </p>
+
+    <div class="grid-3">
+      <div class="mini"><b>144</b><span>Sorteio Prancha</span></div>
+      <div class="mini"><b>57</b><span>Sorteio geral</span></div>
+      <div class="mini"><b>95</b><span>Inscritos atletas</span></div>
+    </div>
+
+    <div class="grid-2" style="margin-top:12px;">
+      <div class="card soft">
+        <h3>Perfil nos sorteios (201 cadastros)</h3>
+        <div class="bars">
+          <div class="bar"><span>Atletas</span><div class="track"><div class="fill" style="width:39%"></div></div><span class="n">78</span></div>
+          <div class="bar"><span>Familiares</span><div class="track"><div class="fill" style="width:30%"></div></div><span class="n">61</span></div>
+          <div class="bar"><span>Público geral</span><div class="track"><div class="fill" style="width:17%"></div></div><span class="n">35</span></div>
+          <div class="bar"><span>Convidados</span><div class="track"><div class="fill" style="width:13%"></div></div><span class="n">27</span></div>
+        </div>
+        <p style="margin-top:10px;">
+          Idade média das bases de sorteio: <b>37,3 anos</b>.
+          E-mails únicos: <b>175</b>.
+        </p>
+      </div>
+
+      <div class="card soft">
+        <h3>Vínculo com condomínios</h3>
+        <div class="bars">
+          <div class="bar"><span>Não</span><div class="track"><div class="fill" style="width:59%"></div></div><span class="n">118</span></div>
+          <div class="bar"><span>Veleiros</span><div class="track"><div class="fill" style="width:27%"></div></div><span class="n">54</span></div>
+          <div class="bar"><span>Porto</span><div class="track"><div class="fill" style="width:14%"></div></div><span class="n">28</span></div>
+          <div class="bar"><span>Pref. não informar</span><div class="track"><div class="fill" style="width:1%"></div></div><span class="n">1</span></div>
+        </div>
+        <p style="margin-top:10px;">
+          <b>82 pessoas</b> declararam vínculo com Veleiros ou Porto de Ibiúna
+          (≈ 41% dos cadastros de sorteio).
+        </p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px;">
+      <h3>Competição · inscritos atletas (95)</h3>
+      <div class="grid-3" style="margin-top:0;">
+        <div class="mini" style="background:#fff;"><b>62</b><span>Wakeboard</span></div>
+        <div class="mini" style="background:#fff;"><b>33</b><span>Wakesurf</span></div>
+        <div class="mini" style="background:#fff;"><b>~400</b><span>pessoas/dia no local</span></div>
+      </div>
+      <p style="margin-top:10px;">
+        Atletas de <b>SP, DF, MG, PR, SC, ES e GO</b>. Resultados oficiais no LiveHeats
+        e transmissão completa no YouTube.
+      </p>
+      <div class="pill-row">
+        <span class="pill">Nautique G23</span>
+        <span class="pill">ABW / CBEAW</span>
+        <span class="pill">Veleiros de Ibiúna</span>
+        <span class="pill">Stand Corona</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>Ibiúna Wake&amp;Surf 2026 · Relatório para Corona</span>
+      <span>2 / 4</span>
+    </div>
+  </section>
+
+  <!-- PAGE 3 — PHOTOS -->
+  <section class="sheet">
+    <div class="top">
+      <img src="assets/corona-logo.png" alt="Corona" />
+      <div class="meta">
+        <div class="eyebrow">Premiação · Sorteios</div>
+        <strong>Fotos dos ganhadores</strong>
+      </div>
+    </div>
+
+    <h1 style="font-size:22px;">Os dois sorteios da premiação</h1>
+    <p class="lead">
+      Entrega dos prêmios na cerimônia, com ativação Corona no evento.
+    </p>
+
+    <div class="photos">
+      <div class="photo-card">
+        <img src="assets/sorteio-prancha.jpg" alt="Sorteio da prancha — Joana Armando Costa" />
+        <div class="cap">
+          <div class="lbl">Sorteio Prancha</div>
+          <b>Joana Armando Costa</b>
+          <span>Prancha Mormaii com assinatura de Marcos Protta</span>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/sorteio-shortjohn.jpg" alt="Sorteio Short John — Rafael Janandis Pedro" />
+        <div class="cap">
+          <div class="lbl">Sorteio Short John</div>
+          <b>Rafael Janandis Pedro</b>
+          <span>Short John Vissla · mailing do sorteio geral</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>Ibiúna Wake&amp;Surf 2026 · Relatório para Corona</span>
+      <span>3 / 4</span>
+    </div>
+  </section>
+
+  <!-- PAGE 4 — LINKS -->
+  <section class="sheet">
+    <div class="top">
+      <img src="assets/corona-logo.png" alt="Corona" />
+      <div class="meta">
+        <div class="eyebrow">Bases · Transmissão · Resultados</div>
+        <strong>Links para download e acesso</strong>
+      </div>
+    </div>
+
+    <h1 style="font-size:22px;">Bases e cobertura</h1>
+    <p class="lead">Arquivos CSV atualizados em 23/11/2026. Links completos abaixo.</p>
+
+    <h2 style="margin-top:12px;">Os 3 mailings</h2>
+    <div class="link-list">
+      <div class="link-item" style="background:var(--soft);">
+        <b>Pacote completo — todas as bases (ZIP)</b>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/bases-completas-ibiuna-wake-surf-2026.zip">https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/bases-completas-ibiuna-wake-surf-2026.zip</a>
+      </div>
+      <div class="link-item">
+        <b>1) Sorteio Prancha — 144 registros</b>
+        <span class="desc">Mailing do sorteio da prancha (nome, idade, telefone, e-mail, Instagram, perfil).</span>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/sorteio-prancha.csv">https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/sorteio-prancha.csv</a>
+      </div>
+      <div class="link-item">
+        <b>2) Sorteio geral — 57 registros</b>
+        <span class="desc">Mailing do sorteio geral (Short John) do campeonato.</span>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/sorteio-geral.csv">https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/sorteio-geral.csv</a>
+      </div>
+      <div class="link-item">
+        <b>3) Inscritos atletas — 95 registros</b>
+        <span class="desc">Lista oficial de inscrição wakeboard e wakesurf.</span>
+        <a href="https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/inscritos-atletas.csv">https://www.ibiunawakeboard.com.br/relatorio-corona-2026/bases/inscritos-atletas.csv</a>
+      </div>
+    </div>
+
+    <h2 style="margin-top:14px;">Transmissão · LiveHeats · Instagram</h2>
+    <div class="link-list">
+      <div class="link-item">
+        <b>1º dia — YouTube</b>
+        <a href="https://www.youtube.com/watch?v=BODCpKO27qQ">https://www.youtube.com/watch?v=BODCpKO27qQ</a>
+      </div>
+      <div class="link-item">
+        <b>2º dia — YouTube</b>
+        <a href="https://www.youtube.com/watch?v=nX3KpgzKpxg">https://www.youtube.com/watch?v=nX3KpgzKpxg</a>
+      </div>
+      <div class="link-item">
+        <b>Premiação — YouTube</b>
+        <a href="https://www.youtube.com/watch?v=Od_6B12GzX8">https://www.youtube.com/watch?v=Od_6B12GzX8</a>
+      </div>
+      <div class="link-item">
+        <b>LiveHeats</b>
+        <a href="https://liveheats.com/events/596060/schedule">https://liveheats.com/events/596060/schedule</a>
+      </div>
+      <div class="link-item">
+        <b>@ibiunawakeandsurf</b>
+        <a href="https://www.instagram.com/ibiunawakeandsurf/">https://www.instagram.com/ibiunawakeandsurf/</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>www.ibiunawakeboard.com.br/relatorio-corona-2026/ · @ibiunawakeandsurf</span>
+      <span>4 / 4</span>
+    </div>
+  </section>
+
+</body>
+</html>
